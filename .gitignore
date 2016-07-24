@@ -1,16 +1,8 @@
 .DS_Store
-
-# copied from parent Jekyll site at build time
-_assets
-_includes
-_plugins
-_layouts
-fonts
-images
-snippets
-web.config
-
-# ignore nativescript generated cookbook content
-cookbook/**/*.md
-# unignore angular "local" cookbook articles, having *-ng.md file names
-!cookbook/**/*-ng.md
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+data/

@@ -1,8 +1,6 @@
-[submodule "runtimes/android"]
-	path = runtimes/android
-	url = git@github.com:NativeScript/android-runtime-docs.git
-	branch = master
-[submodule "runtimes/ios"]
-	path = runtimes/ios
-	url = git@github.com:NativeScript/ios-runtime-docs.git
-	branch = master
+[submodule "themes/meteor"]
+	path = themes/meteor
+	url = https://github.com/georgeedwards/hexo-theme-meteor.git
+[submodule "code"]
+	path = code
+	url = https://github.com/meteor/meteor.git
