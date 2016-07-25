@@ -27,9 +27,9 @@ This is a much more intangible point, but of the major platform (Xamarin, React 
 2. The currently proposed theme allows for the tabbed seperation of Tutorials, Guides, API docs and signposts to Community communication channels
 3. As above, the theme has a seperate scrolling feature for the API docs, auto expands and collapses each file and helps link to specific sections. 
 
-2. I am using a number of git submodules for:
-⋅⋅* The Nativescript Theme
-⋅⋅* The Document Source Files
+* I am using a number of git submodules for:
+- The Nativescript Theme
+- The Document Source Files
  
 * There are a number of custom script block extentions, e.g. `nativescript`, `angular`, `snippet`
 
