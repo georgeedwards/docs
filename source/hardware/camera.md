@@ -1,5 +1,9 @@
 ---
 title: Camera
+description: "NativeScript Documentation: Camera"
+position: 2
+slug: camera
+previous_url: /camera
 ---
 
 #Camera

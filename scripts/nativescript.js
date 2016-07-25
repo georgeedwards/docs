@@ -18,3 +18,9 @@ hexo.extend.tag.register('angular', function (args, content) {
     return null;
   }
 }, { ends: true });
+
+
+hexo.extend.tag.register('snippet', function (args, content) {
+  var result = marked('```bash\n ' + content + '```');
+  return result;
+}, { ends: false });
