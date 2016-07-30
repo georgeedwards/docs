@@ -2,9 +2,6 @@
 title: UI Plugins
 description: Learn how to create a new User Interface plugin for NativeScript.
 position: 2
-slug: ui-plugins
-previous_url: /ui-plugin
-environment: nativescript
 ---
 
 # Overview

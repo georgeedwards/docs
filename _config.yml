@@ -22,52 +22,37 @@ versions:
 sidebar_categories:
   null:
     - index
-
+  UI:
+    - ui/animation-css
+    - ui/action-bar
+    - ui/animation-code
+    - ui/animation-examples
+    - ui/animation
+    - ui/keyboard
+    - ui/icon-fonts
+    - ui/gestures
+    - ui/change-status-bar-style-ios
+    - ui/layout-containers
+    - ui/ui-dialogs
+    - ui/layouts
+    - ui/list-view
+    - ui/placeholder
+    - ui/ui-images
+    - ui/styling
+    - ui/ui-with-xml
+    - ui/ui-views
   Cookbook:
     - cookbook/formatted-string-ng
     - cookbook/tab-view-ng
   Hardware:
     - hardware/camera
     - hardware/location
-  API:
-    - api/core
-    - api/pubsub
-    - api/methods
-    - api/check
-    - api/connections
-    - api/collections
-    - api/session
-    - api/accounts
-    - api/accounts-multi
-    - api/passwords
-    - api/templates
-    - api/blaze
-    - api/timers
-    - api/tracker
-    - api/reactive-var
-    - api/ejson
-    - api/http
-    - api/email
-    - api/assets
-    - api/packagejs
-    - api/mobile-config
-  Packages:
-    - packages/appcache
-    - packages/accounts-ui
-    - packages/audit-argument-checks
-    - packages/coffeescript
-    - packages/ecmascript
-    - packages/jquery
-    - packages/less
-    - packages/markdown
-    - packages/modules
-    - packages/oauth-encryption
-    - packages/random
-    - packages/spacebars
-    - packages/underscore
-    - packages/webapp
-  Command Line:
-    - commandline
+  Plugins:
+    - plugins/plugins
+    - plugins/angular-third-party
+    - plugins/cocoapods
+    - plugins/ui-plugin
+
 github_repo: 'meteor/docs'
 content_root: 'source'
 
@@ -162,6 +147,7 @@ api_box:
   data_file: 'data/data.js'
 marked:
   breaks: false
+  gfm: true
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html

@@ -1,9 +1,9 @@
 ---
-title: Infrastructure
-description: When the NativeScript modules do not provide the native device or platform capability that you need, you can use NativeScript plugins.
+title: Plugins
+description: How to work with geographical location data in NativeScript.
 position: 1
-slug: plugins-infrastructure
-previous_url: /plugins
+slug: location
+previous_url: /location
 ---
 
 Plugins

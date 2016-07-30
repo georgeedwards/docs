@@ -18,16 +18,22 @@ You might want to start with this [example](https://github.com/nsndeck/locationt
 
 To make the plugin available in your app, run the following command:
 
-```Shell
-tns plugin add nativescript-geolocation
+
+``` 
+tns plugin add nativescript-geolocation 
 ```
 
+
 To import the module in your code use:
+
 {% nativescript %}
-```JavaScript
+{% codeblock JavaScript lang:JavaScript %}
+
 var geolocation = require("nativescript-geolocation");
-```
+{% endcodeblock %}
 {% endnativescript %}
+
+
 ```TypeScript
 import geolocation = require("nativescript-geolocation");
 ```
@@ -46,36 +52,38 @@ By default, the `nativescript-geolocation` plugin adds the required permissions 
 
 After you install the plugin, you can request to use location services in the app with the following code:
 {% nativescript %}
-```XML
+
+#XML
 <Page> 
     <StackLayout>
         <Button text="enable Location" tap="enableLocationTap"/>
     </StackLayout>
 </Page>
-```
-```JavaScript
+
+#JavaScript
 function enableLocationTap(args) {
     if (!geolocation.isEnabled()) {
         geolocation.enableLocationRequest();
     }
 }
 exports.enableLocationTap = enableLocationTap;
-```
+
 {% endnativescript %}
 {% angular %}
-```XML
+
+#XML
 <StackLayout>
     <Button text="enable Location" (tap)="enableLocationTap()"></Button>
 </StackLayout>
-```
+
 {% endangular %}
-```TypeScript
+
+#TypeScript
 {% nativescript %}export function {% endnativescript %}public {% angular %}{% endangular %}enableLocationTap() { 
     if (!geolocation.isEnabled()) {
         geolocation.enableLocationRequest();
     }
 }
-```
 
 ## Getting Location
 
@@ -124,14 +132,14 @@ Property | Type | Description
 
 
 {% nativescript %}
-```XML
+#XML
 <Page>
     <StackLayout>
         <Button text="Get Current Location" tap="buttonGetLocationTap"/>
     </StackLayout>
 </Page>
-```
-```JavaScript
+
+#JavaScript
 function buttonGetLocationTap(args) {
 	var location = geolocation.getCurrentLocation({desiredAccuracy: 3, updateDistance: 10, maximumAge: 20000, timeout: 20000}).
 	then(function(loc) {
@@ -143,16 +151,18 @@ function buttonGetLocationTap(args) {
 	});
 }
 exports.buttonGetLocationTap = buttonGetLocationTap;
-```
+
 {% endnativescript %}
 {% angular %}
-```XML
+
+#XML
 <StackLayout>
     <Button text="Get Current Location" (tap)="buttonGetLocationTap()"></Button>
 </StackLayout>
-```
+
 {% endangular %}
-```TypeScript
+
+#TypeScript
 {% nativescript %}export function {% endnativescript %}public {% angular %}{% endangular %}buttonGetLocationTap() {
 	var location = geolocation.getCurrentLocation({desiredAccuracy: 3, updateDistance: 10, maximumAge: 20000, timeout: 20000}).
 	then(function(loc) {
@@ -163,21 +173,23 @@ exports.buttonGetLocationTap = buttonGetLocationTap;
 		console.log("Error: " + e.message);
 	});
 }
-```
+
 
 ### `watchLocation`
 
 With this method, location watching does not stop automatically until `clearWatch` method is called. You might need to use this method in apps which require a GPS log or active location tracking.  
 {% nativescript %}
-```XML
+
+#XML
 <Page>
     <StackLayout>
 		<Button row="2" text="start monitoring" tap="buttonStartTap"/>
 		<Button row="3" text="stop monitoring" tap="buttonStopTap"/>
     </StackLayout>
 </Page>
-```
-``` JavaScript
+
+
+# JavaScript
 function buttonStartTap() {
 	watchId = geolocation.watchLocation(
 	function (loc) {
@@ -198,17 +210,19 @@ function buttonStopTap() {
 	}
 }
 exports.buttonStopTap = buttonStopTap;
-```
+
 {% endnativescript %}
 {% angular %}
-```XML
+
+# XML
 <StackLayout>
     <Button row="2" text="start monitoring" (tap)="buttonStartTap()"></Button>
     <Button row="3" text="stop monitoring" (tap)="buttonStopTap()"></Button>
 </StackLayout>
-```
+
 {% endangular %}
-``` TypeScript
+
+# TypeScript
 {% nativescript %}export function {% endnativescript %}public {% angular %}{% endangular %}buttonStartTap() {
 	watchId = geolocation.watchLocation(
 	function (loc) {
@@ -227,18 +241,19 @@ exports.buttonStopTap = buttonStopTap;
 		geolocation.clearWatch(watchId);
 	}
 }
-```
+
 
 ### `distance`
 
 This method lets you measure the distance between two locations in meters.
 
 {% nativescript %}
-```JavaScript
+
+# JavaScript
 function getDistance(loc1, loc2) {
     console.log("Distance between loc1 and loc2 is: " + geolocation.distance(loc1, loc2));
 }
-```
+
 {% endnativescript %}
 ```TypeScript
 function getDistance(loc1, loc2) {

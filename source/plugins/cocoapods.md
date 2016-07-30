@@ -1,8 +1,9 @@
 ---
-title: CocoaPods
-description: Wrap a Cocoapod as a plug in.
-position: 3
-slug: cocoapods
+title: Cocoapods
+description: How to work with geographical location data in NativeScript.
+position: 1
+slug: location
+previous_url: /location
 ---
 
 # Using CocoaPods
