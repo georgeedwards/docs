@@ -26,9 +26,7 @@
     "hexo-s3-deploy": "^1.2.1"
   },
   "scripts": {
-    "predeploy": "jsdoc/jsdoc.sh",
     "deploy": "hexo-s3-deploy",
-    "prestart": "jsdoc/jsdoc.sh",
     "start": "hexo server"
   }
 }

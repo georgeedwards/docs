@@ -9,16 +9,12 @@ description:
 author:
 language:
 timezone:
-apis:
-  marketo: 627-RVJ-941
-  segment: zQx6cQifkTU79E3L0XAnmrOXP2A5bC6r
-  docsearch:
-    apiKey: bdf6b09d12024f6bae3631a0dfdd4a7f
-    indexName: meteor_api_guide
+#apis:
+#  marketo: 627-RVJ-941
+#  segment: zQx6cQifkTU79E3L0XAnmrOXP2A5bC6r
 versions:
-  - '1.3.4'
-  - '1.3.3'
-  - '1.3.2'
+  - '2.0.1'
+
 sidebar_categories:
   null:
     - index
@@ -53,7 +49,7 @@ sidebar_categories:
     - plugins/cocoapods
     - plugins/ui-plugin
 
-github_repo: 'meteor/docs'
+github_repo: 'nativescript/docs'
 content_root: 'source'
 
 # themeing
@@ -63,35 +59,35 @@ front_end: nativescript
 logo:
   nav_mobile: '../images/logo-blue.svg'
   sidebar: '../images/icon-white.svg'
-  url: 'http://www.meteor.com/developers'
+  url: 'https://docs.nativescript.org/'
   title: 'Nativescript Developers'
   target: _new
 
 nav_links:
   'Tutorials':
-    url: http://www.meteor.com/tutorials
+    url: https://docs.nativescript.org/tutorial/chapter-0
     partial: illustration-guide
     target: _new
   'Guide':
-    url: http://guide.meteor.com
+    url: https://www.nativescript.org/nativescript-is-how-you-build-native-mobile-apps-with-angular
     partial: illustration-compass
   'API Docs':
-    url: http://docs.meteor.com
+    url: https://docs.nativescript.org/
     partial: illustration-logs
     active: true
   'Forums':
-    url: https://forums.meteor.com/
+    url: https://nativescriptcommunity.slack.com/messages/general/
     partial: illustration-support
     target: _new
 
 social_links:
-  github: 'https://github.com/meteor'
-  twitter: '@meteor'
+  github: 'https://github.com/nativescript'
+  twitter: '@nativescript'
 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://docs.meteor.com/
+url: http://docs.nativescript.org/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
