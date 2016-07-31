@@ -3,7 +3,6 @@ var marked = require('marked');
 var util = require('hexo-util');
 
   hexo.extend.tag.register('nativescript', function (args, content) {
-    console.log("HERE");
     var result = marked(content);
     var front_end = hexo.locals.get('front_end');
     if (front_end == "angular") {

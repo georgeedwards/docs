@@ -75,7 +75,7 @@ nav_links:
     url: https://docs.nativescript.org/
     partial: illustration-logs
     active: true
-  'Forums':
+  'Slack':
     url: https://nativescriptcommunity.slack.com/messages/general/
     partial: illustration-support
     target: _new
