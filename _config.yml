@@ -79,6 +79,10 @@ nav_links:
     url: https://nativescriptcommunity.slack.com/messages/general/
     partial: illustration-support
     target: _new
+  'Community Docs':
+    url: http://stackoverflow.com/documentation/nativescript/topics
+    partial: illustration-support
+    target: _new
 
 social_links:
   github: 'https://github.com/nativescript'

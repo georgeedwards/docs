@@ -43,3 +43,4 @@ This is a much more intangible point, but of the major platform (Xamarin, React 
 3. Actually render the `snippet` blocks properly - where is this code coming from?
 4. Tabbed Code Blocks - based on the [Materialize](http://materializecss.com/tabs.html) UI component
 5. Hook Up the pseudo env variables for Angular Vs. Nativescript display.
+6. Use proper svg Assets for Slack and SO Docs on sidebar
