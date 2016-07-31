@@ -19,7 +19,7 @@ The folowing gif shows what the docs page looks like on my Surface Pro 3 with Go
 ![Screen Shot](./assets/Nativescript_docs_site.gif "Screen Shot")
 
 ## 4. 
-This is a much more intangible point, but of the major platform (Xamarin, React Native and Cordova) the nativescript pages look the least professional. I think that when I was first investigating a platform, I saw the nativescript website and decided against it because it looked less polished. 
+This is a much more intangible point, but of the major platform (Xamarin, React Native and Cordova) I believe the nativescript pages look the least professional/developed. I think that when I was first investigating a platform, I saw the nativescript website and decided against it because it looked less polished. 
 
 # This Approach
 
@@ -28,12 +28,18 @@ This is a much more intangible point, but of the major platform (Xamarin, React 
 3. As above, the theme has a seperate scrolling feature for the API docs, auto expands and collapses each file and helps link to specific sections. 
 
 * I am using a number of git submodules for:
-- The Nativescript Theme
+- The Nativescript Theme 
 - The Document Source Files
  
 * There are a number of custom script block extentions, e.g. `nativescript`, `angular`, `snippet`
 
 ## ToDo:
 
-* Build out the tutorial with this [tool](https://github.com/meteor/tutorial-tools)
-* Actually render the `snippet` blocks properly - where is this code coming from?
+1. Implement 
+2. Build out the rest of docs site to avoid technology mix and to better segregate resources
+⋅⋅* Build out the tutorial with this [tool](https://github.com/meteor/tutorial-tools)
+⋅⋅* Use [VHost](https://github.com/expressjs/vhost) to segregate hexo server static docs and regular node app
+
+3. Actually render the `snippet` blocks properly - where is this code coming from?
+4. Tabbed Code Blocks - based on the [Materialize](http://materializecss.com/tabs.html) UI component
+5. Hook Up the pseudo env variables for Angular Vs. Nativescript display.
