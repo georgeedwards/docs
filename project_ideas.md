@@ -35,12 +35,13 @@ This is a much more intangible point, but of the major platform (Xamarin, React 
 
 ## ToDo:
 
-1. Implement 
+1. Add all the docs
 2. Build out the rest of docs site to avoid technology mix and to better segregate resources
-⋅⋅* Build out the tutorial with this [tool](https://github.com/meteor/tutorial-tools)
-⋅⋅* Use [VHost](https://github.com/expressjs/vhost) to segregate hexo server static docs and regular node app
+* Build out the tutorial with this [tool](https://github.com/meteor/tutorial-tools)
+* Use [VHost](https://github.com/expressjs/vhost) to segregate hexo server static docs and regular node app
 
 3. Actually render the `snippet` blocks properly - where is this code coming from?
 4. Tabbed Code Blocks - based on the [Materialize](http://materializecss.com/tabs.html) UI component
 5. Hook Up the pseudo env variables for Angular Vs. Nativescript display.
 6. Use proper svg Assets for Slack and SO Docs on sidebar
+7. Look at the internal linking (I imagine some if not all of the links to other articles are now broken)
