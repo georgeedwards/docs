@@ -84,7 +84,7 @@ export function pageLoaded(args: observable.EventData) {
 ```
 {% endnativescript %}
 {% angular %}
-{%snippet icon-font-sample%}
+{% raw %}{%snippet icon-font-sample%}{% endraw %}
 {% endangular %}
 
 And the result is:

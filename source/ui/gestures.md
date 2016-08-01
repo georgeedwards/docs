@@ -56,7 +56,7 @@ label.on(gestures.GestureTypes.tap, function (args: gestures.GestureEventData) {
 ```
 {% endnativescript %}
 {% angular %}
-{%snippet ng-tap-gesture%}
+{% raw %}{%snippet ng-tap-gesture%}{% endraw %}
 {% endangular %}
 
 ## Double Tap
@@ -80,7 +80,7 @@ label.on(gestures.GestureTypes.doubleTap, function (args: gestures.GestureEventD
 ```
 {% endnativescript %}
 {% angular %}
-{%snippet ng-double-tap-gesture%}
+{% raw %}{%snippet ng-double-tap-gesture%}{% endraw %}
 {% endangular %}
 Possible implementation:
 * Scale up the object with a predefined percentage, centered around the double-tapped region. If a user keeps repeating the double tap gesture, continue to scale up until the maximum scale is reached.
@@ -108,7 +108,7 @@ label.on(gestures.GestureTypes.longPress, function (args: gestures.GestureEventD
 ```
 {% endnativescript %}
 {% angular %}
-{%snippet ng-long-press-gesture%}
+{% raw %}{%snippet ng-long-press-gesture%} {% endraw %}
 {% endangular %}
 Possible implementation: Select one or more items in a view and act upon the data using a contextual action bar. Enter data selection mode. Avoid using long press for displaying contextual menus.
 
@@ -133,7 +133,7 @@ label.on(gestures.GestureTypes.swipe, function (args: gestures.SwipeGestureEvent
 ```
 {% endnativescript %}
 {% angular %}
-{%snippet ng-swipe-gesture%}
+{% raw %}{%snippet ng-swipe-gesture%}{% endraw %}
 {% endangular %}
 Possible implementation: Navigate between views in the same hierarchy.
 
@@ -157,7 +157,7 @@ label.on(gestures.GestureTypes.pan, function (args: gestures.PanGestureEventData
 ```
 {% endnativescript %}
 {% angular %}
-{%snippet ng-pan-gesture%}
+{% raw %}{%snippet ng-pan-gesture%}{% endraw %}
 {% endangular %}
 
 ## Pinch
@@ -181,7 +181,7 @@ label.on(gestures.GestureTypes.pinch, function (args: gestures.PinchGestureEvent
 ```
 {% endnativescript %}
 {% angular %}
-{%snippet ng-pinch-gesture%}
+{% raw %}{%snippet ng-pinch-gesture%}{% endraw %}
 {% endangular %}
 Possible implementation: Zoom into content or out of content.
 
@@ -206,7 +206,7 @@ label.on(gestures.GestureTypes.rotation, function (args: gestures.RotationGestur
 ```
 {% endnativescript %}
 {% angular %}
-{%snippet ng-rotate-gesture%}
+{% raw %}{%snippet ng-rotate-gesture%}{% endraw %}
 {% endangular %}
 
 ## Touch
@@ -232,7 +232,7 @@ label.on(gestures.GestureTypes.touch, function (args: gestures.TouchGestureEvent
 ```
 {% endnativescript %}
 {% angular %}
-{% snippet ng-touch-gesture %}
+{% raw %}{% snippet ng-touch-gesture %}{% endraw %}
 {% endangular %}
 
 {% nativescript %}
