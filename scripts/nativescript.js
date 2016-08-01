@@ -23,9 +23,9 @@ var util = require('hexo-util');
     }
   }, { ends: true });
 
-/*
+
   hexo.extend.tag.register('tabblock', function (args, content) {
-    /*var tabNumber = NumberOfTabs(content);
+    var tabNumber = NumberOfTabs(content);
     var isTabbed = (tabNumber !== 0 || tabNumber !== 1);
     if (isTabbed) {
       var result = '<div class="row"><div class="col s12"><ul class="tabs">';
@@ -87,4 +87,4 @@ var util = require('hexo-util');
     content = escapeHTML(content);
     content = highlight(content, { autoDetect: true });
     return '<pre><code>' + content + '</code></pre>';
-  } */
+  } 
