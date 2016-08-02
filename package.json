@@ -18,7 +18,9 @@
     "hexo-renderer-marked": "^0.2.11",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
+    "hexo-util": "^0.6.0",
     "jsdoc": "git+https://github.com/meteor/jsdoc.git#espree-3.1",
+    "marked": "^0.3.6",
     "showdown": "^1.4.2",
     "underscore": "^1.8.3"
   },
