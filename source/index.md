@@ -4,29 +4,24 @@ description: Meet NativeScript - an open-source framework for the cross-platform
 order: 0
 ---
 
-tester
 {% nativescript %}
-{% tabblock %}
 
-JavaScript
-
-    var labelModule = require("ui/label");
-    var label = new labelModule.Label();
-    label.on(gestures.GestureTypes.doubleTap, function (args) {
-        console.log("Double Tap");
-    });
-
-
-TypeScript
-
-    import labelModule = require("ui/label");
-    var label = new labelModule.Label();
-    label.on(gestures.GestureTypes.doubleTap, function (args: gestures.GestureEventData) {
-        console.log("Double Tap");
-    });
-
-
-{% endtabblock %}
+{% m_codeblock %}
+    <!-- tab JavaScript -->
+        var labelModule = require("ui/label");
+        var label = new labelModule.Label();
+        label.on(gestures.GestureTypes.doubleTap, function (args) {
+            console.log("Double Tap");
+        });
+    <!-- endtab -->
+    <!-- tab NativeScript -->
+        import labelModule = require("ui/label");
+        var label = new labelModule.Label();
+        label.on(gestures.GestureTypes.doubleTap, function (args: gestures.GestureEventData) {
+            console.log("Double Tap");
+        });
+    <!-- endtab -->
+{% endm_codeblock %}   
 
 # Welcome to NativeScript
 

@@ -26,7 +26,7 @@ hexo.extend.tag.register('angular', function (args, content) {
 
 hexo.extend.tag.register('tabblock', function (args, content) {
   console.log("Content: " + content);
-  return marked(content);
+
   var tabNumber = NumberOfTabs(content);
   var isTabbed = (tabNumber !== 0);
   console.log("Content: " + content);
@@ -53,17 +53,20 @@ hexo.extend.tag.register('tabblock', function (args, content) {
 function render(content) {
   var clean = [];
   var tagged = [];
-  if (content.search("{% nativescript %}") !== -1 || content.search("{% angular %}") !== -1) {
+  if (content.search("{% m_codeblock %}") !== -1) {
     do {
       // either could be -1
       //find the next tag
-      if (content.search("{% nativescript %}") < content.search("{% angular %}")) {
-        var nextTag = "{% nativescript %}";
-        var nextTagEnd = "{% endnativescript %}";
+      /*if (content.search("{% nativescript %}") < content.search("{% angular %}")) {
+        var nextTag = "{% m_codeblock %}";
+        var nextTagEnd = "{% endm_codeblock %}";
       } else {
-        var nextTag = "{% angular %}";
-        var nextTagEnd = "{% endangular %}";
-      }
+        var nextTag = "{% m_codeblock %}";
+        var nextTagEnd = "{% endm_codeblock %}";
+      }*/
+      var nextTag = "{% m_codeblock %}";
+      var nextTagEnd = "{% endm_codeblock %}";
+
       //push the clean and the tagged code to the respective arrays
       clean.push(content.substring(0, content.search(nextTag)));
       tagged.push(content.substring(content.search(nextTag), content.search(nextTagEnd) + nextTagEnd.length));
@@ -107,28 +110,3 @@ function getLanguage(language_dec_onwards) {
   }
   return language_dec;
 }
-
-function NumberOfTabs(content) {
-  var firstTagPos = (content.search('```') + 3);
-  if (firstTagPos === 2) {
-    return 0;
-  }
-  var contentToBeProcessed = content;
-  var i = 0;
-  do {
-    var pastFirstCodeblock = contentToBeProcessed.substring(contentToBeProcessed.substring(firstTagPos).search('```') + 3);
-    var isAnotherBlock = (pastFirstCodeblock.search('```') !== -1);
-    contentToBeProcessed = pastFirstCodeblock.substring(pastFirstCodeblock.substring(pastFirstCodeblock.search('```') + 3).search('```') + 3);
-    i++;
-  } while (isAnotherBlock);
-  var afterFirstCodeBlock = content.substring(content.search('```') + 3).search('```');
-  return i;
-}
-
-function codeTag(content) {
-  var escapeHTML = util.escapeHTML;
-  var highlight = util.highlight;
-  content = escapeHTML(content);
-  content = highlight(content, { autoDetect: true });
-  return '<pre><code>' + content + '</code></pre>';
-} 

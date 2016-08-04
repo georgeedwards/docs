@@ -1,4 +1,4 @@
-# Prospective 
+# The Opportunity
 
 There are a number of reasons I have decided to undertake this project:
 
@@ -29,7 +29,7 @@ This is a much more intangible point, but of the major platform (Xamarin, React 
 
 * I am using a number of git submodules for:
 - The Nativescript Theme 
-- The Document Source Files
+- The Document Source Files (not currently)
  
 * There are a number of custom script block extentions, e.g. `nativescript`, `angular`, `snippet`
 
@@ -41,7 +41,12 @@ This is a much more intangible point, but of the major platform (Xamarin, React 
 * Use [VHost](https://github.com/expressjs/vhost) to segregate hexo server static docs and regular node app
 
 3. Actually render the `snippet` blocks properly - where is this code coming from?
-4. Tabbed Code Blocks - based on the [Materialize](http://materializecss.com/tabs.html) UI component
+<del>4. Tabbed Code Blocks - based on the [Materialize](http://materializecss.com/tabs.html) UI component</del>
 5. Hook Up the pseudo env variables for Angular Vs. Nativescript display.
 6. Use proper svg Assets for Slack and SO Docs on sidebar
 7. Look at the internal linking (I imagine some if not all of the links to other articles are now broken)
+8. Code highlighting isn't working.
+
+## Notes:
+
+Code Blocks need not to use the triple backslash approach, i.e.  ```, but the indenting approach. This is going to require my [Hexo Converter](https://github.com/georgeedwards/hexo-converter) to migrate the docs source.

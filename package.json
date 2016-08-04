@@ -19,12 +19,15 @@
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
     "hexo-util": "^0.6.0",
+    "jquery": "^3.1.0",
     "jsdoc": "git+https://github.com/meteor/jsdoc.git#espree-3.1",
+    "jsdom": "^9.4.1",
     "marked": "^0.3.6",
     "showdown": "^1.4.2",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "hexo-deployer-heroku": "^0.1.1",
     "hexo-s3-deploy": "^1.2.1"
   },
   "scripts": {
