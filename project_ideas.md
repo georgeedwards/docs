@@ -50,3 +50,26 @@ This is a much more intangible point, but of the major platform (Xamarin, React 
 ## Notes:
 
 Code Blocks need not to use the triple backslash approach, i.e.  ```, but the indenting approach. This is going to require my [Hexo Converter](https://github.com/georgeedwards/hexo-converter) to migrate the docs source.
+
+## Tabbed Code Blocks
+
+The format for tabbed codeblocks is:
+
+```
+{% m_codeblock %}
+    <!-- tab JavaScript -->
+        var labelModule = require("ui/label");
+        var label = new labelModule.Label();
+        label.on(gestures.GestureTypes.doubleTap, function (args) {
+            console.log("Double Tap");
+        });
+    <!-- endtab -->
+    <!-- tab NativeScript -->
+        import labelModule = require("ui/label");
+        var label = new labelModule.Label();
+        label.on(gestures.GestureTypes.doubleTap, function (args: gestures.GestureEventData) {
+            console.log("Double Tap");
+        });
+    <!-- endtab -->
+{% endm_codeblock %} 
+```
