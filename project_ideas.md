@@ -47,10 +47,6 @@ This is a much more intangible point, but of the major platform (Xamarin, React 
 7. Look at the internal linking (I imagine some if not all of the links to other articles are now broken)
 8. Code highlighting isn't working.
 
-## Notes:
-
-Code Blocks need not to use the triple backslash approach, i.e.  ```, but the indenting approach. This is going to require my [Hexo Converter](https://github.com/georgeedwards/hexo-converter) to migrate the docs source.
-
 ## Tabbed Code Blocks
 
 The format for tabbed codeblocks is:

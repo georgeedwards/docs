@@ -1,0 +1,155 @@
+# Hexo Configuration
+## Docs: http://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: Nativescript Docs
+subtitle: API Docs
+description:
+author:
+language:
+timezone:
+#apis:
+#  marketo: 627-RVJ-941
+#  segment: zQx6cQifkTU79E3L0XAnmrOXP2A5bC6r
+versions:
+  - '2.0.1'
+
+sidebar_categories:
+  null:
+    - index
+  UI:
+    - ui/animation-css
+    - ui/action-bar
+    - ui/animation-code
+    - ui/animation-examples
+    - ui/animation
+    - ui/keyboard
+    - ui/icon-fonts
+    - ui/gestures
+    - ui/change-status-bar-style-ios
+    - ui/layout-containers
+    - ui/ui-dialogs
+    - ui/layouts
+    - ui/list-view
+    - ui/placeholder
+    - ui/ui-images
+    - ui/styling
+    - ui/ui-with-xml
+    - ui/ui-views
+  Cookbook:
+    - cookbook/formatted-string-ng
+    - cookbook/tab-view-ng
+  Hardware:
+    - hardware/camera
+    - hardware/location
+  Plugins:
+    - plugins/plugins
+    - plugins/angular-third-party
+    - plugins/cocoapods
+    - plugins/ui-plugin
+
+github_repo: 'nativescript/docs'
+content_root: 'source'
+
+# themeing
+favicon: '../images/favicon.png'
+
+front_end: nativescript
+logo:
+  nav_mobile: '../images/logo-blue.svg'
+  sidebar: '../images/icon-white.svg'
+  url: 'https://docs.nativescript.org/'
+  title: 'Nativescript Developers'
+  target: _new
+
+nav_links:
+  'Tutorials':
+    url: https://docs.nativescript.org/tutorial/chapter-0
+    partial: illustration-guide
+    target: _new
+  'Guide':
+    url: https://www.nativescript.org/nativescript-is-how-you-build-native-mobile-apps-with-angular
+    partial: illustration-compass
+  'API Docs':
+    url: https://docs.nativescript.org/
+    partial: illustration-logs
+    active: true
+  'Slack':
+    url: https://nativescriptcommunity.slack.com/messages/general/
+    partial: illustration-support
+    target: _new
+  'Community Docs':
+    url: http://stackoverflow.com/documentation/nativescript/topics
+    partial: illustration-support
+    target: _new
+
+social_links:
+  github: 'https://github.com/nativescript'
+  twitter: '@nativescript'
+
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://docs.nativescript.org/
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: nativescript
+
+marked:
+  breaks: false
+  gfm: true
+
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: heroku
+  repo: https://git.heroku.com/agile-atoll-70531.git

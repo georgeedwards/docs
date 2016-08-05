@@ -1,9 +1,9 @@
 .DS_Store
 Thumbs.db
-db.json
+docs/db.json
 *.log
-node_modules/
-public/
-.deploy*/
-data/
+docs/node_modules/
+docs/public/
+docs/.deploy*/
+docs/data/
 .vscode/

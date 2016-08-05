@@ -1,3 +1,3 @@
-[submodule "themes/nativescript"]
-	path = themes/nativescript
+[submodule "docs/themes/nativescript"]
+	path = docs/themes/nativescript
 	url = https://github.com/georgeedwards/hexo-theme
