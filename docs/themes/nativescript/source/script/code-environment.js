@@ -13,8 +13,17 @@ function switchCodeBlock(lang) {
 
 // executed when HTML document has been loaded
 $(document).ready(function () {
-    // display default codeblock : js
-    switchCodeBlock();
+    //setup the slider
+    var currentLang = sessionStorage.getItem('code-lang');
+    console.log(currentLang);
+    if (currentLang === 'n') {
+        $( "#first_toggle" ).click();
+    } else if (currentLang === 'ng'){
+        $( "#second_toggle" ).click();
+    }
+    // display default codeblock : ns
+    switchCodeBlock(currentLang);
+
 
     // on click we switch to the selected language
     $('.button-code-selector').click(function () {
@@ -26,4 +35,5 @@ $(document).ready(function () {
         }
         switchCodeBlock(lang);
     });
+
 });
