@@ -42,7 +42,7 @@ This is a much more intangible point, but of the major platform (Xamarin, React 
 
 3. Actually render the `snippet` blocks properly - where is this code coming from?
 <del>4. Tabbed Code Blocks - based on the [Materialize](http://materializecss.com/tabs.html) UI component</del>
-5. Hook Up the pseudo env variables for Angular Vs. Nativescript display.
+<del>5. Hook Up the pseudo env variables for Angular Vs. Nativescript display.</del>
 6. Use proper svg Assets for Slack and SO Docs on sidebar
 7. Look at the internal linking (I imagine some if not all of the links to other articles are now broken)
 8. Code highlighting isn't working.
