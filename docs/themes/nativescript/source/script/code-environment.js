@@ -16,7 +16,7 @@ $(document).ready(function () {
     //setup the slider
     var currentLang = sessionStorage.getItem('code-lang');
     console.log(currentLang);
-    if (currentLang === 'n') {
+    if (currentLang === 'n' || null) {
         $( "#first_toggle" ).click();
     } else if (currentLang === 'ng'){
         $( "#second_toggle" ).click();
