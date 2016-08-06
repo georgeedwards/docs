@@ -38,7 +38,7 @@ view1.className = "example";
 view1.className = "example";
 ```
 ``` XML
-<Button id="myButton" text="{N}" class="example"/>
+<Button id="myButton" text="n" class="example"/>
 ```
 
 > If the **animation-duration** property is not specified, the animation will use a default value - 0.3 seconds.

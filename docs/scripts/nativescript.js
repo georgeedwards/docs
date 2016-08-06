@@ -3,7 +3,7 @@ var marked = require('marked');
 var util = require('hexo-util');
 
 hexo.extend.tag.register('nativescript', function (args, content) {
-  var result = render(content);
+  var result = '<div class="codeblock n">' + render(content) + '</div>';
   var front_end = hexo.locals.get('front_end');
   if (front_end == "angular") {
     return null;
@@ -14,7 +14,7 @@ hexo.extend.tag.register('nativescript', function (args, content) {
 }, { ends: true });
 
 hexo.extend.tag.register('angular', function (args, content) {
-  var result = render(content);
+  var result = '<div class="codeblock ng">' + render(content) + '</div>';
   if (hexo.locals.get('front_end') == "angular") {
     return result;
   }
