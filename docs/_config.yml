@@ -152,4 +152,5 @@ marked:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: heroku
-  repo: https://git.heroku.com/agile-atoll-70531.git
+  repo: https://git.heroku.com/nativescript-docs.git
+  branch: production
