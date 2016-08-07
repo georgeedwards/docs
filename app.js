@@ -10,22 +10,13 @@ var routes = require('./routes/index');
 
 var app = express();
 
-// view engine setup
-/*
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-*/
+// html view engine setup
 app.set('views', path.join(__dirname, '/views'));
 app.engine('html', require('jade').renderFile);
 app.set('view engine', 'html');
 
 app.use(express.static('views'));
 app.use(express.static('public'));
-/*
-app.use('/scripts', express.static(__dirname + '/node_modules/core-js/client'));
-app.use('/scripts', express.static(__dirname + '/node_modules/zone.js/dist'));
-app.use('/scripts', express.static(__dirname + '/node_modules/reflect-metadata'));
-app.use('/scripts', express.static(__dirname + '/node_modules/systemjs/dist')); */
 
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
@@ -39,7 +30,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-//app.use(serveStatic('docs/public', {'index': ['index.html', 'index.htm']}))
+//all static assetes for hexo content
+app.use('/docs', serveStatic('docs/public', {'index': ['index.html', 'index.htm']}))
+app.use('/script', serveStatic('docs/public/script'))
+app.use('/style', serveStatic('docs/public/style'))
+app.use('/images', serveStatic('docs/public/images'))
+
 
 app.use('/', routes);
 
