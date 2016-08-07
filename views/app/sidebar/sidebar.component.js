@@ -9,19 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var sidebar_component_1 = require('./sidebar/sidebar.component');
-var AppComponent = (function () {
-    function AppComponent() {
+var sidebarComponent = (function () {
+    function sidebarComponent() {
     }
-    AppComponent = __decorate([
+    sidebarComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "<sidebar></sidebar>\n  <h1>helps</h1>",
-            directives: [sidebar_component_1.sidebarComponent]
+            selector: 'sidebar',
+            templateUrl: 'app/sidebar/sidebar.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], sidebarComponent);
+    return sidebarComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.sidebarComponent = sidebarComponent;
+//# sourceMappingURL=sidebar.component.js.map

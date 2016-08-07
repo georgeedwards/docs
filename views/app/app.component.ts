@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { sidebarComponent } from './sidebar/sidebar.component';
 
 @Component({
   selector: 'my-app',
-  template: '<h1>My First Angular 2 App</h1>'
+  template: `<sidebar></sidebar>
+  <h1>helps</h1>`,
+  directives: [sidebarComponent]
 })
 export class AppComponent { }
