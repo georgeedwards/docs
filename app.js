@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var serveStatic = require('serve-static')
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
@@ -19,6 +18,9 @@ app.set('view engine', 'jade');
 app.set('views', path.join(__dirname, '/views'));
 app.engine('html', require('jade').renderFile);
 app.set('view engine', 'html');
+
+app.use(express.static('views'));
+app.use(express.static('public'));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
