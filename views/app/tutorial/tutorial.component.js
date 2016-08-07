@@ -9,19 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var sidebarComponent = (function () {
-    function sidebarComponent() {
+var tutorialComponent = (function () {
+    function tutorialComponent() {
     }
-    sidebarComponent = __decorate([
+    tutorialComponent = __decorate([
         core_1.Component({
-            selector: 'sidebar',
-            templateUrl: 'app/sidebar/sidebar.html',
-            directives: [router_1.ROUTER_DIRECTIVES]
+            selector: 'tutorial',
+            templateUrl: 'app/tutorial/tutorial.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], sidebarComponent);
-    return sidebarComponent;
+    ], tutorialComponent);
+    return tutorialComponent;
 }());
-exports.sidebarComponent = sidebarComponent;
-//# sourceMappingURL=sidebar.component.js.map
+exports.tutorialComponent = tutorialComponent;
+//# sourceMappingURL=tutorial.component.js.map

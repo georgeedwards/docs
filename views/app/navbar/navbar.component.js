@@ -9,19 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var sidebarComponent = (function () {
-    function sidebarComponent() {
+var navbarComponent = (function () {
+    function navbarComponent() {
     }
-    sidebarComponent = __decorate([
+    navbarComponent = __decorate([
         core_1.Component({
-            selector: 'sidebar',
-            templateUrl: 'app/sidebar/sidebar.html',
-            directives: [router_1.ROUTER_DIRECTIVES]
+            selector: 'navbar',
+            templateUrl: 'app/navbar/navbar.html',
+            styleUrls: ['app/navbar/navbar.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], sidebarComponent);
-    return sidebarComponent;
+    ], navbarComponent);
+    return navbarComponent;
 }());
-exports.sidebarComponent = sidebarComponent;
-//# sourceMappingURL=sidebar.component.js.map
+exports.navbarComponent = navbarComponent;
+//# sourceMappingURL=navbar.component.js.map
