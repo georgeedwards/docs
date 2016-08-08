@@ -3,7 +3,5 @@ Thumbs.db
 docs/db.json
 *.log
 **/node_modules/
-docs/public/
 docs/.deploy*/
-docs/data/
 .vscode/
