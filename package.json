@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prestart": "cd docs && hexo generate",
+    "prestart": "cd docs && npm i && hexo generate",
     "start": "node ./bin/www",
     "dev": "concurrent 'tsc --watch' 'nodemon ./bin/www'"
   },
