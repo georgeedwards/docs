@@ -1,0 +1,19 @@
+.chapters {
+    width: 25%;
+    margin-top: 3rem;
+}
+.row {
+    margin-left: 7rem;
+}
+
+p {
+    margin: 0px;
+    padding: 5px;
+    padding-left: 8px;
+}
+
+p:hover, p.clicked {
+    background-color: #EEE;
+    border-left-style: solid;
+    border-left-color: #5B8BFB;
+}

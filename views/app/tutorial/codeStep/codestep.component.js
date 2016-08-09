@@ -9,34 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var tutorialComponent = (function () {
-    function tutorialComponent() {
-        this.chapters = _chapters;
-        this.clickedItem = 0;
+var codeStepComponent = (function () {
+    function codeStepComponent() {
+        this.content = '';
     }
-    tutorialComponent = __decorate([
+    codeStepComponent.prototype.ngOnInit = function () {
+        if (this.step === "2.1") {
+            this.content = "bar";
+        }
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], codeStepComponent.prototype, "step", void 0);
+    codeStepComponent = __decorate([
         core_1.Component({
-            selector: 'tutorial',
-            templateUrl: 'app/tutorial/tutorial.html',
-            styleUrls: ['app/tutorial/tutorial.css']
+            selector: 'codestep',
+            template: "<div [innerHTML]=\"content\"></div>"
         }), 
         __metadata('design:paramtypes', [])
-    ], tutorialComponent);
-    return tutorialComponent;
+    ], codeStepComponent);
+    return codeStepComponent;
 }());
-exports.tutorialComponent = tutorialComponent;
-var _chapters = [
-    { number: '1', title: 'Getting Started' },
-    { number: '2', title: 'Building the UI' },
-    { number: '3', title: 'Application Logic' },
-    { number: '4', title: 'Nativescript Modules' },
-    { number: '5', title: 'Using Plugins' },
-    { number: '6', title: 'Using Native APIs' }
-];
-var _chapter = (function () {
-    function _chapter() {
-    }
-    return _chapter;
-}());
-exports._chapter = _chapter;
-//# sourceMappingURL=tutorial.component.js.map
+exports.codeStepComponent = codeStepComponent;
+//# sourceMappingURL=codestep.component.js.map

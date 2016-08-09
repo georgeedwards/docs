@@ -4031,3 +4031,12 @@ body.sidebar-visible .content {
   margin-left: 7rem;
   background-color: transparent;
 }
+
+.valign-wrapper {
+  height: 100%;
+}
+
+.valign-wrapper .valign {
+    margin-right: auto;
+    margin-left: auto;
+}

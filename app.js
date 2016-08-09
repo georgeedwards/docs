@@ -5,8 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var serveStatic = require('serve-static')
-
+var file = require('./prepareTutorial');
 var routes = require('./routes/index');
+//var subdomain = require('express-subdomain');
 
 var app = express();
 
@@ -20,21 +21,23 @@ app.use(express.static('public'));
 
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
-app.use('/app', express.static(__dirname + '/views/app'));
-
+file.processTutorial(); //generate html rendered patches for tutorial steps
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 //all static assetes for hexo content
+
 app.use('/docs', serveStatic('docs/public', {'index': ['index.html', 'index.htm']}))
+//app.use(subdomain('docs', express.static('docs/public')));
 app.use('/script', serveStatic('docs/public/script'))
 app.use('/style', serveStatic('docs/public/style'))
 app.use('/images', serveStatic('docs/public/images'))
+app.use('/diff', serveStatic('tutorial/diffs'))
 
 
 app.use('/', routes);
