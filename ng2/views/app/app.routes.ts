@@ -3,8 +3,7 @@ import { tutorialComponent } from './tutorial/tutorial.component';
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: '', component: homeComponent },
-  { path: 'tutorial', component: tutorialComponent }
+  { path: '', component: homeComponent }
 ];
 
 export const appRoutingProviders: any[] = [];

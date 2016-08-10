@@ -9,26 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var home_component_1 = require('./home/home.component');
-var app_component_1 = require('./app.component');
-var app_routes_1 = require('./app.routes');
-var tutorial_module_1 = require('./tutorial/tutorial.module');
-var AppModule = (function () {
-    function AppModule() {
+var common_1 = require('@angular/common');
+var tutorial_routes_1 = require('./tutorial.routes');
+var tutorial_component_1 = require('./tutorial.component');
+var chapter_component_1 = require('./chapter/chapter.component');
+var tutorialModule = (function () {
+    function tutorialModule() {
     }
-    AppModule = __decorate([
+    tutorialModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, app_routes_1.routing, tutorial_module_1.tutorialModule],
-            declarations: [app_component_1.AppComponent, home_component_1.homeComponent],
-            providers: [
-                app_routes_1.appRoutingProviders
+            imports: [
+                common_1.CommonModule,
+                tutorial_routes_1.tutorialRouting
             ],
-            bootstrap: [app_component_1.AppComponent]
+            declarations: [
+                tutorial_component_1.tutorialComponent,
+                chapter_component_1.chapterComponent
+            ],
+            providers: []
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], tutorialModule);
+    return tutorialModule;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.tutorialModule = tutorialModule;
+//# sourceMappingURL=tutorial.module.js.map

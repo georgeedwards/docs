@@ -2,7 +2,7 @@
     <div class="chapters col s3">
         <h3>Chapters:</h3>
         <!-- <p *ngFor="let chapter of chapters" class="chapter {{chapter.number}}">{{chapter.number}}. {{chapter.title}}</p> -->
-        <a *ngFor="let chapter of chapters; let i=index" (click)="clickedItem = i" [class.clicked]="i == clickedItem" class="chapter">{{chapter.number}}. {{chapter.title}}</a>
+        <a *ngFor="let chapter of chapters; let i=index" (click)="clickedItem = i" [class.clicked]="i == clickedItem" class="chapter">{{chapter.number}}. {{chapter.title}}</a> <!-- add on click route to xyz,:chapter.number -->
     </div>
     <div class="col s9">
         <h1>Tutorial</h1>
