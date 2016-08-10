@@ -10,8 +10,8 @@ export class codeStepComponent {
     private content: string = '';
 
     ngOnInit() {
-        if (this.step === "2.1") {
-            this.content = "bar";
+        if (this.step.toString() === "2.1") {
+            this.content = "<p>bar Test</p>"; //should get html from rendered patch files
         }
     }
 }

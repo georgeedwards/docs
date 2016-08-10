@@ -9,27 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var codeStepComponent = (function () {
-    function codeStepComponent() {
-        this.content = '';
+var platform_browser_1 = require('@angular/platform-browser');
+var home_component_1 = require('./home/home.component');
+var tutorial_component_1 = require('./tutorial/tutorial.component');
+var app_component_1 = require('./app.component');
+var app_routes_1 = require('./app.routes');
+var AppModule = (function () {
+    function AppModule() {
     }
-    codeStepComponent.prototype.ngOnInit = function () {
-        if (this.step.toString() === "2.1") {
-            this.content = "<p>bar Test</p>"; //should get html from rendered patch files
-        }
-    };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], codeStepComponent.prototype, "step", void 0);
-    codeStepComponent = __decorate([
-        core_1.Component({
-            selector: 'codestep',
-            template: "<div [innerHTML]=\"content\"></div>"
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [platform_browser_1.BrowserModule, app_routes_1.routing],
+            declarations: [app_component_1.AppComponent, home_component_1.homeComponent, tutorial_component_1.tutorialComponent],
+            providers: [
+                app_routes_1.appRoutingProviders
+            ],
+            bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], codeStepComponent);
-    return codeStepComponent;
+    ], AppModule);
+    return AppModule;
 }());
-exports.codeStepComponent = codeStepComponent;
-//# sourceMappingURL=codestep.component.js.map
+exports.AppModule = AppModule;
+//# sourceMappingURL=app.module.js.map

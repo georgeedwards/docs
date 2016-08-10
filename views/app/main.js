@@ -1,10 +1,9 @@
 "use strict";
-// main entry point
+//main entry point
+// The browser platform with a compiler
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var app_component_1 = require('./app.component');
-var app_routes_1 = require('./app.routes');
-platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [
-    app_routes_1.appRouterProviders
-])
-    .catch(function (err) { return console.error(err); });
+// The app module
+var app_module_1 = require('./app.module');
+// Compile and launch the module
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
 //# sourceMappingURL=main.js.map

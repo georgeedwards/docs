@@ -28,7 +28,8 @@ function getFiles(path: string, files: Array<string>): Array<string> {
 
 function writeFile(content: string, fileName: string) {
     //extract the destination
-    var _fileName = './tutorial/diffs/' + fileName.substring(24, fileName.length - 6) + '.html';
-
+    var _fileName = fileName.substring(29, fileName.length - 6);
+    _fileName = _fileName.substr(0, 3);
+    _fileName = './tutorial/diffs/' + _fileName + '.html';
     fs.writeFileSync(_fileName, content);
 }

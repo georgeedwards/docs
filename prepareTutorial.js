@@ -33,7 +33,9 @@ function getFiles(path, files) {
 }
 function writeFile(content, fileName) {
     //extract the destination
-    var _fileName = './tutorial/diffs/' + fileName.substring(24, fileName.length - 6) + '.html';
+    var _fileName = fileName.substring(29, fileName.length - 6);
+    _fileName = _fileName.substr(0, 3);
+    _fileName = './tutorial/diffs/' + _fileName + '.html';
     fs.writeFileSync(_fileName, content);
 }
 //# sourceMappingURL=prepareTutorial.js.map

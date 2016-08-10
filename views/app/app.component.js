@@ -12,7 +12,6 @@ var core_1 = require('@angular/core');
 var sidebar_component_1 = require('./sidebar/sidebar.component');
 var navbar_component_1 = require('./navbar/navbar.component');
 var home_component_1 = require('./home/home.component');
-var tutorial_component_1 = require('./tutorial/tutorial.component');
 var router_1 = require('@angular/router');
 var AppComponent = (function () {
     function AppComponent() {
@@ -21,8 +20,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             template: "\n  <sidebar></sidebar>\n  <navbar></navbar>\n  <router-outlet></router-outlet>",
-            directives: [sidebar_component_1.sidebarComponent, navbar_component_1.navbarComponent, home_component_1.homeComponent, router_1.ROUTER_DIRECTIVES],
-            precompile: [home_component_1.homeComponent, tutorial_component_1.tutorialComponent]
+            directives: [sidebar_component_1.sidebarComponent, navbar_component_1.navbarComponent, home_component_1.homeComponent, router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

@@ -11,7 +11,6 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   <sidebar></sidebar>
   <navbar></navbar>
   <router-outlet></router-outlet>`,
-  directives: [sidebarComponent, navbarComponent, homeComponent, ROUTER_DIRECTIVES],
-  precompile: [homeComponent, tutorialComponent]
+  directives: [sidebarComponent, navbarComponent, homeComponent, ROUTER_DIRECTIVES]
 })
 export class AppComponent { }

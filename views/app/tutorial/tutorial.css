@@ -6,13 +6,14 @@
     margin-left: 7rem;
 }
 
-p {
+a {
     margin: 0px;
     padding: 5px;
     padding-left: 8px;
+    display: block;
 }
 
-p:hover, p.clicked {
+a:hover, a.clicked {
     background-color: #EEE;
     border-left-style: solid;
     border-left-color: #5B8BFB;
