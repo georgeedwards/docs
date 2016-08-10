@@ -1,0 +1,29 @@
+From 8f355b58ceabbd23e907070525fe488ff0e0c887 Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 10:56:47 +0100
+Subject: [PATCH] Step 4.4 Constructing the List View
+
+---
+ app/views/list/list.xml | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/app/views/list/list.xml b/app/views/list/list.xml
+index 349eb98..c1955af 100644
+--- a/app/views/list/list.xml
++++ b/app/views/list/list.xml
+@@ -1,3 +1,9 @@
+-<Page>
+-
++<Page loaded="loaded">
++    <GridLayout>
++        <ListView items="{{ groceryList }}">
++            <ListView.itemTemplate>
++                <Label text="{{ name }}" horizontalAlignment="left" verticalAlignment="center"/>
++            </ListView.itemTemplate>
++        </ListView>
++    </GridLayout>
+ </Page>
+\ No newline at end of file
+-- 
+2.9.2.windows.1
+

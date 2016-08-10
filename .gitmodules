@@ -1,5 +1,5 @@
-[submodule "docs/themes/nativescript"]
-	path = docs/themes/nativescript
+[submodule "features/docs/themes/nativescript"]
+	path = features/docs/themes/nativescript
 	url = https://github.com/georgeedwards/hexo-theme
 [submodule "tutorial"]
 	path = tutorial

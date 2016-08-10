@@ -1,0 +1,95 @@
+From bbe2dc093d2c91605a531c5c6f1c4c6714caa031 Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 13:12:56 +0100
+Subject: [PATCH] Step 6.1 Customise the ios action bar
+
+---
+ app/app.css                     |  4 ++++
+ app/views/login/login.js        | 14 +++++++++-----
+ app/views/login/login.xml       |  3 +++
+ app/views/register/register.xml |  3 +++
+ 4 files changed, 19 insertions(+), 5 deletions(-)
+
+diff --git a/app/app.css b/app/app.css
+index afb9742..1ad2411 100644
+--- a/app/app.css
++++ b/app/app.css
+@@ -17,4 +17,8 @@ Image {
+ Button {
+     margin: 10;
+     padding: 10;
++}
++ActionBar {
++    color: white;
++    background-color: #2E6DAD;
+ }
+\ No newline at end of file
+diff --git a/app/views/login/login.js b/app/views/login/login.js
+index 9639803..069550a 100644
+--- a/app/views/login/login.js
++++ b/app/views/login/login.js
+@@ -5,14 +5,18 @@ var user = new UserViewModel();
+ var page;
+ var email;
+ 
+-exports.loaded = function(args) {
++exports.loaded = function (args) {
+     page = args.object;
++    if (page.ios) {
++        var navigationBar = frameModule.topmost().ios.controller.navigationBar;
++        navigationBar.barStyle = UIBarStyle.UIBarStyleBlack;
++    }
+     page.bindingContext = user;
+ };
+ 
+-exports.signIn = function() {
++exports.signIn = function () {
+     user.login()
+-        .catch(function(error) {
++        .catch(function (error) {
+             console.log(error);
+             dialogsModule.alert({
+                 message: "Unfortunately we could not find your account.",
+@@ -20,12 +24,12 @@ exports.signIn = function() {
+             });
+             return Promise.reject();
+         })
+-        .then(function() {
++        .then(function () {
+             frameModule.topmost().navigate("views/list/list");
+         });
+ };
+ 
+-exports.register = function() {
++exports.register = function () {
+     var topmost = frameModule.topmost();
+     topmost.navigate("views/register/register");
+ };
+\ No newline at end of file
+diff --git a/app/views/login/login.xml b/app/views/login/login.xml
+index d4f0e3c..722ede9 100644
+--- a/app/views/login/login.xml
++++ b/app/views/login/login.xml
+@@ -1,4 +1,7 @@
+ <Page loaded="loaded">
++    <Page.actionBar>
++        <ActionBar title="Sign in"></ActionBar>
++    </Page.actionBar>
+     <StackLayout orientation="vertical">
+         <Image src="res://logo" stretch="none" horizontalAlignment="center" />
+ 
+diff --git a/app/views/register/register.xml b/app/views/register/register.xml
+index 00adcd1..9406dc8 100644
+--- a/app/views/register/register.xml
++++ b/app/views/register/register.xml
+@@ -1,4 +1,7 @@
+ <Page loaded="loaded">
++    <Page.actionBar>
++        <ActionBar title="Sign up"></ActionBar>
++    </Page.actionBar>
+     <StackLayout>
+         <Image src="res://logo" stretch="none" horizontalAlignment="center"/>
+ 
+-- 
+2.9.2.windows.1
+

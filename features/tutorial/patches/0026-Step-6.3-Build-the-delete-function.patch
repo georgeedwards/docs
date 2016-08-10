@@ -1,0 +1,54 @@
+From caff826c592c0b396a687e4ab4aaee848db6a009 Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 13:22:15 +0100
+Subject: [PATCH] Step 6.3 Build the delete function
+
+---
+ app/shared/view-models/grocery-list-view-model.js | 14 ++++++++++++++
+ app/views/list/list.js                            |  6 ++++++
+ 2 files changed, 20 insertions(+)
+
+diff --git a/app/shared/view-models/grocery-list-view-model.js b/app/shared/view-models/grocery-list-view-model.js
+index 9544318..f0297dd 100644
+--- a/app/shared/view-models/grocery-list-view-model.js
++++ b/app/shared/view-models/grocery-list-view-model.js
+@@ -50,6 +50,20 @@ function GroceryListViewModel(items) {
+             });
+     };
+ 
++    viewModel.delete = function (index) {
++        return fetch(config.apiUrl + "Groceries/" + viewModel.getItem(index).id, {
++            method: "DELETE",
++            headers: {
++                "Authorization": "Bearer " + config.token,
++                "Content-Type": "application/json"
++            }
++        })
++            .then(handleErrors)
++            .then(function () {
++                viewModel.splice(index, 1);
++            });
++    };
++
+     return viewModel;
+ }
+ 
+diff --git a/app/views/list/list.js b/app/views/list/list.js
+index 6eaeeef..06249fe 100644
+--- a/app/views/list/list.js
++++ b/app/views/list/list.js
+@@ -59,4 +59,10 @@ exports.share = function() {
+     }
+     var listString = list.join(", ").trim();
+     socialShare.shareText(listString);
++};
++
++exports.delete = function(args) {
++    var item = args.view.bindingContext;
++    var index = groceryList.indexOf(item);
++    groceryList.delete(index);
+ };
+\ No newline at end of file
+-- 
+2.9.2.windows.1
+

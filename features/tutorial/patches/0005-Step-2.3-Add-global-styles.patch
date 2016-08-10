@@ -1,0 +1,36 @@
+From 76f57e963afb885fed48b1646fd50025269061ac Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 10:05:20 +0100
+Subject: [PATCH] Step 2.3 Add global styles
+
+---
+ app/app.css | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/app/app.css b/app/app.css
+index e69de29..663aa14 100644
+--- a/app/app.css
++++ b/app/app.css
+@@ -0,0 +1,18 @@
++Page {
++    background-color: white;
++    font-size: 17;
++}
++TextField {
++    margin: 10;
++    padding: 10;
++}
++Image {
++    margin-top: 20;
++    margin-left: 0;
++    margin-right: 0;
++    margin-bottom: 80;
++}
++Button {
++    margin: 10;
++    padding: 10;
++}
+\ No newline at end of file
+-- 
+2.9.2.windows.1
+

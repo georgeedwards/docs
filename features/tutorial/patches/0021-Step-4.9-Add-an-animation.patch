@@ -1,0 +1,53 @@
+From d5d37719e5768b54be28183d57a14c0f2863ccbe Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 11:19:26 +0100
+Subject: [PATCH] Step 4.9 Add an animation
+
+---
+ app/views/list/list.css | 4 ++++
+ app/views/list/list.js  | 9 +++++++--
+ 2 files changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/app/views/list/list.css b/app/views/list/list.css
+index 1548a59..3fa081a 100644
+--- a/app/views/list/list.css
++++ b/app/views/list/list.css
+@@ -13,4 +13,8 @@ TextField {
+ }
+ Image {
+     margin: 10;
++}
++ListView {
++    margin: 5;
++    opacity: 0;
+ }
+\ No newline at end of file
+diff --git a/app/views/list/list.js b/app/views/list/list.js
+index dc434b4..75a7c2d 100644
+--- a/app/views/list/list.js
++++ b/app/views/list/list.js
+@@ -10,14 +10,19 @@ var pageData = new Observable({
+     grocery: ""
+ });
+ 
+-exports.loaded = function (args) {
++exports.loaded = function(args) {
+     page = args.object;
++    var listView = page.getViewById("groceryList");
+     page.bindingContext = pageData;
+ 
+     groceryList.empty();
+     pageData.set("isLoading", true);
+-    groceryList.load().then(function () {
++    groceryList.load().then(function() {
+         pageData.set("isLoading", false);
++        listView.animate({
++            opacity: 1,
++            duration: 1000
++        });
+     });
+ };
+ 
+-- 
+2.9.2.windows.1
+

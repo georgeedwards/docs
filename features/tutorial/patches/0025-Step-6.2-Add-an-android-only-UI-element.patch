@@ -1,0 +1,28 @@
+From 074b7575366c7d2218ec3718ca2b35454d04c9ea Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 13:20:11 +0100
+Subject: [PATCH] Step 6.2 Add an android-only UI element
+
+---
+ app/views/list/list.xml | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/app/views/list/list.xml b/app/views/list/list.xml
+index d71e1d5..f10f5ad 100644
+--- a/app/views/list/list.xml
++++ b/app/views/list/list.xml
+@@ -11,7 +11,10 @@
+     <Button text="Add" tap="add" row="0" col="1" />
+         <ListView items="{{ groceryList }}" id="groceryList" row="1" colSpan="2">
+             <ListView.itemTemplate>
+-                <Label text="{{ name }}" horizontalAlignment="left" verticalAlignment="center"/>
++                <GridLayout columns="*, auto">
++                    <Label text="{{ name }}"/>
++                    <Image src="res://ic_menu_delete" ios:visibility="collapsed" col="1" tap="delete" />
++                </GridLayout>
+             </ListView.itemTemplate>
+         </ListView>
+         <ActivityIndicator busy="{{ isLoading }}" rowSpan="2" colSpan="2" />
+-- 
+2.9.2.windows.1
+

@@ -1,7 +1,8 @@
 .DS_Store
 Thumbs.db
-docs/db.json
+features/docs/db.json
 *.log
 **/node_modules/
-docs/.deploy*/
+features/docs/.deploy*/
 .vscode/
+features/docs/themes/nativescript

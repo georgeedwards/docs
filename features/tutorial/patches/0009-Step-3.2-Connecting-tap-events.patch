@@ -1,0 +1,44 @@
+From 6ef63c21cd7f42fe5f190fb7bd5a7411528b944e Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 10:15:25 +0100
+Subject: [PATCH] Step 3.2 Connecting tap events
+
+---
+ app/views/login/login.js  | 8 ++++++--
+ app/views/login/login.xml | 4 ++--
+ 2 files changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/app/views/login/login.js b/app/views/login/login.js
+index 902d2cd..62f6ebc 100644
+--- a/app/views/login/login.js
++++ b/app/views/login/login.js
+@@ -1,3 +1,7 @@
+-exports.loaded = function() {
+-    console.log("hello");
++exports.signIn = function() {
++    alert("Signing in");
++};
++
++exports.register = function() {
++    alert("Registering");
+ };
+\ No newline at end of file
+diff --git a/app/views/login/login.xml b/app/views/login/login.xml
+index 12cd9f6..ccd5b1e 100644
+--- a/app/views/login/login.xml
++++ b/app/views/login/login.xml
+@@ -5,8 +5,8 @@
+         <TextField hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
+         <TextField hint="Password" secure="true" />
+ 
+-        <Button text="Sign in" />
+-        <Button text="Sign up for Groceries" class="link" />
++        <Button text="Sign in" tap="signIn" />
++        <Button text="Sign up for Groceries" class="link" tap="register" />
+ 
+     </StackLayout>
+ </Page>
+\ No newline at end of file
+-- 
+2.9.2.windows.1
+

@@ -1,0 +1,104 @@
+From e4a7c2cb412d586814c09f284c25f2ff2710d8ae Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 11:14:49 +0100
+Subject: [PATCH] Step 4.7 Add Grid Layout
+
+---
+ app/shared/view-models/grocery-list-view-model.js | 20 +++++++++++++++++
+ app/views/list/list.js                            | 27 ++++++++++++++++++++++-
+ app/views/list/list.xml                           |  6 +++--
+ 3 files changed, 50 insertions(+), 3 deletions(-)
+
+diff --git a/app/shared/view-models/grocery-list-view-model.js b/app/shared/view-models/grocery-list-view-model.js
+index 6ccd820..9544318 100644
+--- a/app/shared/view-models/grocery-list-view-model.js
++++ b/app/shared/view-models/grocery-list-view-model.js
+@@ -30,6 +30,26 @@ function GroceryListViewModel(items) {
+         }
+     };
+ 
++    viewModel.add = function (grocery) {
++        return fetch(config.apiUrl + "Groceries", {
++            method: "POST",
++            body: JSON.stringify({
++                Name: grocery
++            }),
++            headers: {
++                "Authorization": "Bearer " + config.token,
++                "Content-Type": "application/json"
++            }
++        })
++            .then(handleErrors)
++            .then(function (response) {
++                return response.json();
++            })
++            .then(function (data) {
++                viewModel.push({ name: grocery, id: data.Result.Id });
++            });
++    };
++
+     return viewModel;
+ }
+ 
+diff --git a/app/views/list/list.js b/app/views/list/list.js
+index a4e7bbd..46c8c0f 100644
+--- a/app/views/list/list.js
++++ b/app/views/list/list.js
+@@ -6,7 +6,8 @@ var page;
+ 
+ var groceryList = new GroceryListViewModel([]);
+ var pageData = new Observable({
+-    groceryList: groceryList
++    groceryList: groceryList,
++    grocery: ""
+ });
+ 
+ exports.loaded = function(args) {
+@@ -15,4 +16,28 @@ exports.loaded = function(args) {
+ 
+     groceryList.empty();
+     groceryList.load();
++};
++
++exports.add = function() {
++    // Check for empty submissions
++    if (pageData.get("grocery").trim() === "") {
++        dialogsModule.alert({
++            message: "Enter a grocery item",
++            okButtonText: "OK"
++        });
++        return;
++    }
++
++    // Dismiss the keyboard
++    page.getViewById("grocery").dismissSoftInput();
++    groceryList.add(pageData.get("grocery"))
++        .catch(function() {
++            dialogsModule.alert({
++                message: "An error occurred while adding an item to your list.",
++                okButtonText: "OK"
++            });
++        });
++
++    // Empty the input field
++    pageData.set("grocery", "");
+ };
+\ No newline at end of file
+diff --git a/app/views/list/list.xml b/app/views/list/list.xml
+index c1955af..a7082b9 100644
+--- a/app/views/list/list.xml
++++ b/app/views/list/list.xml
+@@ -1,6 +1,8 @@
+ <Page loaded="loaded">
+-    <GridLayout>
+-        <ListView items="{{ groceryList }}">
++    <GridLayout rows="auto, *" columns="2*, *">
++    <TextField id="grocery" text="{{ grocery }}" hint="Enter a grocery item" row="0" col="0" />
++    <Button text="Add" tap="add" row="0" col="1" />
++        <ListView items="{{ groceryList }}" id="groceryList" row="1" colSpan="2">
+             <ListView.itemTemplate>
+                 <Label text="{{ name }}" horizontalAlignment="left" verticalAlignment="center"/>
+             </ListView.itemTemplate>
+-- 
+2.9.2.windows.1
+

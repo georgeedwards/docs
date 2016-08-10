@@ -1,0 +1,46 @@
+From 2989e12d6482311ced63694ec57e43e0a9011af2 Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 10:47:53 +0100
+Subject: [PATCH] Step 4.1 Connecting to a backend
+
+---
+ app/shared/view-models/user-view-model.js | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
+
+diff --git a/app/shared/view-models/user-view-model.js b/app/shared/view-models/user-view-model.js
+index 18ea00a..c5bb54a 100644
+--- a/app/shared/view-models/user-view-model.js
++++ b/app/shared/view-models/user-view-model.js
+@@ -11,7 +11,28 @@ function User(info) {
+         password: info.password || ""
+     });
+ 
+-    viewModel.register = function() {
++    viewModel.login = function () {
++        return fetchModule.fetch(config.apiUrl + "oauth/token", {
++            method: "POST",
++            body: JSON.stringify({
++                username: viewModel.get("email"),
++                password: viewModel.get("password"),
++                grant_type: "password"
++            }),
++            headers: {
++                "Content-Type": "application/json"
++            }
++        })
++            .then(handleErrors)
++            .then(function (response) {
++                return response.json();
++            })
++            .then(function (data) {
++                config.token = data.Result.access_token;
++            });
++    };
++
++    viewModel.register = function () {
+         return fetchModule.fetch(config.apiUrl + "Users", {
+             method: "POST",
+             body: JSON.stringify({
+-- 
+2.9.2.windows.1
+

@@ -1,0 +1,27 @@
+From a70e6f556640db53f1ef3acba28c42f582d45890 Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 10:02:48 +0100
+Subject: [PATCH] Step 2.1 Add a UI component
+
+---
+ app/views/login/login.xml | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/app/views/login/login.xml b/app/views/login/login.xml
+index 15d4631..3e5bc11 100644
+--- a/app/views/login/login.xml
++++ b/app/views/login/login.xml
+@@ -1,3 +1,5 @@
+-<Page>
+-    <Label text="hello world" />
+-</Page>
+\ No newline at end of file
++<TextField hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
++<TextField hint="Password" secure="true" />
++
++<Button text="Sign in" />
++<Button text="Sign up for Groceries" />
+\ No newline at end of file
+-- 
+2.9.2.windows.1
+

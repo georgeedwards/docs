@@ -1,0 +1,49 @@
+From d29ae903c17e342423ac30fe4c5d10dc65876c18 Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 10:43:39 +0100
+Subject: [PATCH] Step 3.5 Binding with view models
+
+---
+ app/views/login/login.js  | 7 +++++++
+ app/views/login/login.xml | 4 ++--
+ 2 files changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/app/views/login/login.js b/app/views/login/login.js
+index 34e3292..3caba02 100644
+--- a/app/views/login/login.js
++++ b/app/views/login/login.js
+@@ -1,9 +1,16 @@
+ var frameModule = require("ui/frame");
++var Observable = require("data/observable").Observable;
+ var page;
+ var email;
+ 
++var user = new Observable({
++    email: "user@domain.com",
++    password: "password"
++});
++
+ exports.loaded = function(args) {
+     page = args.object;
++    page.bindingContext = user;
+ };
+ 
+ exports.signIn = function() {
+diff --git a/app/views/login/login.xml b/app/views/login/login.xml
+index 7074811..d4f0e3c 100644
+--- a/app/views/login/login.xml
++++ b/app/views/login/login.xml
+@@ -2,8 +2,8 @@
+     <StackLayout orientation="vertical">
+         <Image src="res://logo" stretch="none" horizontalAlignment="center" />
+ 
+-        <TextField id="email" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
+-        <TextField hint="Password" secure="true" />
++        <TextField id="email" text="{{ email }}" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
++        <TextField secure="true" text="{{ password }}" hint="Password" />
+ 
+         <Button text="Sign in" tap="signIn" />
+         <Button text="Sign up for Groceries" class="link" tap="register" />
+-- 
+2.9.2.windows.1
+

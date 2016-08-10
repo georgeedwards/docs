@@ -1,0 +1,29 @@
+From 52f7762e2a2d901b9d849e70679237fad8f0c05f Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 10:16:56 +0100
+Subject: [PATCH] Step 3.3 Navigating screens
+
+---
+ app/views/login/login.js | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/app/views/login/login.js b/app/views/login/login.js
+index 62f6ebc..5a7ce2f 100644
+--- a/app/views/login/login.js
++++ b/app/views/login/login.js
+@@ -1,7 +1,10 @@
++var frameModule = require("ui/frame");
++
+ exports.signIn = function() {
+     alert("Signing in");
+ };
+ 
+ exports.register = function() {
+-    alert("Registering");
++    var topmost = frameModule.topmost();
++    topmost.navigate("views/register/register");
+ };
+\ No newline at end of file
+-- 
+2.9.2.windows.1
+

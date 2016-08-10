@@ -1,0 +1,25 @@
+From 13b948cc246b3c9b383c4be24ca0ba0a7c072e67 Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 10:09:11 +0100
+Subject: [PATCH] Step 2.5 Add an Image
+
+---
+ app/views/login/login.xml | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/app/views/login/login.xml b/app/views/login/login.xml
+index 6436529..f66426b 100644
+--- a/app/views/login/login.xml
++++ b/app/views/login/login.xml
+@@ -1,6 +1,7 @@
+ <Page>
+     <StackLayout orientation="vertical">
+-
++        <Image src="res://logo" stretch="none" horizontalAlignment="center" />
++        
+         <TextField hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
+         <TextField hint="Password" secure="true" />
+ 
+-- 
+2.9.2.windows.1
+

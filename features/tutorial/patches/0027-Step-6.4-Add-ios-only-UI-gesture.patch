@@ -1,0 +1,68 @@
+From 2080f0bf0acc61628909df340aa03ead722a42c8 Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 13:24:30 +0100
+Subject: [PATCH] Step 6.4 Add ios-only UI gesture
+
+---
+ app/views/list/list.js | 17 ++++++++++++-----
+ 1 file changed, 12 insertions(+), 5 deletions(-)
+
+diff --git a/app/views/list/list.js b/app/views/list/list.js
+index 06249fe..e3467ae 100644
+--- a/app/views/list/list.js
++++ b/app/views/list/list.js
+@@ -3,6 +3,7 @@ var Observable = require("data/observable").Observable;
+ var ObservableArray = require("data/observable-array").ObservableArray;
+ var GroceryListViewModel = require("../../shared/view-models/grocery-list-view-model");
+ var socialShare = require("nativescript-social-share");
++var swipeDelete = require("../../shared/utils/ios-swipe-delete");
+ var page;
+ 
+ var groceryList = new GroceryListViewModel([]);
+@@ -11,14 +12,20 @@ var pageData = new Observable({
+     grocery: ""
+ });
+ 
+-exports.loaded = function(args) {
++exports.loaded = function (args) {
+     page = args.object;
++    if (page.ios) {
++        var listView = page.getViewById("groceryList");
++        swipeDelete.enable(listView, function (index) {
++            groceryList.delete(index);
++        });
++    }
+     var listView = page.getViewById("groceryList");
+     page.bindingContext = pageData;
+ 
+     groceryList.empty();
+     pageData.set("isLoading", true);
+-    groceryList.load().then(function() {
++    groceryList.load().then(function () {
+         pageData.set("isLoading", false);
+         listView.animate({
+             opacity: 1,
+@@ -51,17 +58,17 @@ exports.add = function () {
+     pageData.set("grocery", "");
+ };
+ 
+-exports.share = function() {
++exports.share = function () {
+     var list = [];
+     var finalList = "";
+-    for (var i = 0, size = groceryList.length; i < size ; i++) {
++    for (var i = 0, size = groceryList.length; i < size; i++) {
+         list.push(groceryList.getItem(i).name);
+     }
+     var listString = list.join(", ").trim();
+     socialShare.shareText(listString);
+ };
+ 
+-exports.delete = function(args) {
++exports.delete = function (args) {
+     var item = args.view.bindingContext;
+     var index = groceryList.indexOf(item);
+     groceryList.delete(index);
+-- 
+2.9.2.windows.1
+

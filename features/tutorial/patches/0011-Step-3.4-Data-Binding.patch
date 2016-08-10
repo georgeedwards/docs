@@ -1,0 +1,46 @@
+From b8db5ebbab4459d76ab4158747664b20ad40da02 Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 10:19:01 +0100
+Subject: [PATCH] Step 3.4 Data Binding
+
+---
+ app/views/login/login.js  | 9 ++++++++-
+ app/views/login/login.xml | 2 +-
+ 2 files changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/app/views/login/login.js b/app/views/login/login.js
+index 5a7ce2f..34e3292 100644
+--- a/app/views/login/login.js
++++ b/app/views/login/login.js
+@@ -1,7 +1,14 @@
+ var frameModule = require("ui/frame");
++var page;
++var email;
++
++exports.loaded = function(args) {
++    page = args.object;
++};
+ 
+ exports.signIn = function() {
+-    alert("Signing in");
++    email = page.getViewById("email");
++    console.log(email.text);
+ };
+ 
+ exports.register = function() {
+diff --git a/app/views/login/login.xml b/app/views/login/login.xml
+index ccd5b1e..7074811 100644
+--- a/app/views/login/login.xml
++++ b/app/views/login/login.xml
+@@ -2,7 +2,7 @@
+     <StackLayout orientation="vertical">
+         <Image src="res://logo" stretch="none" horizontalAlignment="center" />
+ 
+-        <TextField hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
++        <TextField id="email" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" />
+         <TextField hint="Password" secure="true" />
+ 
+         <Button text="Sign in" tap="signIn" />
+-- 
+2.9.2.windows.1
+

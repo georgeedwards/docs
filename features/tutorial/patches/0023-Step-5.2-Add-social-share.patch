@@ -1,0 +1,70 @@
+From 2a501710baa09e53af27388a364246656d2de782 Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 13:07:07 +0100
+Subject: [PATCH] Step 5.2 Add social share
+
+---
+ app/views/list/list.js  | 11 +++++++++++
+ app/views/list/list.xml |  7 +++++++
+ package.json            |  1 +
+ 3 files changed, 19 insertions(+)
+
+diff --git a/app/views/list/list.js b/app/views/list/list.js
+index 75a7c2d..6eaeeef 100644
+--- a/app/views/list/list.js
++++ b/app/views/list/list.js
+@@ -2,6 +2,7 @@ var dialogsModule = require("ui/dialogs");
+ var Observable = require("data/observable").Observable;
+ var ObservableArray = require("data/observable-array").ObservableArray;
+ var GroceryListViewModel = require("../../shared/view-models/grocery-list-view-model");
++var socialShare = require("nativescript-social-share");
+ var page;
+ 
+ var groceryList = new GroceryListViewModel([]);
+@@ -48,4 +49,14 @@ exports.add = function () {
+ 
+     // Empty the input field
+     pageData.set("grocery", "");
++};
++
++exports.share = function() {
++    var list = [];
++    var finalList = "";
++    for (var i = 0, size = groceryList.length; i < size ; i++) {
++        list.push(groceryList.getItem(i).name);
++    }
++    var listString = list.join(", ").trim();
++    socialShare.shareText(listString);
+ };
+\ No newline at end of file
+diff --git a/app/views/list/list.xml b/app/views/list/list.xml
+index 0fbe98c..d71e1d5 100644
+--- a/app/views/list/list.xml
++++ b/app/views/list/list.xml
+@@ -1,4 +1,11 @@
+ <Page loaded="loaded">
++    <Page.actionBar>
++        <ActionBar title="Groceries">
++            <ActionBar.actionItems>
++                <ActionItem text="Share" tap="share" ios.position="right" />
++            </ActionBar.actionItems>
++        </ActionBar>
++    </Page.actionBar>
+     <GridLayout rows="auto, *" columns="2*, *">
+     <TextField id="grocery" text="{{ grocery }}" hint="Enter a grocery item" row="0" col="0" />
+     <Button text="Add" tap="add" row="0" col="1" />
+diff --git a/package.json b/package.json
+index aea034d..0cf86b1 100644
+--- a/package.json
++++ b/package.json
+@@ -26,6 +26,7 @@
+   },
+   "dependencies": {
+     "email-validator": "^1.0.4",
++    "nativescript-social-share": "^1.2.0",
+     "tns-core-modules": "2.1.0"
+   },
+   "devDependencies": {
+-- 
+2.9.2.windows.1
+

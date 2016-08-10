@@ -1,0 +1,943 @@
+<div class="d2h-wrapper">
+    <div id="d2h-631341" class="d2h-file-wrapper" data-lang="js">
+    <div class="d2h-file-header">
+      <span class="d2h-file-name-wrapper">
+    <span class="d2h-icon-wrapper"><svg aria-hidden="true" class="d2h-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12">
+    <path d="M6 5H2v-1h4v1zM2 8h7v-1H2v1z m0 2h7v-1H2v1z m0 2h7v-1H2v1z m10-7.5v9.5c0 0.55-0.45 1-1 1H1c-0.55 0-1-0.45-1-1V2c0-0.55 0.45-1 1-1h7.5l3.5 3.5z m-1 0.5L8 2H1v12h10V5z"></path>
+</svg></span>
+    <span class="d2h-file-name">app/shared/view-models/user-view-model.js</span>
+    <span class="d2h-tag d2h-changed d2h-changed-tag">CHANGED</span></span>
+    </div>
+    <div class="d2h-files-diff">
+        <div class="d2h-file-side-diff">
+            <div class="d2h-code-wrapper">
+                <table class="d2h-diff-table">
+                    <tbody class="d2h-diff-tbody">
+                    <tr>
+    <td class="d2h-code-side-linenumber d2h-info"></td>
+    <td class="d2h-info">
+        <div class="d2h-code-side-line d2h-info">@@ -1,6 +1,7 @@</div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      1
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">var&nbsp;config&nbsp;=&nbsp;require("../../shared/config");</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      2
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">var&nbsp;fetchModule&nbsp;=&nbsp;require("fetch");</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      3
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">var&nbsp;Observable&nbsp;=&nbsp;require("data/observable").Observable;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      4
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      5
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">function&nbsp;User(info)&nbsp;{</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      6
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;info&nbsp;=&nbsp;info&nbsp;||&nbsp;{};</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-info"></td>
+    <td class="d2h-info">
+        <div class="d2h-code-side-line d2h-info">@@ -46,6 +47,11 @@ function User(info) {</div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      46
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}).then(handleErrors);</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      47
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;};</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      48
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      49
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;viewModel;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      50
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">}</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      51
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+        </div>
+    </td>
+</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="d2h-file-side-diff">
+            <div class="d2h-code-wrapper">
+                <table class="d2h-diff-table">
+                    <tbody class="d2h-diff-tbody">
+                    <tr>
+    <td class="d2h-code-side-linenumber d2h-info"></td>
+    <td class="d2h-info">
+        <div class="d2h-code-side-line d2h-info"></div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      1
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">var&nbsp;config&nbsp;=&nbsp;require("../../shared/config");</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      2
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">var&nbsp;fetchModule&nbsp;=&nbsp;require("fetch");</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      3
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">var&nbsp;Observable&nbsp;=&nbsp;require("data/observable").Observable;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      4
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">var&nbsp;validator&nbsp;=&nbsp;require("email-validator");</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      5
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      6
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">function&nbsp;User(info)&nbsp;{</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      7
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;info&nbsp;=&nbsp;info&nbsp;||&nbsp;{};</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-info"></td>
+    <td class="d2h-info">
+        <div class="d2h-code-side-line d2h-info"></div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      47
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}).then(handleErrors);</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      48
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;};</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      49
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      50
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;viewModel.isValidEmail&nbsp;=&nbsp;function&nbsp;()&nbsp;{</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      51
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;email&nbsp;=&nbsp;this.get("email");</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      52
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;validator.validate(email);</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      53
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;};</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      54
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      55
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;viewModel;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      56
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">}</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      57
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+        </div>
+    </td>
+</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="d2h-661385" class="d2h-file-wrapper" data-lang="js">
+    <div class="d2h-file-header">
+      <span class="d2h-file-name-wrapper">
+    <span class="d2h-icon-wrapper"><svg aria-hidden="true" class="d2h-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12">
+    <path d="M6 5H2v-1h4v1zM2 8h7v-1H2v1z m0 2h7v-1H2v1z m0 2h7v-1H2v1z m10-7.5v9.5c0 0.55-0.45 1-1 1H1c-0.55 0-1-0.45-1-1V2c0-0.55 0.45-1 1-1h7.5l3.5 3.5z m-1 0.5L8 2H1v12h10V5z"></path>
+</svg></span>
+    <span class="d2h-file-name">app/views/register/register.js</span>
+    <span class="d2h-tag d2h-changed d2h-changed-tag">CHANGED</span></span>
+    </div>
+    <div class="d2h-files-diff">
+        <div class="d2h-file-side-diff">
+            <div class="d2h-code-wrapper">
+                <table class="d2h-diff-table">
+                    <tbody class="d2h-diff-tbody">
+                    <tr>
+    <td class="d2h-code-side-linenumber d2h-info"></td>
+    <td class="d2h-info">
+        <div class="d2h-code-side-line d2h-info">@@ -28,5 +28,12 @@ function completeRegistration() {</div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      28
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">}</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      29
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      30
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">exports.register&nbsp;=&nbsp;function()&nbsp;{</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-del">
+      31
+    </td>
+    <td class="d2h-del">
+        <div class="d2h-code-side-line d2h-del">
+            <span class="d2h-code-line-prefix">-</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;<del>completeRegistration();</del></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      32
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">};</span>
+        </div>
+    </td>
+</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="d2h-file-side-diff">
+            <div class="d2h-code-wrapper">
+                <table class="d2h-diff-table">
+                    <tbody class="d2h-diff-tbody">
+                    <tr>
+    <td class="d2h-code-side-linenumber d2h-info"></td>
+    <td class="d2h-info">
+        <div class="d2h-code-side-line d2h-info"></div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      28
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">}</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      29
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      30
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">exports.register&nbsp;=&nbsp;function()&nbsp;{</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      31
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;<ins>if&nbsp;(user.isValidEmail())&nbsp;{</ins></span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      32
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;completeRegistration();</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      33
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      34
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dialogsModule.alert({</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      35
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message:&nbsp;"Enter&nbsp;a&nbsp;valid&nbsp;email&nbsp;address.",</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      36
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;okButtonText:&nbsp;"OK"</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      37
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      38
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      39
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">};</span>
+        </div>
+    </td>
+</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="d2h-519664" class="d2h-file-wrapper" data-lang="json">
+    <div class="d2h-file-header">
+      <span class="d2h-file-name-wrapper">
+    <span class="d2h-icon-wrapper"><svg aria-hidden="true" class="d2h-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12">
+    <path d="M6 5H2v-1h4v1zM2 8h7v-1H2v1z m0 2h7v-1H2v1z m0 2h7v-1H2v1z m10-7.5v9.5c0 0.55-0.45 1-1 1H1c-0.55 0-1-0.45-1-1V2c0-0.55 0.45-1 1-1h7.5l3.5 3.5z m-1 0.5L8 2H1v12h10V5z"></path>
+</svg></span>
+    <span class="d2h-file-name">package.json</span>
+    <span class="d2h-tag d2h-changed d2h-changed-tag">CHANGED</span></span>
+    </div>
+    <div class="d2h-files-diff">
+        <div class="d2h-file-side-diff">
+            <div class="d2h-code-wrapper">
+                <table class="d2h-diff-table">
+                    <tbody class="d2h-diff-tbody">
+                    <tr>
+    <td class="d2h-code-side-linenumber d2h-info"></td>
+    <td class="d2h-info">
+        <div class="d2h-code-side-line d2h-info">@@ -25,6 +25,7 @@</div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      25
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      26
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;},</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      27
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;"dependencies":&nbsp;{</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      28
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;"tns-core-modules":&nbsp;"2.1.0"</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      29
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;},</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      30
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;"devDependencies":&nbsp;{</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-info"></td>
+    <td class="d2h-info">
+        <div class="d2h-code-side-line d2h-info">@@ -33,4 +34,4 @@</div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      33
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;"babylon":&nbsp;"6.8.2",</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      34
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;"lazy":&nbsp;"1.0.11"</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      35
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;}</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-del">
+      36
+    </td>
+    <td class="d2h-del">
+        <div class="d2h-code-side-line d2h-del">
+            <span class="d2h-code-line-prefix">-</span>
+            <span class="d2h-code-line-ctn">}</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-del">
+      37
+    </td>
+    <td class="d2h-del">
+        <div class="d2h-code-side-line d2h-del">
+            <span class="d2h-code-line-prefix">-</span>
+            <span class="d2h-code-line-ctn">-&nbsp;</span>
+        </div>
+    </td>
+</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="d2h-file-side-diff">
+            <div class="d2h-code-wrapper">
+                <table class="d2h-diff-table">
+                    <tbody class="d2h-diff-tbody">
+                    <tr>
+    <td class="d2h-code-side-linenumber d2h-info"></td>
+    <td class="d2h-info">
+        <div class="d2h-code-side-line d2h-info"></div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      25
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;}</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      26
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;},</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      27
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;"dependencies":&nbsp;{</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      28
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;"email-validator":&nbsp;"^1.0.4",</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      29
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;"tns-core-modules":&nbsp;"2.1.0"</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      30
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;},</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      31
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;"devDependencies":&nbsp;{</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-info"></td>
+    <td class="d2h-info">
+        <div class="d2h-code-side-line d2h-info"></div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      34
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;"babylon":&nbsp;"6.8.2",</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      35
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;&nbsp;&nbsp;"lazy":&nbsp;"1.0.11"</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      36
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+            <span class="d2h-code-line-prefix">&nbsp;</span>
+            <span class="d2h-code-line-ctn">&nbsp;&nbsp;}</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-ins">
+      37
+    </td>
+    <td class="d2h-ins">
+        <div class="d2h-code-side-line d2h-ins">
+            <span class="d2h-code-line-prefix">+</span>
+            <span class="d2h-code-line-ctn">}</span>
+        </div>
+    </td>
+</tr><tr>
+    <td class="d2h-code-side-linenumber d2h-cntx">
+      
+    </td>
+    <td class="d2h-cntx">
+        <div class="d2h-code-side-line d2h-cntx">
+        </div>
+    </td>
+</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

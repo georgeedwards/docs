@@ -1,0 +1,35 @@
+From fa7a8a80b6ff79891706c41791c4c6932d936c89 Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 10:59:22 +0100
+Subject: [PATCH] Step 4.5 Populating List View
+
+---
+ app/views/list/list.js | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/app/views/list/list.js b/app/views/list/list.js
+index e69de29..22b6224 100644
+--- a/app/views/list/list.js
++++ b/app/views/list/list.js
+@@ -0,0 +1,17 @@
++var dialogsModule = require("ui/dialogs");
++var Observable = require("data/observable").Observable;
++var ObservableArray = require("data/observable-array").ObservableArray;
++var page;
++
++var pageData = new Observable({
++    groceryList: new ObservableArray([
++        { name: "eggs" },
++        { name: "bread" },
++        { name: "cereal" }
++    ])
++});
++
++exports.loaded = function(args) {
++    page = args.object;
++    page.bindingContext = pageData;
++};
+\ No newline at end of file
+-- 
+2.9.2.windows.1
+

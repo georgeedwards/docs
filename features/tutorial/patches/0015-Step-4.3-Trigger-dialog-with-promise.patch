@@ -1,0 +1,42 @@
+From 4643bdc963411f3e7dbadd8ecb3bdafd6bb0332d Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 10:55:42 +0100
+Subject: [PATCH] Step 4.3 Trigger dialog with promise
+
+---
+ app/views/login/login.js | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
+
+diff --git a/app/views/login/login.js b/app/views/login/login.js
+index bced9d6..9639803 100644
+--- a/app/views/login/login.js
++++ b/app/views/login/login.js
+@@ -1,4 +1,5 @@
+ var frameModule = require("ui/frame");
++var dialogsModule = require("ui/dialogs");
+ var UserViewModel = require("../../shared/view-models/user-view-model");
+ var user = new UserViewModel();
+ var page;
+@@ -10,7 +11,18 @@ exports.loaded = function(args) {
+ };
+ 
+ exports.signIn = function() {
+-    user.login();
++    user.login()
++        .catch(function(error) {
++            console.log(error);
++            dialogsModule.alert({
++                message: "Unfortunately we could not find your account.",
++                okButtonText: "OK"
++            });
++            return Promise.reject();
++        })
++        .then(function() {
++            frameModule.topmost().navigate("views/list/list");
++        });
+ };
+ 
+ exports.register = function() {
+-- 
+2.9.2.windows.1
+

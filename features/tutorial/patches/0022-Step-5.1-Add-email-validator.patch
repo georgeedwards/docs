@@ -1,0 +1,76 @@
+From bc2e5b5bd932bd20a25817f3c768775ac2aa51ad Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 13:01:32 +0100
+Subject: [PATCH] Step 5.1 Add email validator
+
+---
+ app/shared/view-models/user-view-model.js | 6 ++++++
+ app/views/register/register.js            | 9 ++++++++-
+ package.json                              | 3 ++-
+ 3 files changed, 16 insertions(+), 2 deletions(-)
+
+diff --git a/app/shared/view-models/user-view-model.js b/app/shared/view-models/user-view-model.js
+index c5bb54a..4612c69 100644
+--- a/app/shared/view-models/user-view-model.js
++++ b/app/shared/view-models/user-view-model.js
+@@ -1,6 +1,7 @@
+ var config = require("../../shared/config");
+ var fetchModule = require("fetch");
+ var Observable = require("data/observable").Observable;
++var validator = require("email-validator");
+ 
+ function User(info) {
+     info = info || {};
+@@ -46,6 +47,11 @@ function User(info) {
+         }).then(handleErrors);
+     };
+ 
++    viewModel.isValidEmail = function () {
++        var email = this.get("email");
++        return validator.validate(email);
++    };
++
+     return viewModel;
+ }
+ 
+diff --git a/app/views/register/register.js b/app/views/register/register.js
+index 695cc96..b07dbe1 100644
+--- a/app/views/register/register.js
++++ b/app/views/register/register.js
+@@ -28,5 +28,12 @@ function completeRegistration() {
+ }
+ 
+ exports.register = function() {
+-    completeRegistration();
++    if (user.isValidEmail()) {
++        completeRegistration();
++    } else {
++        dialogsModule.alert({
++            message: "Enter a valid email address.",
++            okButtonText: "OK"
++        });
++    }
+ };
+\ No newline at end of file
+diff --git a/package.json b/package.json
+index 1d37695..aea034d 100644
+--- a/package.json
++++ b/package.json
+@@ -25,6 +25,7 @@
+     }
+   },
+   "dependencies": {
++    "email-validator": "^1.0.4",
+     "tns-core-modules": "2.1.0"
+   },
+   "devDependencies": {
+@@ -33,4 +34,4 @@
+     "babylon": "6.8.2",
+     "lazy": "1.0.11"
+   }
+-}
+\ No newline at end of file
++}
+-- 
+2.9.2.windows.1
+

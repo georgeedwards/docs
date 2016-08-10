@@ -1,0 +1,41 @@
+From e6253accd7de5cd94847afcf7d0c6f050e1f5152 Mon Sep 17 00:00:00 2001
+From: George Edwards <g.edwards@gas-sense.co.uk>
+Date: Mon, 8 Aug 2016 10:53:39 +0100
+Subject: [PATCH] Step 4.2 Add User View Model
+
+---
+ app/views/login/login.js | 11 +++--------
+ 1 file changed, 3 insertions(+), 8 deletions(-)
+
+diff --git a/app/views/login/login.js b/app/views/login/login.js
+index 3caba02..bced9d6 100644
+--- a/app/views/login/login.js
++++ b/app/views/login/login.js
+@@ -1,21 +1,16 @@
+ var frameModule = require("ui/frame");
+-var Observable = require("data/observable").Observable;
++var UserViewModel = require("../../shared/view-models/user-view-model");
++var user = new UserViewModel();
+ var page;
+ var email;
+ 
+-var user = new Observable({
+-    email: "user@domain.com",
+-    password: "password"
+-});
+-
+ exports.loaded = function(args) {
+     page = args.object;
+     page.bindingContext = user;
+ };
+ 
+ exports.signIn = function() {
+-    email = page.getViewById("email");
+-    console.log(email.text);
++    user.login();
+ };
+ 
+ exports.register = function() {
+-- 
+2.9.2.windows.1
+
