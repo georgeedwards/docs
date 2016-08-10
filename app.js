@@ -39,6 +39,8 @@ app.use('/style', serveStatic('features/docs/public/style'))
 app.use('/images', serveStatic('features/docs/public/images'))
 app.use('/diff', serveStatic('features/tutorial/diffs'))
 
+app.use('/config', serveStatic('ng2/config'));
+
 
 app.use('/', routes);
 
