@@ -8,8 +8,8 @@ const tutorialRoutes: Routes = [
     path: 'tutorial',
     component: tutorialComponent,
     children: [
-      { path: '/chapter/:id',  component: chapterComponent },
-      { path: '', component: chapterComponent }
+      { path: 'chapter/:id',  component: chapterComponent },
+      { path: '', redirectTo: 'chapter/1', pathMatch: 'full'},
     ]
   }
 ];
