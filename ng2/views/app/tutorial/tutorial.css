@@ -1,6 +1,7 @@
 .chapters {
     width: 25%;
-    margin-top: 3rem;
+    margin-top: 20px;
+    position: fixed;
 }
 .row {
     margin-left: 7rem;
@@ -43,4 +44,8 @@ h2 {
 }
 .exercise-start h4 {
     line-height: 10px;
+}
+.title {
+    border-bottom: 1px solid #ccc;
+    margin-right: 30px;
 }
