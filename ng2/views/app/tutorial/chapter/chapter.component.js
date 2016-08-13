@@ -20,6 +20,14 @@ var chapterComponent = (function () {
         this.sub = this.route.params.subscribe(function (params) {
             var id = params['id'];
             _this.content = id;
+            var that = _this;
+            var _url = './chapter/' + params['id'] + '.html';
+            $.ajax({
+                url: _url,
+                success: function (result) {
+                    that.content = result;
+                }
+            });
         });
     };
     chapterComponent.prototype.ngOnDestroy = function () {
@@ -27,8 +35,9 @@ var chapterComponent = (function () {
     };
     chapterComponent = __decorate([
         core_1.Component({
-            selector: 'tutorial',
-            template: "<div [innerHTML]=\"content\"></div>"
+            selector: 'chapter',
+            template: "<div [innerHTML]=\"content\"></div>",
+            styleUrls: ['./app/tutorial/chapter/chapter.css']
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute])
     ], chapterComponent);

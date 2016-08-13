@@ -92,8 +92,8 @@
 
     <div class="slide-wrapper">
       <div class="toggle_radio">
-        <input type="radio" class="toggle_option" id="first_toggle" name="toggle_option" onclick="switchCodeBlock('n');">
-        <input type="radio" class="toggle_option" id="second_toggle" name="toggle_option" onclick="switchCodeBlock('ng');">
+        <input type="radio" checked class="toggle_option" id="first_toggle" name="toggle_option" onChange="toggleFrontEndVar('nativescript')">
+        <input type="radio" class="toggle_option" id="second_toggle" name="toggle_option" onChange="toggleFrontEndVar('angular')">
         <label for="first_toggle"><p>NativeScript</p></label>
         <label for="second_toggle" style="    margin-left: 110px;
     margin-top: -11px;"><p>Angular</p></label>
@@ -514,10 +514,10 @@
       
       
         <a class="link primary prev"
-          href="ui/animation-code.html">
+          href="ui/keyboard.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          Animations with Code
+          Keyboard
         </a>
       
       
@@ -562,6 +562,5 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script src="/script/code-block.js"></script>
-    <script src="/script/code-environment.js"></script>
   </body>
 </html>

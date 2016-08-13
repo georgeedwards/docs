@@ -8,7 +8,7 @@ var tutorialRoutes = [
         component: tutorial_component_1.tutorialComponent,
         children: [
             { path: 'chapter/:id', component: chapter_component_1.chapterComponent },
-            { path: '', redirectTo: 'chapter/1', pathMatch: 'full' },
+            { path: '', redirectTo: 'chapter/0', pathMatch: 'full' },
         ]
     }
 ];

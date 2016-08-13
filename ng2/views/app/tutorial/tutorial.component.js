@@ -20,8 +20,9 @@ var tutorialComponent = (function () {
         core_1.Component({
             selector: 'tutorial',
             templateUrl: 'app/tutorial/tutorial.html',
-            styleUrls: ['app/tutorial/tutorial.css'],
-            directives: [codestep_component_1.codeStepComponent, router_1.ROUTER_DIRECTIVES]
+            styleUrls: ['./app/tutorial/tutorial.css'],
+            directives: [codestep_component_1.codeStepComponent, router_1.ROUTER_DIRECTIVES],
+            encapsulation: core_1.ViewEncapsulation.None
         }), 
         __metadata('design:paramtypes', [])
     ], tutorialComponent);

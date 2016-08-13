@@ -32,12 +32,14 @@ app.use(cookieParser());
 
 //all static assetes for hexo content
 
-app.use('/docs', serveStatic('features/docs/public', {'index': ['index.html', 'index.htm']}))
+app.use('/docs', serveStatic('features/docs/public', {'index': ['index.html', 'index.htm']}));
 //app.use(subdomain('docs', express.static('docs/public')));
-app.use('/script', serveStatic('features/docs/public/script'))
-app.use('/style', serveStatic('features/docs/public/style'))
-app.use('/images', serveStatic('features/docs/public/images'))
-app.use('/diff', serveStatic('features/tutorial/diffs'))
+app.use('/script', serveStatic('features/docs/public/script'));
+app.use('/style', serveStatic('features/docs/public/style'));
+app.use('/images', serveStatic('features/docs/public/images'));
+app.use('/diff', serveStatic('features/tutorial/diffs'));
+app.use('/chapter', serveStatic('ng2/views/app/tutorial/chapter/chapters'));
+app.use('/img', serveStatic('features/docs/source/img'));
 
 app.use('/config', serveStatic('ng2/config'));
 

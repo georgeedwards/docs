@@ -1,27 +1,33 @@
 .chapters {
     width: 25%;
     margin-top: 3rem;
+    margin-left: 7rem;
+    display: inline-block;
 }
-.row {
+chapter h1 {
+    font-size: 3rem;
+}
+.chapters.row {
     margin-left: 7rem;
 }
 
-a.chapter {
+.chapters a {
     margin: 0px;
     padding: 5px;
     padding-left: 8px;
     display: block;
 }
 
-a:hover.chapter, a.clicked.chapter {
+.chapters a:hover, a.clicked {
     background-color: #EEE;
     border-left-style: solid;
     border-left-color: #5B8BFB;
 }
 
-h1 {
-    font-size: 3rem;
+p {
+    background-color: blue;
 }
-h2 {
-    font-size: 2.5rem;
+
+.tester {
+    background-color: green;
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { codeStepComponent } from './codeStep/codestep.component';
 import { Routes, RouterModule }   from '@angular/router';
 import { ROUTER_DIRECTIVES } from '@angular/router';
@@ -6,8 +6,9 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 @Component({
   selector: 'tutorial',
   templateUrl: 'app/tutorial/tutorial.html',
-  styleUrls: ['app/tutorial/tutorial.css'],
-  directives: [codeStepComponent, ROUTER_DIRECTIVES]
+  styleUrls: ['./app/tutorial/tutorial.css'],
+  directives: [codeStepComponent, ROUTER_DIRECTIVES],
+  encapsulation: ViewEncapsulation.None
 })
 export class tutorialComponent {
     public chapters = _chapters;

@@ -9,7 +9,7 @@ const tutorialRoutes: Routes = [
     component: tutorialComponent,
     children: [
       { path: 'chapter/:id',  component: chapterComponent },
-      { path: '', redirectTo: 'chapter/1', pathMatch: 'full'},
+      { path: '', redirectTo: 'chapter/0', pathMatch: 'full'},
     ]
   }
 ];
