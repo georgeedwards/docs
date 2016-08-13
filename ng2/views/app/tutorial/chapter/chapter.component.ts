@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Router, ActivatedRoute } from '@angular/router';
 import {SafeResourceUrl, DomSanitizationService} from '@angular/platform-browser';
-declare var $: any;
-
+declare var $: any; //Jquery declare
+ 
 @Component({
   selector: 'chapter',
   template: `<div [innerHTML]="content"></div>`,

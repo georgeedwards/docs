@@ -34,7 +34,7 @@ function getFiles(path, files) {
 function writeFile(content, fileName) {
     //extract the destination
     var _fileName = fileName.substring(29, fileName.length - 6);
-    _fileName = _fileName.substr(0, 3);
+    _fileName = _fileName.substr(9, 3);
     _fileName = './features/tutorial/diffs/' + _fileName + '.html';
     fs.writeFileSync(_fileName, content);
 }

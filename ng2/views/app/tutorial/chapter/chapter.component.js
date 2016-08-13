@@ -34,6 +34,7 @@ var chapterComponent = (function () {
         this.sub.unsubscribe();
     };
     chapterComponent = __decorate([
+        //Jquery declare
         core_1.Component({
             selector: 'chapter',
             template: "<div [innerHTML]=\"content\"></div>",

@@ -9,25 +9,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var codeStepComponent = (function () {
-    function codeStepComponent() {
+    function codeStepComponent(route) {
+        this.route = route;
         this.content = '';
     }
     codeStepComponent.prototype.ngOnInit = function () {
-        if (this.step.toString() === "2.1") {
-            this.content = "<p>bar Test</p>"; //should get html from rendered patch files
-        }
+        var _this = this;
+        this.sub = this.route.params.subscribe(function (params) {
+            var id = params['id'];
+            _this.content = id;
+            var that = _this;
+            var _url = './chapter/' + params['id'] + '.html';
+            $.ajax({
+                url: _url,
+                success: function (result) {
+                    that.content = result;
+                }
+            });
+        });
+    };
+    codeStepComponent.prototype.ngOnDestroy = function () {
+        this.sub.unsubscribe();
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', String)
     ], codeStepComponent.prototype, "step", void 0);
     codeStepComponent = __decorate([
+        //Jquery declare
         core_1.Component({
             selector: 'codestep',
-            template: "<div [innerHTML]=\"content\"></div>"
+            template: "<div class=\"codestep\" [innerHTML]=\"content\"></div>"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute])
     ], codeStepComponent);
     return codeStepComponent;
 }());
