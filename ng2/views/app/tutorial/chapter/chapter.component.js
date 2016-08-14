@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var codestep_component_1 = require('../codeStep/codestep.component');
 var chapterComponent = (function () {
     function chapterComponent(route) {
         this.route = route;
@@ -38,7 +39,8 @@ var chapterComponent = (function () {
         core_1.Component({
             selector: 'chapter',
             template: "<div [innerHTML]=\"content\"></div>",
-            styleUrls: ['./app/tutorial/chapter/chapter.css']
+            styleUrls: ['./app/tutorial/chapter/chapter.css'],
+            directives: [codestep_component_1.codeStepComponent]
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute])
     ], chapterComponent);

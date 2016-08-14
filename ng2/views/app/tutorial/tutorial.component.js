@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var codestep_component_1 = require('./codeStep/codestep.component');
 var router_1 = require('@angular/router');
+var codestep_component_1 = require('./codeStep/codestep.component');
 var tutorialComponent = (function () {
     function tutorialComponent() {
         this.chapters = _chapters;
@@ -21,7 +21,7 @@ var tutorialComponent = (function () {
             selector: 'tutorial',
             templateUrl: 'app/tutorial/tutorial.html',
             styleUrls: ['./app/tutorial/tutorial.css'],
-            directives: [codestep_component_1.codeStepComponent, router_1.ROUTER_DIRECTIVES],
+            directives: [router_1.ROUTER_DIRECTIVES, codestep_component_1.codeStepComponent],
             encapsulation: core_1.ViewEncapsulation.None
         }), 
         __metadata('design:paramtypes', [])
@@ -30,6 +30,7 @@ var tutorialComponent = (function () {
 }());
 exports.tutorialComponent = tutorialComponent;
 var _chapters = [
+    { number: '0', title: 'Intro' },
     { number: '1', title: 'Getting Started' },
     { number: '2', title: 'Building the UI' },
     { number: '3', title: 'Application Logic' },

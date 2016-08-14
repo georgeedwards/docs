@@ -1,6 +1,3 @@
-[submodule "tutorial"]
-	path = tutorial
-	url = https://github.com/georgeedwards/ns-tutorial
 [submodule "features/docs/themes/nativescript"]
 	path = features/docs/themes/nativescript
 	url = https://github.com/georgeedwards/hexo-theme

@@ -17,15 +17,16 @@ export class codeStepComponent {
     constructor(private route: ActivatedRoute) { }
 
     ngOnInit() {
+        console.log("HERE");
         this.sub = this.route.params.subscribe(params => {
-            var id: string = params['id'];
-            this.content = id;
+            this.content = this.step;
             var that = this;
-            var _url = './chapter/' + params['id'] + '.html';
+            var _url = './diff/' + this.step + '.html';
             $.ajax({
                 url: _url,
                 success: function (result) {
                     that.content = result;
+                    console.log("content: " + result);
                 }
             });
         });
@@ -34,3 +35,7 @@ export class codeStepComponent {
         this.sub.unsubscribe();
     }
 }
+
+/*
+https://github.com/georgeedwards/ns-tutorial/archive/a70e6f556640db53f1ef3acba28c42f582d45890.zip
+*/

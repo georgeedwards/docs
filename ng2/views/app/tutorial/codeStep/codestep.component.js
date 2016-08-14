@@ -17,15 +17,16 @@ var codeStepComponent = (function () {
     }
     codeStepComponent.prototype.ngOnInit = function () {
         var _this = this;
+        console.log("HERE");
         this.sub = this.route.params.subscribe(function (params) {
-            var id = params['id'];
-            _this.content = id;
+            _this.content = _this.step;
             var that = _this;
-            var _url = './chapter/' + params['id'] + '.html';
+            var _url = './diff/' + _this.step + '.html';
             $.ajax({
                 url: _url,
                 success: function (result) {
                     that.content = result;
+                    console.log("content: " + result);
                 }
             });
         });
