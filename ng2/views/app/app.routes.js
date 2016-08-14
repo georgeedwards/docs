@@ -1,7 +1,7 @@
 "use strict";
-var home_component_1 = require('./home/home.component');
-var router_1 = require('@angular/router');
-var appRoutes = [
+const home_component_1 = require('./home/home.component');
+const router_1 = require('@angular/router');
+const appRoutes = [
     { path: '', component: home_component_1.homeComponent },
     { path: 'tutorial', loadChildren: 'tutorial/tutorial.module', pathMatch: 'prefix' }
 ];

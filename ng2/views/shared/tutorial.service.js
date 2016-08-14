@@ -8,36 +8,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var Observable_1 = require('rxjs/Observable');
-var TutorialService = (function () {
-    function TutorialService(http) {
+const core_1 = require('@angular/core');
+const http_1 = require('@angular/http');
+const Observable_1 = require('rxjs/Observable');
+let TutorialService = class TutorialService {
+    constructor(http) {
         this.http = http;
         this.contentUrl = 'diff\Step-2.1-Add-a-UI-component.html'; // URL to web API
     }
-    TutorialService.prototype.getContent = function () {
+    getContent() {
         return this.http.get(this.contentUrl)
             .map(this.extractData)
             .catch(this.handleError);
-    };
-    TutorialService.prototype.extractData = function (res) {
-        var body = res.json();
+    }
+    extractData(res) {
+        let body = res.json();
         return body.data || {};
-    };
-    TutorialService.prototype.handleError = function (error) {
+    }
+    handleError(error) {
         // In a real world app, we might use a remote logging infrastructure
         // We'd also dig deeper into the error to get a better message
-        var errMsg = (error.message) ? error.message :
-            error.status ? error.status + " - " + error.statusText : 'Server error';
+        let errMsg = (error.message) ? error.message :
+            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         console.error(errMsg); // log to console instead
         return Observable_1.Observable.throw(errMsg);
-    };
-    TutorialService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], TutorialService);
-    return TutorialService;
-}());
+    }
+};
+TutorialService = __decorate([
+    core_1.Injectable(), 
+    __metadata('design:paramtypes', [http_1.Http])
+], TutorialService);
 exports.TutorialService = TutorialService;
 //# sourceMappingURL=tutorial.service.js.map

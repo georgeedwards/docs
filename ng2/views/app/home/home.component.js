@@ -8,19 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var homeComponent = (function () {
-    function homeComponent() {
-    }
-    homeComponent = __decorate([
-        core_1.Component({
-            selector: 'home',
-            templateUrl: 'app/home/home.html',
-            styleUrls: ['app/home/home.css']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], homeComponent);
-    return homeComponent;
-}());
+const core_1 = require('@angular/core');
+let homeComponent = class homeComponent {
+};
+homeComponent = __decorate([
+    core_1.Component({
+        selector: 'home',
+        templateUrl: 'app/home/home.html',
+        styleUrls: ['app/home/home.css']
+    }), 
+    __metadata('design:paramtypes', [])
+], homeComponent);
 exports.homeComponent = homeComponent;
 //# sourceMappingURL=home.component.js.map

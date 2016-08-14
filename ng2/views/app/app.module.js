@@ -8,27 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var home_component_1 = require('./home/home.component');
-var app_component_1 = require('./app.component');
-var app_routes_1 = require('./app.routes');
-var tutorial_module_1 = require('./tutorial/tutorial.module');
-var AppModule = (function () {
-    function AppModule() {
-    }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, app_routes_1.routing, tutorial_module_1.tutorialModule],
-            declarations: [app_component_1.AppComponent, home_component_1.homeComponent],
-            providers: [
-                app_routes_1.appRoutingProviders
-            ],
-            bootstrap: [app_component_1.AppComponent]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
-}());
+const core_1 = require('@angular/core');
+const platform_browser_1 = require('@angular/platform-browser');
+const home_component_1 = require('./home/home.component');
+const app_component_1 = require('./app.component');
+const app_routes_1 = require('./app.routes');
+const tutorial_module_1 = require('./tutorial/tutorial.module');
+let AppModule = class AppModule {
+};
+AppModule = __decorate([
+    core_1.NgModule({
+        imports: [platform_browser_1.BrowserModule, app_routes_1.routing, tutorial_module_1.tutorialModule],
+        declarations: [app_component_1.AppComponent, home_component_1.homeComponent],
+        providers: [
+            app_routes_1.appRoutingProviders
+        ],
+        bootstrap: [app_component_1.AppComponent]
+    }), 
+    __metadata('design:paramtypes', [])
+], AppModule);
 exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map

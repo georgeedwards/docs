@@ -1,8 +1,8 @@
 "use strict";
-var router_1 = require('@angular/router');
-var tutorial_component_1 = require('./tutorial.component');
-var chapter_component_1 = require('./chapter/chapter.component');
-var tutorialRoutes = [
+const router_1 = require('@angular/router');
+const tutorial_component_1 = require('./tutorial.component');
+const chapter_component_1 = require('./chapter/chapter.component');
+const tutorialRoutes = [
     {
         path: 'tutorial',
         component: tutorial_component_1.tutorialComponent,

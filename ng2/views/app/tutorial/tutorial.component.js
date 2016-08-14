@@ -8,28 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var codestep_component_1 = require('./codeStep/codestep.component');
-var tutorialComponent = (function () {
-    function tutorialComponent() {
+const core_1 = require('@angular/core');
+const router_1 = require('@angular/router');
+const codestep_component_1 = require('./codeStep/codestep.component');
+let tutorialComponent = class tutorialComponent {
+    constructor() {
         this.chapters = _chapters;
         this.clickedItem = 0;
     }
-    tutorialComponent = __decorate([
-        core_1.Component({
-            selector: 'tutorial',
-            templateUrl: 'app/tutorial/tutorial.html',
-            styleUrls: ['./app/tutorial/tutorial.css'],
-            directives: [router_1.ROUTER_DIRECTIVES, codestep_component_1.codeStepComponent],
-            encapsulation: core_1.ViewEncapsulation.None
-        }), 
-        __metadata('design:paramtypes', [])
-    ], tutorialComponent);
-    return tutorialComponent;
-}());
+};
+tutorialComponent = __decorate([
+    core_1.Component({
+        selector: 'tutorial',
+        templateUrl: 'app/tutorial/tutorial.html',
+        styleUrls: ['./app/tutorial/tutorial.css'],
+        directives: [router_1.ROUTER_DIRECTIVES, codestep_component_1.codeStepComponent],
+        encapsulation: core_1.ViewEncapsulation.None
+    }), 
+    __metadata('design:paramtypes', [])
+], tutorialComponent);
 exports.tutorialComponent = tutorialComponent;
-var _chapters = [
+const _chapters = [
     { number: '0', title: 'Intro' },
     { number: '1', title: 'Getting Started' },
     { number: '2', title: 'Building the UI' },
@@ -38,10 +37,7 @@ var _chapters = [
     { number: '5', title: 'Using Plugins' },
     { number: '6', title: 'Using Native APIs' }
 ];
-var _chapter = (function () {
-    function _chapter() {
-    }
-    return _chapter;
-}());
+class _chapter {
+}
 exports._chapter = _chapter;
 //# sourceMappingURL=tutorial.component.js.map

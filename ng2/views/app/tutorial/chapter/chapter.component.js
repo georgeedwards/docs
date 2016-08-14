@@ -8,20 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var codestep_component_1 = require('../codeStep/codestep.component');
-var chapterComponent = (function () {
-    function chapterComponent(route) {
+const core_1 = require('@angular/core');
+const router_1 = require('@angular/router');
+const codestep_component_1 = require('../codeStep/codestep.component');
+let chapterComponent = class chapterComponent {
+    constructor(route) {
         this.route = route;
         this.content = '';
     }
-    chapterComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.sub = this.route.params.subscribe(function (params) {
+    ngOnInit() {
+        this.sub = this.route.params.subscribe(params => {
             var id = params['id'];
-            _this.content = id;
-            var that = _this;
+            this.content = id;
+            var that = this;
             var _url = './chapter/' + params['id'] + '.html';
             $.ajax({
                 url: _url,
@@ -30,21 +29,20 @@ var chapterComponent = (function () {
                 }
             });
         });
-    };
-    chapterComponent.prototype.ngOnDestroy = function () {
+    }
+    ngOnDestroy() {
         this.sub.unsubscribe();
-    };
-    chapterComponent = __decorate([
-        //Jquery declare
-        core_1.Component({
-            selector: 'chapter',
-            template: "<div [innerHTML]=\"content\"></div>",
-            styleUrls: ['./app/tutorial/chapter/chapter.css'],
-            directives: [codestep_component_1.codeStepComponent]
-        }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute])
-    ], chapterComponent);
-    return chapterComponent;
-}());
+    }
+};
+chapterComponent = __decorate([
+    //Jquery declare
+    core_1.Component({
+        selector: 'chapter',
+        template: `<div [innerHTML]="content"></div>`,
+        styleUrls: ['./app/tutorial/chapter/chapter.css'],
+        directives: [codestep_component_1.codeStepComponent]
+    }), 
+    __metadata('design:paramtypes', [router_1.ActivatedRoute])
+], chapterComponent);
 exports.chapterComponent = chapterComponent;
 //# sourceMappingURL=chapter.component.js.map

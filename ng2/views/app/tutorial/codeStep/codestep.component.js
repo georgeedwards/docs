@@ -8,20 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var codeStepComponent = (function () {
-    function codeStepComponent(route) {
+const core_1 = require('@angular/core');
+const router_1 = require('@angular/router');
+let codeStepComponent = class codeStepComponent {
+    constructor(route) {
         this.route = route;
         this.content = '';
     }
-    codeStepComponent.prototype.ngOnInit = function () {
-        var _this = this;
+    ngOnInit() {
         console.log("HERE");
-        this.sub = this.route.params.subscribe(function (params) {
-            _this.content = _this.step;
-            var that = _this;
-            var _url = './diff/' + _this.step + '.html';
+        this.sub = this.route.params.subscribe(params => {
+            this.content = this.step;
+            var that = this;
+            var _url = './diff/' + this.step + '.html';
             $.ajax({
                 url: _url,
                 success: function (result) {
@@ -30,23 +29,25 @@ var codeStepComponent = (function () {
                 }
             });
         });
-    };
-    codeStepComponent.prototype.ngOnDestroy = function () {
+    }
+    ngOnDestroy() {
         this.sub.unsubscribe();
-    };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], codeStepComponent.prototype, "step", void 0);
-    codeStepComponent = __decorate([
-        //Jquery declare
-        core_1.Component({
-            selector: 'codestep',
-            template: "<div class=\"codestep\" [innerHTML]=\"content\"></div>"
-        }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute])
-    ], codeStepComponent);
-    return codeStepComponent;
-}());
+    }
+};
+__decorate([
+    core_1.Input(), 
+    __metadata('design:type', String)
+], codeStepComponent.prototype, "step", void 0);
+codeStepComponent = __decorate([
+    //Jquery declare
+    core_1.Component({
+        selector: 'codestep',
+        template: `<div class="codestep" [innerHTML]="content"></div>`
+    }), 
+    __metadata('design:paramtypes', [router_1.ActivatedRoute])
+], codeStepComponent);
 exports.codeStepComponent = codeStepComponent;
+/*
+https://github.com/georgeedwards/ns-tutorial/archive/a70e6f556640db53f1ef3acba28c42f582d45890.zip
+*/ 
 //# sourceMappingURL=codestep.component.js.map

@@ -22,6 +22,7 @@ app.use(express.static('ng2/public'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 file.processTutorial(); //generate html rendered patches for tutorial steps
+file.prepareDiffs();
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'ng2/public', 'favicon.png')));

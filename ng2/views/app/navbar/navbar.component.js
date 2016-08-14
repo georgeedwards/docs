@@ -8,19 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var navbarComponent = (function () {
-    function navbarComponent() {
-    }
-    navbarComponent = __decorate([
-        core_1.Component({
-            selector: 'navbar',
-            templateUrl: 'app/navbar/navbar.html',
-            styleUrls: ['app/navbar/navbar.css']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], navbarComponent);
-    return navbarComponent;
-}());
+const core_1 = require('@angular/core');
+let navbarComponent = class navbarComponent {
+};
+navbarComponent = __decorate([
+    core_1.Component({
+        selector: 'navbar',
+        templateUrl: 'app/navbar/navbar.html',
+        styleUrls: ['app/navbar/navbar.css']
+    }), 
+    __metadata('design:paramtypes', [])
+], navbarComponent);
 exports.navbarComponent = navbarComponent;
 //# sourceMappingURL=navbar.component.js.map

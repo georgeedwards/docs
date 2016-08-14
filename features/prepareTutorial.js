@@ -1,10 +1,11 @@
 "use strict";
-var fs = require('fs');
+const fs = require('fs');
 var Diff2Html = require('diff2html').Diff2Html;
+var Git = require("nodegit");
 function processTutorial() {
     var files = [];
     var _files = getFiles('./features/tutorial/patches', files);
-    var _loop_1 = function(path) {
+    for (let path of _files) {
         fs.readFile(path, 'utf8', function (err, data) {
             if (err) {
                 throw err;
@@ -12,10 +13,6 @@ function processTutorial() {
             var content = Diff2Html.getPrettyHtml(data, { outputFormat: 'side-by-side' });
             writeFile(content, path);
         });
-    };
-    for (var _i = 0, _files_1 = _files; _i < _files_1.length; _i++) {
-        var path = _files_1[_i];
-        _loop_1(path);
     }
 }
 exports.processTutorial = processTutorial;
@@ -37,5 +34,35 @@ function writeFile(content, fileName) {
     _fileName = _fileName.substr(9, 3);
     _fileName = './features/tutorial/diffs/' + _fileName + '.html';
     fs.writeFileSync(_fileName, content);
+}
+function prepareDiffs() {
+    var patt = new RegExp('[0-9].[0-9]');
+    var results = [];
+    // Open the repository directory.
+    Git.Repository.open("features/tutorial")
+        .then(function (repo) {
+        return repo.getMasterCommit();
+    })
+        .then(function (firstCommitOnMaster) {
+        // Create a new history event emitter.
+        var history = firstCommitOnMaster.history();
+        // Listen for commit events from the history.
+        history.on("commit", function (commit) {
+            var entry = new Commit();
+            entry.hash = commit.sha();
+            var step = patt.exec(commit.message());
+            if (step !== null) {
+                entry.step = step.toString();
+            }
+            console.log(entry.step);
+            results.push(entry);
+        });
+        // Start emitting events.
+        history.start();
+        console.log("return");
+    });
+}
+exports.prepareDiffs = prepareDiffs;
+class Commit {
 }
 //# sourceMappingURL=prepareTutorial.js.map

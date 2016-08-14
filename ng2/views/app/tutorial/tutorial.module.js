@@ -8,29 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var tutorial_routes_1 = require('./tutorial.routes');
-var tutorial_component_1 = require('./tutorial.component');
-var chapter_component_1 = require('./chapter/chapter.component');
-var tutorialModule = (function () {
-    function tutorialModule() {
-    }
-    tutorialModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                common_1.CommonModule,
-                tutorial_routes_1.tutorialRouting
-            ],
-            declarations: [
-                tutorial_component_1.tutorialComponent,
-                chapter_component_1.chapterComponent
-            ],
-            providers: []
-        }), 
-        __metadata('design:paramtypes', [])
-    ], tutorialModule);
-    return tutorialModule;
-}());
+const core_1 = require('@angular/core');
+const common_1 = require('@angular/common');
+const tutorial_routes_1 = require('./tutorial.routes');
+const tutorial_component_1 = require('./tutorial.component');
+const chapter_component_1 = require('./chapter/chapter.component');
+let tutorialModule = class tutorialModule {
+};
+tutorialModule = __decorate([
+    core_1.NgModule({
+        imports: [
+            common_1.CommonModule,
+            tutorial_routes_1.tutorialRouting
+        ],
+        declarations: [
+            tutorial_component_1.tutorialComponent,
+            chapter_component_1.chapterComponent
+        ],
+        providers: []
+    }), 
+    __metadata('design:paramtypes', [])
+], tutorialModule);
 exports.tutorialModule = tutorialModule;
 //# sourceMappingURL=tutorial.module.js.map
