@@ -10,15 +10,22 @@ export class codeStepComponent {
     errorMessage: string;
     private content: string = '';
     //private chapterURL;
-    private chapterURL = 'git/2.1.txt';  // URL to web API
+    gitURL = 'git/2.1.txt';  // URL to web API
 
     constructor(private tutorialService: TutorialService) { }
 
     ngOnInit() {
-        this.chapterURL = './diff/' + this.step + '.html';
-        this.tutorialService.getContents(this.chapterURL)
+        var chapterURL = './diff/' + this.step + '.html';
+        this.tutorialService.getContents(chapterURL)
             .subscribe(
             diffStep => this.content = diffStep,
             error => this.errorMessage = <any>error);
+
+        var url = './git/' + this.step + '.txt';
+        this.tutorialService.getContents(url)
+            .subscribe(
+            hash => this.gitURL = hash,
+            error => this.errorMessage = <any>error);
+
     }
 }

@@ -15,12 +15,15 @@ let codeStepComponent = class codeStepComponent {
         this.tutorialService = tutorialService;
         this.content = '';
         //private chapterURL;
-        this.chapterURL = 'git/2.1.txt'; // URL to web API
+        this.gitURL = 'git/2.1.txt'; // URL to web API
     }
     ngOnInit() {
-        this.chapterURL = './diff/' + this.step + '.html';
-        this.tutorialService.getContents(this.chapterURL)
+        var chapterURL = './diff/' + this.step + '.html';
+        this.tutorialService.getContents(chapterURL)
             .subscribe(diffStep => this.content = diffStep, error => this.errorMessage = error);
+        var url = './git/' + this.step + '.txt';
+        this.tutorialService.getContents(url)
+            .subscribe(hash => this.gitURL = hash, error => this.errorMessage = error);
     }
 };
 __decorate([

@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require('@angular/core');
 const router_1 = require('@angular/router');
 const codestep_component_1 = require('./codeStep/codestep.component');
+const sidebar_component_1 = require('../sidebar/sidebar.component');
+const navbar_component_1 = require('../navbar/navbar.component');
 let tutorialComponent = class tutorialComponent {
     constructor() {
         this.chapters = _chapters;
@@ -22,7 +24,7 @@ tutorialComponent = __decorate([
         selector: 'tutorial',
         templateUrl: 'app/tutorial/tutorial.html',
         styleUrls: ['./app/tutorial/tutorial.css'],
-        directives: [router_1.ROUTER_DIRECTIVES, codestep_component_1.codeStepComponent],
+        directives: [router_1.ROUTER_DIRECTIVES, codestep_component_1.codeStepComponent, sidebar_component_1.sidebarComponent, navbar_component_1.navbarComponent],
         encapsulation: core_1.ViewEncapsulation.None
     }), 
     __metadata('design:paramtypes', [])

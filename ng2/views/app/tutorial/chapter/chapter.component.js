@@ -20,8 +20,8 @@ let chapterComponent = class chapterComponent {
     }
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
-            this.url = './chapter/' + params['id'] + '.html';
-            this.tutorialService.getContents(this.url)
+            var url = './chapter/' + params['id'] + '.html';
+            this.tutorialService.getContents(url)
                 .subscribe(chapterContent => this.content = chapterContent, error => this.errorMessage = error);
         });
     }

@@ -14,15 +14,14 @@ import { TutorialService } from '../../shared/tutorial.service';
 export class chapterComponent implements OnInit, OnDestroy {
   private sub: Subscription;
   private content: string = '';
-  private url: string;
   errorMessage: string;
 
   constructor(private route: ActivatedRoute, private tutorialService: TutorialService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.url = './chapter/' + params['id'] + '.html';
-      this.tutorialService.getContents(this.url)
+      var url = './chapter/' + params['id'] + '.html';
+      this.tutorialService.getContents(url)
         .subscribe(
         chapterContent => this.content = chapterContent,
         error => this.errorMessage = <any>error);

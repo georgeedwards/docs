@@ -9,8 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const sidebar_component_1 = require('./sidebar/sidebar.component');
-const navbar_component_1 = require('./navbar/navbar.component');
 const home_component_1 = require('./home/home.component');
 let AppComponent = class AppComponent {
 };
@@ -18,10 +16,8 @@ AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
         template: `
-  <sidebar></sidebar>
-  <navbar></navbar>
   <router-outlet></router-outlet>`,
-        directives: [sidebar_component_1.sidebarComponent, navbar_component_1.navbarComponent, home_component_1.homeComponent]
+        directives: [home_component_1.homeComponent]
     }), 
     __metadata('design:paramtypes', [])
 ], AppComponent);
