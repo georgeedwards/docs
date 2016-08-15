@@ -9,38 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const router_1 = require('@angular/router');
-const http_1 = require('@angular/http');
-const Rx_1 = require('rxjs/Rx');
+const tutorial_service_1 = require('../../shared/tutorial.service');
 let codeStepComponent = class codeStepComponent {
-    constructor(route, http) {
-        this.route = route;
-        this.http = http;
+    constructor(tutorialService) {
+        this.tutorialService = tutorialService;
         this.content = '';
         //private chapterURL;
         this.chapterURL = 'git/2.1.txt'; // URL to web API
     }
     ngOnInit() {
         this.chapterURL = './diff/' + this.step + '.html';
-        this.getChapter()
-            .subscribe(chapterContent => this.content = chapterContent, error => this.errorMessage = error);
-    }
-    getChapter() {
-        return this.http.get(this.chapterURL)
-            .map(this.extractData)
-            .catch(this.handleError);
-    }
-    extractData(res) {
-        let body = res._body;
-        return body;
-    }
-    handleError(error) {
-        // In a real world app, we might use a remote logging infrastructure
-        // We'd also dig deeper into the error to get a better message
-        let errMsg = (error.message) ? error.message :
-            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-        console.error(errMsg); // log to console instead
-        return Rx_1.Observable.throw(errMsg);
+        this.tutorialService.getContents(this.chapterURL)
+            .subscribe(diffStep => this.content = diffStep, error => this.errorMessage = error);
     }
 };
 __decorate([
@@ -52,7 +32,7 @@ codeStepComponent = __decorate([
         selector: 'codestep',
         template: `<div class="codestep" [innerHTML]="content"></div>`
     }), 
-    __metadata('design:paramtypes', [router_1.ActivatedRoute, http_1.Http])
+    __metadata('design:paramtypes', [tutorial_service_1.TutorialService])
 ], codeStepComponent);
 exports.codeStepComponent = codeStepComponent;
 //# sourceMappingURL=codestep.component.js.map

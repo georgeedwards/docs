@@ -12,6 +12,7 @@ const core_1 = require('@angular/core');
 const common_1 = require('@angular/common');
 const tutorial_routes_1 = require('./tutorial.routes');
 const http_1 = require('@angular/http');
+const tutorial_service_1 = require('../shared/tutorial.service');
 const tutorial_component_1 = require('./tutorial.component');
 const chapter_component_1 = require('./chapter/chapter.component');
 let tutorialModule = class tutorialModule {
@@ -21,14 +22,13 @@ tutorialModule = __decorate([
         imports: [
             common_1.CommonModule,
             tutorial_routes_1.tutorialRouting,
-            http_1.HttpModule,
-            http_1.JsonpModule
+            http_1.HttpModule
         ],
         declarations: [
             tutorial_component_1.tutorialComponent,
             chapter_component_1.chapterComponent
         ],
-        providers: []
+        providers: [tutorial_service_1.TutorialService]
     }), 
     __metadata('design:paramtypes', [])
 ], tutorialModule);
