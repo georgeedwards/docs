@@ -38,31 +38,45 @@ function writeFile(content, fileName) {
 function prepareDiffs() {
     var patt = new RegExp('[0-9].[0-9]');
     var results = [];
-    // Open the repository directory.
-    Git.Repository.open("features/tutorial")
+    // *** Note we're returning the result of the promise chain
+    return Git.Repository.open("features/tutorial") // Open the repository directory.
         .then(function (repo) {
         return repo.getMasterCommit();
     })
         .then(function (firstCommitOnMaster) {
-        // Create a new history event emitter.
-        var history = firstCommitOnMaster.history();
-        // Listen for commit events from the history.
-        history.on("commit", function (commit) {
-            var entry = new Commit();
-            entry.hash = commit.sha();
-            var step = patt.exec(commit.message());
-            if (step !== null) {
-                entry.step = step.toString();
-            }
-            console.log(entry.step);
-            results.push(entry);
+        // *** Create and return a promise
+        return new Promise(function (resolve, reject) {
+            var history = firstCommitOnMaster.history(); // Create a new history event emitter.
+            history
+                .on("commit", function (commit) {
+                var entry = new Commit();
+                entry.hash = commit.sha();
+                var step = patt.exec(commit.message());
+                if (step !== null) {
+                    entry.step = step.toString();
+                }
+                results.push(entry);
+            })
+                .on("end", function () {
+                // *** Resolve the promise
+                resolve(results);
+            });
+            history.start(); // Start emitting events.
         });
-        // Start emitting events.
-        history.start();
-        console.log("return");
     });
 }
 exports.prepareDiffs = prepareDiffs;
 class Commit {
 }
+function genGit() {
+    prepareDiffs()
+        .then(function (result) {
+        for (let commit of result) {
+            if (commit.step !== undefined) {
+                fs.writeFileSync('features/git/' + commit.step + '.txt', commit.hash);
+            }
+        }
+    });
+}
+exports.genGit = genGit;
 //# sourceMappingURL=prepareTutorial.js.map

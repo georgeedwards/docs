@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require('@angular/core');
 const common_1 = require('@angular/common');
 const tutorial_routes_1 = require('./tutorial.routes');
+const http_1 = require('@angular/http');
 const tutorial_component_1 = require('./tutorial.component');
 const chapter_component_1 = require('./chapter/chapter.component');
 let tutorialModule = class tutorialModule {
@@ -19,7 +20,9 @@ tutorialModule = __decorate([
     core_1.NgModule({
         imports: [
             common_1.CommonModule,
-            tutorial_routes_1.tutorialRouting
+            tutorial_routes_1.tutorialRouting,
+            http_1.HttpModule,
+            http_1.JsonpModule
         ],
         declarations: [
             tutorial_component_1.tutorialComponent,

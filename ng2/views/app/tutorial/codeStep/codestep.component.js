@@ -10,28 +10,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const router_1 = require('@angular/router');
+const http_1 = require('@angular/http');
+const Rx_1 = require('rxjs/Rx');
 let codeStepComponent = class codeStepComponent {
-    constructor(route) {
+    constructor(route, http) {
         this.route = route;
+        this.http = http;
         this.content = '';
+        //private chapterURL;
+        this.chapterURL = 'git/2.1.txt'; // URL to web API
     }
     ngOnInit() {
-        console.log("HERE");
-        this.sub = this.route.params.subscribe(params => {
-            this.content = this.step;
-            var that = this;
-            var _url = './diff/' + this.step + '.html';
-            $.ajax({
-                url: _url,
-                success: function (result) {
-                    that.content = result;
-                    console.log("content: " + result);
-                }
-            });
-        });
+        this.chapterURL = './diff/' + this.step + '.html';
+        this.getChapter()
+            .subscribe(chapterContent => this.content = chapterContent, error => this.errorMessage = error);
     }
-    ngOnDestroy() {
-        this.sub.unsubscribe();
+    getChapter() {
+        return this.http.get(this.chapterURL)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+    extractData(res) {
+        let body = res._body;
+        return body;
+    }
+    handleError(error) {
+        // In a real world app, we might use a remote logging infrastructure
+        // We'd also dig deeper into the error to get a better message
+        let errMsg = (error.message) ? error.message :
+            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+        console.error(errMsg); // log to console instead
+        return Rx_1.Observable.throw(errMsg);
     }
 };
 __decorate([
@@ -39,15 +48,11 @@ __decorate([
     __metadata('design:type', String)
 ], codeStepComponent.prototype, "step", void 0);
 codeStepComponent = __decorate([
-    //Jquery declare
     core_1.Component({
         selector: 'codestep',
         template: `<div class="codestep" [innerHTML]="content"></div>`
     }), 
-    __metadata('design:paramtypes', [router_1.ActivatedRoute])
+    __metadata('design:paramtypes', [router_1.ActivatedRoute, http_1.Http])
 ], codeStepComponent);
 exports.codeStepComponent = codeStepComponent;
-/*
-https://github.com/georgeedwards/ns-tutorial/archive/a70e6f556640db53f1ef3acba28c42f582d45890.zip
-*/ 
 //# sourceMappingURL=codestep.component.js.map

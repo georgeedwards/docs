@@ -38,37 +38,49 @@ function writeFile(content: string, fileName: string) {
 export function prepareDiffs() {
     var patt = new RegExp('[0-9].[0-9]');
     var results: Array<Commit> = [];
-    // Open the repository directory.
-    Git.Repository.open("features/tutorial")
-        // Open the master branch.
-        .then(function (repo) {
+    // *** Note we're returning the result of the promise chain
+    return Git.Repository.open("features/tutorial") // Open the repository directory.
+        .then(function (repo) { // Open the master branch.
             return repo.getMasterCommit();
         })
-        // Display information about commits on master.
-        .then(function (firstCommitOnMaster) {
-            // Create a new history event emitter.
-            var history = firstCommitOnMaster.history();
+        .then(function (firstCommitOnMaster) { // Display information about commits on master.
+            // *** Create and return a promise
+            return new Promise(function (resolve, reject) {
+                var history = firstCommitOnMaster.history(); // Create a new history event emitter.
 
-            // Listen for commit events from the history.
-            history.on("commit", function (commit) {
-                var entry = new Commit();
-                
-                entry.hash = commit.sha();
-                var step = patt.exec(commit.message());
-                
-                if (step !== null) {
-                    entry.step = step.toString();
-                }
-                console.log(entry.step);
-                results.push(entry);
-            })
-            // Start emitting events.
-            history.start();
-            console.log("return");
+                history
+                    .on("commit", function (commit) { // Listen for commit events from the history.
+                        var entry = new Commit();
+
+                        entry.hash = commit.sha();
+                        var step = patt.exec(commit.message());
+
+                        if (step !== null) {
+                            entry.step = step.toString();
+                        }
+                        results.push(entry);
+                    })
+                    .on("end", function () { // *** Listen for the end
+                        // *** Resolve the promise
+                        resolve(results);
+                    });
+                history.start(); // Start emitting events.
+            });
         });
 }
 
 class Commit {
     step: string;
     hash: string;
+}
+
+export function genGit() {
+    prepareDiffs()
+        .then(function (result) {
+            for (let commit of result) {
+                if (commit.step !== undefined) {
+                    fs.writeFileSync('features/git/' + commit.step + '.txt', commit.hash);
+                }
+            }
+        });
 }

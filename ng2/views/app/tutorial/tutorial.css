@@ -229,7 +229,7 @@ h2 {
 .d2h-code-side-linenumber {
   box-sizing: border-box;
   position: absolute;
-  width: 56px;
+  width: 30px;
   padding-left: 5px;
   padding-right: 5px;
   /* height: 18px; */
@@ -426,7 +426,7 @@ h2 {
 }
 
 td, th {
-    padding: 10px 5px;
+    padding: 8px 5px;
 }
 
 .d2h-file-side-diff:first-child { 
@@ -435,4 +435,14 @@ td, th {
 
 .d2h-file-side-diff {
     width: 100%;
+}
+
+.d2h-code-side-linenumber {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
 }

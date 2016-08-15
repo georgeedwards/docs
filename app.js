@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var serveStatic = require('serve-static')
 var file = require('./features/prepareTutorial');
 var routes = require('./ng2/routes/index');
-//var subdomain = require('express-subdomain');
 
 var app = express();
 
@@ -20,9 +19,11 @@ app.use(express.static('ng2/views'));
 app.use(express.static('ng2/public'));
 
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
+app.use('/persist', express.static(__dirname + '/persist'));
+
 
 file.processTutorial(); //generate html rendered patches for tutorial steps
-file.prepareDiffs();
+file.genGit();
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'ng2/public', 'favicon.png')));
@@ -33,17 +34,17 @@ app.use(cookieParser());
 
 //all static assetes for hexo content
 
-app.use('/docs', serveStatic('features/docs/public', {'index': ['index.html', 'index.htm']}));
+app.use('/docs', serveStatic('features/docs/public', { 'index': ['index.html', 'index.htm'] }));
 //app.use(subdomain('docs', express.static('docs/public')));
 app.use('/script', serveStatic('features/docs/public/script'));
 app.use('/style', serveStatic('features/docs/public/style'));
 app.use('/images', serveStatic('features/docs/public/images'));
 app.use('/diff', serveStatic('features/tutorial/diffs'));
+app.use('/git', serveStatic('features/git'));
 app.use('/chapter', serveStatic('ng2/views/app/tutorial/chapter/chapters'));
 app.use('/img', serveStatic('features/docs/source/img'));
 
 app.use('/config', serveStatic('ng2/config'));
-
 
 app.use('/', routes);
 

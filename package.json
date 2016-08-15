@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node ./bin/www"
   },
-  "engines" : { "node" : ">6.3.0" },
+  "engines": {
+    "node": ">6.3.0"
+  },
   "dependencies": {
     "@angular/common": "2.0.0-rc.5",
     "@angular/compiler": "2.0.0-rc.5",
