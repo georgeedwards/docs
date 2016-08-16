@@ -3,14 +3,14 @@ import { TutorialService } from '../../shared/tutorial.service';
 
 @Component({
     selector: 'codestep',
-    template: `<div class="codestep" [innerHTML]="content"></div>`
+    template: `<a href={{gitURL}}><div class="codestep" [innerHTML]="content|rawHtml"></div>`
 })
 export class codeStepComponent {
     @Input() step: string;
     errorMessage: string;
     private content: string = '';
     //private chapterURL;
-    gitURL = 'git/2.1.txt';  // URL to web API
+    public gitURL = 'git/2.1.txt';  // URL to web API
 
     constructor(private tutorialService: TutorialService) { }
 

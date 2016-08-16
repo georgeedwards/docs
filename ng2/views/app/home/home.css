@@ -292,6 +292,8 @@ footer.page-footer {
     margin-left: 5px;
     margin-right: 5px;
     font-size: 1rem;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 8px;
+}
+h5.promo-caption {
+    color: #FFC107;
 }

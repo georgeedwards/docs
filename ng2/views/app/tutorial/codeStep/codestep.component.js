@@ -33,7 +33,7 @@ __decorate([
 codeStepComponent = __decorate([
     core_1.Component({
         selector: 'codestep',
-        template: `<div class="codestep" [innerHTML]="content"></div>`
+        template: `<a href={{gitURL}}><div class="codestep" [innerHTML]="content|rawHtml"></div>`
     }), 
     __metadata('design:paramtypes', [tutorial_service_1.TutorialService])
 ], codeStepComponent);

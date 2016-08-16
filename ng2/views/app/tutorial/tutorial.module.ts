@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { TutorialService } from '../shared/tutorial.service';
 import { tutorialComponent } from './tutorial.component';
 import { chapterComponent } from './chapter/chapter.component';
-
+import { RawHtmlPipe } from '../shared/http.pipe'
 @NgModule({
   imports: [
     CommonModule,
@@ -14,7 +14,8 @@ import { chapterComponent } from './chapter/chapter.component';
   ],
   declarations: [
     tutorialComponent,
-    chapterComponent
+    chapterComponent,
+    RawHtmlPipe
   ],
   providers: [TutorialService]
 })
