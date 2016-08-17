@@ -1,20 +1,26 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, Output, EventEmitter, OnInit } from '@angular/core';
 import { Routes, RouterModule }   from '@angular/router';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { codeStepComponent } from './codeStep/codestep.component';
 import { sidebarComponent } from '../sidebar/sidebar.component';
 import { navbarComponent } from '../navbar/navbar.component';
+import { UiService} from '../shared/ui.service';
 
 @Component({
   selector: 'tutorial',
   templateUrl: 'app/tutorial/tutorial.html',
   styleUrls: ['./app/tutorial/tutorial.css'],
-  directives: [ROUTER_DIRECTIVES, codeStepComponent, sidebarComponent, navbarComponent],
+  directives: [ROUTER_DIRECTIVES, codeStepComponent],
   encapsulation: ViewEncapsulation.None
 })
 export class tutorialComponent {
   public chapters = _chapters;
   clickedItem: number = 0;
+  @Output() everySecond = new EventEmitter();
+
+  constructor(private uiService: UiService) {
+    this.uiService.changeNavState(true); //display nav bars
+  }
 }
 
 const _chapters: _chapter[] = [

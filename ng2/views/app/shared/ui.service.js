@@ -9,20 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const ui_service_1 = require('../shared/ui.service');
-let homeComponent = class homeComponent {
-    constructor(uiService) {
-        this.uiService = uiService;
-        this.uiService.changeNavState(false); //hide nav bars
+const Subject_1 = require('rxjs/Subject');
+let UiService = class UiService {
+    constructor() {
+        // Observable boolean sources
+        this.navStateSource = new Subject_1.Subject();
+        // Observable boolean streams
+        this.navState$ = this.navStateSource.asObservable();
+    }
+    // Service message commands
+    changeNavState(showNav) {
+        this.navStateSource.next(showNav);
     }
 };
-homeComponent = __decorate([
-    core_1.Component({
-        selector: 'home',
-        templateUrl: 'app/home/home.html',
-        styleUrls: ['app/home/home.css']
-    }), 
-    __metadata('design:paramtypes', [ui_service_1.UiService])
-], homeComponent);
-exports.homeComponent = homeComponent;
-//# sourceMappingURL=home.component.js.map
+UiService = __decorate([
+    core_1.Injectable(), 
+    __metadata('design:paramtypes', [])
+], UiService);
+exports.UiService = UiService;
+//# sourceMappingURL=ui.service.js.map

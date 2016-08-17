@@ -10,16 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const home_component_1 = require('./home/home.component');
+const sidebar_component_1 = require('./sidebar/sidebar.component');
+const navbar_component_1 = require('./navbar/navbar.component');
+const ui_service_1 = require('./shared/ui.service');
 let AppComponent = class AppComponent {
+    constructor(missionService) {
+        this.missionService = missionService;
+        this.showHeader = false;
+        this.missionService.changeNavState(false);
+        missionService.navState$.subscribe(showNav => {
+            this.showHeader = showNav;
+        });
+    }
 };
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
         template: `
+  <sidebar *ngIf="showHeader"></sidebar>
+  <navbar *ngIf="showHeader"></navbar>
   <router-outlet></router-outlet>`,
-        directives: [home_component_1.homeComponent]
+        directives: [home_component_1.homeComponent, sidebar_component_1.sidebarComponent, navbar_component_1.navbarComponent]
     }), 
-    __metadata('design:paramtypes', [])
+    __metadata('design:paramtypes', [ui_service_1.UiService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

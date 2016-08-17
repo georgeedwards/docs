@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TutorialService } from '../../shared/tutorial.service';
 
 @Component({
     selector: 'codestep',
     template: `<a href={{gitURL}}><div class="codestep" [innerHTML]="content|rawHtml"></div>`
 })
-export class codeStepComponent {
+export class codeStepComponent implements OnInit {
     @Input() step: string;
     errorMessage: string;
     private content: string = '';

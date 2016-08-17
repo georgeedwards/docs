@@ -14,6 +14,7 @@ const home_component_1 = require('./home/home.component');
 const app_component_1 = require('./app.component');
 const app_routes_1 = require('./app.routes');
 const tutorial_module_1 = require('./tutorial/tutorial.module');
+const ui_service_1 = require('./shared/ui.service');
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -21,7 +22,7 @@ AppModule = __decorate([
         imports: [platform_browser_1.BrowserModule, app_routes_1.routing, tutorial_module_1.tutorialModule],
         declarations: [app_component_1.AppComponent, home_component_1.homeComponent],
         providers: [
-            app_routes_1.appRoutingProviders
+            app_routes_1.appRoutingProviders, ui_service_1.UiService
         ],
         bootstrap: [app_component_1.AppComponent]
     }), 

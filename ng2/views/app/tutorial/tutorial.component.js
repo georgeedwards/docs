@@ -11,23 +11,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require('@angular/core');
 const router_1 = require('@angular/router');
 const codestep_component_1 = require('./codeStep/codestep.component');
-const sidebar_component_1 = require('../sidebar/sidebar.component');
-const navbar_component_1 = require('../navbar/navbar.component');
+const ui_service_1 = require('../shared/ui.service');
 let tutorialComponent = class tutorialComponent {
-    constructor() {
+    constructor(uiService) {
+        this.uiService = uiService;
         this.chapters = _chapters;
         this.clickedItem = 0;
+        this.everySecond = new core_1.EventEmitter();
+        this.uiService.changeNavState(true); //display nav bars
     }
 };
+__decorate([
+    core_1.Output(), 
+    __metadata('design:type', Object)
+], tutorialComponent.prototype, "everySecond", void 0);
 tutorialComponent = __decorate([
     core_1.Component({
         selector: 'tutorial',
         templateUrl: 'app/tutorial/tutorial.html',
         styleUrls: ['./app/tutorial/tutorial.css'],
-        directives: [router_1.ROUTER_DIRECTIVES, codestep_component_1.codeStepComponent, sidebar_component_1.sidebarComponent, navbar_component_1.navbarComponent],
+        directives: [router_1.ROUTER_DIRECTIVES, codestep_component_1.codeStepComponent],
         encapsulation: core_1.ViewEncapsulation.None
     }), 
-    __metadata('design:paramtypes', [])
+    __metadata('design:paramtypes', [ui_service_1.UiService])
 ], tutorialComponent);
 exports.tutorialComponent = tutorialComponent;
 const _chapters = [
