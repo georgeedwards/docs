@@ -112,7 +112,6 @@ export function genGit() {
 export function setLinks(content: string, sha: string) {
     var patt = new RegExp('<span class="d2h-file-name">(.*?)<');
     var res = patt.exec(content);
-    console.log(res[1]);
     var current = res[0] + '/span>';
     var future = '<a class="d2h-file-name" href="' + 'https://github.com/georgeedwards/ns-tutorial/commit/' + sha + '">' + res[1] + '</a>';
     return content.replace(current, future);
