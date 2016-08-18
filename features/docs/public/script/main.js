@@ -73,7 +73,7 @@
     anchor.href = '#' + h.id
     anchor.setAttribute('aria-hidden', true)
     anchor.setAttribute('data-scroll', '')
-    anchor.innerHTML = '<span class="icon-link"></span>'
+    anchor.innerHTML = '<i class="icon ion-link"></i>'
     anchor.addEventListener('click', onLinkClick)
     h.insertBefore(anchor, h.firstChild)
 
@@ -198,4 +198,5 @@
     .addEventListener('click', function () {
       document.body.classList.remove('sidebar-visible')
     })
+
 })()
