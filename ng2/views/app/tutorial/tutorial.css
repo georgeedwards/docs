@@ -446,3 +446,10 @@ td, th {
   user-select: none;           /* Non-prefixed version, currently
                                   not supported by any browser */
 }
+strong {
+    font-weight: 800;
+}
+ul li {
+    list-style-type: disc;
+    list-style-position: inside;
+}
