@@ -52,7 +52,6 @@ function writeFile(content: string, fileName: string) {
 /**
  * Generate an array of each code step and it's corresponding sha
  */
-
 export function prepareDiffs(): Promise<Array<Commit>> {
     var patt = new RegExp('[0-9].[0-9]');
     var results: Array<Commit> = [];
@@ -115,7 +114,6 @@ export function setLinks(content: string, sha: string) {
     var res = patt.exec(content);
     console.log(res[1]);
     var current = res[0] + '/span>';
-    //var current = '<span class="d2h-file-name">package.json</span>';
     var future = '<a class="d2h-file-name" href="' + 'https://github.com/georgeedwards/ns-tutorial/commit/' + sha + '">' + res[1] + '</a>';
     return content.replace(current, future);
 }
