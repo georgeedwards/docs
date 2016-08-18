@@ -1,7 +1,9 @@
 import * as fs from 'fs';
 var Diff2Html = require('diff2html').Diff2Html;
 var Git = require("nodegit");
-
+/**
+ * Generate html for code step snippets
+ */
 export function processTutorial() {
     var files = [];
     var _files = getFiles('./features/tutorial/patches', files);
@@ -10,11 +12,18 @@ export function processTutorial() {
         fs.readFile(path, 'utf8', function (err, data) {
             if (err) { throw err; }
             var content = Diff2Html.getPrettyHtml(data, { outputFormat: 'side-by-side' });
-            writeFile(content, path);
+            var patt = /From (.*?)\s/g;
+            var sha = patt.exec(data);
+            var processedContent = setLinks(content, sha[1]);
+            writeFile(processedContent, path);
         });
     }
 }
-
+/**
+ * Create an Array of all files in a directory
+ * @param {string} path - the path to the directory you want to scan for files
+ * @param {Array<string>} files- usually empty array, start file values 
+ */
 function getFiles(path: string, files: Array<string>): Array<string> {
     fs.readdirSync(path).forEach(function (file) {
         var subpath = path + '/' + file;
@@ -27,6 +36,11 @@ function getFiles(path: string, files: Array<string>): Array<string> {
     return files;
 }
 
+/**
+ * Create a file from string content
+ * @param {string} content - the content of the file to be written
+ * @param {string} fileName - the path and name of the file to be written
+ */
 function writeFile(content: string, fileName: string) {
     //extract the destination
     var _fileName = fileName.substring(29, fileName.length - 6);
@@ -35,7 +49,11 @@ function writeFile(content: string, fileName: string) {
     fs.writeFileSync(_fileName, content);
 }
 
-export function prepareDiffs() {
+/**
+ * Generate an array of each code step and it's corresponding sha
+ */
+
+export function prepareDiffs(): Promise<Array<Commit>> {
     var patt = new RegExp('[0-9].[0-9]');
     var results: Array<Commit> = [];
     // *** Note we're returning the result of the promise chain
@@ -74,6 +92,9 @@ class Commit {
     hash: string;
 }
 
+/**
+ * Prepare the git sha for each code step and then write it into features/git directory
+ */
 export function genGit() {
     prepareDiffs()
         .then(function (result) {
@@ -83,4 +104,18 @@ export function genGit() {
                 }
             }
         });
+}
+/**
+ * Replace the codestep html with links to the github commit
+ * @param {string} content - the html of a rendered git diff
+ * @param {string} sha - the git sha hash for this code step
+ */
+export function setLinks(content: string, sha: string) {
+    var patt = new RegExp('<span class="d2h-file-name">(.*?)<');
+    var res = patt.exec(content);
+    console.log(res[1]);
+    var current = res[0] + '/span>';
+    //var current = '<span class="d2h-file-name">package.json</span>';
+    var future = '<a class="d2h-file-name" href="' + 'https://github.com/georgeedwards/ns-tutorial/commit/' + sha + '">' + res[1] + '</a>';
+    return content.replace(current, future);
 }

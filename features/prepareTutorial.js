@@ -2,6 +2,9 @@
 const fs = require('fs');
 var Diff2Html = require('diff2html').Diff2Html;
 var Git = require("nodegit");
+/**
+ * Generate html for code step snippets
+ */
 function processTutorial() {
     var files = [];
     var _files = getFiles('./features/tutorial/patches', files);
@@ -11,11 +14,19 @@ function processTutorial() {
                 throw err;
             }
             var content = Diff2Html.getPrettyHtml(data, { outputFormat: 'side-by-side' });
-            writeFile(content, path);
+            var patt = /From (.*?)\s/g;
+            var sha = patt.exec(data);
+            var processedContent = setLinks(content, sha[1]);
+            writeFile(processedContent, path);
         });
     }
 }
 exports.processTutorial = processTutorial;
+/**
+ * Create an Array of all files in a directory
+ * @param {string} path - the path to the directory you want to scan for files
+ * @param {Array<string>} files- usually empty array, start file values
+ */
 function getFiles(path, files) {
     fs.readdirSync(path).forEach(function (file) {
         var subpath = path + '/' + file;
@@ -28,6 +39,11 @@ function getFiles(path, files) {
     });
     return files;
 }
+/**
+ * Create a file from string content
+ * @param {string} content - the content of the file to be written
+ * @param {string} fileName - the path and name of the file to be written
+ */
 function writeFile(content, fileName) {
     //extract the destination
     var _fileName = fileName.substring(29, fileName.length - 6);
@@ -35,6 +51,9 @@ function writeFile(content, fileName) {
     _fileName = './features/tutorial/diffs/' + _fileName + '.html';
     fs.writeFileSync(_fileName, content);
 }
+/**
+ * Generate an array of each code step and it's corresponding sha
+ */
 function prepareDiffs() {
     var patt = new RegExp('[0-9].[0-9]');
     var results = [];
@@ -68,6 +87,9 @@ function prepareDiffs() {
 exports.prepareDiffs = prepareDiffs;
 class Commit {
 }
+/**
+ * Prepare the git sha for each code step and then write it into features/git directory
+ */
 function genGit() {
     prepareDiffs()
         .then(function (result) {
@@ -79,4 +101,19 @@ function genGit() {
     });
 }
 exports.genGit = genGit;
+/**
+ * Replace the codestep html with links to the github commit
+ * @param {string} content - the html of a rendered git diff
+ * @param {string} sha - the git sha hash for this code step
+ */
+function setLinks(content, sha) {
+    var patt = new RegExp('<span class="d2h-file-name">(.*?)<');
+    var res = patt.exec(content);
+    console.log(res[1]);
+    var current = res[0] + '/span>';
+    //var current = '<span class="d2h-file-name">package.json</span>';
+    var future = '<a class="d2h-file-name" href="' + 'https://github.com/georgeedwards/ns-tutorial/commit/' + sha + '">' + res[1] + '</a>';
+    return content.replace(current, future);
+}
+exports.setLinks = setLinks;
 //# sourceMappingURL=prepareTutorial.js.map

@@ -23,7 +23,8 @@ app.use('/persist', express.static(__dirname + '/persist'));
 
 
 file.processTutorial(); //generate html rendered patches for tutorial steps
-file.genGit();
+//file.genGit(); //generate git SHA
+
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'ng2/public', 'favicon.png')));
