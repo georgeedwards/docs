@@ -434,7 +434,7 @@ undefined
 <li><a href="#load-images-from-local-file-system">From local file system (<code>~/</code> prefix)</a></li>
 <li><a href="#load-images-from-resource">From resource (<code>res://</code> prefix)</a></li>
 </ul>
-<p>You can also use the <a href="!--￼19--">image-source</a> module to create an image source and manually set it to the image:</p>
+<p>You can also use the <a href="">image-source</a> module to create an image source and manually set it to the image:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> image = <span class="keyword">new</span> imageModule.Image();</div><div class="line"><span class="keyword">var</span> imageSource = imageSourceModule.fromResource(<span class="string">"logo"</span>);</div><div class="line">image.imageSource = imageSource;</div></pre></td></tr></table></figure>
 <p>You can also use the <a href="http://docs.nativescript.org/api-reference/classes/_image_source_.imagesource.html">image-source API</a> to save and load images from a base64 encoded string.</p>
 <h2 id="Load-images-from-URL"><a href="#Load-images-from-URL" class="headerlink" title="Load images from URL"></a>Load images from URL</h2><p>Web images have an <code>http://</code> or <code>https://</code> prefix. When such an image is loaded, an asynchronous http request will be sent and the image will be shown if the request is successful.</p>
@@ -442,22 +442,22 @@ undefined
 </div>
 <div class="codeblock ng">undefined
 </div>
-<p>You can manually create an <a href="!--￼20--">ImageSource instance from URL</a>.</p>
+<p>You can manually create an <a href="">ImageSource instance from URL</a>.</p>
 <h2 id="Load-images-from-local-file-system"><a href="#Load-images-from-local-file-system" class="headerlink" title="Load images from local file system"></a>Load images from local file system</h2><p>Using the <code>~/</code> prefix, you can load images relative to the <code>App</code> folder inside your project.</p>
 <div class="codeblock n">undefined
 </div>
 <div class="codeblock ng">undefined
 </div>
-<p>You can manually create an <a href="!--￼21--">ImageSource instance from local file</a>.</p>
+<p>You can manually create an <a href="">ImageSource instance from local file</a>.</p>
 <blockquote>
-<p>Currently, loading images from the file system does not respect filename qualifiers as described <a href="!--￼22--&gt;#supporting-multiple-screens">here</a>. We have plans to implement that along with <a href="https://github.com/NativeScript/NativeScript/issues/276" target="_blank" rel="external">density-specific qualifiers support</a>.</p>
+<p>Currently, loading images from the file system does not respect filename qualifiers as described <a href="">here</a>. We have plans to implement that along with <a href="https://github.com/NativeScript/NativeScript/issues/276" target="_blank" rel="external">density-specific qualifiers support</a>.</p>
 </blockquote>
 <h2 id="Load-images-from-a-resource"><a href="#Load-images-from-a-resource" class="headerlink" title="Load images from a resource"></a>Load images from a resource</h2><p>Using the <code>res://</code> prefix you can load a resource image. This is the suggested approach, as it uses the native methods for loading the best image for the current device screen density.</p>
 <div class="codeblock n">undefined
 </div>
 <div class="codeblock ng">undefined
 </div>
-<p>You can manually create an <a href="!--￼23--">ImageSource instance from resource</a>.</p>
+<p>You can manually create an <a href="">ImageSource instance from resource</a>.</p>
 <blockquote>
 <p>The file extension is not included when referencing resource images.</p>
 </blockquote>

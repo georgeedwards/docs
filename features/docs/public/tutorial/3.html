@@ -10,7 +10,7 @@
 <meta http-equiv="pragma" content="no-cache" />
 
     <!-- Basic -->
-    <title> | Nativescript Docs</title>
+    <title>Chapter 3—Application Logic | Nativescript Docs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="../images/favicon.png" sizes="16x16 32x32 64x64">
@@ -18,12 +18,12 @@
     <!-- Social -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="http://docs.nativescript.org">
-    <meta property="og:title" content=" | Nativescript Docs">
+    <meta property="og:title" content="Chapter 3—Application Logic | Nativescript Docs">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@nativescript">
-    <meta name="twitter:title" content=" | Nativescript Docs">
+    <meta name="twitter:title" content="Chapter 3—Application Logic | Nativescript Docs">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
 
@@ -406,74 +406,143 @@
 <div class="content">
   <div class="content-wrapper">
     <div class="header-content">
-      <h1 class="title-page"></h1>
+      <h1 class="title-page">Chapter 3—Application Logic</h1>
       
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn primary small round lowercase" href="https://github.com/nativescript/docs/tree/master/source/core-concepts/DataBinding.md" target="_blank"> <i class="ion-social-github"></i> <span>Edit on GitHub</span></a>
+          <a class="btn primary small round lowercase" href="https://github.com/nativescript/docs/tree/master/source/tutorial/3.md" target="_blank"> <i class="ion-social-github"></i> <span>Edit on GitHub</span></a>
           
         </div>
       </div>
     </div>
 
     <div class="document-formatting">
-      <hr>
-<p>title: Data Binding
-description: NativeScript Documentation - Data Binding
-position: 4
-slug: data-binding</p>
-<h2 id="environment-angular"><a href="#environment-angular" class="headerlink" title="environment: angular"></a>environment: angular</h2><p>#Data Binding</p>
-<p>DataBinding is a core concept for both NativeScript and Angular frameworks. By default <code>Data Binding</code> stands for a connection (<code>binding</code>) between <code>Data Model</code> (Model) and <code>User Interface</code> (UI). Since this <code>binding</code> involves mostly <code>data</code> we use therm <code>Data Binding</code> to denote such connection or relationship.</p>
-<p>There are several ways of data flows (data bindings).</p>
+      <h1 id="Chapter-3—Application-Logic"><a href="#Chapter-3—Application-Logic" class="headerlink" title="Chapter 3—Application Logic"></a>Chapter 3—Application Logic</h1><p>In this chapter, you’ll learn how to add JavaScript logic to your NativeScript app, and you’ll be doing so using the base pattern on which the NativeScript framework is built, MVVM, or “model view view model”. Here’s what those words mean:</p>
 <ul>
-<li>one-way data binding - this is the most popular way of binding from Model to UI. A good example of such binding is a text stored in Model and displayed on UI in a text area control.</li>
-<li>one-way to source (to model) - this is a way of binding which updates Model due to some action on UI. The best example for this is an event like button click (tap).</li>
-<li>two-way data binding - this is a way of binding that combines both previous ways of binding. A tipical example is a text box field that reads its value from Model, but also changes the Model based on user input.</li>
+<li><strong>Model</strong>: The model defines and represents the data. Separating the model from the various views that might use it allows for code reuse.</li>
+<li><strong>View</strong>: The view represents the UI, which in NativeScript is written in XML. The view is often data-bound to the view model so that changes made to the view model in JavaScript instantly trigger visual changes to UI components.</li>
+<li><strong>View Model</strong>: The view model contains the application logic (often including the model), and exposes the data to the view. NativeScript provides a module called ‘Observable’, which facilitates creating a view model object that can be bound to the view.</li>
 </ul>
-<p><code>NativeScript-angular</code> plugin simplifies the way which data binding will be used. NativeScript part of the binding infrastructure is used to bind Model values to the real native elements (Android and iOS). Angular 2 part is used to provide correct binding context, change detection and notifications. In order to use data binding within NativeScript-Angular application generally do not differ from a standard Angular 2 web application.</p>
-<p>Let’s see some examples how to use data binding with <code>NativeScript-Angular</code> plugin.</p>
-<ul>
-<li>one-way data binding - surround target (UI) property with square brackets <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Label</span> [<span class="attr">text</span>]=<span class="string">'model.mytext'</span> &gt;</span><span class="tag">&lt;/<span class="name">Label</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
+<p>The biggest benefit of separating models, views, and view models, is that you are able to use two-way data binding; that is, changes to data in the model get instantly reflected on the view, and vice versa. The other big benefit is code reuse, as you’re often able to reuse models and view models across views.</p>
+<p>In Groceries, so far you’ve only touched the view (<code>login.xml</code>), and in this chapter you’ll be creating a view model. To do so, we first need to introduce one other type of file: the code-behind.</p>
+<h2 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h2><ul>
+<li><a href="#31-the-code-behind">3.1: The code-behind</a></li>
+<li><a href="#32-navigating-screens">3.2: Navigating screens</a></li>
+<li><a href="#33-accessing-ui-components">3.3: Accessing UI components</a></li>
+<li><a href="#34-adding-a-view-model">3.4: Adding a view model</a></li>
 </ul>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.model.mytext = <span class="string">'Lorem ipsum ...'</span>;</div><div class="line"><span class="comment">// this is the component where label is added</span></div></pre></td></tr></table></figure>
-<ul>
-<li>one-way to source data binding - surround source event with brackets<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Button</span> (<span class="attr">tap</span>)=<span class="string">'onButtonTap()'</span>&gt;</span><span class="tag">&lt;/<span class="name">Button</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">onButtonTap = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'Button tapped'</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">// onButtonTap is a function inside component class where Button is placed</span></div></pre></td></tr></table></figure>
-<ul>
-<li>two-way data binding - surround target property with square and normal brackets</li>
-</ul>
-<p>In Angular 1.x two-way data binding was the default way of binding. However with Angular 2 the state of <code>two-way data binding</code> is not the same - due to too many performance problems caused by the uncertainty of what or who caused the change of the value within Model which sometimes results in way too many changes (and change notifications). So Angular 2 does not have two-way data binding by default, instead it uses events to notify Model that something is changed.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextField</span> [(<span class="attr">ngModel</span>)]=<span class="string">'model.mytext'</span>&gt;</span><span class="tag">&lt;/<span class="name">TextField</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.model.mytext = <span class="string">'Lorem Ipsum ...'</span>;</div></pre></td></tr></table></figure>
-<p>There are some limitations when using two-way data binding with Angular 2. Two-way binding is initialized with <code>ngModel</code> directive instead of the name of the property. This under the hood creates two simple data bindings one-way and one-way to source:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextField</span> [(<span class="attr">ngModel</span>)]=<span class="string">'model.mytext'</span> &gt;</span><span class="tag">&lt;/<span class="name">TextField</span>&gt;</span></div><div class="line">// becomes</div><div class="line"><span class="tag">&lt;<span class="name">TextField</span> [<span class="attr">ngModel</span>]=<span class="string">'model.mytext'</span> (<span class="attr">ngModelChange</span>)=<span class="string">'model.mytext=$event.value'</span> &gt;</span><span class="tag">&lt;/<span class="name">TextField</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>This is the way Angular 2 supports two-way data binding. It generally works in almost all cases with the limitation that we could use only one property with two-way data binding (in the case of TextField this is the <code>text</code> property). <code>ngModel</code> directive also provide an interface for safely updating property in both directions. For all NativeScript controls <code>NativeScript-Angular</code> plugin provides the underlying infrastructure to support native controls via <code>ngModel</code> directive (the same way as Angular 2 syntax). It is done by using a single value property for every control that could be used with <code>ngModel</code> syntax. Following is the list of available properties:</p>
-<ul>
-<li>TextField, TextView, SearchBar - text property</li>
-<li>DatePicker - date property</li>
-<li>TimePicker - time property</li>
-<li>ListPicker, SegmentedBar - selectedIndex property</li>
-<li>Switch - checked property</li>
-<li>Slider - value property</li>
-</ul>
-<p>Angular mustache (`{{ }}`) syntax for binding is also supported within a NativeScript-Angular application. It’s just another way of one-way binding placed in the middle of a text.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;%raw%&#125;<span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">'&#123;&#123;model.deliveryHour&#125;&#125;:&#123;&#123;deliveryMinute&#125;&#125;'</span>&gt;</span><span class="tag">&lt;/<span class="name">Label</span>&gt;</span>&#123;%endraw%&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.model.deliveryHour = <span class="number">10</span>;</div><div class="line"><span class="keyword">this</span>.model.deliveryMinute = <span class="number">25</span>;</div></pre></td></tr></table></figure>
+<h2 id="3-1-The-code-behind"><a href="#3-1-The-code-behind" class="headerlink" title="3.1: The code-behind"></a>3.1: The code-behind</h2><p>In NativeScript a code-behind file is a JavaScript file that shares the same name as the view. For example, the login page’s view is named <code>login.xml</code>, so its code-behind file is named <code>login.js</code>. The code-behind file is where you put all code that interacts with the view itself.</p>
+<p>Let’s look at what you can do in a code-behind file with a simple example.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Construct the login view model
+</h4>
+
+<p>Open <code>login.xml</code> and add a <code>loaded</code> attribute to the <code>&lt;Page&gt;</code> UI component at the top. It should look like this:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span> <span class="attr">loaded</span>=<span class="string">"loaded"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Next, paste the code below in <code>app/views/login/login.js</code> to define a <code>loaded()</code> function:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">exports.loaded = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"hello"</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<div class="exercise-end"></div>
+
 <blockquote>
-<p>Note: Notice that property text of the Label element in previous example is not surrounded by any brackets.</p>
+<p><strong>NOTE</strong>: The keyword <code>exports</code> is part of <a href="http://wiki.commonjs.org/wiki/Modules/1.1" target="_blank" rel="external">CommonJS</a>, the standard on which both NativeScript and Node.js’ implementations of modules are based. In CommonJS-based JavaScript modules, a free variable called <code>exports</code> is an object to which a module might add properties and methods to configure its external API. Using <code>exports</code> in a code-behind file exposes the function for use in the view, or XML file. That is, the <code>exports.loaded</code> assignment in the code-behind file is what makes <code>loaded=&quot;loaded&quot;</code> in the view work.</p>
 </blockquote>
-<h3 id="Data-converters"><a href="#Data-converters" class="headerlink" title="Data converters"></a>Data converters</h3><p>Often data within Data Model is stored in a way that is optimized for best performance of tasks like search, replace and so on. Unfortunately the way like computers store data differs a lot with a human readable format. Probably the best example is <code>Date object</code>. In JavaScript <code>Date</code> actually is a very big number that represents milliseconds from 01.01.1970 which does not speak much to any human. Here comes the use of data converters which basically are functions that formats the data (from Model) in a human readable format (display in UI). Angular 2 uses same concept and named it <code>pipe</code> (like UNIX pipe) - value is passed to the pipe function which transforms it and the final result is displayed to the user. Using <code>pipe</code> is simple and with the same syntax like UNIX pipe.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Label</span> [<span class="attr">text</span>]=<span class="string">'model.deliveryDate | date:"fullDate"'</span> &gt;</span><span class="tag">&lt;/<span class="name">Label</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.model.deliveryDate = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2016</span>, <span class="number">2</span>, <span class="number">24</span>);</div><div class="line"><span class="comment">// this will display Thursday, March 24, 2016 for en-US locale</span></div></pre></td></tr></table></figure>
-<p>Pipes like pipes in UNIX can be chained and used one after another, while each pipe receives the result of the previous pipe or value of the property:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Label</span> [<span class="attr">text</span>]=<span class="string">'model.deliveryDate | date:"fullDate" | testPipe'</span> &gt;</span><span class="tag">&lt;/<span class="name">Label</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>When you run the app with this change, NativeScript triggers the <code>loaded()</code> function you created in the code-behind file, and you should see the word “hello” logged in your terminal.</p>
+<p><img src="/img/cli-getting-started/nativescript/chapter3/terminal-1.png" alt=""></p>
+<p>This simple example shows you how you can append attributes to UI components to run functions in the view’s accompanying JavaScript file. Let’s use another one of these attributes: <code>tap</code>.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Enable the buttons
+</h4>
+
+<p>You can add a <code>tap</code> attribute that will fire when the user taps or touches a button. In <code>app/views/login/login.xml</code>, switch the two buttons at the bottom of the screen to use this markup:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Button</span> <span class="attr">text</span>=<span class="string">"Sign in"</span> <span class="attr">tap</span>=<span class="string">"signIn"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">Button</span> <span class="attr">text</span>=<span class="string">"Sign up for Groceries"</span> <span class="attr">class</span>=<span class="string">"link"</span> <span class="attr">tap</span>=<span class="string">"register"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<p>Then, at the bottom of the <code>app/views/login/login.js</code> file, paste in the following <code>signIn()</code> and <code>register()</code> functions:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">exports.signIn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="string">"Signing in"</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">exports.register = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="string">"Registering"</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<div class="exercise-end"></div>
+
+<p>At this point, if you run your app and tap either of the buttons, you will see the appropriate alerts pop up. </p>
+<p><img src="/img/cli-getting-started/nativescript/chapter3/ios/1.png" alt="login 5">
+<img src="/img/cli-getting-started/nativescript/chapter3/android/1.png" alt="login 5"></p>
+<p>Now that you can see tap gestures working, let’s make them do something more interesting than open alerts.</p>
+<h2 id="3-2-Navigating-screens"><a href="#3-2-Navigating-screens" class="headerlink" title="3.2: Navigating screens"></a>3.2: Navigating screens</h2><p>When you tap the “Sign up for Groceries” button, you would expect a navigational change to a registration screen. This is very easy to do in NativeScript.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Enable the “Sign up” button on the login screen with a navigational change
+</h4>
+
+<p>In <code>app/views/login/login.js</code>, add this line to the top of the file:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> frameModule = <span class="built_in">require</span>(<span class="string">"ui/frame"</span>);</div></pre></td></tr></table></figure>
+<p>Then, replace the current <code>register()</code> function with the version shown below:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">exports.register = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> topmost = frameModule.topmost();</div><div class="line">    topmost.navigate(<span class="string">"views/register/register"</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<div class="exercise-end"></div>
+
+<p>This function uses the <a href="http://docs.nativescript.org/api-reference/modules/_ui_frame_.html">frame module</a>, which is the NativeScript module responsible for navigation in your app. Here, you tell the topmost frame, or the frame the user actually sees, to navigate to the register view. </p>
+<p>If you run your app and click the “Sign up for Groceries” button, you will be sent to the registration screen, which we have pre-built for you.</p>
+<p><img src="/img/cli-getting-started/nativescript/chapter3/ios/2.gif" alt="navigate">
+<img src="/img/cli-getting-started/nativescript/chapter3/android/2.gif" alt="navigate"></p>
+<p>Now that you can access the registration page, go ahead and sign up for an account to use for the rest of this tutorial.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Register for an account
+</h4>
+
+<p>Open Groceries and tap “Sign up for Groceries” to access the registration page. From there, provide an email address and password, and click the “Sign up” button to create an account.</p>
+<p>You can use a fake email address and password, just remember your credentials as you’ll need them later.</p>
+<div class="exercise-end"></div>
+
 <blockquote>
-<p>Note: Pipes do not work with <code>one-way to source</code> and <code>two-way</code> binding syntax.</p>
+<p><strong>TIP</strong>: Although our Groceries app doesn’t use complex navigation strategies, you have several available to you out of the box, such as the <a href="/ui-views#tabview">TabView</a> and the <a href="/ui-views#segmentedbar">SegmentedBar</a>. A SideDrawer component is also available for free via Telerik’s <a href="http://docs.telerik.com/devtools/nativescript-ui/introduction" target="_blank" rel="external">UI for NativeScript</a> product.</p>
 </blockquote>
+<h2 id="3-3-Accessing-UI-components"><a href="#3-3-Accessing-UI-components" class="headerlink" title="3.3: Accessing UI components"></a>3.3: Accessing UI components</h2><p>It’s time to see how data flows back and forth between the front end and back end in forms.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Send data from the front end to the view model
+</h4>
+
+<p>Open <code>login.xml</code> and add an <code>id=&quot;email&quot;</code> attribute to the email text field. Its markup should look like this:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextField</span> <span class="attr">id</span>=<span class="string">"email"</span> <span class="attr">hint</span>=<span class="string">"Email Address"</span> <span class="attr">keyboardType</span>=<span class="string">"email"</span> <span class="attr">autocorrect</span>=<span class="string">"false"</span> <span class="attr">autocapitalizationType</span>=<span class="string">"none"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<p>With an <code>id</code> attribute in place, you can access this text field in your code-behind file. To do that, start by opening <code>app/views/login/login.js</code> and adding the two lines of code below at the top of the file, underneath the <code>frameModule</code> variable.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> page;</div><div class="line"><span class="keyword">var</span> email;</div></pre></td></tr></table></figure>
+<p>Next, edit the <code>loaded()</code> function in <code>login.js</code> to get a reference to the current page:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">exports.loaded = <span class="function"><span class="keyword">function</span>(<span class="params">args</span>) </span>&#123;</div><div class="line">    page = args.object;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>NOTE</strong>: This works because NativeScript passes <code>loaded</code> event handlers a reference to the <code>&lt;Page&gt;</code> in the function’s argument, which is named <code>args</code> by convention.</p>
+</blockquote>
+<p>Finally, edit the <code>signIn()</code> function to get a reference to the text field component and log its contents:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">exports.signIn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    email = page.getViewById(<span class="string">"email"</span>);</div><div class="line">    <span class="built_in">console</span>.log(email.text);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<div class="exercise-end"></div>
+
+<p>All NativeScript UI components, including <code>&lt;Page&gt;</code>, inherit from the <a href="http://docs.nativescript.org/api-reference/classes/_ui_core_view_.view.html"><code>View</code> class</a>, which gives them a number of methods for working the UI. In this case you use the <a href="http://docs.nativescript.org/api-reference/classes/_ui_core_view_.view.html#getviewbyid"><code>getViewById()</code> method</a> to get a reference to the email text field by its <code>id</code> attribute.</p>
+<p>To see how this works in action, run the app, type some text in the email address text field, and tap the “Sign in” button. If all went well, you should see the text you typed logged in your terminal.</p>
+<p><img src="/img/cli-getting-started/nativescript/chapter3/terminal-2.png" alt=""></p>
+<p>By accessing UI elements in JavaScript, you can control how those elements look and behave on the front end. However, accessing these UI components individually is a very manual process, and it makes it hard to track the state of the UI. This is where view models come in.</p>
+<h2 id="3-4-Adding-a-view-model"><a href="#3-4-Adding-a-view-model" class="headerlink" title="3.4: Adding a view model"></a>3.4: Adding a view model</h2><p>NativeScript provides view model functionality in the form of a module called ‘Observable’.</p>
+<p>The Observable is the view model in the MVVM design pattern. It provides a mechanism used for two-way data binding, to enable direct communication between the UI and code-behind file. This means that if the user updates the data in the UI, the change will be automatically reflected in the view model, and vice versa. </p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Create a view model and bind it to the view
+</h4>
+
+<p>To allow for two-way data binding using an Observable, open <code>login.xml</code>, and replace the two existing TextField UI components with the two shown below, each including a new <code>text</code> attribute:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextField</span> <span class="attr">id</span>=<span class="string">"email"</span> <span class="attr">text</span>=<span class="string">"&#123;% raw %&#125;&#123;&#123; email &#125;&#125;&#123;% endraw %&#125;"</span> <span class="attr">hint</span>=<span class="string">"Email Address"</span> <span class="attr">keyboardType</span>=<span class="string">"email"</span> <span class="attr">autocorrect</span>=<span class="string">"false"</span> <span class="attr">autocapitalizationType</span>=<span class="string">"none"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">TextField</span> <span class="attr">secure</span>=<span class="string">"true"</span> <span class="attr">text</span>=<span class="string">"&#123;% raw %&#125;&#123;&#123; password &#125;&#125;&#123;% endraw %&#125;"</span> <span class="attr">hint</span>=<span class="string">"Password"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>NOTE</strong>: The use of two curly brackets surrounding the <code>text</code> attribute’s value delineates a data-bound value. You will be setting corresponding properties with the same name in the view model.</p>
+</blockquote>
+<p>Add the following code to the top of <code>app/views/login/login.js</code>. The code gets a reference to the <code>Observable</code> constructor from the observable module, and invokes the constructor to define a new <code>user</code> object, which you’ll be using as this page’s view model:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Observable = <span class="built_in">require</span>(<span class="string">"data/observable"</span>).Observable;</div><div class="line"></div><div class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> Observable(&#123;</div><div class="line">    email: <span class="string">"user@domain.com"</span>,</div><div class="line">    password: <span class="string">"password"</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Now, replace the existing <code>loaded()</code> function with the one below, which sets <code>user</code> as the binding context for the page.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">exports.loaded = <span class="function"><span class="keyword">function</span>(<span class="params">args</span>) </span>&#123;</div><div class="line">    page = args.object;</div><div class="line">    page.bindingContext = user;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<div class="exercise-end"></div>
+
+<p>What’s going on here?</p>
+<ol>
+<li>You’re creating a <code>user</code> view model that is based on the NativeScript Observable module. You create the view model with two properties, <code>email</code> and <code>password</code>, that are pre-populated with some dummy values.</li>
+<li>You bind the page to the <code>user</code> view model by setting it as the page’s <code>bindingContext</code> property. This is specifically what makes the curly bracket syntax work.</li>
+</ol>
+<p>Simply put, properties placed on a page’s binding context are available to XML elements using the <code>{{ propertyName }}</code> syntax. Because JavaScript sets the view model’s <code>email</code> to <code>&quot;user@domain.com&quot;</code>, and because you bound the email address text field to that property using <code>&lt;TextField text=&quot;{{ email }}&quot;&gt;</code>, when you run this app you’ll see “user@domain.com” appear on the front end.</p>
+<p><img src="/img/cli-getting-started/nativescript/chapter3/ios/3.png" alt="">
+<img src="/img/cli-getting-started/nativescript/chapter3/android/3.png" alt=""></p>
+<p>What’s really cool is that the binding is two-way. Meaning, when the user types text in these text fields, those changes are immediately applied to your view model.</p>
+<p>To use these values, and to make this login functional by tying your app into a backend service, you’re going to need the ability to make HTTP calls. And to make HTTP calls in NativeScript you use the NativeScript fetch module. Let’s look at how NativeScript modules work.</p>
+<div class="next-chapter-link-container">
+  <a href="/tutorial/chapter-4">Continue to Chapter 4—NativeScript Modules</a>
+</div>
 
     </div>
   </div>
@@ -483,17 +552,17 @@ slug: data-binding</p>
       
       
         <a class="link primary prev"
-          href="../ui/change-status-bar-style-ios.html">
+          href="0.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          Changing Status Bar Style in iOS
+          NativeScript Getting Started Guide
         </a>
       
       
         <a class="link primary next"
-          href="../ui/gestures.html">
+          href="6.html">
           <span class="subtitle-pagination">Next</span>
-          Gestures
+          Chapter 6—Accessing Native APIs
           <span class="icon-arrow-right-alt"></span>
         </a>
       
@@ -501,7 +570,7 @@ slug: data-binding</p>
   </div>
 
   <div class="github">
-    <a class="link tertiary " href="https://github.com/nativescript/docs/tree/master/source/core-concepts/DataBinding.md" target="_blank">
+    <a class="link tertiary " href="https://github.com/nativescript/docs/tree/master/source/tutorial/3.md" target="_blank">
       <span class="icon-github"></span>Edit on GitHub</a>
   </div>
 

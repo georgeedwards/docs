@@ -4,27 +4,26 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {SafeResourceUrl, DomSanitizationService} from '@angular/platform-browser';
 import { codeStepComponent } from '../codeStep/codestep.component';
 import { TutorialService } from '../../shared/tutorial.service';
+import {Codeblock} from 'ng2-prism/codeblock';
+import {Javascript, Css, Bash} from 'ng2-prism/languages';
 
 @Component({
   selector: 'chapter',
-  template: `<div [innerHTML]="content"></div>`,
+  templateUrl: 'app/tutorial/chapter/chapter.html',
   styleUrls: ['./app/tutorial/chapter/chapter.css'],
-  directives: [codeStepComponent]
+  directives: [codeStepComponent, Codeblock, Javascript, Css, Bash]
 })
 export class chapterComponent implements OnInit, OnDestroy {
   private sub: Subscription;
   private content: string = '';
   errorMessage: string;
+  chapter: string;
 
-  constructor(private route: ActivatedRoute, private tutorialService: TutorialService) { }
+  constructor(private route: ActivatedRoute/*, private tutorialService: TutorialService*/) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      var url = './chapter/' + params['id'] + '.html';
-      this.tutorialService.getContents(url)
-        .subscribe(
-        chapterContent => this.content = chapterContent,
-        error => this.errorMessage = <any>error);
+      this.chapter = params['id'];
     });
   }
 

@@ -11,18 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require('@angular/core');
 const router_1 = require('@angular/router');
 const codestep_component_1 = require('../codeStep/codestep.component');
-const tutorial_service_1 = require('../../shared/tutorial.service');
 let chapterComponent = class chapterComponent {
-    constructor(route, tutorialService) {
+    constructor(route /*, private tutorialService: TutorialService*/) {
         this.route = route;
-        this.tutorialService = tutorialService;
         this.content = '';
     }
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
-            var url = './chapter/' + params['id'] + '.html';
-            this.tutorialService.getContents(url)
-                .subscribe(chapterContent => this.content = chapterContent, error => this.errorMessage = error);
+            this.chapter = params['id'];
+            /*this.tutorialService.getContents(url)
+              .subscribe(
+              chapterContent => this.content = chapterContent,
+              error => this.errorMessage = <any>error);*/
         });
     }
     ngOnDestroy() {
@@ -32,11 +32,11 @@ let chapterComponent = class chapterComponent {
 chapterComponent = __decorate([
     core_1.Component({
         selector: 'chapter',
-        template: `<div [innerHTML]="content"></div>`,
+        templateUrl: 'app/tutorial/chapter/chapter.html',
         styleUrls: ['./app/tutorial/chapter/chapter.css'],
         directives: [codestep_component_1.codeStepComponent]
     }), 
-    __metadata('design:paramtypes', [router_1.ActivatedRoute, tutorial_service_1.TutorialService])
+    __metadata('design:paramtypes', [router_1.ActivatedRoute])
 ], chapterComponent);
 exports.chapterComponent = chapterComponent;
 //# sourceMappingURL=chapter.component.js.map

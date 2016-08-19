@@ -111,14 +111,14 @@ The following table shows predefined layouts that NativeScript provides.
 | [StackLayout][StackLayout] | This layout arranges its children horizontally or vertically. The direction is set with the orientation property. | ![StackLayout android](../img/gallery/android/stackLayoutPage.png "StackLayout android")|
 | [WrapLayout][WrapLayout] | This layout positions its children in rows or columns, based on the orientation property, until the space is filled and then wraps them on a new row or column. | ![WrapLayout android](../img/gallery/android/wrapLayoutPage.png "WrapLayout android")|
 
-[views]: {%slug components %}
+[views]: 
 [View]: /api-reference/classes/_ui_core_view_.view.html
 [Layout]: /api-reference/classes/_ui_layouts_layout_.layout.html
-[AbsoluteLayout]: {%ns_cookbook ui/layouts/absolute-layout%}
-[DockLayout]: {%ns_cookbook ui/layouts/dock-layout%}
-[GridLayout]: {%ns_cookbook ui/layouts/grid-layout%}
-[StackLayout]: {%ns_cookbook ui/layouts/stack-layout%}
-[WrapLayout]: {%ns_cookbook ui/layouts/wrap-layout%}
+[AbsoluteLayout]: 
+[DockLayout]: 
+[GridLayout]: 
+[StackLayout]: 
+[WrapLayout]: 
 
 ### Percentage Support
 

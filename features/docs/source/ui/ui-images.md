@@ -37,7 +37,7 @@ The prefix of the `src` value specifies where the image will be loaded form. The
 * [From local file system (`~/` prefix)](#load-images-from-local-file-system)
 * [From resource (`res://` prefix)](#load-images-from-resource)
 
-You can also use the [image-source]({%ns_cookbook image-source%}) module to create an image source and manually set it to the image:
+You can also use the [image-source]() module to create an image source and manually set it to the image:
 
 ```JavaScript
 var image = new imageModule.Image();
@@ -61,7 +61,7 @@ Web images have an `http://` or `https://` prefix. When such an image is loaded,
 ```
 {% endangular %}
 
-You can manually create an [ImageSource instance from URL]({%ns_cookbook image-source#load-image-from-url%}).
+You can manually create an [ImageSource instance from URL]().
 
 ## Load images from local file system
 Using the `~/` prefix, you can load images relative to the `App` folder inside your project.
@@ -77,9 +77,9 @@ Using the `~/` prefix, you can load images relative to the `App` folder inside y
 ```
 {% endangular %}
 
-You can manually create an [ImageSource instance from local file]({%ns_cookbook image-source#load-image-from-a-local-file%}).
+You can manually create an [ImageSource instance from local file]().
 
-> Currently, loading images from the file system does not respect filename qualifiers as described [here]({% slug architecture %}#supporting-multiple-screens). We have plans to implement that along with [density-specific qualifiers support](https://github.com/NativeScript/NativeScript/issues/276).
+> Currently, loading images from the file system does not respect filename qualifiers as described [here](). We have plans to implement that along with [density-specific qualifiers support](https://github.com/NativeScript/NativeScript/issues/276).
 
 ## Load images from a resource
 Using the `res://` prefix you can load a resource image. This is the suggested approach, as it uses the native methods for loading the best image for the current device screen density.
@@ -95,7 +95,7 @@ Using the `res://` prefix you can load a resource image. This is the suggested a
 ```
 {% endangular %}
 
-You can manually create an [ImageSource instance from resource]({%ns_cookbook image-source#load-image-using-resource-name%}).
+You can manually create an [ImageSource instance from resource]().
 
 > The file extension is not included when referencing resource images.
 
