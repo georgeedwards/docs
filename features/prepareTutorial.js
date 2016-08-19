@@ -2,6 +2,7 @@
 const fs = require('fs');
 var Diff2Html = require('diff2html').Diff2Html;
 var Git = require("nodegit");
+var marked = require('marked');
 /**
  * Generate html for code step snippets
  */
@@ -114,4 +115,20 @@ function setLinks(content, sha) {
     return content.replace(current, future);
 }
 exports.setLinks = setLinks;
+function processChapters() {
+    var files = [];
+    var _files = getFiles('./features/docs/source/tutorial', files);
+    var chapters = '';
+    for (let path of _files) {
+        var data = fs.readFileSync(path, 'utf8');
+        var chapter = path.substr(32, 1);
+        //data = data.substr(22007, data.length - (22007 + 769));
+        data = marked(data);
+        chapters += '<div *ngIf="chapter == ' + chapter + '">' + data + '</div>';
+    }
+    var path = './ng2/views/app/tutorial/chapter/chapter.html';
+    fs.unlinkSync(path);
+    fs.writeFileSync(path, chapters);
+}
+exports.processChapters = processChapters;
 //# sourceMappingURL=prepareTutorial.js.map

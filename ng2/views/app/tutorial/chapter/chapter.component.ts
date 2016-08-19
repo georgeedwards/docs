@@ -4,14 +4,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {SafeResourceUrl, DomSanitizationService} from '@angular/platform-browser';
 import { codeStepComponent } from '../codeStep/codestep.component';
 import { TutorialService } from '../../shared/tutorial.service';
-import {Codeblock} from 'ng2-prism/codeblock';
-import {Javascript, Css, Bash} from 'ng2-prism/languages';
+/*import {Codeblock} from 'ng2-prism/codeblock';
+import {Javascript, Css, Bash} from 'ng2-prism/languages';*/
 
 @Component({
   selector: 'chapter',
   templateUrl: 'app/tutorial/chapter/chapter.html',
   styleUrls: ['./app/tutorial/chapter/chapter.css'],
-  directives: [codeStepComponent, Codeblock, Javascript, Css, Bash]
+  directives: [codeStepComponent, /*Codeblock, Javascript, Css, Bash*/]
 })
 export class chapterComponent implements OnInit, OnDestroy {
   private sub: Subscription;

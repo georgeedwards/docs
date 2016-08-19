@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 var Diff2Html = require('diff2html').Diff2Html;
 var Git = require("nodegit");
+var marked = require('marked');
 /**
  * Generate html for code step snippets
  */
@@ -115,4 +116,21 @@ export function setLinks(content: string, sha: string) {
     var current = res[0] + '/span>';
     var future = '<a class="d2h-file-name" href="' + 'https://github.com/georgeedwards/ns-tutorial/commit/' + sha + '">' + res[1] + '</a>';
     return content.replace(current, future);
+}
+
+export function processChapters() {
+    var files = [];
+    var _files = getFiles('./features/docs/source/tutorial', files);
+
+    var chapters: string = '';
+    for (let path of _files) {
+        var data = fs.readFileSync(path, 'utf8');
+        var chapter = path.substr(32, 1);
+        //data = data.substr(22007, data.length - (22007 + 769));
+        data = marked(data);
+        chapters += '<div *ngIf="chapter == ' + chapter + '">' + data + '</div>';
+    }
+    var path = './ng2/views/app/tutorial/chapter/chapter.html';
+    fs.unlinkSync(path);
+    fs.writeFileSync(path, chapters);
 }

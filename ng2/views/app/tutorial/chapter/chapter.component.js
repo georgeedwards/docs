@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require('@angular/core');
 const router_1 = require('@angular/router');
 const codestep_component_1 = require('../codeStep/codestep.component');
+/*import {Codeblock} from 'ng2-prism/codeblock';
+import {Javascript, Css, Bash} from 'ng2-prism/languages';*/
 let chapterComponent = class chapterComponent {
     constructor(route /*, private tutorialService: TutorialService*/) {
         this.route = route;
@@ -19,10 +21,6 @@ let chapterComponent = class chapterComponent {
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
             this.chapter = params['id'];
-            /*this.tutorialService.getContents(url)
-              .subscribe(
-              chapterContent => this.content = chapterContent,
-              error => this.errorMessage = <any>error);*/
         });
     }
     ngOnDestroy() {
@@ -34,7 +32,7 @@ chapterComponent = __decorate([
         selector: 'chapter',
         templateUrl: 'app/tutorial/chapter/chapter.html',
         styleUrls: ['./app/tutorial/chapter/chapter.css'],
-        directives: [codestep_component_1.codeStepComponent]
+        directives: [codestep_component_1.codeStepComponent,]
     }), 
     __metadata('design:paramtypes', [router_1.ActivatedRoute])
 ], chapterComponent);

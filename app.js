@@ -24,7 +24,7 @@ app.use('/persist', express.static(__dirname + '/persist'));
 
 file.processTutorial(); //generate html rendered patches for tutorial steps
 //file.genGit(); //generate git SHA
-
+file.processChapters();
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'ng2/public', 'favicon.png')));
@@ -48,7 +48,7 @@ app.use('/img', serveStatic('features/docs/source/img'));
 app.use('/config', serveStatic('ng2/config'));
 
 app.use('/', routes);
-
+app.all('/tutorial/*', (req, res) => res.render('index'));
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   var err = new Error('Not Found');
