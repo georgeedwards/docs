@@ -128,6 +128,8 @@ export function processChapters() {
         var chapter = path.substr(32, 1);
         //data = data.substr(22007, data.length - (22007 + 769));
         data = marked(data);
+        /*var codeblocks = data.match(/<codeblock>([\s\S]*)<\/codeblock>/);
+        console.log("Code: " + codeblocks);*/
         chapters += '<div *ngIf="chapter == ' + chapter + '">' + data + '</div>';
     }
     var path = './ng2/views/app/tutorial/chapter/chapter.html';
