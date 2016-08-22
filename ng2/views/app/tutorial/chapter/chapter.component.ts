@@ -24,7 +24,7 @@ export class chapterComponent implements OnInit, OnDestroy {
       this.chapter = params['id'];
     });
   }
-
+  
   ngOnDestroy() {
     this.sub.unsubscribe();
   }

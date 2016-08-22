@@ -132,7 +132,15 @@ export function processChapters() {
         console.log("Code: " + codeblocks);*/
         chapters += '<div *ngIf="chapter == ' + chapter + '">' + data + '</div>';
     }
+
+    chapters = replaceAll(chapters, '<p></div></p>', '</div>');
+    chapters = replaceAll(chapters, '{', '&#123;');
+    chapters = replaceAll(chapters, '}', '&#125;');
     var path = './ng2/views/app/tutorial/chapter/chapter.html';
     fs.unlinkSync(path);
     fs.writeFileSync(path, chapters);
 }
+
+function replaceAll(content: string, search: string, replacement: string): string {
+    return content.replace(new RegExp(search, 'g'), replacement);
+};

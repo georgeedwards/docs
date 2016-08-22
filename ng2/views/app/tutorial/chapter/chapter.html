@@ -266,7 +266,7 @@ Let&#39;s start with <code>app/app.js</code>, as it&#39;s the starting point for
 
 <code>javascript
 var applicationModule = require(&quot;application&quot;);
-applicationModule.start( &#123; moduleName: &quot;views/login/login&quot;  &#125;);</code>
+applicationModule.start(&#123; moduleName: &quot;views/login/login&quot; &#125;);</code>
 
 Here, you&#39;re requiring, or importing, the <a href="">NativeScript application module</a>. Then, you call its <code>start()</code> method with the starting screen of your app (the login screen), which lives in your app&#39;s <code>views/login</code> folder.
 
@@ -394,24 +394,24 @@ Paste the following code in the <code>app.css</code> file:
 
 <code>css
 
-Page  &#123;
+Page &#123;
     background-color: white;
     font-size: 17;
- &#125;
-TextField  &#123;
+&#125;
+TextField &#123;
     margin: 10;
     padding: 10;
- &#125;
-Image  &#123;
+&#125;
+Image &#123;
     margin-top: 20;
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 80;
- &#125;
-Button  &#123;
+&#125;
+Button &#123;
     margin: 10;
     padding: 10;
- &#125;</code>
+&#125;</code>
 
 </div>
 
@@ -430,7 +430,7 @@ Let&#39;s make one more change. Although often you want CSS rules to apply equal
 Add the following as the first line of your app&#39;s <code>app.css</code> file:
 
 <code>css
- &#123; &#123;&#39;@import  &#123; url(&#39;~/platform.css&#39;)  &#125;;&#39; &#125; &#125;</code>
+@import &#123; url(&#39;~/platform.css&#39;) &#125;;</code>
 
 &gt; <strong>IMPORTANT</strong>: NativeScript is consistent with browser implementations, in that <code>@import</code> statements must precede all other CSS rules in a file.
 
@@ -457,14 +457,14 @@ NativeScript uses the <code>class</code> attribute for adding CSS class names to
 <code>css
 
 /* From platform.android.css */
-.link  &#123;
+.link &#123;
     background-color: transparent;
- &#125;
+&#125;
 
 /* From platform.ios.css */
-.link  &#123;
+.link &#123;
     border-width: 0;
- &#125;</code>
+&#125;</code>
 
 &gt; <strong>TIP</strong>: NativeScript also supports selecting elements by the <code>id</code> attribute. Refer to the docs for <a href="/styling#supported-selectors">a full list of the supported selectors</a>.
 
@@ -557,9 +557,9 @@ Open <code>login.xml</code> and add a <code>loaded</code> attribute to the <code
 Next, paste the code below in <code>app/views/login/login.js</code> to define a <code>loaded()</code> function:
 
 <code>javascript
-exports.loaded = function()  &#123;
+exports.loaded = function() &#123;
     console.log(&quot;hello&quot;);
- &#125;;</code>
+&#125;;</code>
 
 </div>
 
@@ -582,13 +582,13 @@ You can add a <code>tap</code> attribute that will fire when the user taps or to
 Then, at the bottom of the <code>app/views/login/login.js</code> file, paste in the following <code>signIn()</code> and <code>register()</code> functions:
 
 <code>javascript
-exports.signIn = function()  &#123;
+exports.signIn = function() &#123;
     alert(&quot;Signing in&quot;);
- &#125;;
+&#125;;
 
-exports.register = function()  &#123;
+exports.register = function() &#123;
     alert(&quot;Registering&quot;);
- &#125;;</code>
+&#125;;</code>
 
 </div>
 
@@ -610,10 +610,10 @@ var frameModule = require(&quot;ui/frame&quot;);</code>
 Then, replace the current <code>register()</code> function with the version shown below:
 
 <code>javascript
-exports.register = function()  &#123;
+exports.register = function() &#123;
     var topmost = frameModule.topmost();
     topmost.navigate(&quot;views/register/register&quot;);
- &#125;;</code>
+&#125;;</code>
 
 </div>
 
@@ -668,19 +668,19 @@ var email;</code>
 Next, edit the <code>loaded()</code> function in <code>login.js</code> to get a reference to the current page:
 
 <code>javascript
-exports.loaded = function(args)  &#123;
+exports.loaded = function(args) &#123;
     page = args.object;
- &#125;;</code>
+&#125;;</code>
 
 &gt; <strong>NOTE</strong>: This works because NativeScript passes <code>loaded</code> event handlers a reference to the <code>&lt;Page&gt;</code> in the function&#39;s argument, which is named <code>args</code> by convention.
 
 Finally, edit the <code>signIn()</code> function to get a reference to the text field component and log its contents:
 
 <code>javascript
-exports.signIn = function()  &#123;
+exports.signIn = function() &#123;
     email = page.getViewById(&quot;email&quot;);
     console.log(email.text);
- &#125;;</code>
+&#125;;</code>
 
 </div>
 
@@ -709,8 +709,8 @@ The Observable is the view model in the MVVM design pattern. It provides a mecha
 To allow for two-way data binding using an Observable, open <code>login.xml</code>, and replace the two existing TextField UI components with the two shown below, each including a new <code>text</code> attribute:
 
 <code>xml
-&lt;TextField id=&quot;email&quot; text=&quot; &#123;% raw % &#125; &#123; &#123; email  &#125; &#125; &#123;% endraw % &#125;&quot; hint=&quot;Email Address&quot; keyboardType=&quot;email&quot; autocorrect=&quot;false&quot; autocapitalizationType=&quot;none&quot; /&gt;
-&lt;TextField secure=&quot;true&quot; text=&quot; &#123;% raw % &#125; &#123; &#123; password  &#125; &#125; &#123;% endraw % &#125;&quot; hint=&quot;Password&quot; /&gt;</code>
+&lt;TextField id=&quot;email&quot; text=&quot;&#123;% raw %&#125;&#123;&#123; email &#125;&#125;&#123;% endraw %&#125;&quot; hint=&quot;Email Address&quot; keyboardType=&quot;email&quot; autocorrect=&quot;false&quot; autocapitalizationType=&quot;none&quot; /&gt;
+&lt;TextField secure=&quot;true&quot; text=&quot;&#123;% raw %&#125;&#123;&#123; password &#125;&#125;&#123;% endraw %&#125;&quot; hint=&quot;Password&quot; /&gt;</code>
 
 &gt; <strong>NOTE</strong>: The use of two curly brackets surrounding the <code>text</code> attribute&#39;s value delineates a data-bound value. You will be setting corresponding properties with the same name in the view model.
 
@@ -719,18 +719,18 @@ Add the following code to the top of <code>app/views/login/login.js</code>. The 
 <code>javascript
 var Observable = require(&quot;data/observable&quot;).Observable;
 
-var user = new Observable( &#123;
+var user = new Observable(&#123;
     email: &quot;user@domain.com&quot;,
     password: &quot;password&quot;
- &#125;);</code>
+&#125;);</code>
 
 Now, replace the existing <code>loaded()</code> function with the one below, which sets <code>user</code> as the binding context for the page.
 
 <code>javascript
-exports.loaded = function(args)  &#123;
+exports.loaded = function(args) &#123;
     page = args.object;
     page.bindingContext = user;
- &#125;;</code>
+&#125;;</code>
 
 </div>
 
@@ -739,7 +739,7 @@ exports.loaded = function(args)  &#123;
 <li>You&#39;re creating a <code>user</code> view model that is based on the NativeScript Observable module. You create the view model with two properties, <code>email</code> and <code>password</code>, that are pre-populated with some dummy values.</li>
 <li>You bind the page to the <code>user</code> view model by setting it as the page&#39;s <code>bindingContext</code> property. This is specifically what makes the curly bracket syntax work.</li>
 </ol>
-<p>Simply put, properties placed on a page&#39;s binding context are available to XML elements using the <code> &#123;% raw % &#125; &#123; &#123; propertyName  &#125; &#125; &#123;% endraw % &#125;</code> syntax. Because JavaScript sets the view model&#39;s <code>email</code> to <code>&quot;user@domain.com&quot;</code>, and because you bound the email address text field to that property using <code>&lt;TextField text=&quot; &#123;% raw % &#125; &#123; &#123; email  &#125; &#125; &#123;% endraw % &#125;&quot;&gt;</code>, when you run this app you&#39;ll see &quot;user@domain.com&quot; appear on the front end.</p>
+<p>Simply put, properties placed on a page&#39;s binding context are available to XML elements using the <code>&#123;% raw %&#125;&#123;&#123; propertyName &#125;&#125;&#123;% endraw %&#125;</code> syntax. Because JavaScript sets the view model&#39;s <code>email</code> to <code>&quot;user@domain.com&quot;</code>, and because you bound the email address text field to that property using <code>&lt;TextField text=&quot;&#123;% raw %&#125;&#123;&#123; email &#125;&#125;&#123;% endraw %&#125;&quot;&gt;</code>, when you run this app you&#39;ll see &quot;user@domain.com&quot; appear on the front end.</p>
 <p><img src="/img/cli-getting-started/nativescript/chapter3/ios/3.png" alt="">
 <img src="/img/cli-getting-started/nativescript/chapter3/android/3.png" alt=""></p>
 <p>What&#39;s really cool is that the binding is two-way. Meaning, when the user types text in these text fields, those changes are immediately applied to your view model.</p>
@@ -778,9 +778,9 @@ When you created your own account on the registration page, you probably noticed
 Take a look at <code>app/shared/config.js</code>. There&#39;s only a small code snippet there, but it includes a hardcoded root path to the Groceries backend that the register page uses, and that you&#39;ll be using momentarily:
 
 <code>javascript
-module.exports =  &#123;
+module.exports = &#123;
     apiUrl: &quot;https://api.everlive.com/v1/GWfRtXi1Lwt4jcqK/&quot;
- &#125;;</code>
+&#125;;</code>
 
 &gt; <strong>TIP</strong>: <code>config.js</code> also shows a convenient pattern you can use for sharing configuration variables throughout your app.
 
@@ -805,26 +805,26 @@ NativeScript&#39;s fetch module uses the same API as the <a href="https://fetch.
 Open <code>app/shared/view-models/user-view-model.js</code> and paste the following code directly above the existing <code>viewModel.register()</code> function:
 
 <code>javascript
-viewModel.login = function()  &#123;
-    return fetchModule.fetch(config.apiUrl + &quot;oauth/token&quot;,  &#123;
+viewModel.login = function() &#123;
+    return fetchModule.fetch(config.apiUrl + &quot;oauth/token&quot;, &#123;
         method: &quot;POST&quot;,
-        body: JSON.stringify( &#123;
+        body: JSON.stringify(&#123;
             username: viewModel.get(&quot;email&quot;),
             password: viewModel.get(&quot;password&quot;),
             grant_type: &quot;password&quot;
-         &#125;),
-        headers:  &#123;
+        &#125;),
+        headers: &#123;
             &quot;Content-Type&quot;: &quot;application/json&quot;
-         &#125;
-     &#125;)
+        &#125;
+    &#125;)
     .then(handleErrors)
-    .then(function(response)  &#123;
+    .then(function(response) &#123;
         return response.json();
-     &#125;)
-    .then(function(data)  &#123;
+    &#125;)
+    .then(function(data) &#123;
         config.token = data.Result.access_token;
-     &#125;);
- &#125;;</code>
+    &#125;);
+&#125;;</code>
 
 </div>
 
@@ -862,18 +862,18 @@ var UserViewModel = require(&quot;../../shared/view-models/user-view-model&quot;
 
 <pre><code class="lang-javascript">// Remove these lines of code
 var Observable = require(&quot;data/observable&quot;).Observable;
-var user = new Observable( &#123;
+var user = new Observable(&#123;
     email: &quot;user@domain.com&quot;,
     password: &quot;password&quot;
- &#125;);
+&#125;);
 </code></pre>
 <p>Next, add the following line of code after the <code>var UserViewModel = require(...)</code> line:</p>
 <pre><code class="lang-javascript">var user = new UserViewModel();
 </code></pre>
 <p>Finally, replace the <code>exports.signIn()</code> function with the code below:</p>
-<pre><code class="lang-javascript">exports.signIn = function()  &#123;
+<pre><code class="lang-javascript">exports.signIn = function() &#123;
     user.login();
- &#125;;
+&#125;;
 </code></pre>
 <blockquote>
 <p><strong>TIP</strong>: You can always view the completed codebase in the “end” branch of the <a href="https://github.com/NativeScript/sample-Groceries/tree/end">sample-Groceries repo</a>.</p>
@@ -881,7 +881,7 @@ var user = new Observable( &#123;
 </div>
 <div class="explain">
 
-Take a moment to look at just how clean your code-behind file is now. The code-behind instantiates a view model (<code>UserViewModel</code>), and calls its <code>signIn()</code> method when the user taps the view&#39;s sign in button. Because the view model is bound to the page&#39;s two text fields (remember <code> &#123;% raw % &#125; &#123; &#123; email  &#125; &#125; &#123;% endraw % &#125;</code> and <code> &#123;% raw % &#125; &#123; &#123; password  &#125; &#125; &#123;% endraw % &#125;</code>), the view model already has the data it needs to perform the actual login.
+Take a moment to look at just how clean your code-behind file is now. The code-behind instantiates a view model (<code>UserViewModel</code>), and calls its <code>signIn()</code> method when the user taps the view&#39;s sign in button. Because the view model is bound to the page&#39;s two text fields (remember <code>&#123;% raw %&#125;&#123;&#123; email &#125;&#125;&#123;% endraw %&#125;</code> and <code>&#123;% raw %&#125;&#123;&#123; password &#125;&#125;&#123;% endraw %&#125;</code>), the view model already has the data it needs to perform the actual login.
 
 And if you try running your app, and input your account&#39;s credentials, you can indeed login, but... you don&#39;t see anything. That&#39;s because view models aren&#39;t responsible for updating the UI. Instead the view model returns a <code>Promise</code> to let the code-behind handle the UI. (Remember that <code>fetch()</code> returns a <code>Promise</code>.) Let&#39;s see how you can use that <code>Promise</code>, and introduce a new NativeScript module in the process.
 
@@ -907,20 +907,20 @@ var dialogsModule = require(&quot;ui/dialogs&quot;);</code>
 Next, re-write your <code>signIn()</code> function to look like this:
 
 <code>javascript
-exports.signIn = function()  &#123;
+exports.signIn = function() &#123;
     user.login()
-        .catch(function(error)  &#123;
+        .catch(function(error) &#123;
             console.log(error);
-            dialogsModule.alert( &#123;
+            dialogsModule.alert(&#123;
                 message: &quot;Unfortunately we could not find your account.&quot;,
                 okButtonText: &quot;OK&quot;
-             &#125;);
+            &#125;);
             return Promise.reject();
-         &#125;)
-        .then(function()  &#123;
+        &#125;)
+        .then(function() &#123;
             frameModule.topmost().navigate(&quot;views/list/list&quot;);
-         &#125;);
- &#125;;</code>
+        &#125;);
+&#125;;</code>
 
 </div>
 
@@ -936,10 +936,10 @@ With that, the login page is completely functional. Now that you have user manag
 &gt; <strong>TIP</strong>: From this point forward in the guide you&#39;ll have to log in a lot, so you may find it helpful to hardcode your credentials in the app during development. The easiest way to do that is to pass an email address and password to the <code>UserViewModel()</code> constructor, for example:
 
 &gt; <code>javascript
-&gt; var user = new UserViewModel( &#123;
+&gt; var user = new UserViewModel(&#123;
 &gt;     email: &quot;username@domain.com&quot;,
 &gt;     password: &quot;password&quot;
-&gt;  &#125;);
+&gt; &#125;);
 &gt;</code>
 
 ## 4.3: ListView
@@ -957,9 +957,9 @@ Open <code>app/views/list/list.xml</code> and paste in the code below, which cre
 <code>xml
 &lt;Page loaded=&quot;loaded&quot;&gt;
     &lt;GridLayout&gt;
-        &lt;ListView items=&quot; &#123;% raw % &#125; &#123; &#123; groceryList  &#125; &#125; &#123;% endraw % &#125;&quot;&gt;
+        &lt;ListView items=&quot;&#123;% raw %&#125;&#123;&#123; groceryList &#125;&#125;&#123;% endraw %&#125;&quot;&gt;
             &lt;ListView.itemTemplate&gt;
-                &lt;Label text=&quot; &#123;% raw % &#125; &#123; &#123; name  &#125; &#125; &#123;% endraw % &#125;&quot; horizontalAlignment=&quot;left&quot; verticalAlignment=&quot;center&quot;/&gt;
+                &lt;Label text=&quot;&#123;% raw %&#125;&#123;&#123; name &#125;&#125;&#123;% endraw %&#125;&quot; horizontalAlignment=&quot;left&quot; verticalAlignment=&quot;center&quot;/&gt;
             &lt;/ListView.itemTemplate&gt;
         &lt;/ListView&gt;
     &lt;/GridLayout&gt;
@@ -973,7 +973,7 @@ Open <code>app/views/list/list.xml</code> and paste in the code below, which cre
 
 As discussed earlier, even though you&#39;re using <code>&lt;ListView&gt;</code> in XML, the ListView module is still a NativeScript module. You can find its implementation in the <code>node_modules/tns-core-modules/ui/list-view</code> folder. If you want to, you could construct a ListView in pure JavaScript code in the code-behind file as shown in <a href="">this example</a>. For most situations using the NativeScript UI modules in XML is easier, so we&#39;ll be sticking with XML usage throughout this tutorial.
 
-Note the use of <code>&lt;ListView.itemTemplate&gt;</code>. This tag gives you the ability to control how each of the ListView&#39;s items displays within the list. For now you&#39;re using a simple <code>&lt;Label&gt;</code> UI component to display the <code> &#123;% raw % &#125; &#123; &#123; name  &#125; &#125; &#123;% endraw % &#125;</code> of each grocery.
+Note the use of <code>&lt;ListView.itemTemplate&gt;</code>. This tag gives you the ability to control how each of the ListView&#39;s items displays within the list. For now you&#39;re using a simple <code>&lt;Label&gt;</code> UI component to display the <code>&#123;% raw %&#125;&#123;&#123; name &#125;&#125;&#123;% endraw %&#125;</code> of each grocery.
 
 If you run this code as is, you won&#39;t see any items in the grocery list. First you need to build out a way to manage data within the ListView module, and to do that you&#39;re going to need a new NativeScript module: the ObservableArray.
 
@@ -982,7 +982,7 @@ If you run this code as is, you won&#39;t see any items in the grocery list. Fir
 In the previous section of this guide you saw how to create observables and how to use them to connect XML views with code-behind files and view models. You&#39;re going to do the same thing in this section with one additional twist, and it involves making this <code>items</code> attribute work:
 
 <code>xml
-&lt;ListView items=&quot; &#123;% raw % &#125; &#123; &#123; groceryList  &#125; &#125; &#123;% endraw % &#125;&quot;&gt;</code>
+&lt;ListView items=&quot;&#123;% raw %&#125;&#123;&#123; groceryList &#125;&#125;&#123;% endraw %&#125;&quot;&gt;</code>
 
 The ListView module&#39;s <code>items</code> attribute takes an array, and to create that array on the view model, NativeScript provides a special ObservableArray module. To see how it works, let&#39;s start building the list page&#39;s code-behind file.
 
@@ -1000,24 +1000,24 @@ var Observable = require(&quot;data/observable&quot;).Observable;
 var ObservableArray = require(&quot;data/observable-array&quot;).ObservableArray;
 var page;
 
-var pageData = new Observable( &#123;
+var pageData = new Observable(&#123;
     groceryList: new ObservableArray([
-         &#123; name: &quot;eggs&quot;  &#125;,
-         &#123; name: &quot;bread&quot;  &#125;,
-         &#123; name: &quot;cereal&quot;  &#125;
+        &#123; name: &quot;eggs&quot; &#125;,
+        &#123; name: &quot;bread&quot; &#125;,
+        &#123; name: &quot;cereal&quot; &#125;
     ])
- &#125;);
+&#125;);
 
-exports.loaded = function(args)  &#123;
+exports.loaded = function(args) &#123;
     page = args.object;
     page.bindingContext = pageData;
- &#125;;</code>
+&#125;;</code>
 
 </div>
 
 <div class="explain">
 
-Here, you&#39;re creating a new Observable object called <code>pageData</code>, which you set as the page&#39;s <code>bindingContext</code> in the <code>load()</code> function. Inside the Observable, you set a single <code>&quot;groceryList&quot;</code> property to be a new instance of the ObservableArray class. Notice how the <code>&quot;groceryList&quot;</code> property corresponds to <code>&lt;ListView items=&quot; &#123;% raw % &#125; &#123; &#123; groceryList  &#125; &#125; &#123;% endraw % &#125;&quot;&gt;</code>, and each array entry&#39;s <code>&quot;name&quot;</code> property corresponds to <code>&lt;Label text=&quot; &#123;% raw % &#125; &#123; &#123; name  &#125; &#125; &#123;% endraw % &#125;&quot;&gt;</code>. If you run your app you&#39;ll see the list screen shows the hardcoded data:
+Here, you&#39;re creating a new Observable object called <code>pageData</code>, which you set as the page&#39;s <code>bindingContext</code> in the <code>load()</code> function. Inside the Observable, you set a single <code>&quot;groceryList&quot;</code> property to be a new instance of the ObservableArray class. Notice how the <code>&quot;groceryList&quot;</code> property corresponds to <code>&lt;ListView items=&quot;&#123;% raw %&#125;&#123;&#123; groceryList &#125;&#125;&#123;% endraw %&#125;&quot;&gt;</code>, and each array entry&#39;s <code>&quot;name&quot;</code> property corresponds to <code>&lt;Label text=&quot;&#123;% raw %&#125;&#123;&#123; name &#125;&#125;&#123;% endraw %&#125;&quot;&gt;</code>. If you run your app you&#39;ll see the list screen shows the hardcoded data:
 
 <img src="/img/cli-getting-started/nativescript/chapter4/ios/2.png" alt="list 1">
 <img src="/img/cli-getting-started/nativescript/chapter4/android/2.png" alt="list 1">
@@ -1031,10 +1031,10 @@ var config = require(&quot;../../shared/config&quot;);
 var fetchModule = require(&quot;fetch&quot;);
 var ObservableArray = require(&quot;data/observable-array&quot;).ObservableArray;
 
-function GroceryListViewModel(items)  &#123;
+function GroceryListViewModel(items) &#123;
     var viewModel = new ObservableArray(items);
     return viewModel;
- &#125;
+&#125;
 
 module.exports = GroceryListViewModel;</code>
 
@@ -1056,55 +1056,55 @@ Next, <strong>remove</strong> the existing <code>var pageData</code> assignment:
 <div class="no-copy-button"></div>
 
 <pre><code class="lang-javascript">// Remove these seven lines of code
-var pageData = new Observable( &#123;
+var pageData = new Observable(&#123;
     groceryList: new ObservableArray([
-         &#123; name: &quot;eggs&quot;  &#125;,
-         &#123; name: &quot;bread&quot;  &#125;,
-         &#123; name: &quot;cereal&quot;  &#125;
+        &#123; name: &quot;eggs&quot; &#125;,
+        &#123; name: &quot;bread&quot; &#125;,
+        &#123; name: &quot;cereal&quot; &#125;
     ])
- &#125;);
+&#125;);
 </code></pre>
 <p>And add the code below in the same location:</p>
 <pre><code class="lang-javascript">var groceryList = new GroceryListViewModel([]);
-var pageData = new Observable( &#123;
+var pageData = new Observable(&#123;
     groceryList: groceryList
- &#125;);
+&#125;);
 </code></pre>
 <p>Finally, replace the existing <code>exports.loaded()</code> function with the one below, which calls two new methods on the view model—<code>empty()</code> and <code>load()</code>.</p>
-<pre><code class="lang-javascript">exports.loaded = function(args)  &#123;
+<pre><code class="lang-javascript">exports.loaded = function(args) &#123;
     page = args.object;
     page.bindingContext = pageData;
 
     groceryList.empty();
     groceryList.load();
- &#125;;
+&#125;;
 </code></pre>
 <p>In this code, <code>groceryList</code> is referencing the grocery list model, and the <code>empty()</code> function empties the list, and then calls the view model&#39;s <code>load()</code> function to reload the data from the backend.</p>
 <p>The last piece to make this work is actually implementing the <code>empty()</code> and <code>load()</code> functions in the view model. Open <code>app/shared/view-models/grocery-list-view-model.js</code>, and paste the following code between the <code>var viewModel</code> assignment, and the <code>return viewModel</code> statement.</p>
-<pre><code class="lang-javascript">viewModel.load = function()  &#123;
-    return fetch(config.apiUrl + &quot;Groceries&quot;,  &#123;
-        headers:  &#123;
+<pre><code class="lang-javascript">viewModel.load = function() &#123;
+    return fetch(config.apiUrl + &quot;Groceries&quot;, &#123;
+        headers: &#123;
             &quot;Authorization&quot;: &quot;Bearer &quot; + config.token
-         &#125;
-     &#125;)
+        &#125;
+    &#125;)
     .then(handleErrors)
-    .then(function(response)  &#123;
+    .then(function(response) &#123;
         return response.json();
-     &#125;).then(function(data)  &#123;
-        data.Result.forEach(function(grocery)  &#123;
-            viewModel.push( &#123;
+    &#125;).then(function(data) &#123;
+        data.Result.forEach(function(grocery) &#123;
+            viewModel.push(&#123;
                 name: grocery.Name,
                 id: grocery.Id
-             &#125;);
-         &#125;);
-     &#125;);
- &#125;;
+            &#125;);
+        &#125;);
+    &#125;);
+&#125;;
 
-viewModel.empty = function()  &#123;
-    while (viewModel.length)  &#123;
+viewModel.empty = function() &#123;
+    while (viewModel.length) &#123;
         viewModel.pop();
-     &#125;
- &#125;;
+    &#125;
+&#125;;
 </code></pre>
 </div>
 <div class="explain">
@@ -1142,77 +1142,77 @@ The <code>rows</code> attribute divides the screen into two rows, the first auto
 Next, to give the user a means of adding groceries to the list, add a text field and a button to the page. Add these two lines of code directly after the initial <code>&lt;GridLayout&gt;</code> tag:
 
 <code>xml
-&lt;TextField id=&quot;grocery&quot; text=&quot; &#123;% raw % &#125; &#123; &#123; grocery  &#125; &#125; &#123;% endraw % &#125;&quot; hint=&quot;Enter a grocery item&quot; row=&quot;0&quot; col=&quot;0&quot; /&gt;
+&lt;TextField id=&quot;grocery&quot; text=&quot;&#123;% raw %&#125;&#123;&#123; grocery &#125;&#125;&#123;% endraw %&#125;&quot; hint=&quot;Enter a grocery item&quot; row=&quot;0&quot; col=&quot;0&quot; /&gt;
 &lt;Button text=&quot;Add&quot; tap=&quot;add&quot; row=&quot;0&quot; col=&quot;1&quot; /&gt;</code>
 
-The text field has an id attribute of <code>&quot;grocery&quot;</code>, and is bound to the <code> &#123;% raw % &#125; &#123; &#123; grocery  &#125; &#125; &#123;% endraw % &#125;</code> property of the page&#39;s binding context. The button&#39;s <code>tap</code> event refers to an <code>add()</code> function, that you&#39;ll add to the code-behind file momentarily.
+The text field has an id attribute of <code>&quot;grocery&quot;</code>, and is bound to the <code>&#123;% raw %&#125;&#123;&#123; grocery &#125;&#125;&#123;% endraw %&#125;</code> property of the page&#39;s binding context. The button&#39;s <code>tap</code> event refers to an <code>add()</code> function, that you&#39;ll add to the code-behind file momentarily.
 
 But the most important thing to note here is the use of the <code>row</code> and <code>col</code> attributes. These attributes are zero-based, so the text field&#39;s <code>row=&quot;0&quot; col=&quot;0&quot;</code> attributes place it in the first row and first column, whereas the button&#39;s <code>row=&quot;0&quot; col=&quot;1&quot;</code> attributes place it in the first row and second column.
 
 Finally, replace the <code>&lt;ListView&gt;</code> tag with the code below to place it in the second row, to have it span both columns, and also to give it an <code>id</code> attribute that you&#39;ll need later.
 
 <code>xml
-&lt;ListView items=&quot; &#123;% raw % &#125; &#123; &#123; groceryList  &#125; &#125; &#123;% endraw % &#125;&quot; id=&quot;groceryList&quot; row=&quot;1&quot; colSpan=&quot;2&quot;&gt;</code>
+&lt;ListView items=&quot;&#123;% raw %&#125;&#123;&#123; groceryList &#125;&#125;&#123;% endraw %&#125;&quot; id=&quot;groceryList&quot; row=&quot;1&quot; colSpan=&quot;2&quot;&gt;</code>
 
 Now you just need to make the necessary changes to the code-behind file to support these XML changes. Open <code>list.js</code> and start by adding a new <code>&quot;grocery&quot;</code> property to the <code>pageData</code> Observable. The <code>pageData</code> assignment should look like this:
 
 <code>javascript
-var pageData = new Observable( &#123;
+var pageData = new Observable(&#123;
     groceryList: groceryList,
     grocery: &quot;&quot;
- &#125;);</code>
+&#125;);</code>
 
 Next, you need to add an <code>add()</code> function to handle the button tap event. Paste in the following code at the bottom of <code>list.js</code>:
 
 <code>javascript
-exports.add = function()  &#123;
+exports.add = function() &#123;
     // Check for empty submissions
-    if (pageData.get(&quot;grocery&quot;).trim() === &quot;&quot;)  &#123;
-        dialogsModule.alert( &#123;
+    if (pageData.get(&quot;grocery&quot;).trim() === &quot;&quot;) &#123;
+        dialogsModule.alert(&#123;
             message: &quot;Enter a grocery item&quot;,
             okButtonText: &quot;OK&quot;
-         &#125;);
+        &#125;);
         return;
-     &#125;
+    &#125;
 
     // Dismiss the keyboard
     page.getViewById(&quot;grocery&quot;).dismissSoftInput();
     groceryList.add(pageData.get(&quot;grocery&quot;))
-        .catch(function()  &#123;
-            dialogsModule.alert( &#123;
+        .catch(function() &#123;
+            dialogsModule.alert(&#123;
                 message: &quot;An error occurred while adding an item to your list.&quot;,
                 okButtonText: &quot;OK&quot;
-             &#125;);
-         &#125;);
+            &#125;);
+        &#125;);
 
     // Empty the input field
     pageData.set(&quot;grocery&quot;, &quot;&quot;);
- &#125;;</code>
+&#125;;</code>
 
 In this function, you first ensure the user didn&#39;t submit without typing a grocery. If the user did type something, you dismiss the device&#39;s keyboard, then you get the <code>&quot;grocery&quot;</code> property from the page&#39;s binding context (which is bound to the new <code>&lt;TextField&gt;</code>), and pass that value to the view model&#39;s <code>add()</code> function.
 
 Finally, define that <code>add()</code> function. To do so, open <code>app/shared/view-models/grocery-list-view-model.js</code> and paste the following function under the <code>empty()</code> function, but before the <code>return viewModel</code> statement.
 
 <code>javascript
-viewModel.add = function(grocery)  &#123;
-    return fetch(config.apiUrl + &quot;Groceries&quot;,  &#123;
+viewModel.add = function(grocery) &#123;
+    return fetch(config.apiUrl + &quot;Groceries&quot;, &#123;
         method: &quot;POST&quot;,
-        body: JSON.stringify( &#123;
+        body: JSON.stringify(&#123;
             Name: grocery
-         &#125;),
-        headers:  &#123;
+        &#125;),
+        headers: &#123;
             &quot;Authorization&quot;: &quot;Bearer &quot; + config.token,
             &quot;Content-Type&quot;: &quot;application/json&quot;
-         &#125;
-     &#125;)
+        &#125;
+    &#125;)
     .then(handleErrors)
-    .then(function(response)  &#123;
+    .then(function(response) &#123;
         return response.json();
-     &#125;)
-    .then(function(data)  &#123;
-        viewModel.push( &#123; name: grocery, id: data.Result.Id  &#125;);
-     &#125;);
- &#125;;</code>
+    &#125;)
+    .then(function(data) &#123;
+        viewModel.push(&#123; name: grocery, id: data.Result.Id &#125;);
+    &#125;);
+&#125;;</code>
 </div>
 
 <div class="explain">
@@ -1239,15 +1239,15 @@ In NativeScript apps you can use the ActivityIndicator module to show a spinner 
 Open <code>app/views/list/list.xml</code> and add the following element directly before the closing <code>&lt;/GridLayout&gt;</code> tag.
 
 <code>xml
-&lt;ActivityIndicator busy=&quot; &#123;% raw % &#125; &#123; &#123; isLoading  &#125; &#125; &#123;% endraw % &#125;&quot; rowSpan=&quot;2&quot; colSpan=&quot;2&quot; /&gt;</code>
+&lt;ActivityIndicator busy=&quot;&#123;% raw %&#125;&#123;&#123; isLoading &#125;&#125;&#123;% endraw %&#125;&quot; rowSpan=&quot;2&quot; colSpan=&quot;2&quot; /&gt;</code>
 
 Then, in <code>app/views/list/list.js</code>, replace the existing <code>groceryList.load()</code> call in <code>loaded()</code> with the following four lines of code:
 
 <code>javascript
 pageData.set(&quot;isLoading&quot;, true);
-groceryList.load().then(function()  &#123;
+groceryList.load().then(function() &#123;
     pageData.set(&quot;isLoading&quot;, false);
- &#125;);</code>
+&#125;);</code>
 
 </div>
 
@@ -1283,29 +1283,29 @@ For our list page you’re going to use an <a href="/ui/animation#opacity">opaci
 Open <code>app/views/list/list.css</code> and add an <code>opacity: 0</code> rule to the existing <code>ListView</code> selector. The full set of rules should look like this:
 
 <code>css
-ListView  &#123;
+ListView &#123;
     margin: 5;
     opacity: 0;
- &#125;</code>
+&#125;</code>
 
 Then, in <code>app/views/list/list.js</code>, replace the existing <code>exports.loaded()</code> function with the code below, which does two new things: gets a reference to the <code>&lt;ListView&gt;</code> (<code>page.getViewById(&quot;groceryList&quot;)</code>), and then calls that element’s <code>animate()</code> function after the <code>groceryList.load()</code> call completes.
 
 <code>javascript
-exports.loaded = function(args)  &#123;
+exports.loaded = function(args) &#123;
     page = args.object;
     var listView = page.getViewById(&quot;groceryList&quot;);
     page.bindingContext = pageData;
 
     groceryList.empty();
     pageData.set(&quot;isLoading&quot;, true);
-    groceryList.load().then(function()  &#123;
+    groceryList.load().then(function() &#123;
         pageData.set(&quot;isLoading&quot;, false);
-        listView.animate( &#123;
+        listView.animate(&#123;
             opacity: 1,
             duration: 1000
-         &#125;);
-     &#125;);
- &#125;;</code>
+        &#125;);
+    &#125;);
+&#125;;</code>
 
 </div>
 
@@ -1367,9 +1367,9 @@ Return to your terminal and make sure that you are working in the root directory
 The install process does a few things in the background. First, because you added the <code>--save</code> flag, npm records this dependency in your app&#39;s <code>package.json</code>. If you open your <code>package.json</code> you should see <code>&quot;email-validator&quot;</code> in your app&#39;s <code>&quot;dependencies&quot;</code> array.
 
 <code>javascript
-&quot;dependencies&quot;:  &#123;
+&quot;dependencies&quot;: &#123;
   &quot;email-validator&quot;: &quot;^1.0.4&quot;
- &#125;</code>
+&#125;</code>
 
 The npm CLI also creates a <code>node_modules</code> folder in the root of your app. This folder contains the code for the email-validator module, which is a bit of validation logic in <code>node_modules/email_validator/index.js</code>. 
 
@@ -1395,24 +1395,24 @@ var validator = require(&quot;email-validator&quot;);</code>
 To make use of this validator, add a function to <code>user-view-model.js</code>, right above the line <code>return viewModel</code>:
 
 <code>javascript
-viewModel.isValidEmail = function()  &#123;
+viewModel.isValidEmail = function() &#123;
     var email = this.get(&quot;email&quot;);
     return validator.validate(email);
- &#125;;</code>
+&#125;;</code>
 
 Then, edit the registration function in <code>app/views/register/register.js</code> to trap any malformed email addresses:
 
 <code>javascript
-exports.register = function()  &#123;
-    if (user.isValidEmail())  &#123;
+exports.register = function() &#123;
+    if (user.isValidEmail()) &#123;
         completeRegistration();
-     &#125; else  &#123;
-        dialogsModule.alert( &#123;
+    &#125; else &#123;
+        dialogsModule.alert(&#123;
             message: &quot;Enter a valid email address.&quot;,
             okButtonText: &quot;OK&quot;
-         &#125;);
-     &#125;
- &#125;;</code>
+        &#125;);
+    &#125;
+&#125;;</code>
 
 </div>
 
@@ -1519,15 +1519,15 @@ With the module installed and required, and the UI in place, you can implement t
 To do so, return to <code>list.js</code> and paste the following code at the bottom of the file:
 
 <code>javascript
-exports.share = function()  &#123;
+exports.share = function() &#123;
     var list = [];
     var finalList = &quot;&quot;;
-    for (var i = 0, size = groceryList.length; i &lt; size ; i++)  &#123;
+    for (var i = 0, size = groceryList.length; i &lt; size ; i++) &#123;
         list.push(groceryList.getItem(i).name);
-     &#125;
+    &#125;
     var listString = list.join(&quot;, &quot;).trim();
     socialShare.shareText(listString);
- &#125;;</code>
+&#125;;</code>
 
 </div>
 
@@ -1593,18 +1593,18 @@ Next, open <code>app/views/login/login.xml</code> and paste in the following cod
 Finally, open <code>app/app.css</code> and paste the following CSS to modify the ActionBar’s colors:
 
 <code>css
-ActionBar  &#123;
+ActionBar &#123;
     color: white;
     background-color: #2E6DAD;
- &#125;</code>
+&#125;</code>
 
 With the ActionBar in place, let&#39;s look at how to customize its look with some native iOS APIs. Open <code>app/views/login/login.js</code> and paste the following code in the <code>exports.loaded()</code> function, directly after the <code>var page = args.object;</code> assignment:
 
 <code>javascript
-if (page.ios)  &#123;
+if (page.ios) &#123;
     var navigationBar = frameModule.topmost().ios.controller.navigationBar;
     navigationBar.barStyle = UIBarStyle.UIBarStyleBlack;
- &#125;</code>
+&#125;</code>
 
 </div>
 
@@ -1650,7 +1650,7 @@ Open <code>app/views/list/list.xml</code>, find the <code>&lt;ListView.itemTempl
 <code>xml
 &lt;ListView.itemTemplate&gt;
     &lt;GridLayout columns=&quot;*, auto&quot;&gt;
-        &lt;Label text=&quot; &#123;% raw % &#125; &#123; &#123; name  &#125; &#125; &#123;% endraw % &#125;&quot;/&gt;
+        &lt;Label text=&quot;&#123;% raw %&#125;&#123;&#123; name &#125;&#125;&#123;% endraw %&#125;&quot;/&gt;
         &lt;Image src=&quot;res://ic_menu_delete&quot; ios:visibility=&quot;collapsed&quot; col=&quot;1&quot; tap=&quot;delete&quot; /&gt;
     &lt;/GridLayout&gt;
 &lt;/ListView.itemTemplate&gt;</code>
@@ -1678,30 +1678,30 @@ Finally, make the trash actually delete items. To do that you&#39;ll need to imp
 Open <code>app/views/list/list.js</code> and paste the following code at the bottom of the file:
 
 <code>javascript
-exports.delete = function(args)  &#123;
+exports.delete = function(args) &#123;
     var item = args.view.bindingContext;
     var index = groceryList.indexOf(item);
     groceryList.delete(index);
- &#125;;</code>
+&#125;;</code>
 
 This code gets the index of the grocery the user tapped, matches that to the corresponding item in the view model, and then passes that index to the view model&#39;s <code>delete()</code> method—which doesn&#39;t exist yet, so let&#39;s create it.
 
 Open <code>app/shared/view-models/grocery-list-view-model.js</code> and paste in the code below. Remember to add this function toward the end of the file, right above the <code>return viewModel</code> line:
 
 <code>javascript
-viewModel.delete = function(index)  &#123;
-    return fetch(config.apiUrl + &quot;Groceries/&quot; + viewModel.getItem(index).id,  &#123;
+viewModel.delete = function(index) &#123;
+    return fetch(config.apiUrl + &quot;Groceries/&quot; + viewModel.getItem(index).id, &#123;
         method: &quot;DELETE&quot;,
-        headers:  &#123;
+        headers: &#123;
             &quot;Authorization&quot;: &quot;Bearer &quot; + config.token,
             &quot;Content-Type&quot;: &quot;application/json&quot;
-         &#125;
-     &#125;)
+        &#125;
+    &#125;)
     .then(handleErrors)
-    .then(function()  &#123;
+    .then(function() &#123;
         viewModel.splice(index, 1);
-     &#125;);
- &#125;;</code>
+    &#125;);
+&#125;;</code>
 
 </div>
 
@@ -1739,12 +1739,12 @@ var swipeDelete = require(&quot;../../shared/utils/ios-swipe-delete&quot;);</cod
 Then, add the following code to the <code>exports.loaded()</code> function, directly under the <code>page = args.object;</code> assignment:
 
 <code>javascript
-if (page.ios)  &#123;
+if (page.ios) &#123;
     var listView = page.getViewById(&quot;groceryList&quot;);
-    swipeDelete.enable(listView, function(index)  &#123;
+    swipeDelete.enable(listView, function(index) &#123;
         groceryList.delete(index);
-     &#125;);
- &#125;</code>
+    &#125;);
+&#125;</code>
 
 </div>
 
