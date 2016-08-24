@@ -47,16 +47,12 @@ app.use('/img', serveStatic('features/docs/source/img'));
 
 app.use('/config', serveStatic('ng2/config'));
 
-app.use('/', routes);
-app.all('/tutorial/*', (req, res) => res.render('index'));
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+app.use(routes);
 
-// error handlers
+/*app.get(function (req, res, next) {
+  if (req.accepts('html')) res.sendFile(__dirname + '/index.html')
+  else next()
+})*/
 
 // development error handler
 // will print stacktrace
@@ -79,6 +75,15 @@ app.use(function (err, req, res, next) {
     error: {}
   });
 });
+
+//app.use('/*', routes);
+
+app.get(function (req, res, next) {
+  if (req.accepts('html')) res.render('index', { title: 'Express' });
+  else next()
+})
+
+// error handlers
 
 
 module.exports = app;

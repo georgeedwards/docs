@@ -1,11 +1,10 @@
 <div class="content row">
-    <h1 class="title">Tutorial</h1>
     <div class="chapters col s3">
         <a *ngFor="let chapter of chapters; let i=index" (click)="clickedItem = i" [class.clicked]="i == clickedItem" class="chapter"
             [routerLink]="['/tutorial/chapter', chapter.number]">{{chapter.number}}. {{chapter.title}} </a>
     </div>
     <div class="col s9">
-        <codestep [step]="2.1"></codestep>
+        <!-- <codestep [step]="2.1"></codestep> -->
         <router-outlet></router-outlet>
     </div>
 </div>
