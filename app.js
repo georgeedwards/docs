@@ -53,12 +53,13 @@ app.use('/config', serveStatic('ng2/config'));
 app.use('/', routes);
 
 // JS - /tutorial static
-app.use('/tutorial', express.static('ng2/views/app/tutorial'));
+//app.use('/tutorial', express.static('ng2/views/app/tutorial'));
 // JS - /tutorial/chapter/* send index file 
-app.get('/tutorial/chapter/*', (req, res) => {
-  console.log('7');
+app.all(/^\/tutorial$/, (req, res) => {
+  res.redirect('/tutorial/');
+});
+app.use('/tutorial/', (req, res) => {
   res.sendFile(__dirname + '/ng2/views/index.html');
-  // res.render('index');
 });
 
 // catch 404 and forward to error handler
