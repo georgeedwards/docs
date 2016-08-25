@@ -21,8 +21,11 @@ app.use(express.static('ng2/public'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/persist', express.static(__dirname + '/persist'));
 
+// JS - Add /app
+app.use('/app', express.static(__dirname + '/ng2/views/app'));
 
-file.processTutorial(); //generate html rendered patches for tutorial steps
+// I have to comment this line because it failed
+//file.processTutorial(); //generate html rendered patches for tutorial steps
 //file.genGit(); //generate git SHA
 file.processChapters();
 
@@ -48,7 +51,17 @@ app.use('/img', serveStatic('features/docs/source/img'));
 app.use('/config', serveStatic('ng2/config'));
 
 app.use('/', routes);
-app.all('/tutorial/*', (req, res) => res.render('index'));
+
+// JS - /tutorial static
+//app.use('/tutorial', express.static('ng2/views/app/tutorial'));
+// JS - /tutorial/chapter/* send index file 
+app.all(/^\/tutorial$/, (req, res) => {
+  res.redirect('/tutorial/');
+});
+app.use('/tutorial/', (req, res) => {
+  res.sendFile(__dirname + '/ng2/views/index.html');
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   var err = new Error('Not Found');
