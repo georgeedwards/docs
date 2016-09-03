@@ -118,6 +118,9 @@ export function setLinks(content: string, sha: string) {
     return content.replace(current, future);
 }
 
+/**
+ * Render and merge all tutorial chapters and nest in ngIfs
+ */
 export function processChapters() {
     var files = [];
     var _files = getFiles('./features/docs/source/tutorial', files);
@@ -126,10 +129,9 @@ export function processChapters() {
     for (let path of _files) {
         var data = fs.readFileSync(path, 'utf8');
         var chapter = path.substr(32, 1);
-        //data = data.substr(22007, data.length - (22007 + 769));
+        
         data = marked(data);
-        /*var codeblocks = data.match(/<codeblock>([\s\S]*)<\/codeblock>/);
-        console.log("Code: " + codeblocks);*/
+        
         chapters += '<div *ngIf="chapter == ' + chapter + '">' + data + '</div>';
     }
 
