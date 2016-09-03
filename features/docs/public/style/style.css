@@ -3687,12 +3687,12 @@ body.sidebar-visible .content {
 }
 @media screen and (min-width: 900px) {
   .content .content-wrapper {
-    margin: 0 8.5%;
+    margin: 0 8.333325%;
   }
 }
 @media screen and (min-width: 1200px) {
   .content .content-wrapper {
-    margin: 0 8.5%;
+    margin: 0 11.1111%;
   }
 }
 .content .anchor-offset {
@@ -4026,8 +4026,4 @@ body.sidebar-visible .content {
   -o-transform: scale3d(1, 1, 1);
   -ms-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
-}
-i.icon {
-    font-size: 1.4rem;
-    vertical-align: middle;
 }
