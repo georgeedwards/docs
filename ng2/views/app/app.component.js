@@ -28,7 +28,6 @@ AppComponent = __decorate([
         selector: 'my-app',
         template: `
   <sidebar *ngIf="showHeader"></sidebar>
-  <navbar *ngIf="showHeader"></navbar>
   <router-outlet></router-outlet>`,
         directives: [home_component_1.homeComponent, sidebar_component_1.sidebarComponent, navbar_component_1.navbarComponent]
     }), 

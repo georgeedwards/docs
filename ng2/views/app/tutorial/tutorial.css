@@ -25,3 +25,9 @@ h1 {
 h2 {
     font-size: 2.5rem;
 }
+.chapterDis {
+    margin-top: -1.5rem;
+    height: calc(100% - 7.9rem);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

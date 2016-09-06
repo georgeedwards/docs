@@ -9,7 +9,6 @@ import { UiService } from './shared/ui.service';
   selector: 'my-app',
   template: `
   <sidebar *ngIf="showHeader"></sidebar>
-  <navbar *ngIf="showHeader"></navbar>
   <router-outlet></router-outlet>`,
   directives: [homeComponent, sidebarComponent, navbarComponent]
 })

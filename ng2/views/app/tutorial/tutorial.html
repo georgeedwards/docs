@@ -4,7 +4,7 @@
         <a *ngFor="let chapter of chapters; let i=index" (click)="clickedItem = i" [class.clicked]="i == clickedItem" class="chapter"
             [routerLink]="['/tutorial/chapter', chapter.number]">{{chapter.number}}. {{chapter.title}} </a>
     </div>
-    <div class="col s9">
+    <div class="col s9 chapterDis">
         <router-outlet></router-outlet>
     </div>
 </div>
