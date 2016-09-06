@@ -1,7 +1,7 @@
 /**
  * System configuration for Angular 2 samples
  * Adjust as necessary for your application needs.
- 
+ **/
 (function(global) {
   // map tells the System loader where to look for things
   var map = {
@@ -43,13 +43,13 @@
   };
   System.config(config);
 })(this);
-*/
+
 
 /**
  * System configuration for Angular 2 samples
  * Adjust as necessary for your application needs.
  */
-
+/*
 (function (global) {
   System.config({
     paths: {
@@ -91,3 +91,4 @@
   });
 })(this);
 
+*/
