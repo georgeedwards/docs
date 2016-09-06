@@ -49,6 +49,7 @@
  * System configuration for Angular 2 samples
  * Adjust as necessary for your application needs.
  */
+
 (function (global) {
   System.config({
     paths: {
@@ -78,7 +79,10 @@
         main: './main.js',
         defaultExtension: 'js'
       },
-      rxjs: { main: 'Rx.js', defaultExtension: 'js' },
+      rxjs: {
+         main: 'Rx.js',
+        defaultExtension: 'js'
+      },
       'angular2-in-memory-web-api': {
         main: './index.js',
         defaultExtension: 'js'
@@ -86,3 +90,4 @@
     }
   });
 })(this);
+
