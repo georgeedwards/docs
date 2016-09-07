@@ -2,7 +2,7 @@
 const fs = require('fs');
 var Diff2Html = require('diff2html').Diff2Html;
 var Git = require("nodegit");
-var marked = require('marked');
+var markdown = require("markdown").markdown;
 /**
  * Generate html for code step snippets
  */
@@ -125,7 +125,7 @@ function processChapters() {
     for (let path of _files) {
         var data = fs.readFileSync(path, 'utf8');
         var chapter = path.substr(32, 1);
-        data = marked(data);
+        data = markdown.toHTML(data);
         chapters += '<div *ngIf="chapter == ' + chapter + '">' + data + '</div>';
     }
     chapters = replaceAll(chapters, '<p></div></p>', '</div>');
