@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const http_1 = require('@angular/http');
-const RX_1 = require('rxjs/RX');
+const Rx_1 = require('rxjs/Rx');
 let TutorialService = class TutorialService {
     constructor(http) {
         this.http = http;
@@ -30,7 +30,7 @@ let TutorialService = class TutorialService {
         let errMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         console.error(errMsg); // log to console instead
-        return RX_1.Observable.throw(errMsg);
+        return Rx_1.Observable.throw(errMsg);
     }
 };
 TutorialService = __decorate([
