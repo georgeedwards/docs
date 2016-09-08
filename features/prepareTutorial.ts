@@ -19,7 +19,7 @@ var md = require('markdown-it')({
 /**
  * Generate html for code step snippets
  */
-export function processTutorial() {
+/*export function processTutorial() {
     var files = [];
     var _files = getFiles('./features/tutorial/patches', files);
 
@@ -33,6 +33,11 @@ export function processTutorial() {
             writeFile(processedContent, path);
         });
     }
+}*/
+
+export function processTutorial() {
+    processChapters();
+    genGit();
 }
 /**
  * Create an Array of all files in a directory
@@ -67,7 +72,7 @@ function writeFile(content: string, fileName: string) {
 /**
  * Generate an array of each code step and it's corresponding sha
  */
-export function prepareDiffs(): Promise<Array<Commit>> {
+export function readRepo(): Promise<Array<Commit>> {
     var patt = new RegExp('[0-9].[0-9]');
     var results: Array<Commit> = [];
     // *** Note we're returning the result of the promise chain
@@ -75,7 +80,7 @@ export function prepareDiffs(): Promise<Array<Commit>> {
         .then(function (repo) { // Open the master branch.
             return repo.getMasterCommit();
         })
-        .then(function (firstCommitOnMaster) { // Display information about commits on master.
+        .then(function (firstCommitOnMaster) { 
             // *** Create and return a promise
             return new Promise(function (resolve, reject) {
                 var history = firstCommitOnMaster.history(); // Create a new history event emitter.
@@ -110,11 +115,11 @@ class Commit {
  * Prepare the git sha for each code step and then write it into features/git directory
  */
 export function genGit() {
-    prepareDiffs()
+    readRepo()
         .then(function (result) {
             for (let commit of result) {
                 if (commit.step !== undefined) {
-                    fs.writeFileSync('features/git/' + commit.step + '.txt', commit.hash);
+                    fs.writeFileSync('features/git/steps/' + commit.step + '.txt', commit.hash);
                 }
             }
         });

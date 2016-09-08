@@ -25,9 +25,9 @@ app.use('/persist', express.static(__dirname + '/persist'));
 app.use('/app', express.static(__dirname + '/ng2/views/app'));
 
 // I have to comment this line because it failed
-//file.processTutorial(); //generate html rendered patches for tutorial steps
+file.processTutorial(); //generate html rendered patches for tutorial steps
 //file.genGit(); //generate git SHA
-file.processChapters();
+//file.processChapters();
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'ng2/public', 'favicon.png')));
