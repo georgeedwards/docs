@@ -16,6 +16,7 @@ let chapterComponent = class chapterComponent {
         this.route = route;
         this.router = router;
         this.content = '';
+        this.route.params.forEach(p => this.doScroll());
     }
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
@@ -51,6 +52,8 @@ let chapterComponent = class chapterComponent {
         if (this.chapter == '6') {
             return 'grey';
         }
+    }
+    doScroll() {
     }
 };
 chapterComponent = __decorate([

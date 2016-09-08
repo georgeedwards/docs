@@ -17,7 +17,9 @@ export class chapterComponent implements OnInit, OnDestroy {
   errorMessage: string;
   chapter: string;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.route.params.forEach(p => this.doScroll());
+   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -58,5 +60,9 @@ export class chapterComponent implements OnInit, OnDestroy {
     if (this.chapter == '6') {
       return 'grey';
     }
+  }
+
+  doScroll() {
+
   }
 }
