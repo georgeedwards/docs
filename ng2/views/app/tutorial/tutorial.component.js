@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const router_1 = require('@angular/router');
-const chapterHelp_component_1 = require('./chapterHelp/chapterHelp.component');
 const ui_service_1 = require('../shared/ui.service');
 let tutorialComponent = class tutorialComponent {
     constructor(uiService) {
@@ -30,7 +29,7 @@ tutorialComponent = __decorate([
         selector: 'tutorial',
         templateUrl: 'app/tutorial/tutorial.html',
         styleUrls: ['./app/tutorial/tutorial.css'],
-        directives: [router_1.ROUTER_DIRECTIVES, chapterHelp_component_1.chapterHelpComponent],
+        directives: [router_1.ROUTER_DIRECTIVES],
         encapsulation: core_1.ViewEncapsulation.None
     }), 
     __metadata('design:paramtypes', [ui_service_1.UiService])

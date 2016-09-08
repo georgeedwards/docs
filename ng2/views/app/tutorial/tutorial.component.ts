@@ -1,14 +1,13 @@
 import { Component, ViewEncapsulation, Output, EventEmitter, OnInit } from '@angular/core';
 import { Routes, RouterModule }   from '@angular/router';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import { chapterHelpComponent } from './chapterHelp/chapterHelp.component';
 import { UiService} from '../shared/ui.service';
 
 @Component({
   selector: 'tutorial',
   templateUrl: 'app/tutorial/tutorial.html',
   styleUrls: ['./app/tutorial/tutorial.css'],
-  directives: [ROUTER_DIRECTIVES, chapterHelpComponent],
+  directives: [ROUTER_DIRECTIVES],
   encapsulation: ViewEncapsulation.None
 })
 export class tutorialComponent {

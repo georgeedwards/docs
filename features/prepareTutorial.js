@@ -145,6 +145,7 @@ function processChapters() {
         chapters += '<div *ngIf="chapter == ' + chapter + '">' + data + '</div>';
     }
     chapters = fixHTML(chapters);
+    chapters += fs.readFileSync('./features/chapterNav.html', 'utf8');
     var path = './ng2/views/app/tutorial/chapter/chapter.html';
     fs.unlinkSync(path);
     fs.writeFileSync(path, chapters);

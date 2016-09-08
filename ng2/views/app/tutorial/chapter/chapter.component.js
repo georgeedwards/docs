@@ -24,6 +24,15 @@ let chapterComponent = class chapterComponent {
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
+    previous() {
+        console.log(this.chapter);
+    }
+    next() {
+    }
+    isStart() {
+    }
+    isEnd() {
+    }
 };
 chapterComponent = __decorate([
     core_1.Component({

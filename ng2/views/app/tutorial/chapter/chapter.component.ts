@@ -28,4 +28,20 @@ export class chapterComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
+
+  previous() {
+    console.log(this.chapter);
+  }
+
+  next() {
+
+  }
+
+  isStart() {
+
+  }
+
+  isEnd() {
+    
+  }
 }
