@@ -114,6 +114,7 @@ function genGit() {
             if (commit.step !== undefined) {
                 fs.writeFileSync('features/git/steps/' + commit.step + '.txt', commit.hash);
             }
+            console.log(result);
         }
     });
 }
