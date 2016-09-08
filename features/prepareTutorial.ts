@@ -1,8 +1,21 @@
 import * as fs from 'fs';
 var Diff2Html = require('diff2html').Diff2Html;
 var Git = require("nodegit");
+import * as hljs from 'highlight.js'; // https://highlightjs.org/
+//import * as MarkdownIt from 'markdown-it';
+var md = require('markdown-it')({
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return hljs.highlight(lang, str).value;
+      } catch (__) {}
+    }
 
-var markdown = require( "markdown" ).markdown;
+    return ''; // use external default escaping
+  },
+  html: true
+});
+
 /**
  * Generate html for code step snippets
  */
@@ -131,19 +144,41 @@ export function processChapters() {
         var data = fs.readFileSync(path, 'utf8');
         var chapter = path.substr(32, 1);
         
-        data = markdown.toHTML(data)
+        data = md.render(data)
         
         chapters += '<div *ngIf="chapter == ' + chapter + '">' + data + '</div>';
     }
 
-    chapters = replaceAll(chapters, '<p></div></p>', '</div>');
-    chapters = replaceAll(chapters, '{', '&#123;');
-    chapters = replaceAll(chapters, '}', '&#125;');
+    chapters = fixHTML(chapters);
+
     var path = './ng2/views/app/tutorial/chapter/chapter.html';
     fs.unlinkSync(path);
     fs.writeFileSync(path, chapters);
 }
 
+/**
+ * Apply minor fixes to the default markdown output
+ */
+function fixHTML (content: string): string {
+    var fixes = [
+        ['<p></div></p>', '</div>'],
+        ['{', '&#123;'],
+        ['}', '&#125;'],
+        ['<p><h4>', '<h4>'],
+        ['</h4></p>', '</h4>']
+    ]
+    for (let fix of fixes) {
+        content = replaceAll(content, fix[0], fix[1]);
+    }
+    return content;
+}
+
+/**
+ * Replace all Occurences of a string in a parent string
+ * @param {string} content - parent string
+ * @param {string} search - search term to be replaced
+ * @param {string} replacement - content to be put in place of the search term
+ */
 function replaceAll(content: string, search: string, replacement: string): string {
     return content.replace(new RegExp(search, 'g'), replacement);
 };
