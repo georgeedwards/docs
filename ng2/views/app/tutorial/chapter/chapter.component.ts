@@ -17,31 +17,46 @@ export class chapterComponent implements OnInit, OnDestroy {
   errorMessage: string;
   chapter: string;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.chapter = params['id'];
     });
+    console.log("INIT");
   }
-  
+
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
   previous() {
-    console.log(this.chapter);
+    if (this.chapter !== '0') {
+      var previous = parseInt(this.chapter) - 1;
+      console.log(previous);
+      let link = ['/tutorial/chapter', previous];
+      this.router.navigate(link);
+    }
   }
 
   next() {
-
+    if (this.chapter !== '6') {
+      var next = parseInt(this.chapter) + 1;
+      console.log(next);
+      let link = ['/tutorial/chapter', next];
+      this.router.navigate(link);
+    }
   }
 
   isStart() {
-
+    if (this.chapter == '0') {
+      return 'grey';
+    }
   }
 
   isEnd() {
-    
+    if (this.chapter == '6') {
+      return 'grey';
+    }
   }
 }

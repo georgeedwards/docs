@@ -12,26 +12,45 @@ const core_1 = require('@angular/core');
 const router_1 = require('@angular/router');
 const codestep_component_1 = require('../codeStep/codestep.component');
 let chapterComponent = class chapterComponent {
-    constructor(route) {
+    constructor(route, router) {
         this.route = route;
+        this.router = router;
         this.content = '';
     }
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
             this.chapter = params['id'];
         });
+        console.log("INIT");
     }
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
     previous() {
-        console.log(this.chapter);
+        if (this.chapter !== '0') {
+            var previous = parseInt(this.chapter) - 1;
+            console.log(previous);
+            let link = ['/tutorial/chapter', previous];
+            this.router.navigate(link);
+        }
     }
     next() {
+        if (this.chapter !== '6') {
+            var next = parseInt(this.chapter) + 1;
+            console.log(next);
+            let link = ['/tutorial/chapter', next];
+            this.router.navigate(link);
+        }
     }
     isStart() {
+        if (this.chapter == '0') {
+            return 'grey';
+        }
     }
     isEnd() {
+        if (this.chapter == '6') {
+            return 'grey';
+        }
     }
 };
 chapterComponent = __decorate([
@@ -41,7 +60,7 @@ chapterComponent = __decorate([
         styleUrls: ['./app/tutorial/chapter/chapter.css'],
         directives: [codestep_component_1.codeStepComponent]
     }), 
-    __metadata('design:paramtypes', [router_1.ActivatedRoute])
+    __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])
 ], chapterComponent);
 exports.chapterComponent = chapterComponent;
 //# sourceMappingURL=chapter.component.js.map
