@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const router_1 = require('@angular/router');
-const codestep_component_1 = require('../codeStep/codestep.component');
 let chapterComponent = class chapterComponent {
     constructor(route, router) {
         this.route = route;
@@ -69,8 +68,7 @@ chapterComponent = __decorate([
     core_1.Component({
         selector: 'chapter',
         templateUrl: 'app/tutorial/chapter/chapter.html',
-        styleUrls: ['./app/tutorial/chapter/chapter.css'],
-        directives: [codestep_component_1.codeStepComponent]
+        styleUrls: ['./app/tutorial/chapter/chapter.css']
     }), 
     __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])
 ], chapterComponent);

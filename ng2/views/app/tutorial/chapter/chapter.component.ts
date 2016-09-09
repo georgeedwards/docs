@@ -1,15 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Router, ActivatedRoute } from '@angular/router';
-import {SafeResourceUrl, DomSanitizationService} from '@angular/platform-browser';
-import { codeStepComponent } from '../codeStep/codestep.component';
-import { TutorialService } from '../../shared/tutorial.service';
+import {SafeResourceUrl, DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'chapter',
   templateUrl: 'app/tutorial/chapter/chapter.html',
-  styleUrls: ['./app/tutorial/chapter/chapter.css'],
-  directives: [codeStepComponent]
+  styleUrls: ['./app/tutorial/chapter/chapter.css']
 })
 export class chapterComponent implements OnInit, OnDestroy {
   private sub: Subscription;

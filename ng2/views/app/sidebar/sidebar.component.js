@@ -9,14 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const router_1 = require('@angular/router');
 let sidebarComponent = class sidebarComponent {
 };
 sidebarComponent = __decorate([
     core_1.Component({
         selector: 'sidebar',
-        templateUrl: 'app/sidebar/sidebar.html',
-        directives: [router_1.ROUTER_DIRECTIVES]
+        templateUrl: 'app/sidebar/sidebar.html'
     }), 
     __metadata('design:paramtypes', [])
 ], sidebarComponent);

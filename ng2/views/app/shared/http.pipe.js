@@ -22,7 +22,7 @@ RawHtmlPipe = __decorate([
     core_1.Pipe({
         name: 'rawHtml'
     }), 
-    __metadata('design:paramtypes', [platform_browser_1.DomSanitizationService])
+    __metadata('design:paramtypes', [platform_browser_1.DomSanitizer])
 ], RawHtmlPipe);
 exports.RawHtmlPipe = RawHtmlPipe;
 //# sourceMappingURL=http.pipe.js.map

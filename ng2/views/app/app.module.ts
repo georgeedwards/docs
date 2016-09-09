@@ -5,10 +5,11 @@ import { AppComponent }  from './app.component';
 import { routing, appRoutingProviders } from './app.routes';
 import { tutorialModule } from './tutorial/tutorial.module';
 import { UiService } from './shared/ui.service';
+import { sidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   imports: [ BrowserModule, routing, tutorialModule ],
-  declarations: [ AppComponent, homeComponent ],
+  declarations: [ AppComponent, homeComponent, sidebarComponent ],
   providers: [
     appRoutingProviders, UiService
   ],
