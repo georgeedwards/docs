@@ -10,19 +10,69 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const ui_service_1 = require('../shared/ui.service');
+const router_1 = require('@angular/router');
 let tutorialComponent = class tutorialComponent {
-    constructor(uiService) {
+    constructor(uiService, route, router) {
         this.uiService = uiService;
+        this.route = route;
+        this.router = router;
         this.chapters = _chapters;
         this.clickedItem = 0;
-        this.everySecond = new core_1.EventEmitter();
+        this.shas = {
+            '1': '95854756de842ff45ebbf9d3703cc7eff1557d5a',
+            '2': '13b948cc246b3c9b383c4be24ca0ba0a7c072e67',
+            '3': 'd29ae903c17e342423ac30fe4c5d10dc65876c18',
+            '4': 'd5d37719e5768b54be28183d57a14c0f2863ccbe',
+            '5': '2a501710baa09e53af27388a364246656d2de782',
+            '6': '2080f0bf0acc61628909df340aa03ead722a42c8'
+        };
         this.uiService.changeNavState(true); //display nav bars
+        this.route.params.forEach(p => this.doScroll());
+    }
+    ngOnInit() {
+        this.sub = this.route.params.subscribe(params => {
+            this._chapter = params['id'];
+        });
+    }
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+    doScroll() {
+        if (this.chapter !== undefined) {
+            this.chapter.nativeElement.scrollTop = 0;
+        }
+    }
+    previous() {
+        if (this._chapter !== '0') {
+            var previous = parseInt(this._chapter) - 1;
+            console.log(previous);
+            let link = ['/tutorial/chapter', previous];
+            this.router.navigate(link);
+        }
+    }
+    next() {
+        if (this._chapter !== '6') {
+            var next = parseInt(this._chapter) + 1;
+            console.log(next);
+            let link = ['/tutorial/chapter', next];
+            this.router.navigate(link);
+        }
+    }
+    isStart() {
+        if (this._chapter == '0') {
+            return 'grey';
+        }
+    }
+    isEnd() {
+        if (this._chapter == '6') {
+            return 'grey';
+        }
     }
 };
 __decorate([
-    core_1.Output(), 
+    core_1.ViewChild('chapter'), 
     __metadata('design:type', Object)
-], tutorialComponent.prototype, "everySecond", void 0);
+], tutorialComponent.prototype, "chapter", void 0);
 tutorialComponent = __decorate([
     core_1.Component({
         selector: 'tutorial',
@@ -30,7 +80,7 @@ tutorialComponent = __decorate([
         styleUrls: ['./app/tutorial/tutorial.css'],
         encapsulation: core_1.ViewEncapsulation.None
     }), 
-    __metadata('design:paramtypes', [ui_service_1.UiService])
+    __metadata('design:paramtypes', [ui_service_1.UiService, router_1.ActivatedRoute, router_1.Router])
 ], tutorialComponent);
 exports.tutorialComponent = tutorialComponent;
 const _chapters = [

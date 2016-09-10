@@ -12,10 +12,8 @@ const core_1 = require('@angular/core');
 const common_1 = require('@angular/common');
 const tutorial_routes_1 = require('./tutorial.routes');
 const http_1 = require('@angular/http');
-const tutorial_service_1 = require('../shared/tutorial.service');
 const tutorial_component_1 = require('./tutorial.component');
 const chapter_component_1 = require('./chapter/chapter.component');
-const http_pipe_1 = require('../shared/http.pipe');
 let tutorialModule = class tutorialModule {
 };
 tutorialModule = __decorate([
@@ -27,10 +25,8 @@ tutorialModule = __decorate([
         ],
         declarations: [
             tutorial_component_1.tutorialComponent,
-            chapter_component_1.chapterComponent,
-            http_pipe_1.RawHtmlPipe
-        ],
-        providers: [tutorial_service_1.TutorialService]
+            chapter_component_1.chapterComponent
+        ]
     }), 
     __metadata('design:paramtypes', [])
 ], tutorialModule);

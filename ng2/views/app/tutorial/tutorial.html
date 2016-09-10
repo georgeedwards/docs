@@ -7,4 +7,20 @@
     <div class="col s9 chapterDis">
         <router-outlet></router-outlet>
     </div>
+    <div #chapter class="chapterNav">
+        <div class="row">
+            <div class="col s4" [style.color]="isStart()" (click)="previous()"><i class="icon ion-arrow-left-c"></i></div>
+            <div class="col s4"><a [href]="'https://github.com/georgeedwards/ns-tutorial/archive/' + shas[chapter] + '.zip'"><i class="icon ion-code-download"></i></a></div>
+            <div class="col s4" [style.color]="isEnd()" (click)="next()"><i class="icon ion-arrow-right-c"></i></div>
+        </div>
+        <div class="row">
+            <div class="col s4" [style.color]="isStart()" (click)="previous()">
+                <h5>Previous</h5>
+            </div> 
+            <div class="col s4"><a [href]="'https://github.com/georgeedwards/ns-tutorial/archive/' + shas[chapter] + '.zip'" class="download">Download the code at the end of this chapter</a></div>
+            <div class="col s4" [style.color]="isEnd()" (click)="next()">
+                <h5>Next</h5>
+            </div>
+        </div>
+    </div> 
 </div>
