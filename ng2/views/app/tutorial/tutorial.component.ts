@@ -19,7 +19,6 @@ export class tutorialComponent {
 
   constructor(private uiService: UiService, private route: ActivatedRoute, private router: Router) {
     this.uiService.changeNavState(true); //display nav bars
-    this.route.params.forEach(p => this.doScroll());
     this.uiService.chapter.forEach(c => {
       this.clickedItem = c;
       this.doScroll();

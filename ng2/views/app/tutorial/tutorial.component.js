@@ -27,7 +27,6 @@ let tutorialComponent = class tutorialComponent {
             6: '2080f0bf0acc61628909df340aa03ead722a42c8'
         };
         this.uiService.changeNavState(true); //display nav bars
-        this.route.params.forEach(p => this.doScroll());
         this.uiService.chapter.forEach(c => {
             this.clickedItem = c;
             this.doScroll();
