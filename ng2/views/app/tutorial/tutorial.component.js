@@ -28,43 +28,45 @@ let tutorialComponent = class tutorialComponent {
         };
         this.uiService.changeNavState(true); //display nav bars
         this.route.params.forEach(p => this.doScroll());
+        this.uiService.chapter.forEach(c => { this.clickedItem = c; });
     }
-    ngOnInit() {
-        this.sub = this.route.params.subscribe(params => {
-            this._chapter = params['id'];
-        });
+    /*ngOnInit() {
+      this.sub = this.route.params.subscribe(params => {
+        this._chapter = params['id'];
+      });
     }
+  
     ngOnDestroy() {
-        this.sub.unsubscribe();
-    }
+      this.sub.unsubscribe();
+    }*/
     doScroll() {
         if (this.chapter !== undefined) {
             this.chapter.nativeElement.scrollTop = 0;
         }
     }
     previous() {
-        if (this._chapter !== '0') {
-            var previous = parseInt(this._chapter) - 1;
+        if (this.clickedItem !== 0) {
+            var previous = this.clickedItem - 1;
             console.log(previous);
             let link = ['/tutorial/chapter', previous];
             this.router.navigate(link);
         }
     }
     next() {
-        if (this._chapter !== '6') {
-            var next = parseInt(this._chapter) + 1;
+        if (this.clickedItem !== 6) {
+            var next = this.clickedItem + 1;
             console.log(next);
             let link = ['/tutorial/chapter', next];
             this.router.navigate(link);
         }
     }
     isStart() {
-        if (this._chapter == '0') {
+        if (this.clickedItem == 0) {
             return 'grey';
         }
     }
     isEnd() {
-        if (this._chapter == '6') {
+        if (this.clickedItem == 6) {
             return 'grey';
         }
     }

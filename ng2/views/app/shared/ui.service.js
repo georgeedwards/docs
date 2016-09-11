@@ -14,12 +14,17 @@ let UiService = class UiService {
     constructor() {
         // Observable boolean sources
         this.navStateSource = new Subject_1.Subject();
+        this._chapter = new Subject_1.Subject();
         // Observable boolean streams
         this.navState$ = this.navStateSource.asObservable();
+        this.chapter = this._chapter.asObservable();
     }
     // Service message commands
     changeNavState(showNav) {
         this.navStateSource.next(showNav);
+    }
+    changeChapter(chapter) {
+        this._chapter.next(chapter);
     }
 };
 UiService = __decorate([

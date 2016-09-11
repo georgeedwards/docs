@@ -12,19 +12,20 @@ import { chapterComponent } from './chapter/chapter.component';
   encapsulation: ViewEncapsulation.None
 })
 
-export class tutorialComponent implements OnInit, OnDestroy {
+export class tutorialComponent {
   public chapters = _chapters;
   clickedItem: number = 0;
   private sub: Subscription;
-  public _chapter: string;
+  //public _chapter: string;
   @ViewChild('chapter') chapter;
 
   constructor(private uiService: UiService, private route: ActivatedRoute, private router: Router) {
     this.uiService.changeNavState(true); //display nav bars
     this.route.params.forEach(p => this.doScroll());
+    this.uiService.chapter.forEach(c => {this.clickedItem = c})
   }
 
-  ngOnInit() {
+  /*ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this._chapter = params['id'];
     });
@@ -32,7 +33,7 @@ export class tutorialComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
-  }
+  }*/
 
   doScroll() {
     if (this.chapter !== undefined) {
@@ -41,8 +42,8 @@ export class tutorialComponent implements OnInit, OnDestroy {
   }
 
   previous() {
-    if (this._chapter !== '0') {
-      var previous = parseInt(this._chapter) - 1;
+    if (this.clickedItem !== 0) {
+      var previous = this.clickedItem - 1;
       console.log(previous);
       let link = ['/tutorial/chapter', previous];
       this.router.navigate(link);
@@ -50,8 +51,8 @@ export class tutorialComponent implements OnInit, OnDestroy {
   }
 
   next() {
-    if (this._chapter !== '6') {
-      var next = parseInt(this._chapter) + 1;
+    if (this.clickedItem !== 6) {
+      var next = this.clickedItem + 1;
       console.log(next);
       let link = ['/tutorial/chapter', next];
       this.router.navigate(link);
@@ -59,13 +60,13 @@ export class tutorialComponent implements OnInit, OnDestroy {
   }
 
   isStart() {
-    if (this._chapter == '0') {
+    if (this.clickedItem == 0) {
       return 'grey';
     }
   }
 
   isEnd() {
-    if (this._chapter == '6') {
+    if (this.clickedItem == 6) {
       return 'grey';
     }
   }

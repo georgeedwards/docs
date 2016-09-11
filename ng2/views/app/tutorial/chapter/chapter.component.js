@@ -10,20 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const router_1 = require('@angular/router');
+const ui_service_1 = require('../../shared/ui.service');
 let chapterComponent = class chapterComponent {
-    constructor(route, router) {
+    constructor(route, router, uiService) {
         this.route = route;
         this.router = router;
+        this.uiService = uiService;
         this.content = '';
+        this.route.params.forEach(p => this.updateChapter(+p['id']));
     }
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
             this.chapter = params['id'];
+            //this.uiService.chapters = params['id'];
+            //this.updateChapter(params['id']);
         });
         console.log("INIT");
     }
     ngOnDestroy() {
         this.sub.unsubscribe();
+    }
+    updateChapter(chapter) {
+        this.uiService.changeChapter(chapter);
+        console.log("Called");
     }
 };
 chapterComponent = __decorate([
@@ -32,7 +41,7 @@ chapterComponent = __decorate([
         templateUrl: 'app/tutorial/chapter/chapter.html',
         styleUrls: ['./app/tutorial/chapter/chapter.css']
     }), 
-    __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])
+    __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, ui_service_1.UiService])
 ], chapterComponent);
 exports.chapterComponent = chapterComponent;
 //# sourceMappingURL=chapter.component.js.map
