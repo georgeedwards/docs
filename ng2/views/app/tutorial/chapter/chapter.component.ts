@@ -24,10 +24,7 @@ export class chapterComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.chapter = params['id'];
-      //this.uiService.chapters = params['id'];
-      //this.updateChapter(params['id']);
     });
-    console.log("INIT");
   }
 
   ngOnDestroy() {
@@ -36,7 +33,6 @@ export class chapterComponent implements OnInit, OnDestroy {
   
   updateChapter(chapter: number) {
     this.uiService.changeChapter(chapter);
-    console.log("Called");
   }
 
 }

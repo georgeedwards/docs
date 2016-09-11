@@ -22,17 +22,13 @@ let chapterComponent = class chapterComponent {
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
             this.chapter = params['id'];
-            //this.uiService.chapters = params['id'];
-            //this.updateChapter(params['id']);
         });
-        console.log("INIT");
     }
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
     updateChapter(chapter) {
         this.uiService.changeChapter(chapter);
-        console.log("Called");
     }
 };
 chapterComponent = __decorate([
