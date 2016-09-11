@@ -31,3 +31,13 @@ h2 {
     overflow-y: scroll;
     overflow-x: hidden;
 }
+i {
+    font-size: 3em;
+}
+.download {
+    line-height: 1em;
+}
+.chapNav {
+    text-align: center;
+    color: #333;
+}
