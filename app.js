@@ -61,6 +61,9 @@ app.all(/^\/tutorial$/, (req, res) => {
 app.use('/tutorial/', (req, res) => {
   res.sendFile(__dirname + '/ng2/views/index.html');
 });
+app.use('/plugins/', (req, res) => {
+  res.sendFile(__dirname + '/ng2/views/index.html');
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

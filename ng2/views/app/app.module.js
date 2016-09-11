@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require('@angular/core');
 const platform_browser_1 = require('@angular/platform-browser');
 const home_component_1 = require('./home/home.component');
+const plugins_component_1 = require('./plugins/plugins.component');
 const app_component_1 = require('./app.component');
 const app_routes_1 = require('./app.routes');
 const tutorial_module_1 = require('./tutorial/tutorial.module');
@@ -21,7 +22,7 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, app_routes_1.routing, tutorial_module_1.tutorialModule],
-        declarations: [app_component_1.AppComponent, home_component_1.homeComponent, sidebar_component_1.sidebarComponent],
+        declarations: [app_component_1.AppComponent, home_component_1.homeComponent, sidebar_component_1.sidebarComponent, plugins_component_1.pluginsComponent],
         providers: [
             app_routes_1.appRoutingProviders, ui_service_1.UiService
         ],

@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { homeComponent } from './home/home.component';
+import { pluginsComponent } from './plugins/plugins.component';
 import { AppComponent }  from './app.component';
 import { routing, appRoutingProviders } from './app.routes';
 import { tutorialModule } from './tutorial/tutorial.module';
@@ -9,7 +10,7 @@ import { sidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   imports: [ BrowserModule, routing, tutorialModule ],
-  declarations: [ AppComponent, homeComponent, sidebarComponent ],
+  declarations: [ AppComponent, homeComponent, sidebarComponent, pluginsComponent ],
   providers: [
     appRoutingProviders, UiService
   ],
