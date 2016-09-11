@@ -4,23 +4,24 @@
         <a *ngFor="let chapter of chapters; let i=index" (click)="clickedItem = i" [class.clicked]="i == clickedItem" class="chapter"
             [routerLink]="['/tutorial/chapter', chapter.number]">{{chapter.number}}. {{chapter.title}} </a>
     </div>
-    <div class="col s9 chapterDis">
+    <div #chapter class="col s9 chapterDis">
         <router-outlet></router-outlet>
-    </div>
-    <div #chapter class="chapterNav">
-        <div class="row">
-            <div class="col s4 chapNav" [style.color]="isStart()" (click)="previous()"><i class="icon ion-arrow-left-c"></i></div>
-            <div class="col s4 chapNav"><a [href]="'https://github.com/georgeedwards/ns-tutorial/archive/' + shas[clickedItem] + '.zip'"><i class="icon ion-code-download"></i></a></div>
-            <div class="col s4 chapNav" [style.color]="isEnd()" (click)="next()"><i class="icon ion-arrow-right-c"></i></div>
-        </div>
-        <div class="row">
-            <div class="col s4 chapNav" [style.color]="isStart()" (click)="previous()">
-                <h5>Previous</h5>
-            </div> 
-            <div class="col s4 chapNav"><a [href]="'https://github.com/georgeedwards/ns-tutorial/archive/' + shas[clickedItem] + '.zip'" class="download">Download the code at the end of this chapter</a></div>
-            <div class="col s4 chapNav" [style.color]="isEnd()" (click)="next()">
-                <h5>Next</h5>
+        <div class="chapterNav">
+            <div class="row" style="margin-left: 0px">
+                <div class="col s4 chapNav" [style.color]="isStart()" (click)="previous()"><i class="icon ion-arrow-left-c"></i></div>
+                <div class="col s4 chapNav link"><a [href]="'https://github.com/georgeedwards/ns-tutorial/archive/' + shas[clickedItem] + '.zip'"><i class="icon ion-code-download"></i></a></div>
+                <div class="col s4 chapNav" [style.color]="isEnd()" (click)="next()"><i class="icon ion-arrow-right-c"></i></div>
+            </div>
+            <div class="row" style="margin-left: 0px">
+                <div class="col s4 chapNav" [style.color]="isStart()" (click)="previous()">
+                    <h5>Previous</h5>
+                </div>
+                <div class="col s4 chapNav link"><a [href]="'https://github.com/georgeedwards/ns-tutorial/archive/' + shas[clickedItem] + '.zip'" class="download">Download the code at the end of this chapter</a></div>
+                <div class="col s4 chapNav" [style.color]="isEnd()" (click)="next()">
+                    <h5>Next</h5>
+                </div>
             </div>
         </div>
-    </div> 
+    </div>
+    <button (click)="doScroll($event)"></button>
 </div>

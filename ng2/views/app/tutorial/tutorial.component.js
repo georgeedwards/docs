@@ -28,7 +28,10 @@ let tutorialComponent = class tutorialComponent {
         };
         this.uiService.changeNavState(true); //display nav bars
         this.route.params.forEach(p => this.doScroll());
-        this.uiService.chapter.forEach(c => { this.clickedItem = c; });
+        this.uiService.chapter.forEach(c => {
+            this.clickedItem = c;
+            this.doScroll();
+        });
     }
     doScroll() {
         if (this.chapter !== undefined) {
@@ -64,7 +67,7 @@ let tutorialComponent = class tutorialComponent {
 };
 __decorate([
     core_1.ViewChild('chapter'), 
-    __metadata('design:type', Object)
+    __metadata('design:type', core_1.ElementRef)
 ], tutorialComponent.prototype, "chapter", void 0);
 tutorialComponent = __decorate([
     core_1.Component({

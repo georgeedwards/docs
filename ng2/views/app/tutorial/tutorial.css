@@ -41,3 +41,10 @@ i {
     text-align: center;
     color: #333;
 }
+.link {
+    color: #333;
+    font-weight: 600;
+}
+.chapNav h5 {
+    margin: 0px;
+}

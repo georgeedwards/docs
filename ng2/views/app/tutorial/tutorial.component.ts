@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { Routes, RouterModule }   from '@angular/router';
 import { UiService} from '../shared/ui.service';
 import { Subscription } from 'rxjs/Subscription';
@@ -15,14 +15,16 @@ import { chapterComponent } from './chapter/chapter.component';
 export class tutorialComponent {
   public chapters = _chapters;
   clickedItem: number = 0;
-  @ViewChild('chapter') chapter;
+  @ViewChild('chapter') chapter: ElementRef;
 
   constructor(private uiService: UiService, private route: ActivatedRoute, private router: Router) {
     this.uiService.changeNavState(true); //display nav bars
     this.route.params.forEach(p => this.doScroll());
-    this.uiService.chapter.forEach(c => {this.clickedItem = c})
+    this.uiService.chapter.forEach(c => {
+      this.clickedItem = c;
+      this.doScroll();
+    })
   }
-
 
   doScroll() {
     if (this.chapter !== undefined) {
