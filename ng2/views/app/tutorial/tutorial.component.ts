@@ -15,8 +15,6 @@ import { chapterComponent } from './chapter/chapter.component';
 export class tutorialComponent {
   public chapters = _chapters;
   clickedItem: number = 0;
-  private sub: Subscription;
-  //public _chapter: string;
   @ViewChild('chapter') chapter;
 
   constructor(private uiService: UiService, private route: ActivatedRoute, private router: Router) {
@@ -25,15 +23,6 @@ export class tutorialComponent {
     this.uiService.chapter.forEach(c => {this.clickedItem = c})
   }
 
-  /*ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      this._chapter = params['id'];
-    });
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }*/
 
   doScroll() {
     if (this.chapter !== undefined) {

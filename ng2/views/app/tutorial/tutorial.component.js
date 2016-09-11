@@ -30,15 +30,6 @@ let tutorialComponent = class tutorialComponent {
         this.route.params.forEach(p => this.doScroll());
         this.uiService.chapter.forEach(c => { this.clickedItem = c; });
     }
-    /*ngOnInit() {
-      this.sub = this.route.params.subscribe(params => {
-        this._chapter = params['id'];
-      });
-    }
-  
-    ngOnDestroy() {
-      this.sub.unsubscribe();
-    }*/
     doScroll() {
         if (this.chapter !== undefined) {
             this.chapter.nativeElement.scrollTop = 0;
