@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var serveStatic = require('serve-static')
 var file = require('./features/prepareTutorial');
 var routes = require('./ng2/routes/index');
+var mongoose = require('mongoose');
 
 var app = express();
 
@@ -64,6 +65,16 @@ app.use('/tutorial/', (req, res) => {
 app.use('/plugins/', (req, res) => {
   res.sendFile(__dirname + '/ng2/views/index.html');
 });
+
+
+// Use native Node promises
+mongoose.Promise = global.Promise;
+// connect to MongoDB
+var pw   = process.env.MONGOPW;
+var usr   = process.env.MONGOUSR;
+mongoose.connect('mongodb://' + usr +':' + pw +'@ds044699.mlab.com:44699/ns-docs')
+  .then(() =>  console.log('connection succesful'))
+  .catch((err) => console.error(err));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
