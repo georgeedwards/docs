@@ -8,7 +8,7 @@ var serveStatic = require('serve-static')
 var file = require('./features/prepareTutorial');
 var routes = require('./ng2/routes/index');
 var plugin = require('./ng2/routes/plugins');
-
+var expressValidator = require('express-validator');
 var mongoose = require('mongoose');
 
 var app = express();
@@ -36,6 +36,7 @@ file.processTutorial(); //generate html rendered patches for tutorial steps
 app.use(favicon(path.join(__dirname, 'ng2/public', 'favicon.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
+app.use(expressValidator([]));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
