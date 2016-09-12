@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export var PluginSchema = new mongoose.Schema({
+var PluginSchema = new mongoose.Schema({
   name: String,
   package: String,
   author: String,
@@ -9,3 +9,5 @@ export var PluginSchema = new mongoose.Schema({
   ios: Boolean
 });
 
+// Create a model based on the schema
+module.exports = mongoose.model('Plugin', PluginSchema);

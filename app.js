@@ -67,7 +67,8 @@ app.use('/tutorial/', (req, res) => {
 app.use('/plugins/', (req, res) => {
   res.sendFile(__dirname + '/ng2/views/index.html');
 });
-//app.use('/plugins', plugin);
+
+app.use('/api/plugins', plugin);
 
 // Use native Node promises
 mongoose.Promise = global.Promise;

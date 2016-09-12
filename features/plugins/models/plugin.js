@@ -1,6 +1,6 @@
 "use strict";
 const mongoose = require('mongoose');
-exports.PluginSchema = new mongoose.Schema({
+var PluginSchema = new mongoose.Schema({
     name: String,
     package: String,
     author: String,
@@ -8,4 +8,6 @@ exports.PluginSchema = new mongoose.Schema({
     android: Boolean,
     ios: Boolean
 });
+// Create a model based on the schema
+module.exports = mongoose.model('Plugin', PluginSchema);
 //# sourceMappingURL=plugin.js.map
