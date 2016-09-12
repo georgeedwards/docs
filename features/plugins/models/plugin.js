@@ -1,9 +1,11 @@
 "use strict";
 const mongoose = require('mongoose');
-exports.TodoSchema = new mongoose.Schema({
+exports.PluginSchema = new mongoose.Schema({
     name: String,
-    completed: Boolean,
-    note: String,
-    updated_at: { type: Date, default: Date.now },
+    package: String,
+    author: String,
+    github: String,
+    android: Boolean,
+    ios: Boolean
 });
 //# sourceMappingURL=plugin.js.map

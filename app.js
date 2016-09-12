@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var serveStatic = require('serve-static')
 var file = require('./features/prepareTutorial');
 var routes = require('./ng2/routes/index');
+var plugin = require('./ng2/routes/plugins');
+
 var mongoose = require('mongoose');
 
 var app = express();
@@ -65,7 +67,7 @@ app.use('/tutorial/', (req, res) => {
 app.use('/plugins/', (req, res) => {
   res.sendFile(__dirname + '/ng2/views/index.html');
 });
-
+//app.use('/plugins', plugin);
 
 // Use native Node promises
 mongoose.Promise = global.Promise;
