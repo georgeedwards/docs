@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const ui_service_1 = require('../shared/ui.service');
+const auth_service_1 = require('../shared/auth.service');
 let pluginsComponent = class pluginsComponent {
-    constructor(uiService) {
+    constructor(uiService, authService) {
         this.uiService = uiService;
+        this.authService = authService;
         this.uiService.changeNavState(true); //show nav bars
     }
 };
@@ -22,7 +24,7 @@ pluginsComponent = __decorate([
         templateUrl: 'app/plugins/plugins.html',
         styleUrls: ['app/plugins/plugins.css']
     }), 
-    __metadata('design:paramtypes', [ui_service_1.UiService])
+    __metadata('design:paramtypes', [ui_service_1.UiService, auth_service_1.AuthService])
 ], pluginsComponent);
 exports.pluginsComponent = pluginsComponent;
 //# sourceMappingURL=plugins.component.js.map

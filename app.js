@@ -10,6 +10,7 @@ var routes = require('./ng2/routes/index');
 var plugin = require('./ng2/routes/plugins');
 var expressValidator = require('express-validator');
 var mongoose = require('mongoose');
+var jwt = require('express-jwt');
 
 var app = express();
 
@@ -69,6 +70,12 @@ app.use('/plugins/', (req, res) => {
   res.sendFile(__dirname + '/ng2/views/index.html');
 });
 
+var jwtCheck = jwt({
+  secret: new Buffer('mBGVDF2m_b8X5Q9Jk2herfsWJb2AW-19tKpACvncJmbY6cKXwzVKs9RqXhOQsQSi', 'base64'),
+  audience: 'gZ27aPXK1cCU0j4bauKiTZM5QFC8y9HO'
+});
+
+app.use('/api/plugins', jwtCheck);
 app.use('/api/plugins', plugin);
 
 // Use native Node promises
@@ -77,8 +84,9 @@ mongoose.Promise = global.Promise;
 var pw   = process.env.MONGOPW;
 var usr   = process.env.MONGOUSR;
 mongoose.connect('mongodb://' + usr +':' + pw +'@ds044699.mlab.com:44699/ns-docs')
-  .then(() =>  console.log('connection succesful'))
+  .then(() =>  console.log('MongoDB Connection Succesful'))
   .catch((err) => console.error(err));
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

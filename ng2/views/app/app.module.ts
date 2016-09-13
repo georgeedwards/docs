@@ -7,12 +7,13 @@ import { routing, appRoutingProviders } from './app.routes';
 import { tutorialModule } from './tutorial/tutorial.module';
 import { UiService } from './shared/ui.service';
 import { sidebarComponent } from './sidebar/sidebar.component';
+import { AuthService } from './shared/auth.service';
 
 @NgModule({
   imports: [ BrowserModule, routing, tutorialModule ],
   declarations: [ AppComponent, homeComponent, sidebarComponent, pluginsComponent ],
   providers: [
-    appRoutingProviders, UiService
+    appRoutingProviders, UiService, AuthService
   ],
   bootstrap:    [ AppComponent ]
 })
