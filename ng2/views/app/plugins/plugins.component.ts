@@ -17,7 +17,7 @@ export class pluginsComponent {
   }
 
   public securedPing() {
-    this.authHttp.get(`http://localhost:3000/api/path-you-want-to-protect`)
+    this.authHttp.get(`http://localhost:3000/api/plugins`)
       .map(res => res.json())
       .subscribe(
       data => console.log(data),

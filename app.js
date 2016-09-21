@@ -75,8 +75,8 @@ var jwtCheck = jwt({
   audience: 'gZ27aPXK1cCU0j4bauKiTZM5QFC8y9HO'
 });
 
-app.use('/api/path-you-want-to-protect', jwtCheck);
-app.use('/api/path-you-want-to-protect', plugin);
+app.use('/api/plugins', jwtCheck);
+app.use('/api/plugins', plugin);
 
 
 // Use native Node promises

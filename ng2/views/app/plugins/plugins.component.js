@@ -21,7 +21,7 @@ let pluginsComponent = class pluginsComponent {
         this.uiService.changeNavState(true); //show nav bars
     }
     securedPing() {
-        this.authHttp.get(`http://localhost:3000/api/path-you-want-to-protect`)
+        this.authHttp.get(`http://localhost:3000/api/plugins`)
             .map(res => res.json())
             .subscribe(data => console.log(data), error => this.messages = error._body || error);
     }
