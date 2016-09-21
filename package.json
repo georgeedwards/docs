@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "concurrently 'tsc --watch' 'nodemon ./bin/www'"
+    "dev": "concurrently 'tsc --watch' 'nodemon ./bin/www'",
+    "build": "concurrently --kill-others \"tsc --watch\" \"nodemon ./bin/www\""
   },
   "engines": {
     "node": ">6.5.0"
@@ -18,7 +19,6 @@
     "@angular/platform-browser-dynamic": "2.0.0-rc.6",
     "@angular/router": "3.0.0-rc.2",
     "angular2-jwt": "^0.1.22",
-    "auth0-lock": "^10.2.2",
     "body-parser": "1.15.2",
     "cookie-parser": "1.4.3",
     "core-js": "2.4.1",

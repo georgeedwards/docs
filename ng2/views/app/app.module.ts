@@ -8,12 +8,13 @@ import { tutorialModule } from './tutorial/tutorial.module';
 import { UiService } from './shared/ui.service';
 import { sidebarComponent } from './sidebar/sidebar.component';
 import { AuthService } from './shared/auth.service';
+import { AUTH_PROVIDERS }      from 'angular2-jwt';
 
 @NgModule({
   imports: [ BrowserModule, routing, tutorialModule ],
   declarations: [ AppComponent, homeComponent, sidebarComponent, pluginsComponent ],
   providers: [
-    appRoutingProviders, UiService, AuthService
+    appRoutingProviders, UiService, AuthService, AUTH_PROVIDERS
   ],
   bootstrap:    [ AppComponent ]
 })

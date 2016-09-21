@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const angular2_jwt_1 = require('angular2-jwt');
+// Avoid name not found warnings
 let AuthService = class AuthService {
     constructor() {
         // Configure Auth0

@@ -6,3 +6,10 @@
         <button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
     </div>
 </div>
+<div>
+    <button class="btn btn-primary btn-margin" (click)="securedPing()">get</button>
+    <h1>ANSWER:</h1>
+    <div class="chapters col s3">
+        <li *ngFor="let message of messages">{{message.id}}</li>
+    </div>
+</div>

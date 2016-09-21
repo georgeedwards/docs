@@ -71,12 +71,13 @@ app.use('/plugins/', (req, res) => {
 });
 
 var jwtCheck = jwt({
-  secret: new Buffer('mBGVDF2m_b8X5Q9Jk2herfsWJb2AW-19tKpACvncJmbY6cKXwzVKs9RqXhOQsQSi', 'base64'),
+  secret: new Buffer('g.edwards@gas-sense.co.uk', 'base64'),
   audience: 'gZ27aPXK1cCU0j4bauKiTZM5QFC8y9HO'
 });
 
-app.use('/api/plugins', jwtCheck);
-app.use('/api/plugins', plugin);
+app.use('/api/path-you-want-to-protect', plugin);
+app.use('/api/secured/plugins', jwtCheck);
+//app.use('/api/plugins', plugin);
 
 // Use native Node promises
 mongoose.Promise = global.Promise;

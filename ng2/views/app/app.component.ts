@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UiService } from './shared/ui.service';
-
+import { AuthService } from './shared/auth.service';
 @Component({
   selector: 'my-app',
   template: `

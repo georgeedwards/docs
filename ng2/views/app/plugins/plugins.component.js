@@ -11,11 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require('@angular/core');
 const ui_service_1 = require('../shared/ui.service');
 const auth_service_1 = require('../shared/auth.service');
+const angular2_jwt_1 = require('angular2-jwt');
+require('rxjs/add/operator/map');
 let pluginsComponent = class pluginsComponent {
-    constructor(uiService, authService) {
+    constructor(uiService, auth, authHttp) {
         this.uiService = uiService;
-        this.authService = authService;
+        this.auth = auth;
+        this.authHttp = authHttp;
         this.uiService.changeNavState(true); //show nav bars
+    }
+    securedPing() {
+        this.authHttp.get(`http://localhost:3000/api/path-you-want-to-protect`)
+            .map(res => res.json())
+            .subscribe(data => console.log(data), error => this.messages = error._body || error);
     }
 };
 pluginsComponent = __decorate([
@@ -24,7 +32,7 @@ pluginsComponent = __decorate([
         templateUrl: 'app/plugins/plugins.html',
         styleUrls: ['app/plugins/plugins.css']
     }), 
-    __metadata('design:paramtypes', [ui_service_1.UiService, auth_service_1.AuthService])
+    __metadata('design:paramtypes', [ui_service_1.UiService, auth_service_1.AuthService, angular2_jwt_1.AuthHttp])
 ], pluginsComponent);
 exports.pluginsComponent = pluginsComponent;
 //# sourceMappingURL=plugins.component.js.map
