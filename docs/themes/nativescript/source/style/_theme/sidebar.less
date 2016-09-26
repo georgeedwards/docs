@@ -1,0 +1,203 @@
+.sidebar {
+	.font-s2;
+
+	.topcap {
+		.std-xpadding;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+
+		.title-sidebar {
+			.font-s3;
+			.type-semibold;
+		}
+
+		.version-sidebar {
+			.type-semibold;
+			float: right;
+			margin-right: -.75rem;
+			margin-top: -.5rem;
+		}
+	}
+
+	.wrapper-search {
+		display: none;
+		@media screen and (min-width: @breakpoint) { display: block; }
+		margin-top: 10px;
+
+		.std-xpadding;
+		margin-bottom: .75rem;
+
+		.input-symbol {
+			width: 100%;
+
+			input { box-shadow: @color-light 0 0 0 1px inset; }
+		}
+	}
+
+	.heading-toc {
+		.subheading-caps;
+		color: @color-complementary;
+		padding: 1.5em 0 .25em;
+	}
+
+	.toc > li:first-child > .heading-toc {
+		padding-top: 0;
+	}
+
+	ul.toc {
+		//reset
+		list-style: none;
+		padding-left: 0;
+		margin: 0;
+
+		.std-xpadding;
+		margin-bottom: 1.5rem;
+
+		ul {
+			list-style: none;
+			padding-left: 0;
+		}
+
+		li { vertical-align: top; }
+
+	}
+
+	ul.list-toc {
+		a {
+			.link(@color-darkest);
+			.type-normal;
+			display: block;
+			line-height: 1rem;
+			position: relative;
+
+			&.current {
+				&:extend(.link.primary all);
+				.type-semibold;
+			}
+
+			&:before {
+				.font-s1;
+				.position(absolute, 50%, auto, auto, -1rem);
+				.transition( all 250ms ease-out );
+				color: @color-primary;
+				margin-top: -.5em;
+				opacity: 0;
+
+				// Taken from package percolate:icons/edited-style.less
+				font-family: 'percolate';
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+
+				// Show right arrow icon
+				&:extend(.icon-arrow-right-alt:before);
+			}
+
+			&.active,
+			&:hover {
+				color: @color-primary !important;
+				&:before { opacity: 1; }
+			}
+
+			&.h3 { .link(@color-dark); }
+
+			em {
+				// For code styling in tandem with .api-box
+				// Used on Meteor Docs
+				.type-italic;
+				.type-normal;
+			}
+		}
+
+		.sub-menu {
+			margin-top: .375rem;
+
+			&:empty {
+				margin: 0;
+				max-height: 0;
+				overflow: hidden;
+			}
+
+			li {
+				@indent: 15px;
+				padding-left: @indent;
+			}
+		}
+
+		li {
+			position: relative;
+			padding-top: .375rem;
+			padding-bottom: .375rem;
+		}
+	}
+	.slide-wrapper {
+		//margin: 100px 0;
+	}
+	.slide-wrapper {
+		.toggle_radio {
+			position: relative;
+			background: rgba(91, 139, 251, 0.8);
+			margin: 4px auto;
+			overflow: hidden;
+			padding: 0 !important;
+			position: relative;
+			height: 26px;
+			width: 212px;
+		}
+		.toggle_radio > * {
+			float: left;
+		}
+		.toggle_radio input[type=radio]{
+			display: none;
+		}
+		.toggle_radio label{
+			font: 90%/1.618 "Source Sans Pro";
+			color: rgba(255,255,255,.9);
+			z-index: 0;
+			display: block;
+			width: 100px;
+			height: 20px;
+			margin: -9px 3px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			cursor: pointer;
+			z-index: 1;
+			//background: rgba(0,0,0,.1);
+			text-align: center;
+			//margin: 0 2px;
+			//background: blue; //make it blue
+		}
+		
+		.toggle_option_slider{
+			//display: none;
+			//background: red;
+			width: 100px;
+			height: 20px;
+			position: absolute;
+			top: 3px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			-webkit-transition: all .4s ease;
+			-moz-transition: all .4s ease;
+			-o-transition: all .4s ease;
+			-ms-transition: all .4s ease;
+			transition: all .4s ease;
+		}
+
+		#first_toggle:checked ~ .toggle_option_slider{
+			background: rgba(255,255,255,.3);
+			left: 3px;
+		}
+		#second_toggle:checked ~ .toggle_option_slider{
+			background: rgba(255,255,255,.3);
+			left: 109px;
+		}
+	} 
+}

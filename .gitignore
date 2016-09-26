@@ -1,8 +1,9 @@
-.DS_Store
-Thumbs.db
-features/docs/db.json
-*.log
-**/node_modules/
-features/docs/.deploy*/
-.vscode/
-features/docs/themes/nativescript
+node_modules
+.idea
+typings
+server/**/*.js
+server/**/*.js.map
+client/**/*.js
+client/**/*.js.map
+/npm-debug.log
+.vscode/*

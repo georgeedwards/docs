@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+    <!-- Basic -->
+    <title>The Basics | Nativescript Docs</title>
+    <meta name="description" content="Learn the basic principles of designing a user interface with NativeScript. In NativeScript, you can design the UI using XML and CSS.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png" sizes="16x16 32x32 64x64">
+
+    <!-- Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://docs.nativescript.org">
+    <meta property="og:title" content="The Basics | Nativescript Docs">
+    <meta property="og:description" content="Learn the basic principles of designing a user interface with NativeScript. In NativeScript, you can design the UI using XML and CSS.">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_image_large">
+    <meta name="twitter:site" content="@nativescript">
+    <meta name="twitter:title" content="The Basics | Nativescript Docs">
+    <meta name="twitter:description" content="Learn the basic principles of designing a user interface with NativeScript. In NativeScript, you can design the UI using XML and CSS.">
+    <meta name="twitter:image" content="">
+
+    <!-- Misc -->
+    <meta name="google-site-verification" content="" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/docs/style/style.css">
+    <link rel="stylesheet" href="/docs/style/tabs.css">
+  </head>
+  <body class="">
+    
+
+<div class="sidebar">
+  <div class="panel">
+    <div class="panel-item logo">
+      <a href="https://docs.nativescript.org/" title="Nativescript Developers" target=_new >
+        <img src="../docs/images/icon-white.svg" alt="Nativescript Developers">
+        <span>Nativescript Developers</span>
+      </a>
+    </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://docs.nativescript.org/tutorial/chapter-0" target=_new >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><g fill="#112B49"><circle cx="80.001" cy="80" r="3"/><path d="M75.73 85.723c.193-.183.316-.437.316-.723 0-.553-.447-1-1-1-.278 0-.528.114-.71.297l-.004-.004-50.9 50.875c-.18.18-.29.43-.29.707-.002.553.445 1 .998 1 .276 0 .526-.112.708-.293l50.883-50.86zM84.235 74.4c-.18.183-.292.433-.292.71 0 .552.446 1 1 1 .275 0 .525-.113.707-.294l50.87-50.89c.204-.184.34-.442.34-.74 0-.552-.448-1-1-1-.276 0-.526.113-.707.294l-.01-.01L84.236 74.4zM136.583 135.184L85.65 84.23c-.182-.18-.432-.293-.708-.293-.552 0-1 .447-1 1 0 .278.114.528.297.71l50.927 50.95c.18.18.43.293.708.293.553 0 1-.447 1-1 0-.276-.11-.525-.292-.706zM111.19 152.602l-.003-.005-.002-.004-27.552-66.507h-.002c-.15-.362-.505-.617-.922-.617-.552 0-1 .446-1 1 0 .135.028.263.077.38v.002l.005.012 27.552 66.504c.15.362.507.617.924.617.553 0 1-.447 1-1 0-.136-.03-.265-.077-.383zM48.873 7.384L76.435 73.93h.002c.15.362.505.617.922.617.552 0 1-.447 1-1 0-.136-.03-.264-.078-.382h.003L50.72 6.616c-.15-.362-.506-.617-.923-.617-.552 0-1 .447-1 1 0 .136.03.265.078.383h-.002zM152.55 48.844h-.002L86.092 76.422c-.36.15-.617.507-.617.924 0 .553.446 1 1 1 .135 0 .265-.028.383-.077L153.32 50.69c.363-.15.618-.507.618-.924 0-.553-.447-1-1-1-.136 0-.265.028-.383.077h-.005zM7.41 111.136h.002l66.492-27.54c.36-.15.616-.507.616-.924 0-.553-.447-1-1-1-.136 0-.264.028-.382.077v-.002l-.004.002c-.002 0-.004 0-.006.002L6.638 109.29c-.36.15-.615.507-.615.924 0 .553.446 1 1 1 .135 0 .264-.028.382-.077h.004zM159 79H87c-.552 0-1 .448-1 1 0 .554.447 1 1 1h72c.553 0 1-.447 1-1s-.447-1-1-1zM23.435 24.85l50.897 50.897.008-.008c.182.18.43.29.707.29.553 0 1-.446 1-1 0-.296-.135-.555-.34-.737L24.85 23.433c-.183-.18-.433-.292-.71-.292-.55 0-.998.448-.998 1 0 .277.11.528.293.71zM6.618 50.657v.002l66.51 27.54c.003 0 .005 0 .007.002l.004.002c.117.048.245.076.38.076.554 0 1-.447 1-1 0-.417-.254-.772-.616-.923v-.002L7.392 48.813H7.39l-.005-.003c-.118-.047-.247-.076-.383-.076-.552 0-1 .447-1 1 0 .417.256.773.618.923zM153.383 109.28l-66.52-27.53-.006-.002c-.118-.048-.248-.076-.384-.076-.552 0-1 .447-1 1 0 .417.256.773.62.923l66.513 27.528c.003 0 .005 0 .007.002l.004.002c.118.048.246.076.382.076.552 0 1-.447 1-1 0-.417-.256-.772-.617-.923zM80 74c.553 0 1-.447 1-1V1c0-.553-.447-1-1-1-.552 0-1 .447-1 1v72c0 .553.447 1 1 1zM80 86c-.552 0-1 .447-1 1v72c0 .553.447 1 1 1s1-.447 1-1V87c0-.553-.447-1-1-1zM77.36 85.47c-.417 0-.772.254-.923.616l-27.564 66.53.002.002c-.05.117-.077.246-.077.382 0 .553.446 1 1 1 .416 0 .772-.255.922-.618h.002L78.28 86.86v-.004l.003-.005c.048-.117.076-.246.076-.382 0-.552-.448-1-1-1zM82.708 74.547c.417 0 .772-.255.923-.618h.003l27.56-66.547h-.004c.048-.12.076-.247.076-.383 0-.553-.447-1-1-1-.416 0-.772.255-.922.618h-.002l-27.56 66.546h.004c-.05.12-.077.247-.077.383-.002.553.445 1 .998 1zM74 80c0-.552-.446-1-1-1H1c-.552 0-1 .447-1 1 0 .553.447 1 1 1h72c.554 0 1-.446 1-1z"/></g></svg>
+          <span>Tutorials</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://www.nativescript.org/nativescript-is-how-you-build-native-mobile-apps-with-angular"  >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><path fill="#BDA671" d="M80 1.988c43.01 0 78 34.99 78 78s-34.99 78-78 78-78-34.99-78-78 34.99-78 78-78m0-2c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80z"/><path fill="#BDA671" d="M126.454 33.545l-37.93 54.98-54.98 37.93 37.93-54.98 54.98-37.93m0-2c-.395 0-.79.116-1.135.354L70.336 69.826c-.2.138-.373.312-.51.51l-37.93 54.98c-.548.796-.45 1.868.232 2.55.386.388.898.587 1.414.587.395 0 .79-.116 1.135-.354l54.98-37.93c.2-.137.373-.31.51-.51l37.93-54.98c.548-.795.45-1.867-.232-2.55-.387-.386-.9-.585-1.414-.585z"/><circle fill="#BDA671" cx="79.999" cy="79.999" r="2.999"/><path fill="#BDA671" d="M135.477 50.182c-.02-.036-.04-.05-.06-.045-.173-.303-.485-.516-.858-.516-.553 0-1 .448-1 1 0 .21.078.394.188.554l-.02.007C138.358 59.766 141 69.57 141 79.99c0 33.636-27.364 61-61 61-10.42 0-20.232-2.634-28.82-7.26l-.005.02c-.144-.08-.3-.14-.478-.14-.552 0-1 .448-1 1 0 .336.176.618.43.8-.016.012-.034.025-.03.027 8.896 4.81 19.078 7.552 29.904 7.552 34.795 0 63-28.206 63-63 0-10.79-2.735-20.93-7.523-29.805zM109.65 24.47c-.002-.02.004-.04-.025-.056-8.83-4.727-18.908-7.426-29.625-7.426-34.794 0-63 28.206-63 63 0 10.79 2.73 20.935 7.514 29.81.005.01.012.004.018.01.17.312.488.532.87.532.552 0 1-.447 1-1 0-.197-.073-.37-.17-.525l.04-.002C21.642 100.223 19 90.41 19 79.988c0-33.636 27.364-61 61-61 10.4 0 20.185 2.634 28.757 7.248.02.01.036.02.055.028.116.047.24.075.37.075.554 0 1-.448 1-1 .002-.382-.22-.7-.533-.87z"/></svg>
+          <span>Guide</span>
+        </a>
+      </div>
+    
+      <div class="panel-item active"">
+        <a class="" href="https://docs.nativescript.org/"  >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><path fill="#DE4F4F" d="M35.6 30.167v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .553-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .553-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375H80c.552 0 1 .447 1 1v10.873c1.162.413 2 1.51 2 2.816 0 1.657-1.343 3-3 3s-3-1.343-3-3c0-1.305.837-2.402 2-2.815v-9.873H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.447-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.447-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.447-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.447-1-1s.448-1 1-1h90.8c.553 0 1 .447 1 1v7.375c0 .553-.447 1-1 1H35.6zM138 6.564H22c-1.104 0-2 .896-2 2v144c0 1.104.896 2 2 2h48.995c.258 0 .516-.097.712-.293.39-.39.39-1.022 0-1.413-.195-.195-.45-.293-.707-.293H22v-144h116v144H89.006c-.258 0-.517.097-.713.293-.39.39-.39 1.023 0 1.414.196.198.455.294.713.293H138c1.104 0 2-.895 2-2v-144c0-1.103-.896-2-2-2z"/></svg>
+          <span>API Docs</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://nativescriptcommunity.slack.com/messages/general/" target=_new >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><path fill="#333" d="M60.025 17.72c7.396 0 14.914 1.424 22.172 4.43 29.594 12.258 43.648 46.188 31.39 75.782-9.25 22.334-30.843 35.812-53.6 35.812-4.694 0-9.437-.574-14.132-1.76L32.44 142.277 30.23 125.51C5.908 111.003-4.74 80.48 6.418 53.538 15.67 31.204 37.266 17.72 60.025 17.72m0-2c-24.363 0-46.13 14.545-55.455 37.053-5.547 13.394-6.06 28.33-1.447 42.052 4.465 13.276 13.414 24.57 25.252 31.896l2.082 15.82c.092.708.557 1.31 1.217 1.585.246.104.506.152.766.152.434 0 .86-.142 1.217-.412l12.656-9.713c4.482 1.055 9.076 1.59 13.674 1.59 24.36 0 46.126-14.543 55.447-37.047 6.135-14.807 6.135-31.115.002-45.922C109.3 37.966 97.77 26.433 82.963 20.3c-7.34-3.04-15.06-4.58-22.938-4.58zM92.69 133.9c.165-.443.614-.683 1.064-.623l.004-.024c5.18.558 10.343.396 15.365-.414v2.034c-5.13.796-10.4.942-15.69.356l.002-.02c-.052-.01-.105-.006-.158-.023-.517-.193-.78-.768-.586-1.287z"/><path fill="#333" d="M100.877 133.604c4.41-.065 8.86-.633 13.268-1.746l13.416 10.295 2.208-16.77c24.324-14.505 34.976-45.03 23.814-71.97-9.248-22.33-30.832-35.81-53.584-35.82v.02c-2.072-.002-4.154.096-6.238.32l-.004-.024c-.45.058-.9-.18-1.064-.625-.194-.518.068-1.093.586-1.286.054-.02.107-.015.158-.026l-.002-.02c2.19-.24 4.377-.348 6.553-.35v-.01c24.36.004 46.12 14.545 55.443 37.054 5.55 13.393 6.062 28.327 1.447 42.05-4.465 13.28-13.414 24.57-25.252 31.897l-2.082 15.818c-.092.71-.557 1.312-1.217 1.586-.246.103-.506.15-.766.15-.435 0-.86-.14-1.218-.412l-12.655-9.713c-4.2.988-8.502 1.502-12.812 1.564l.002-1.986z"/><circle fill="#333" cx="60.019" cy="77" r="3.001"/><circle fill="#333" cx="76.018" cy="77" r="3"/><circle fill="#333" cx="44.019" cy="77" r="3.001"/></svg>
+
+          <span>Slack</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="http://stackoverflow.com/documentation/nativescript/topics" target=_new >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><path fill="#333" d="M60.025 17.72c7.396 0 14.914 1.424 22.172 4.43 29.594 12.258 43.648 46.188 31.39 75.782-9.25 22.334-30.843 35.812-53.6 35.812-4.694 0-9.437-.574-14.132-1.76L32.44 142.277 30.23 125.51C5.908 111.003-4.74 80.48 6.418 53.538 15.67 31.204 37.266 17.72 60.025 17.72m0-2c-24.363 0-46.13 14.545-55.455 37.053-5.547 13.394-6.06 28.33-1.447 42.052 4.465 13.276 13.414 24.57 25.252 31.896l2.082 15.82c.092.708.557 1.31 1.217 1.585.246.104.506.152.766.152.434 0 .86-.142 1.217-.412l12.656-9.713c4.482 1.055 9.076 1.59 13.674 1.59 24.36 0 46.126-14.543 55.447-37.047 6.135-14.807 6.135-31.115.002-45.922C109.3 37.966 97.77 26.433 82.963 20.3c-7.34-3.04-15.06-4.58-22.938-4.58zM92.69 133.9c.165-.443.614-.683 1.064-.623l.004-.024c5.18.558 10.343.396 15.365-.414v2.034c-5.13.796-10.4.942-15.69.356l.002-.02c-.052-.01-.105-.006-.158-.023-.517-.193-.78-.768-.586-1.287z"/><path fill="#333" d="M100.877 133.604c4.41-.065 8.86-.633 13.268-1.746l13.416 10.295 2.208-16.77c24.324-14.505 34.976-45.03 23.814-71.97-9.248-22.33-30.832-35.81-53.584-35.82v.02c-2.072-.002-4.154.096-6.238.32l-.004-.024c-.45.058-.9-.18-1.064-.625-.194-.518.068-1.093.586-1.286.054-.02.107-.015.158-.026l-.002-.02c2.19-.24 4.377-.348 6.553-.35v-.01c24.36.004 46.12 14.545 55.443 37.054 5.55 13.393 6.062 28.327 1.447 42.05-4.465 13.28-13.414 24.57-25.252 31.897l-2.082 15.818c-.092.71-.557 1.312-1.217 1.586-.246.103-.506.15-.766.15-.435 0-.86-.14-1.218-.412l-12.655-9.713c-4.2.988-8.502 1.502-12.812 1.564l.002-1.986z"/><circle fill="#333" cx="60.019" cy="77" r="3.001"/><circle fill="#333" cx="76.018" cy="77" r="3"/><circle fill="#333" cx="44.019" cy="77" r="3.001"/></svg>
+
+          <span>Community Docs</span>
+        </a>
+      </div>
+    
+  </div>
+  <div class="sidebar-content">
+    <div class="topcap">
+      <span class="title-sidebar">Nativescript Docs</span>
+      
+    </div>
+    <div class="slide-wrapper">
+      <div class="toggle_radio">
+        <input type="radio" class="toggle_option" id="first_toggle" name="toggle_option" onclick="switchCodeBlock('n');">
+        <input type="radio" class="toggle_option" id="second_toggle" name="toggle_option" onclick="switchCodeBlock('ng');">
+        <label for="first_toggle"><p>NativeScript</p></label>
+        <label for="second_toggle" style="    margin-left: 110px;
+    margin-top: -11px;"><p>Angular</p></label>
+        <div class="toggle_option_slider"></div>
+      </div>
+    </div>
+    
+    <ul class="toc">
+      
+        <li>
+          
+          <ul class="list-toc">
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../index.html" class="sidebar-link ">
+                      <span>Introducing Nativescript Docs</span>
+                    </a>
+                  </li>
+                
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">UI</div>
+          
+          <ul class="list-toc">
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="animation-css.html" class="sidebar-link ">
+                      <span>Animations with CSS</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="action-bar.html" class="sidebar-link ">
+                      <span>ActionBar</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="animation-code.html" class="sidebar-link ">
+                      <span>Animations with Code</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="animation-examples.html" class="sidebar-link ">
+                      <span>Animation Examples</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="animation.html" class="sidebar-link ">
+                      <span>Animations</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="keyboard.html" class="sidebar-link ">
+                      <span>Keyboard</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="icon-fonts.html" class="sidebar-link ">
+                      <span>Icon Fonts</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="gestures.html" class="sidebar-link ">
+                      <span>Gestures</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="change-status-bar-style-ios.html" class="sidebar-link ">
+                      <span>Changing Status Bar Style in iOS</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="ui-dialogs.html" class="sidebar-link ">
+                      <span>Dialogs</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="layouts.html" class="sidebar-link ">
+                      <span>Layouts</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="list-view.html" class="sidebar-link ">
+                      <span>List View</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="placeholder.html" class="sidebar-link ">
+                      <span>Placeholder</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="ui-images.html" class="sidebar-link ">
+                      <span>Images</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="styling.html" class="sidebar-link ">
+                      <span>Styling</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc  current">
+                    <a href="" class="sidebar-link  current">
+                      <span>The Basics</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="ui-views.html" class="sidebar-link ">
+                      <span>Components</span>
+                    </a>
+                  </li>
+                
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Cookbook</div>
+          
+          <ul class="list-toc">
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../cookbook/formatted-string-ng.html" class="sidebar-link ">
+                      <span>Using formatted string</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../cookbook/tab-view-ng.html" class="sidebar-link ">
+                      <span>Tab View</span>
+                    </a>
+                  </li>
+                
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Hardware</div>
+          
+          <ul class="list-toc">
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../hardware/camera.html" class="sidebar-link ">
+                      <span>Camera</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../hardware/location.html" class="sidebar-link ">
+                      <span>Location</span>
+                    </a>
+                  </li>
+                
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Plugins</div>
+          
+          <ul class="list-toc">
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../plugins/plugins.html" class="sidebar-link ">
+                      <span>Plugins</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../plugins/angular-third-party.html" class="sidebar-link ">
+                      <span>Integrating Third-Party Components</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../plugins/cocoapods.html" class="sidebar-link ">
+                      <span>Cocoapods</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../plugins/ui-plugin.html" class="sidebar-link ">
+                      <span>UI Plugins</span>
+                    </a>
+                  </li>
+                
+            
+          </ul>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="nav dark">
+  <div class="nav-group">
+    <div class="nav-item">
+      <span class="js-sidebar-toggle">
+        <span class="icon-menu"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="center-wrapper">
+    <img src="../docs/images/logo-blue.svg" alt="Nativescript Docs"/>
+    <div>API Docs</div>
+  </div>
+
+  
+</div>
+
+<div class="content">
+  <div class="content-wrapper">
+    <div class="header-content">
+      <h1 class="title-page">The Basics</h1>
+      
+        <div class="subtitle-page">Learn the basic principles of designing a user interface with NativeScript. In NativeScript, you can design the UI using XML and CSS.</div>
+      
+
+      <div class="page-actions">
+        <div class="actions-group">
+          <a class="btn primary small round lowercase" href="https://github.com/nativescript/docs/tree/master/source/ui/ui-with-xml.md" target="_blank"> <i class="ion-social-github"></i> <span>Edit on GitHub</span></a>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="document-formatting">
+      <h1 id="The-User-Interface"><a href="#The-User-Interface" class="headerlink" title="The User Interface"></a>The User Interface</h1><p>The user interface of NativeScript mobile apps consists of pages. Typically, the design of the user interface is developed and stored in <code>XML</code> files, styling is done via CSS and the business logic is developed and stored in <code>JavaScript</code> or <code>TypeScript</code> files. </p>
+<ul>
+<li><a href="#the-basics">The basics</a><ul>
+<li><a href="#declare-the-home-page">Declare the home page</a></li>
+<li><a href="#navigate-to-a-page">Navigate to a page</a></li>
+<li><a href="#execute-business-logic">Execute business logic</a></li>
+</ul>
+</li>
+<li><a href="#user-interface-components">User interface components</a><ul>
+<li><a href="#the-default-content-components">The default content components</a></li>
+<li><a href="#custom-components">Custom components</a></li>
+</ul>
+</li>
+<li><a href="#bindings">Bindings</a><ul>
+<li><a href="#property-binding">Property binding</a></li>
+<li><a href="#event-binding">Event binding</a></li>
+<li><a href="#listview-binding">ListView binding</a></li>
+<li><a href="#expressions">Expressions</a></li>
+</ul>
+</li>
+<li><a href="#platform-specific-declarations">Platform-specific declarations</a><ul>
+<li><a href="#platform-specific-property-value">Platform-specific property value</a></li>
+<li><a href="#platform-specific-component-declaration">Platform-specific component declaration</a></li>
+</ul>
+</li>
+<li><a href="#lower-case-dashed-component-declaration">Lower-case-dashed component declaration</a></li>
+</ul>
+<h2 id="The-basics"><a href="#The-basics" class="headerlink" title="The basics"></a>The basics</h2><p>When you develop the user interface of your app, you can implement each application screen in a separate page or implement your application screens on a single page with a tab view. </p>
+<p>For each page, you need to have a separate <code>XML</code> file that holds the layout of the page. For each <code>XML</code> file that NativeScript parses, the framework also looks for a <code>JavaScript</code> or <code>TypeScript</code> file with the same name and executes the business logic inside it. </p>
+<h3 id="Declare-the-home-page"><a href="#Declare-the-home-page" class="headerlink" title="Declare the home page"></a>Declare the home page</h3><p>Each NativeScript app must have a home page&mdash;the page that loads when you launch the app.</p>
+<p>You need to explicitly set the home page for your app. You can do this by calling the <code>start()</code> method of the <a href="http://docs.nativescript.org/api-reference/modules/_application_.html"><code>Application</code></a> module and pass <code>NavigationEntry</code> with the desired <code>moduleName</code>.</p>
+<p>The NativeScript navigation framework looks for an <code>XML</code> file with the specified name, loads it and navigates to the respective page. If NativeScript discovers a <code>JavaScript</code> or <code>TypeScript</code> file with the same name, it executes the code inside it.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> application = <span class="built_in">require</span>(<span class="string">"application"</span>);</div><div class="line"><span class="comment">// Start the application. Don't place any code after this line.</span></div><div class="line">application.start(&#123; moduleName: <span class="string">"my-page"</span> &#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> application = <span class="built_in">require</span>(<span class="string">"application"</span>);</div><div class="line"><span class="comment">// Start the application. Don't place any code after this line.</span></div><div class="line">application.start(&#123; moduleName: <span class="string">"my-page"</span> &#125;);</div></pre></td></tr></table></figure>
+<h3 id="Navigate-to-a-page"><a href="#Navigate-to-a-page" class="headerlink" title="Navigate to a page"></a>Navigate to a page</h3><p>You can navigate between pages with the <code>navigate</code> method of the <a href="http://docs.nativescript.org/api-reference/classes/_ui_frame_.frame.html"><code>Frame</code></a> class. The <a href="http://docs.nativescript.org/api-reference/classes/_ui_frame_.frame.html"><code>Frame</code></a> class represents the logical unit that is responsible for navigation between different pages. Typically, each app has one frame at the root level&mdash;the topmost frame.</p>
+<p>When you trigger navigation, NativeScript looks for an <code>XML</code> file with the specified name, loads it and navigates to the respective page. If NativeScript discovers a <code>JavaScript</code> or <code>TypeScript</code> file with the same name, it executes the code inside it.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// To import the "ui/frame" module:</span></div><div class="line"><span class="keyword">var</span> frames = <span class="built_in">require</span>(<span class="string">"ui/frame"</span>);</div><div class="line"><span class="comment">// Navigate to page called “my-page”</span></div><div class="line">frames.topmost().navigate(<span class="string">"my-page"</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// To import the "ui/frame" module:</span></div><div class="line"><span class="keyword">import</span> frames = <span class="built_in">require</span>(<span class="string">"ui/frame"</span>);</div><div class="line"><span class="comment">// Navigate to page called “my-page”</span></div><div class="line">frames.topmost().navigate(<span class="string">"my-page"</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Paths are relative to the application root. In the example above, NativeScript looks for a <code>my-page.xml</code> file in the app directory of your project.</p>
+</blockquote>
+<h3 id="Execute-business-logic"><a href="#Execute-business-logic" class="headerlink" title="Execute business logic"></a>Execute business logic</h3><p>When you have a <code>JavaScript</code> or a <code>TypeScript</code> file in the same location with the same name as your <code>XML</code> file, NativeScript loads it together with the <code>XML</code> file. In this <code>JavaScript</code> or <code>TypeScript</code> file you can manage event handlers, bind context or execute additional business logic.</p>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>In this example of <code>main-page.xml</code>, your page consists of a button. When you tap the button, the <code>buttonTap</code> function is triggered.  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">StackLayout</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">Label</span> <span class="attr">id</span>=<span class="string">"Label1"</span> <span class="attr">text</span>=<span class="string">"This is Label!"</span> /&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">Button</span> <span class="attr">text</span>=<span class="string">"This is Button!"</span> <span class="attr">tap</span>=<span class="string">"buttonTap"</span> /&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">StackLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>This example app is a simple counter app. The logic for the counter is implemented in a <code>main-page.js</code> or <code>main-page.ts</code> file.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> view = <span class="built_in">require</span>(<span class="string">"ui/core/view"</span>);</div><div class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">buttonTap</span>(<span class="params">args</span>) </span>&#123;</div><div class="line">    count++;</div><div class="line">    <span class="keyword">var</span> sender = args.object;</div><div class="line">    <span class="keyword">var</span> parent = sender.parent;</div><div class="line">    <span class="keyword">if</span> (parent) &#123;</div><div class="line">        <span class="keyword">var</span> lbl = view.getViewById(parent, <span class="string">"Label1"</span>);</div><div class="line">        <span class="keyword">if</span> (lbl) &#123;</div><div class="line">            lbl.text = <span class="string">"You tapped "</span> + count + <span class="string">" times!"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">exports.buttonTap = buttonTap;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> observable = <span class="built_in">require</span>(<span class="string">"data/observable"</span>);</div><div class="line"><span class="keyword">import</span> view = <span class="built_in">require</span>(<span class="string">"ui/core/view"</span>);</div><div class="line"><span class="keyword">import</span> label = <span class="built_in">require</span>(<span class="string">"ui/label"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">buttonTap</span>(<span class="params">args: observable.EventData</span>) </span>&#123;</div><div class="line">    count++;</div><div class="line">    <span class="keyword">var</span> sender = &lt;view.View&gt;args.object;</div><div class="line">    <span class="keyword">var</span> parent = sender.parent;</div><div class="line">    <span class="keyword">if</span> (parent) &#123;</div><div class="line">        <span class="keyword">var</span> lbl = &lt;label.Label&gt;view.getViewById(parent, <span class="string">"Label1"</span>);</div><div class="line">        <span class="keyword">if</span> (lbl) &#123;</div><div class="line">            lbl.text = <span class="string">"You tapped "</span> + count + <span class="string">" times!"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>To access variables or functions from the user interface, you need to declare them in the <code>exports</code> object in the module.</p>
+<p>NativeScript sets each attribute value in the XML declaration to a respective property or an event of the component. If a respective property does not exist, NativeScript sets the attribute value as an expando object.</p>
+<p>Starting with NativeScript 1.3 you can specify code and CSS files for your Page XML using <code>codeFile</code> and <code>cssFile</code> attributes:
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span> <span class="attr">codeFile</span>=<span class="string">"~/your-code-file"</span> <span class="attr">cssFile</span>=<span class="string">"~/your-styles.css"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">StackLayout</span>&gt;</span></div><div class="line">     ...</div><div class="line">    <span class="tag">&lt;/<span class="name">StackLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="User-interface-components"><a href="#User-interface-components" class="headerlink" title="User interface components"></a>User interface components</h2><p>NativeScript provides a wide range of built-in user interface components:mdash;layouts and widgets. You can also create your own custom user interface components. </p>
+<p>When NativeScript parses your <code>XML</code> files, it looks for components that match a name in the module exports.</p>
+<p>For example, when you have a <code>Button</code> declaration in your <code>XML</code> file, NativeScript looks for a <code>Button</code> name in the module exports.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Button = ...</div><div class="line">    ...</div><div class="line">exports.Button = Button;</div></pre></td></tr></table></figure>
+<h3 id="The-default-content-components"><a href="#The-default-content-components" class="headerlink" title="The default content components"></a>The default content components</h3><p>The top-level user interface components are content components:mdash;pages and layouts. These content components let you arrange your interactive user interface components in specific ways.</p>
+<h4 id="Page"><a href="#Page" class="headerlink" title="Page"></a>Page</h4><p>Your application pages (or screens) are instances of the <a href="http://docs.nativescript.org/api-reference/classes/_ui_page_.page.html"><code>page</code></a> class of the <a href="http://docs.nativescript.org/api-reference/classes/_ui_page_.page.html"><code>Page</code></a> module. Typically, an app will consist of multiple application screens.</p>
+<h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h5><p>You can execute some business logic when your page loads using the <code>pageLoaded</code> event.</p>
+<p>You need to set the <code>loaded</code> attribute for your page in your <code>main-page.xml</code>.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span> <span class="attr">loaded</span>=<span class="string">"pageLoaded"</span>&gt;</span></div><div class="line"> …</div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>You need to handle the business logic that loads in a <code>main-page.js</code> or <code>main-page.ts</code> file.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pageLoaded</span>(<span class="params">args</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> page = args.object;</div><div class="line">&#125;</div><div class="line">exports.pageLoaded = pageLoaded;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> observable = <span class="built_in">require</span>(<span class="string">"data/observable"</span>);</div><div class="line"><span class="keyword">import</span> pages = <span class="built_in">require</span>(<span class="string">"ui/page"</span>);</div><div class="line"></div><div class="line"><span class="comment">// Event handler for Page "loaded" event attached in main-page.xml</span></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">pageLoaded</span>(<span class="params">args: observable.EventData</span>) </span>&#123;</div><div class="line">    <span class="comment">// Get the event sender</span></div><div class="line">    <span class="keyword">var</span> page = &lt;pages.Page&gt;args.object;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="TabView"><a href="#TabView" class="headerlink" title="TabView"></a>TabView</h4><p>With a <a href="http://docs.nativescript.org/api-reference/classes/_ui_tab_view_.tabview.html"><code>tabview</code></a>, you can avoid spreading your user interface across multiple pages. Instead, you can have one page with multiple tabs.</p>
+<h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h5><p>The following sample <code>main-page.xml</code> contains two tabs with labels.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span> <span class="attr">loaded</span>=<span class="string">"pageLoaded"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">TabView</span> <span class="attr">id</span>=<span class="string">"tabView1"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">TabView.items</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">TabViewItem</span> <span class="attr">title</span>=<span class="string">"Tab 1"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">TabViewItem.view</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label in Tab 1"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">TabViewItem.view</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">TabViewItem</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">TabViewItem</span> <span class="attr">title</span>=<span class="string">"Tab 2"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">TabViewItem.view</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label in Tab 2"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">TabViewItem.view</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">TabViewItem</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">TabView.items</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">TabView</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>The respective <code>main-page.js</code> or <code>main-page.ts</code> loads the first tab by its ID and shows its contents.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> view = <span class="built_in">require</span>(<span class="string">"ui/core/view"</span>);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pageLoaded</span>(<span class="params">args</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> page = args.object;</div><div class="line">    <span class="keyword">var</span> tabView1 = view.getViewById(page, <span class="string">"tabView1"</span>);</div><div class="line">    tabView1.selectedIndex = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">exports.pageLoaded = pageLoaded;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> observable = <span class="built_in">require</span>(<span class="string">"data/observable"</span>);</div><div class="line"><span class="keyword">import</span> view = <span class="built_in">require</span>(<span class="string">"ui/core/view"</span>);</div><div class="line"><span class="keyword">import</span> pages = <span class="built_in">require</span>(<span class="string">"ui/page"</span>);</div><div class="line"><span class="keyword">import</span> tab = <span class="built_in">require</span>(<span class="string">"ui/tab-view"</span>);</div><div class="line"></div><div class="line"><span class="comment">// Event handler for Page "loaded" event attached in main-page.xml</span></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">pageLoaded</span>(<span class="params">args: observable.EventData</span>) </span>&#123;</div><div class="line">    <span class="comment">// Get the event sender</span></div><div class="line">    <span class="keyword">var</span> page = &lt;pages.Page&gt;args.object;</div><div class="line">    <span class="keyword">var</span> tabView1 = &lt;tab.TabView&gt;view.getViewById(page, <span class="string">"tabView1"</span>);</div><div class="line">    tabView1.selectedIndex = <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="ScrollView"><a href="#ScrollView" class="headerlink" title="ScrollView"></a>ScrollView</h4><p>You can insert a <a href="http://docs.nativescript.org/api-reference/classes/_ui_scroll_view_.scrollview.html"><code>scrollView</code></a> inside your page to make the page or the content enclosed in the <code>scrollView</code> scrollable.</p>
+<h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h5><p>This sample <code>main-page.xml</code> shows how to insert a <code>scrollView</code> inside your page.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ScrollView</span>&gt;</span></div><div class="line">	…</div><div class="line">  <span class="tag">&lt;/<span class="name">ScrollView</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="StackLayout"><a href="#StackLayout" class="headerlink" title="StackLayout"></a>StackLayout</h4><p>You can arrange the user interface components in your page in a horizontal or vertical stack using <a href="http://docs.nativescript.org/api-reference/classes/_ui_layouts_stack_layout_.stacklayout.html"><code>stackLayout</code></a>.</p>
+<h5 id="Example-4"><a href="#Example-4" class="headerlink" title="Example"></a>Example</h5><p>This sample <code>main-page.xml</code> shows how to arrange the labels in a page in a horizontal stack.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">StackLayout</span> <span class="attr">orientation</span>=<span class="string">"horizontal"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label 1"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label 2"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">StackLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="GridLayout"><a href="#GridLayout" class="headerlink" title="GridLayout"></a>GridLayout</h4><p>You can arrange the user interface components in your page in a flexible grid area using <a href="http://docs.nativescript.org/api-reference/classes/_ui_layouts_grid_layout_.gridlayout.html"><code>gridLayout</code></a>.</p>
+<h5 id="Example-5"><a href="#Example-5" class="headerlink" title="Example"></a>Example</h5><p>This sample <code>main-page.xml</code> shows how to arrange labels inside a table by setting their position by row or column.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">GridLayout</span> <span class="attr">rows</span>=<span class="string">"*, auto"</span> <span class="attr">columns</span>=<span class="string">"250, *"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label in row 0, col 0"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label in row 0, col 1"</span> <span class="attr">col</span>=<span class="string">"1"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label in row 1, col 0"</span> <span class="attr">row</span>=<span class="string">"1"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label in row 1, col 1"</span> <span class="attr">row</span>=<span class="string">"1"</span> <span class="attr">col</span>=<span class="string">"1"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label in row 0, col 0"</span> <span class="attr">rowSpan</span>=<span class="string">"2"</span> <span class="attr">colSpan</span>=<span class="string">"2"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">GridLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="WrapLayout"><a href="#WrapLayout" class="headerlink" title="WrapLayout"></a>WrapLayout</h4><p>You can arrange your user interface components in rows or columns until the space is filled and then wrap them on a new row or column using <a href="http://docs.nativescript.org/api-reference/classes/_ui_layouts_wrap_layout_.wraplayout.html"><code>wrapLayout</code></a>. By default, if orientation is not specified, <code>wrapLayout</code> arranges items horizontally.</p>
+<h5 id="Example-6"><a href="#Example-6" class="headerlink" title="Example"></a>Example</h5><p>This sample <code>main-page.xml</code> provides four labels wrapped horizontally within the visible space of the page.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">WrapLayout</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label 1"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label 2"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label 3"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label 4"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">WrapLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="AbsoluteLayout"><a href="#AbsoluteLayout" class="headerlink" title="AbsoluteLayout"></a>AbsoluteLayout</h4><p>You can arrange your user interface components by left/top coordinates using <a href="http://docs.nativescript.org/api-reference/classes/_ui_layouts_absolute_layout_.absolutelayout.html"><code>absoluteLayout</code></a>.</p>
+<h5 id="Example-7"><a href="#Example-7" class="headerlink" title="Example"></a>Example</h5><p>The following <code>main-page.xml</code> contains a page with a single label positioned at the specified coordinates.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">AbsoluteLayout</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"This is Label 1"</span> <span class="attr">left</span>=<span class="string">"30"</span> <span class="attr">top</span>=<span class="string">"70"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">AbsoluteLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Custom-components"><a href="#Custom-components" class="headerlink" title="Custom components"></a>Custom components</h3><p>You can define your own XML namespaces to create custom user interface components.</p>
+<h4 id="Code-only-custom-component"><a href="#Code-only-custom-component" class="headerlink" title="Code-only custom component"></a>Code-only custom component</h4><p>This sample <code>main-page.xml</code> is using a custom component defined in separate declarations in the <code>xml-declaration/mymodule</code> directory. </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span></span></div><div class="line">    <span class="attr">xmlns:customControls</span>=<span class="string">"xml-declaration/mymodule"</span>&gt;</div><div class="line">  <span class="tag">&lt;<span class="name">customControls:MyControl</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>This sample custom component declared in <code>xml-declaration/mymodule.js</code> or <code>xml-declaration/mymodule.ts</code> exports the <code>MyControl</code> variable, which creates a simple counter inside your <code>main-page.xml</code> page.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> __extends = <span class="keyword">this</span>.__extends || <span class="function"><span class="keyword">function</span> (<span class="params">d, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> p <span class="keyword">in</span> b) <span class="keyword">if</span> (b.hasOwnProperty(p)) d[p] = b[p];</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__</span>(<span class="params"></span>) </span>&#123; <span class="keyword">this</span>.constructor = d; &#125;</div><div class="line">    __.prototype = b.prototype;</div><div class="line">    d.prototype = <span class="keyword">new</span> __();</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> stackLayout = <span class="built_in">require</span>(<span class="string">"ui/layouts/stack-layout"</span>);</div><div class="line"><span class="keyword">var</span> label = <span class="built_in">require</span>(<span class="string">"ui/label"</span>);</div><div class="line"><span class="keyword">var</span> button = <span class="built_in">require</span>(<span class="string">"ui/button"</span>);</div><div class="line"><span class="keyword">var</span> MyControl = (<span class="function"><span class="keyword">function</span> (<span class="params">_super</span>) </span>&#123;</div><div class="line">    __extends(MyControl, _super);</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">MyControl</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        _super.call(<span class="keyword">this</span>);</div><div class="line">        <span class="keyword">var</span> counter = <span class="number">0</span>;</div><div class="line">        <span class="keyword">var</span> lbl = <span class="keyword">new</span> label.Label();</div><div class="line">        <span class="keyword">var</span> btn = <span class="keyword">new</span> button.Button();</div><div class="line">        btn.text = <span class="string">"Tap me!"</span>;</div><div class="line">        btn.on(button.Button.tapEvent, <span class="function"><span class="keyword">function</span> (<span class="params">args</span>) </span>&#123;</div><div class="line">            lbl.text = <span class="string">"Tap "</span> + counter++;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">this</span>.addChild(lbl);</div><div class="line">        <span class="keyword">this</span>.addChild(btn);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> MyControl;</div><div class="line">&#125;)(stackLayout.StackLayout);</div><div class="line">exports.MyControl = MyControl;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> observable = <span class="built_in">require</span>(<span class="string">"data/observable"</span>);</div><div class="line"><span class="keyword">import</span> stackLayout = <span class="built_in">require</span>(<span class="string">"ui/layouts/stack-layout"</span>);</div><div class="line"><span class="keyword">import</span> label = <span class="built_in">require</span>(<span class="string">"ui/label"</span>);</div><div class="line"><span class="keyword">import</span> button = <span class="built_in">require</span>(<span class="string">"ui/button"</span>);</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyControl extends stackLayout.StackLayout &#123;</div><div class="line">    <span class="keyword">constructor</span>() &#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line"></div><div class="line">        <span class="keyword">var</span> counter: <span class="built_in">number</span> = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> lbl = <span class="keyword">new</span> label.Label();</div><div class="line">        <span class="keyword">var</span> btn = <span class="keyword">new</span> button.Button();</div><div class="line">        btn.text = <span class="string">"Tap me!"</span>;</div><div class="line">        btn.on(button.Button.tapEvent, (args: observable.EventData) =&gt; &#123;</div><div class="line">            lbl.text = <span class="string">"Tap "</span> + counter++;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.addChild(lbl);</div><div class="line">        <span class="keyword">this</span>.addChild(btn);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>When referring to code-only components in your pages with an <code>xmlns</code> declaration, you should point it either to the code file with the component implementation or to the folder containing the files. In the latter case, you will have to add a <code>package.json</code> file in the folder so that the file can be required properly.</p>
+<h4 id="XML-based-custom-component-with-a-code-file"><a href="#XML-based-custom-component-with-a-code-file" class="headerlink" title="XML-based custom component with a code file"></a>XML-based custom component with a code file</h4><p>This sample <code>main-page.xml</code> uses a custom component defined in an <code>xml-declaration/mymodulewithxml/MyControl.xml</code> file together with <code>xml-declaration/mymodulewithxml/MyControl.js</code> or <code>xml-declaration/mymodulewithxml/MyControl.ts</code> code file. </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span></span></div><div class="line">    <span class="attr">xmlns:customOtherControls</span>=<span class="string">"xml-declaration/mymodulewithxml"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">customOtherControls:MyControl</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>The custom component in <code>xml-declaration/MyControl.xml</code> defines a button, a label and a <code>buttonTap</code> function, located in the code file, which changes the label on every tap of the button.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">StackLayout</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">Label</span> <span class="attr">id</span>=<span class="string">"Label1"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">Button</span> <span class="attr">text</span>=<span class="string">"Click!"</span> <span class="attr">tap</span>=<span class="string">"buttonTap"</span> /&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">StackLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> view = <span class="built_in">require</span>(<span class="string">"ui/core/view"</span>);</div><div class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">buttonTap</span>(<span class="params">args</span>) </span>&#123;</div><div class="line">    count++;</div><div class="line">    <span class="keyword">var</span> parent = args.object.parent;</div><div class="line">    <span class="keyword">if</span> (parent) &#123;</div><div class="line">        <span class="keyword">var</span> lbl = view.getViewById(parent, <span class="string">"Label1"</span>);</div><div class="line">        <span class="keyword">if</span> (lbl) &#123;</div><div class="line">            lbl.text = <span class="string">"You tapped "</span> + count + <span class="string">" times!"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">exports.buttonTap = buttonTap;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> observable = <span class="built_in">require</span>(<span class="string">"data/observable"</span>);</div><div class="line"><span class="keyword">import</span> view = <span class="built_in">require</span>(<span class="string">"ui/core/view"</span>);</div><div class="line"><span class="keyword">import</span> label = <span class="built_in">require</span>(<span class="string">"ui/label"</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">buttonTap</span>(<span class="params">args: observable.EventData</span>) </span>&#123;</div><div class="line">    count++;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> parent = (&lt;view.View&gt;args.object).parent;</div><div class="line">    <span class="keyword">if</span> (parent) &#123;</div><div class="line">        <span class="keyword">var</span> lbl = &lt;label.Label&gt;view.getViewById(parent, <span class="string">"Label1"</span>);</div><div class="line">        <span class="keyword">if</span> (lbl) &#123;</div><div class="line">            lbl.text = <span class="string">"You tapped "</span> + count + <span class="string">" times!"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Dynamically-loading-custom-components"><a href="#Dynamically-loading-custom-components" class="headerlink" title="Dynamically loading custom components"></a>Dynamically loading custom components</h4><p>Load a pure JavaScript component by finding it in the exports of the module. The component is specified by a path and its name. Then the code from the JavaScript file is executed.
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> builder = <span class="built_in">require</span>(<span class="string">"ui/builder"</span>);</div><div class="line"><span class="keyword">var</span> myComponentInstance = builder.load(&#123;</div><div class="line">        path: <span class="string">"~/xml-declaration/mymodule"</span>,</div><div class="line">        name: <span class="string">"MyControl"</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> builder = <span class="built_in">require</span>(<span class="string">"ui/builder"</span>);</div><div class="line"><span class="keyword">var</span> myComponentInstance = builder.load(&#123;</div><div class="line">        path: <span class="string">"~/xml-declaration/mymodule"</span>,</div><div class="line">        name: <span class="string">"MyControl"</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Load the XML file with JavaScript code-behind by finding the specified XML filename through the specified path in the exports of the modules. JavaScript file with the same name will be required and served as code-behind of the XML.
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> builder = <span class="built_in">require</span>(<span class="string">"ui/builder"</span>);</div><div class="line"><span class="keyword">var</span> myComponentInstance = builder.load(&#123;</div><div class="line">        path: <span class="string">"~/xml-declaration/mymodulewithxml"</span>,</div><div class="line">        name: <span class="string">"MyControl"</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> builder = <span class="built_in">require</span>(<span class="string">"ui/builder"</span>);</div><div class="line"><span class="keyword">var</span> myComponentInstance = builder.load(&#123;</div><div class="line">        path: <span class="string">"~/xml-declaration/mymodulewithxml"</span>,</div><div class="line">        name: <span class="string">"MyControl"</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>The UI builder will automatically load the CSS file with the same name as the component name and apply it to the specified page:
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myComponentInstance = builder.load(&#123;</div><div class="line">        path: <span class="string">"~/xml-declaration/mymodulewithxml"</span>,</div><div class="line">        name: <span class="string">"MyControl"</span>,</div><div class="line">        page: yourPageInstance</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myComponentInstance = builder.load(&#123;</div><div class="line">        path: <span class="string">"~/xml-declaration/mymodulewithxml"</span>,</div><div class="line">        name: <span class="string">"MyControl"</span>,</div><div class="line">        page: yourPageInstance</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="Gestures"><a href="#Gestures" class="headerlink" title="Gestures"></a>Gestures</h2><p>All <a href="!--￼56--">UI Gestures</a>
+(gestures.md) can be defined in XML. For example:
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"Some text"</span> <span class="attr">tap</span>=<span class="string">"myTapHandler"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myTapHandler</span>(<span class="params">args</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> context = args.view.bindingContext;</div><div class="line">&#125;</div><div class="line">exports.myTapHandler = myTapHandler;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> gestures = <span class="built_in">require</span>(<span class="string">"ui/gestures"</span>);</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">myTapHandler</span>(<span class="params">args: gestures.GestureEventData</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> context = args.view.bindingContext;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Bindings"><a href="#Bindings" class="headerlink" title="Bindings"></a>Bindings</h2><p>To set a binding for a property in the <code>XML</code>, you can use double curly brackets syntax.</p>
+<h3 id="Property-binding"><a href="#Property-binding" class="headerlink" title="Property binding"></a>Property binding</h3><p>This sample <code>main-page.xml</code> contains a simple label whose text will be populated when the page loads.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span> <span class="attr">loaded</span>=<span class="string">"pageLoaded"</span>&gt;</span></div><div class="line">&#123;%raw%&#125;</div><div class="line">  <span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"&#123;&#123; name &#125;&#125;"</span> /&gt;</span></div><div class="line">&#123;%endraw%&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>This sample <code>main-page.js</code> or <code>main-page.ts</code> file sets a <code>bindingContext</code> for the page. The <code>bindingContext</code> contains the custom property and its value. When NativeScript parses <code>main-page.xml</code>, it will populate the custom name property with the value in the <code>bindingContext</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pageLoaded</span>(<span class="params">args</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> page = args.object;</div><div class="line"></div><div class="line">	page.bindingContext = &#123; name: <span class="string">"Some name"</span> &#125;;</div><div class="line">&#125;</div><div class="line">exports.pageLoaded = pageLoaded;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> observable = <span class="built_in">require</span>(<span class="string">"data/observable"</span>);</div><div class="line"><span class="keyword">import</span> pages = <span class="built_in">require</span>(<span class="string">"ui/page"</span>);</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">pageLoaded</span>(<span class="params">args: observable.EventData</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> page = &lt;pages.Page&gt;args.object;</div><div class="line">    page.bindingContext = &#123; name: <span class="string">"Some name"</span> &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>NativeScript looks for the custom property in the <code>bindingContext</code> of the current component or the <code>bindingContext</code> of its parents. By default, all bindings, defined in XML, are two-way bindings.</p>
+</blockquote>
+<h3 id="Event-binding"><a href="#Event-binding" class="headerlink" title="Event binding"></a>Event binding</h3><p>This sample <code>main-page.xml</code> contains a button. The text for the button and the event that the button triggers are determined when the page loads from the matching <code>main-page.js</code> or <code>main-page.ts</code> file.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span> <span class="attr">loaded</span>=<span class="string">"pageLoaded"</span>&gt;</span></div><div class="line">&#123;%raw%&#125;</div><div class="line">  <span class="tag">&lt;<span class="name">Button</span> <span class="attr">text</span>=<span class="string">"&#123;&#123; myProperty &#125;&#125;"</span> <span class="attr">tap</span>=<span class="string">"&#123;&#123; myFunction &#125;&#125;"</span> /&gt;</span></div><div class="line">&#123;%endraw%&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>This sample <code>main-page.js</code> or <code>main-page.ts</code> sets a <code>bindingContext</code> for the page. The <code>bindingContext</code> contains the custom property for the button text and its value and the custom function that will be triggered when the button is tapped. When NativeScript parses <code>main-page.xml</code>, it will populate the button text with the value in the <code>bindingContext</code> and will bind the custom function to the tap event.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pageLoaded</span>(<span class="params">args</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> page = args.object;</div><div class="line">    page.bindingContext = &#123;</div><div class="line">        myProperty: <span class="string">"Some text"</span>,</div><div class="line">        myFunction: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="comment">// Your code</span></div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">exports.pageLoaded = pageLoaded;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> observable = <span class="built_in">require</span>(<span class="string">"data/observable"</span>);</div><div class="line"><span class="keyword">import</span> pages = <span class="built_in">require</span>(<span class="string">"ui/page"</span>);</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">pageLoaded</span>(<span class="params">args: observable.EventData</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> page = &lt;pages.Page&gt;args.object;</div><div class="line">    page.bindingContext = &#123;</div><div class="line">        myProperty: <span class="string">"Some text"</span>,</div><div class="line">        myFunction: () =&gt; &#123;</div><div class="line">            <span class="comment">// Your code</span></div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="ListView-binding"><a href="#ListView-binding" class="headerlink" title="ListView binding"></a>ListView binding</h3><p>You can use the double curly brackets syntax to bind the items to a <a href="http://docs.nativescript.org/api-reference/classes/_ui_list_view_.listview.html"><code>listView</code></a>. You can also define a template with the <code>itemTemplate</code> property from which NativeScript will create the items for your <code>listView</code>.</p>
+<blockquote>
+<p>Avoid accessing components by ID, especially when the component is part of a template. It is recommended that you use bindings to specify component properties. </p>
+</blockquote>
+<p>NativeScript can create the items from a template when the <code>listView</code> loads inside your page. When you work with templates and a <code>listView</code>, keep in mind the scope of the <code>listView</code> and its items. </p>
+<p>In this sample <code>main-page.xml</code>, the ListView consists of labels and each item will be created from a template. The text of each label is the value of the name property of the corresponding item. </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span> <span class="attr">loaded</span>=<span class="string">"pageLoaded"</span>&gt;</span></div><div class="line">&#123;%raw%&#125;</div><div class="line">  <span class="tag">&lt;<span class="name">ListView</span> <span class="attr">id</span>=<span class="string">"listView1"</span> <span class="attr">items</span>=<span class="string">"&#123;&#123; myItems &#125;&#125;"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ListView.itemTemplate</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">Label</span> <span class="attr">id</span>=<span class="string">"label1"</span> <span class="attr">text</span>=<span class="string">"&#123;&#123; name &#125;&#125;"</span>  /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ListView.itemTemplate</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ListView</span>&gt;</span></div><div class="line">&#123;%endraw%&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>The sample <code>main-page.js</code> or <code>main-page.ts</code> populates the <code>bindingContext</code> for the page. In this case, the code sets values for the name property for each label. Note that because the <code>ListView</code> and the Label have different scopes, you can access ListView by ID from the page but you cannot access the Label by ID. The <code>ListView</code> creates a new <code>Label</code> for every item.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> view = <span class="built_in">require</span>(<span class="string">"ui/core/view"</span>);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pageLoaded</span>(<span class="params">args</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> page = args.object;</div><div class="line">    page.bindingContext = &#123; myItems: [&#123; name: <span class="string">"Name1"</span> &#125;, &#123; name: <span class="string">"Name2"</span> &#125;, &#123; name: <span class="string">"Name3"</span> &#125;] &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// Will work!</span></div><div class="line">    <span class="keyword">var</span> listView1 = view.getViewById(page, <span class="string">"listView1"</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Will not work!</span></div><div class="line">    <span class="keyword">var</span> label1 = view.getViewById(page, <span class="string">"label1"</span>);</div><div class="line">&#125;</div><div class="line">exports.pageLoaded = pageLoaded;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> observable = <span class="built_in">require</span>(<span class="string">"data/observable"</span>);</div><div class="line"><span class="keyword">import</span> pages = <span class="built_in">require</span>(<span class="string">"ui/page"</span>);</div><div class="line"><span class="keyword">import</span> view = <span class="built_in">require</span>(<span class="string">"ui/core/view"</span>);</div><div class="line"><span class="keyword">import</span> listView = <span class="built_in">require</span>(<span class="string">"ui/list-view"</span>);</div><div class="line"><span class="keyword">import</span> label = <span class="built_in">require</span>(<span class="string">"ui/label"</span>);</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">pageLoaded</span>(<span class="params">args: observable.EventData</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> page = &lt;pages.Page&gt;args.object;</div><div class="line">    page.bindingContext = &#123; myItems: [&#123; name: <span class="string">"Name1"</span> &#125;, &#123; name: <span class="string">"Name2"</span> &#125;, &#123; name: <span class="string">"Name3"</span> &#125;] &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// Will work!</span></div><div class="line">    <span class="keyword">var</span> listView1 = &lt;listView.ListView&gt;view.getViewById(page, <span class="string">"listView1"</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Will not work!</span></div><div class="line">    <span class="keyword">var</span> label1 = &lt;label.Label&gt;view.getViewById(page, <span class="string">"label1"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>If you want to show some inner collection items inside <figure class="highlight plain"><figcaption><span>you can use a [Repeater](&#123;%slug layouts %&#125;#repeating-layout-children):</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">```XML</div><div class="line">&lt;Page&gt;</div><div class="line">&#123;%raw%&#125;</div><div class="line">  &lt;ListView items=&quot;&#123;&#123; myItems &#125;&#125;&quot;&gt;</div><div class="line">    &lt;ListView.itemTemplate&gt;</div><div class="line">      &lt;Repeater items=&quot;&#123;&#123; mySubItems &#125;&#125;&quot;  /&gt;</div><div class="line">    &lt;/ListView.itemTemplate&gt;</div><div class="line">  &lt;/ListView&gt;</div><div class="line">&#123;%endraw%&#125;</div><div class="line">&lt;/Page&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="Expressions"><a href="#Expressions" class="headerlink" title="Expressions"></a>Expressions</h3><p>To set an expression as a value of a property in the <code>XML</code>, you might as well go with the mustache syntax here.</p>
+<blockquote>
+<p>NativeScript reevaluates your expression on every property change of the <code>Observable</code> object set for <code>bindingContext</code>. This binding is a one-way binding;mdash;from the view model to the user interface.</p>
+</blockquote>
+<p>The following sample <code>main-page.xml</code> shows how to set an expression as the value for a label.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;%raw%&#125;</div><div class="line"><span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"&#123;&#123; author ? 'by ' + author : '[no author]' &#125;&#125;"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">Label</span> <span class="attr">text</span>=<span class="string">"&#123;&#123; author || '[no author]' &#125;&#125;"</span> /&gt;</span></div><div class="line">&#123;%endraw%&#125;</div></pre></td></tr></table></figure>
+<p><strong>Complex property paths</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">your.sub.property[name]</div></pre></td></tr></table></figure>
+<p><strong>Logical not operator and comparators</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">!,<span class="xml"><span class="tag">&lt;<span class="name">,</span> &gt;</span>, <span class="tag">&lt;<span class="name">=,</span> &gt;</span>=, ==, !=, ===, !==,||, &amp;&amp;</span></div></pre></td></tr></table></figure>
+<p><strong>Unary and binary operators</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+, -, *, <span class="regexp">/, %</span></div></pre></td></tr></table></figure>
+<p><strong>Ternary operator</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a ? b : c</div></pre></td></tr></table></figure>
+<p><strong>Grouping</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(a + b) * (c + d)</div></pre></td></tr></table></figure>
+<p><strong>Constants</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">numbers, strings, <span class="literal">null</span>, <span class="literal">undefined</span></div></pre></td></tr></table></figure>
+<h2 id="Platform-specific-declarations"><a href="#Platform-specific-declarations" class="headerlink" title="Platform-specific declarations"></a>Platform-specific declarations</h2><p>To declare a platform-specific property value or platform-specific component in the <code>XML</code>, you can use the following syntax:</p>
+<h3 id="Platform-specific-property-value"><a href="#Platform-specific-property-value" class="headerlink" title="Platform-specific property value"></a>Platform-specific property value</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">TextField</span> <span class="attr">ios:editable</span>=<span class="string">'False'</span> <span class="attr">android:editable</span>=<span class="string">'True'</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Platform-specific-component-declaration"><a href="#Platform-specific-component-declaration" class="headerlink" title="Platform-specific component declaration"></a>Platform-specific component declaration</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Page</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ios</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">TextField</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ios</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">android</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Label</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">android</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Page</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>You cannot nest platform tags!</p>
+</blockquote>
+<h2 id="Lowercase-dashed-component-declaration"><a href="#Lowercase-dashed-component-declaration" class="headerlink" title="Lowercase-dashed component declaration"></a>Lowercase-dashed component declaration</h2><p>Since the release of NativeScript 1.3, you can declare your UI using lowercase-dashed syntax:
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">page</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">scroll-view</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">stack-layout</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">label</span> <span class="attr">ctext</span>=<span class="string">"Label"</span> /&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">text</span>=<span class="string">"Button"</span> <span class="attr">tap</span>=<span class="string">"tap"</span> /&gt;</span></div><div class="line">      ...</div></pre></td></tr></table></figure></p>
+
+    </div>
+  </div>
+
+  <div class="pagination">
+    <div class="content-wrapper">
+      
+      
+        <a class="link primary prev"
+          href="ui-views.html">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          Components
+        </a>
+      
+      
+        <a class="link primary next"
+          href="../workflow/bundling-with-webpack.html">
+          <span class="subtitle-pagination">Next</span>
+          Bundling Script Code with Webpack
+          <span class="icon-arrow-right-alt"></span>
+        </a>
+      
+    </div>
+  </div>
+
+  <div class="github">
+    <a class="link tertiary " href="https://github.com/nativescript/docs/tree/master/source/ui/ui-with-xml.md" target="_blank">
+      <span class="icon-github"></span>Edit on GitHub</a>
+  </div>
+
+  
+</div>
+
+    <script src="/docs/script/smooth-scroll.min.js"></script>
+    <script src="/docs/script/main.js"></script>
+
+    <script>
+
+     
+      
+
+      // search box
+      
+
+        function toggleFrontEndVar(value) {
+          console.log(value + " Clicked");
+          hexo.locals.set('front_end', value);
+        }
+
+      
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+    $( ".sidebar-content" ).scrollTop( 0 );
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="/docs/script/code-block.js"></script>
+    <script src="/docs/script/code-environment.js"></script>
+  </body>
+</html>
