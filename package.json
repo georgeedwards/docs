@@ -42,7 +42,7 @@
     "node-schedule": "^1.1.1",
     "request": "^2.75.0",
     "serve-favicon": "~2.3.0",
-    "typescript": "^2.0.3",
+    "typescript": "^2.0.0",
     "typings": "^1.4.0"
   },
   "devDependencies": {

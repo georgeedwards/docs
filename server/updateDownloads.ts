@@ -34,13 +34,16 @@ export function updateDownloads() {
                     if (body && typeof body == "string") {
                         body = JSON.parse(body);
                     }
+                    console.log(url);
                     console.log(body.downloads);
-                    console.log(updateDB(plugin._id, body.downloads));
+                    updateDB(plugin._id, body.downloads);
                 }
+
             });
         }
     })
 }
+
 
 /**
  * Add new download data to database

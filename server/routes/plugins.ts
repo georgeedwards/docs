@@ -1,9 +1,9 @@
 import * as express from 'express';
 const router = express.Router();
 import * as mongoose from 'mongoose';
-import {plugin} from '../models/plugin';
+import { plugin } from '../models/plugin';
 import 'express-validator';
-
+import { updateDownloads } from '../updateDownloads';
 
 /* GET /todos listing. */
 router.get('/', function (req, res, next) {
@@ -16,7 +16,7 @@ router.get('/', function (req, res, next) {
 /* POST /todos */
 router.post('/', function (req, res, next) {
     /* Validate POST */
-    req.assert('name', 'Name is required').notEmpty(); 
+    req.assert('name', 'Name is required').notEmpty();
     req.assert('package', 'A package is required').notEmpty();
     req.assert('author', 'An author is required').notEmpty();
     req.assert('github', 'A valid GitHub repo URL is required').isURL();
@@ -31,6 +31,6 @@ router.post('/', function (req, res, next) {
     } else {
         res.json(errors);
     }
-});
+    updateDownloads();
 
 export = router;
