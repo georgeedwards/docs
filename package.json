@@ -26,6 +26,7 @@
     "@types/jsonwebtoken": "^7.1.31",
     "@types/mongoose": "^4.5.36",
     "@types/morgan": "^1.7.32",
+    "@types/request": "0.0.31",
     "@types/serve-favicon": "^2.2.27",
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
@@ -37,6 +38,7 @@
     "jsonwebtoken": "^7.1.9",
     "mongoose": "^4.6.1",
     "morgan": "^1.7.0",
+    "request": "^2.75.0",
     "serve-favicon": "~2.3.0",
     "typescript": "^2.0.3",
     "typings": "^1.4.0"

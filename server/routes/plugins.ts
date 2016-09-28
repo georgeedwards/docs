@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
     plugin.find(function (err, todos) {
         if (err) return next(err);
         res.json(todos);
-    }).limit(2);
+    }).sort('name').limit(20);
 });
 
 /* POST /todos */

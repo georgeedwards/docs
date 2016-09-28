@@ -6,7 +6,8 @@ var PluginSchema = new mongoose.Schema({
   author: String,
   github: String,
   android: Boolean,
-  ios: Boolean
+  ios: Boolean,
+  downloads: Number
 });
 // Create a model based on the schema
 //module.exports = mongoose.model('Plugin', PluginSchema);
