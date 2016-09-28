@@ -7,7 +7,7 @@ import * as jwt from 'express-jwt';
 import * as plugin from './routes/plugins'; 
 import * as mongoose from 'mongoose';
 import expressValidator = require('express-validator');
-import {updateDownloads} from './updateDownloads';
+import {registerUpdates} from './updateDownloads';
 /*import { loginRouter } from "./routes/login";
 import { protectedRouter } from "./routes/protected";*/
 
@@ -43,7 +43,7 @@ app.use('/plugins/', (req, res) => {
   res.sendFile(resolve(__dirname, '../public/index.html'));
 });
 
-updateDownloads();
+registerUpdates();
 // Use native Node promises
 mongoose.Promise = global.Promise;
 // connect to MongoDB

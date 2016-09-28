@@ -1,7 +1,26 @@
 import { plugin } from './models/plugin';
 const https = require('https');
 import * as request from 'request';
+import * as schedule from 'node-schedule';
 
+/**
+ * Setup the download stats to update daily from npm
+ */
+/*'0 0 12 1/1 * ? *'*/
+export function registerUpdates() {
+    /*var j = schedule.scheduleJob('0 0/1 * 1/1 * ? *', function () {
+        console.log('The answer to life, the universe, and everything!');
+    });*/
+
+    var rule = new schedule.RecurrenceRule();
+    rule.hour = 12;
+    rule.minute = 0;
+    rule.second = 0;
+
+    var j = schedule.scheduleJob(rule, function () {
+        updateDownloads();
+    });
+}
 /**
  * Checks npm for lastest download data and update DB
  */
