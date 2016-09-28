@@ -6,6 +6,7 @@ import * as logger from 'morgan';
 import * as jwt from 'express-jwt';
 import * as plugin from './routes/plugins'; 
 import * as mongoose from 'mongoose';
+import expressValidator = require('express-validator');
 /*import { loginRouter } from "./routes/login";
 import { protectedRouter } from "./routes/protected";*/
 
@@ -17,6 +18,7 @@ app.use(express.static(join(__dirname, '../public')));
 
 app.use(json());
 app.use(urlencoded({ extended: true }));
+app.use(expressValidator([]));
 
 //app.use(express.static('docs/public'));
 
@@ -39,7 +41,6 @@ app.use('/tutorial/*', (req, res) => {
 app.use('/plugins/', (req, res) => {
   res.sendFile(resolve(__dirname, '../public/index.html'));
 });
-
 
 // Use native Node promises
 mongoose.Promise = global.Promise;

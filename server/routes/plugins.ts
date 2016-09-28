@@ -1,8 +1,8 @@
 import * as express from 'express';
-var router = express.Router();
+const router = express.Router();
 import * as mongoose from 'mongoose';
 import {plugin} from '../models/plugin';
-var validator = require('express-validator');
+import 'express-validator';
 
 
 /* GET /todos listing. */
@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
     plugin.find(function (err, todos) {
         if (err) return next(err);
         res.json(todos);
-    })/*.limit(2)*/;
+    }).limit(2);
 });
 
 /* POST /todos */
@@ -33,4 +33,4 @@ router.post('/', function (req, res, next) {
     }
 });
 
-module.exports = router;
+export = router;
