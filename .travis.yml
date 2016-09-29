@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "6.0.x"
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+install:
+    - npm install -g typescript
+    - npm install
+    - npm run develop
+    - npm run twc:client:w
+    - npm run twc:server:w
+post_install:
+    - npm run bundle:prod
