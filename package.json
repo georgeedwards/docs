@@ -9,9 +9,8 @@
     "forever": "tsc -p ./server && forever start ./server/bin/www --watch",
     "twc:client:w": "tsc -w -p ./client",
     "twc:server:w": "tsc -w -p ./server",
-    "typings": "typings install",
     "bundle:prod": "node tools/builder.js --prod",
-    "postinstall": "typings install && tsc -p ./server"
+    "postinstall": "npm install && tsc -p ./server"
   },
   "engines": {
     "node": ">= 6.5.0"
@@ -42,8 +41,7 @@
     "node-schedule": "^1.1.1",
     "request": "^2.75.0",
     "serve-favicon": "~2.3.0",
-    "typescript": "^2.0.0",
-    "typings": "^1.4.0"
+    "typescript": "^2.0.0"
   },
   "devDependencies": {
     "@angular/common": "^2.0.1",
