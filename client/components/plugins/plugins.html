@@ -15,7 +15,7 @@
             <ul>
                 <li><button class="btn-floating red" (click)="auth.login()" *ngIf="!auth.authenticated()"><i class="material-icons">lock_open</i></button></li>
                 <li><button class="btn-floating yellow darken-1" (click)="auth.logout()" *ngIf="auth.authenticated()"><i class="material-icons">lock_outline</i></button></li>
-                <li><button class="btn-floating green"><i class="ion-plus-round"></i></button></li>
+                <li><button class="btn-floating green" (click)="add()"><i class="ion-plus-round"></i></button></li>
             </ul>
         </div>
         <nav>
@@ -30,17 +30,52 @@
             </div>
         </nav>
 
-        <!-- <div class="row">
-            <div class="col s12">
-                <div class="row">
-                    <div class="col s2"></div>
-                    <div class="input-field col s8">
-                        <i class="icon ion-search"></i>
-                        <input type="text" id="autocomplete-input" class="autocomplete">
-                        <label for="autocomplete-input">Autocomplete</label>
-                    </div>
+        <div #modal class="modal">
+            <div class="modal-content">
+                <div class="row" style="padding: 0px; margin: 0px;">
+                    <form id="new_plugin" class="col s12">
+                        <div class="row" style="padding: 0px; margin: 0px;">
+                            <div class="input-field col s6">
+                                <input id="name" type="text" required class="validate" [(ngModel)]="model.name" name="name">
+                                <label for="name" class="active">Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="package" required type="text" [(ngModel)]="model.package_name" name="package" class="validate">
+                                <label for="package" class="active">Package</label>
+                            </div>
+                        </div>
+                        <div class="row" style="padding: 0px; margin: 0px;">
+                            <div class="input-field col s12">
+                                <input id="author" [(ngModel)]="model.author" name="author" type="text">
+                                <label for="author" class="active">Author</label>
+                            </div>
+                        </div>
+                        <div class="row" style="padding: 0px; margin-top: 10px; margin-left: 0px; margin-bottom: 0px;">
+                            <p>Supports:</p>
+                            <div class="switch col s6">
+                                <label>
+                                Not
+                                <input type="checkbox" [(ngModel)]="model.android" name="android">
+                                <span class="lever"></span>
+                                Android
+                                </label>
+                            </div>
+                            <div class="switch col s6">
+                                <label>
+                                Not
+                                <input type="checkbox" [(ngModel)]="model.ios" name="ios">
+                                <span class="lever"></span>
+                                iOS
+                                </label>
+                            </div>
+                        </div>
+                    </form>
                 </div>
+
             </div>
-        </div> -->
+            <div class="modal-footer">
+                <button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action" (click)="submit()" style="font-weight: 700;">Submit</button>
+            </div>
+        </div>
     </div>
 </div>

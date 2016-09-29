@@ -9,7 +9,5 @@ var PluginSchema = new mongoose.Schema({
   ios: Boolean,
   downloads: Number
 });
-// Create a model based on the schema
-//module.exports = mongoose.model('Plugin', PluginSchema);
 
 export var plugin = mongoose.model('Plugin', PluginSchema);

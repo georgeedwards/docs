@@ -7,5 +7,3 @@ import { AppModule } from './app.module';
 enableProdMode();
 
 platformBrowserDynamic().bootstrapModule(AppModule);
-
-console.log("AppModule" + AppModule);

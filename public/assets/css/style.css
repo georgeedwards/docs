@@ -1556,6 +1556,7 @@ pre {
 .document-formatting ul {
   list-style-type: disc;
 }
+/*
 .document-formatting *:not(figure.highlight) pre {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
@@ -1571,6 +1572,7 @@ pre {
   max-width: 100%;
   padding: 0;
 }
+*/
 .document-formatting .highlight {
   font-size: 14px;
   line-height: 20px;
@@ -2120,7 +2122,7 @@ label.radio input:checked + span:after {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Down arrow */
+  /* Down arrow  */
 }
 .select:before {
   content: "";
@@ -2181,7 +2183,7 @@ label.radio input:checked + span:after {
   .select select {
     padding-right: 2em;
     padding-top: 10px;
-    /* off by 1px */
+    /* off by 1px  */
   }
   .select select:-moz-focusring {
     color: transparent;
@@ -2191,7 +2193,7 @@ label.radio input:checked + span:after {
     -moz-appearance: none;
     padding-right: 1em;
     padding-top: 9px;
-    /* off by 1px */
+    /* off by 1px  */
     text-indent: 0.01px;
     text-overflow: '';
   }
@@ -2208,7 +2210,7 @@ label.radio input:checked + span:after {
 }
 [class^="icon-"],
 [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
+  /* use !important to prevent issues with browser extensions that change fonts  */
   font-family: 'percolate' !important;
   speak: none;
   font-style: normal;
@@ -2216,7 +2218,7 @@ label.radio input:checked + span:after {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  /* Better Font Rendering =========== */
+  /* Better Font Rendering ===========  */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -2726,6 +2728,7 @@ a:visited,
   margin-right: .25em;
   vertical-align: baseline;
 }
+
 .nav {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -2840,6 +2843,7 @@ a:visited,
 .nav .nav-item .btn {
   vertical-align: middle;
 }
+
 .nav .nav-item .icon-menu {
   font-size: 16px;
   line-height: 24px;
@@ -3068,6 +3072,7 @@ body {
     transform: translateX(0px);
   }
 }
+/** AFTER HERE */
 .sidebar .sidebar-content::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -3109,6 +3114,7 @@ body {
     z-index: -1;
   }
 }
+/*
 .content {
   position: relative;
   top: 0;
@@ -3126,6 +3132,7 @@ body {
   padding-top: 48px;
   z-index: 2;
 }
+/** BEFORE HERE */
 @media screen and (min-width: 600px) {
   .content {
     margin-left: 64px;
@@ -3246,6 +3253,7 @@ body.sidebar-visible .content {
     padding: 0;
   }
 }
+
 .panel .panel-item:before {
   -webkit-transform: scale3d(0, 0, 1);
   -moz-transform: scale3d(0, 0, 1);

@@ -10,12 +10,14 @@ import { AuthService } from './service/auth.service';
 import { sidebarComponent } from './components/sidebar/sidebar.component';
 import { homeComponent } from './components/home/home.component';
 import { pluginsComponent } from './components/plugins/plugins.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   imports: [
     BrowserModule,
     routing,
-    tutorialModule
+    tutorialModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,
