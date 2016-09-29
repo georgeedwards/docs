@@ -13,7 +13,7 @@
     "postinstall": "tsc -p ./server"
   },
   "engines": {
-    "node": ">= 6.5.0"
+    "node": "6.7.0"
   },
   "author": "George Edwards",
   "license": "MIT",

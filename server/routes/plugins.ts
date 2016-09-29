@@ -32,5 +32,6 @@ router.post('/', function (req, res, next) {
         res.json(errors);
     }
     updateDownloads();
+})
 
 export = router;

@@ -15,7 +15,6 @@ export class pluginsComponent {
   messages: string;
   @ViewChild('modal') el: ElementRef;
   model = new Plugin('Bluetooth', 'nativescript-bluetooth', 'gitHubUsername', false, false);
-  submitted = false;
 
   constructor(private uiService: UiService, private auth: AuthService, private authHttp: AuthHttp) {
     this.uiService.changeNavState(true); //show nav bars
@@ -41,16 +40,11 @@ export class pluginsComponent {
   }
   public submit() {
     console.log('SUBMIT');
+    /*this.authHttp.post('http://localhost:3000/api/plugins', )
+      .map(res => res.json())
+      .subscribe(
+      data => console.log(data),
+      error => this.messages = error._body || error
+      );*/
   }
-  onSubmit() { this.submitted = true; }
-  get diagnostic() { return JSON.stringify(this.model); }
 }
-/*
-powers = ['Really Smart', 'Super Flexible',
-            'Super Hot', 'Weather Changer'];
-  model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
-  submitted = false;
-  onSubmit() { this.submitted = true; }
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
-  */
