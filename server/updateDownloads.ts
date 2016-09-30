@@ -34,19 +34,19 @@ export function updateDownloads() {
                 }
 
             });
-            if (plugin.description == undefined) {
-                let url = 'https://registry.npmjs.org/' + plugin.package_name + '/latest';
-                request(url, function (error, response, body) {
-                    if (!error && response.statusCode == 200) {
-                        if (body && typeof body == "string") {
-                            body = JSON.parse(body);
-                        }
-                        updateDB(plugin._id, 'description', body.description);
-                        updateDB(plugin._id, 'version', body.version);
+            //if (plugin.description == undefined) {
+            url = 'https://registry.npmjs.org/' + plugin.package_name + '/latest';
+            request(url, function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    if (body && typeof body == "string") {
+                        body = JSON.parse(body);
                     }
+                    updateDB(plugin._id, 'description', body.description);
+                    updateDB(plugin._id, 'version', body.version);
+                }
 
-                });
-            }
+            });
+            //}
         }
     })
 }
