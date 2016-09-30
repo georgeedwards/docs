@@ -1,4 +1,5 @@
 # PR Update
+[![Build Status](https://travis-ci.org/georgeedwards/docs.svg?branch=master)](https://travis-ci.org/georgeedwards/docs)
 This is a nodeJS based Static docs site, built with [Hexo](https://hexo.io/). For a run through on the rationale behind this project, please read [this](./project_ideas.md). After cloning this repo, please follow the steps below to test locally. 
 
 
