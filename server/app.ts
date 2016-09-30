@@ -45,7 +45,7 @@ app.use('/plugins/', (req, res) => {
 
 registerUpdates();
 // Use native Node promises
-mongoose.Promise = global.Promise;
+(<any>mongoose).Promise = global.Promise;
 // connect to MongoDB
 var pw   = process.env.MONGOPW;
 var usr   = process.env.MONGOUSR;
