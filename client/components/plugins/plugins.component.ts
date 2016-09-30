@@ -17,20 +17,14 @@ export class pluginsComponent {
   messages: string;
   @ViewChild('modal') el: ElementRef;
   model = new Plugin('Bluetooth', 'nativescript-bluetooth', 'gitHubUsername', false, false);
+  plugins;
 
   constructor(private uiService: UiService, private auth: AuthService, private authHttp: AuthHttp, private api: ApiService) {
     this.uiService.changeNavState(true); //show nav bars
+    this.api.get('/api/plugins')
+    .then((res) => this.plugins = res);
   }
 
-  /*public securedPing() {
-    this.authHttp.get(`http://localhost:3000/api/plugins`)
-      .map(res => res.json())
-      .subscribe(
-      data => console.log(data),
-      error => this.messages = error._body || error
-      );
-  }
-*/
   public add() {
     $(this.el.nativeElement).openModal();
     if (!this.auth.authenticated()) {

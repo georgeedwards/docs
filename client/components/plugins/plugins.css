@@ -1,5 +1,6 @@
 .plugins {
     background-color: #f5f5f5;
+    padding-bottom: 10;
 }
 .row {
     margin-left: 5rem;
@@ -17,7 +18,7 @@
     margin-left: calc(10% + 40px);
     margin-right: calc(10% - 40px);
     background-color: white;
-    height: 90vh;
+    min-height: 90vh;
 }
 .search_icon{
     padding-right: 20px;
@@ -33,4 +34,9 @@
 nav {
     width: calc(100% - 20px);
     background-color: gainsboro;
+}
+.card-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -20px;
 }

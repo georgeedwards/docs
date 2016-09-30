@@ -12,6 +12,7 @@ export class ApiService {
     get(url: string) {
         return this.http
             .get(url)
+            .map((response: Response) => response.json())
             .toPromise()
             .catch(this.handleError);
     }
