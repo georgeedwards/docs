@@ -3,10 +3,10 @@ const https = require('https');
 import * as request from 'request';
 import * as schedule from 'node-schedule';
 
+
 /**
  * Setup the download stats to update daily from npm
  */
-/*'0 0 12 1/1 * ? *'*/
 export function registerUpdates() {
     /*var j = schedule.scheduleJob('0 0/1 * 1/1 * ? *', function () {
         console.log('The answer to life, the universe, and everything!');
@@ -27,8 +27,7 @@ export function registerUpdates() {
 export function updateDownloads() {
     plugin.find(function (err, plugins: Array<any>) {
         for (let plugin of plugins) {
-            var url = 'https://api.npmjs.org/downloads/point/last-month/' + plugin.package;
-
+            var url = 'https://api.npmjs.org/downloads/point/last-month/' + plugin.package_name;
             request(url, function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                     if (body && typeof body == "string") {
@@ -36,10 +35,26 @@ export function updateDownloads() {
                     }
                     console.log(url);
                     console.log(body.downloads);
-                    updateDB(plugin._id, body.downloads);
+                    updateDB(plugin._id, 'downloads', body.downloads);
                 }
 
             });
+            console.log('Desc: ' + plugin.description);
+            if (plugin.description == undefined) {
+                console.log("Setting Version and Description");
+                let url = 'https://registry.npmjs.org/' + plugin.package_name + '/latest';
+                request(url, function (error, response, body) {
+                    if (!error && response.statusCode == 200) {
+                        if (body && typeof body == "string") {
+                            body = JSON.parse(body);
+                        }
+                        console.log('Desc: ' + body.description);
+                        updateDB(plugin._id, 'description', body.description);
+                        updateDB(plugin._id, 'version', body.version);
+                    }
+
+                });
+            }
         }
     })
 }
@@ -51,9 +66,22 @@ export function updateDownloads() {
  * @param {string} id - the id of the database document
  * @param {string} _downloads - the number of monthly downloads to add the the db document
  */
-function updateDB(id: string, _downloads: string) {
-    plugin.findOneAndUpdate({ _id: id }, { downloads: _downloads }, { upsert: true }, function (err, doc) {
-        if (err) return "error: " + err;
-        return "succesfully saved";
-    });
+function updateDB(id: string, property: string, value: string) {
+    if (property == 'downloads') {
+        plugin.findOneAndUpdate({ _id: id }, { downloads: value }, { upsert: true }, function (err, doc) {
+            if (err) return "error: " + err;
+            return "succesfully saved";
+        });
+    } else if (property == 'description') {
+        plugin.findOneAndUpdate({ _id: id }, { description: value }, { upsert: true }, function (err, doc) {
+            if (err) return "error: " + err;
+            return "succesfully saved";
+        });
+    } else if (property == 'version') {
+        plugin.findOneAndUpdate({ _id: id }, { version: value }, { upsert: true }, function (err, doc) {
+            if (err) return "error: " + err;
+            return "succesfully saved";
+        });
+    }
+    return "error";
 }

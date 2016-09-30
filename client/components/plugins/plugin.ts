@@ -7,6 +7,8 @@ export class Plugin {
         public ios: boolean,
         public downloads?: number,
         public github?: string,
-        public id?: string
+        public id?: string,
+        public description?: string,
+        public version?: string
     ) { }
 }

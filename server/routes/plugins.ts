@@ -17,7 +17,7 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res, next) {
     /* Validate POST */
     req.assert('name', 'Name is required').notEmpty();
-    req.assert('package', 'A package is required').notEmpty();
+    req.assert('package_name', 'A package_name is required').notEmpty();
     req.assert('author', 'An author is required').notEmpty();
     req.assert('github', 'A valid GitHub repo URL is required').isURL();
     req.assert('android', 'You must confirm whether this package targets android').isBoolean();

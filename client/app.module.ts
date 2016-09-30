@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { tutorialModule } from './modules/tutorial/tutorial.module';
 import { UiService } from './service/ui.service';
 import { AuthService } from './service/auth.service';
+import { ApiService } from './service/api.service';
 import { sidebarComponent } from './components/sidebar/sidebar.component';
 import { homeComponent } from './components/home/home.component';
 import { pluginsComponent } from './components/plugins/plugins.component';
@@ -18,7 +19,8 @@ import { pluginsComponent } from './components/plugins/plugins.component';
     BrowserModule,
     routing,
     tutorialModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import { pluginsComponent } from './components/plugins/plugins.component';
   ],
   providers: [
     appRoutingProviders,
-    UiService, AuthService,
+    UiService, AuthService, 
+    ApiService,
     AUTH_PROVIDERS
   ],
   bootstrap: [AppComponent]
