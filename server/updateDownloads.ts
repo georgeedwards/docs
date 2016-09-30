@@ -3,14 +3,11 @@ const https = require('https');
 import * as request from 'request';
 import * as schedule from 'node-schedule';
 
-
+declare var JSON;
 /**
  * Setup the download stats to update daily from npm
  */
 export function registerUpdates() {
-    /*var j = schedule.scheduleJob('0 0/1 * 1/1 * ? *', function () {
-        console.log('The answer to life, the universe, and everything!');
-    });*/
 
     var rule = new schedule.RecurrenceRule();
     rule.hour = 12;
@@ -33,22 +30,17 @@ export function updateDownloads() {
                     if (body && typeof body == "string") {
                         body = JSON.parse(body);
                     }
-                    console.log(url);
-                    console.log(body.downloads);
                     updateDB(plugin._id, 'downloads', body.downloads);
                 }
 
             });
-            console.log('Desc: ' + plugin.description);
             if (plugin.description == undefined) {
-                console.log("Setting Version and Description");
                 let url = 'https://registry.npmjs.org/' + plugin.package_name + '/latest';
                 request(url, function (error, response, body) {
                     if (!error && response.statusCode == 200) {
                         if (body && typeof body == "string") {
                             body = JSON.parse(body);
                         }
-                        console.log('Desc: ' + body.description);
                         updateDB(plugin._id, 'description', body.description);
                         updateDB(plugin._id, 'version', body.version);
                     }

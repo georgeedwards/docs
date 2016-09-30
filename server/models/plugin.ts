@@ -1,5 +1,9 @@
 import * as mongoose from 'mongoose';
 
+declare var String;
+declare var Boolean;
+declare var Number;
+
 var PluginSchema = new mongoose.Schema({
   name: String,
   package_name: String,
