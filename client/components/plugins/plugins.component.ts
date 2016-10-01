@@ -17,18 +17,19 @@ export class pluginsComponent {
   messages: string;
   @ViewChild('modal') el: ElementRef;
   model = new Plugin('Bluetooth', 'nativescript-bluetooth', 'gitHubUsername', false, false);
-  plugins;
+  plugins: Array<Plugin>;
 
   constructor(private uiService: UiService, private auth: AuthService, private authHttp: AuthHttp, private api: ApiService) {
     this.uiService.changeNavState(true); //show nav bars
     this.api.get('/api/plugins')
-    .then((res) => this.plugins = res);
+      .then((res) => this.plugins = res);
   }
 
   public add() {
-    $(this.el.nativeElement).openModal();
     if (!this.auth.authenticated()) {
       this.auth.login();
+    } else {
+      $(this.el.nativeElement).openModal();
     }
   }
   public submit() {
@@ -38,8 +39,7 @@ export class pluginsComponent {
 
   processSubmission(plugin: Plugin): Plugin {
     plugin.github = 'http://github.com/' + plugin.author + '/' + plugin.package_name;
-    /* TODO Check Github to see if ^ is Valid */
-
+    /* TODO Check Github to see if ^ is Valid ? */
     this.authHttp.post('http://localhost:3000/api/plugins', plugin)
       .map(res => res.json())
       .subscribe(
