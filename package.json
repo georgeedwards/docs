@@ -19,7 +19,6 @@
   "license": "MIT",
   "dependencies": {
     "@types/body-parser": "0.0.33",
-    "@types/elasticsearch": "0.0.6",
     "@types/express": "^4.0.32",
     "@types/express-jwt": "0.0.33",
     "@types/express-validator": "^2.20.33",
@@ -32,7 +31,7 @@
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "debug": "^2.2.0",
-    "elasticsearch": "^11.0.1",
+    "elasticsearch-browser": "11.0.1",
     "express": "^4.13.4",
     "express-jwt": "^5.0.0",
     "express-validator": "^2.20.10",

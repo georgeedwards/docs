@@ -83,10 +83,11 @@
             <div class="col s3" *ngFor="let plugin of plugins; let i=index">
                 <div class="card darken-1">
                     <div class="card-content">
+                        <span class="badge blue" style="margin-top: -13px; margin-right: -15px; color: white;">v.{{plugin.version}}</span>
                         <span class="card-title">{{plugin.name}}</span>
                         <p>{{plugin.description}}</p>
                         <div class="card-detail">
-                        <div class="chip" style="height: 20px; line-height: 20px; margin-top: 5px;">v.{{plugin.version}}</div>
+                        <div class="chip" style="height: 20px; line-height: 20px; margin-top: 5px;">{{plugin.downloads}} downloads</div>
                         <div>
                         <i class="icon ion-social-apple right-align" *ngIf="plugin.ios" style="font-size: 27px;"></i>
                         <i class="material-icons right-align" *ngIf="plugin.android" style="font-size: 20px;">android</i>

@@ -24,10 +24,11 @@ var isPublic = typeof window != "undefined";
             '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
             // other libraries
-            'rxjs':                       'npm:rxjs',
+            'rxjs': 'npm:rxjs',
             'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
-            'angular2-jwt':               'npm:angular2-jwt/angular2-jwt.js',
-            'ng-semantic':                'npm:ng-semantic'
+            'angular2-jwt': 'npm:angular2-jwt/angular2-jwt.js',
+            'ng-semantic': 'npm:ng-semantic'//,
+            //'elasticsearch': 'npm:elasticsearch-browser/elasticsearch.min.js'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -46,6 +47,12 @@ var isPublic = typeof window != "undefined";
                 main: 'ng-semantic',
                 defaultExtension: 'js'
             }
-        }
+        }/*,
+        meta: {
+            elasticsearch: {
+                format: 'global',
+                exports: 'elasticsearch'
+            }
+        }*/
     });
 })(this);

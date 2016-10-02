@@ -8,8 +8,6 @@ import * as plugin from './routes/plugins';
 import * as mongoose from 'mongoose';
 import expressValidator = require('express-validator');
 import {registerUpdates} from './updateDownloads';
-/*import { loginRouter } from "./routes/login";
-import { protectedRouter } from "./routes/protected";*/
 
 const app: express.Application = express();
 app.disable("x-powered-by");
@@ -24,7 +22,7 @@ app.use(expressValidator([]));
 //app.use(express.static('docs/public'));
 
 app.use('/docs', express.static('docs/public'));
-
+app.use('/search', express.static('node_modules/elasticsearch-browser'))
 
 var jwtCheck = jwt({
   secret: new Buffer('g.edwards@gas-sense.co.uk', 'base64'),
