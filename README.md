@@ -1,9 +1,21 @@
 # PR Update
 [![Build Status](https://travis-ci.org/georgeedwards/docs.svg?branch=master)](https://travis-ci.org/georgeedwards/docs)
-This is a nodeJS based Static docs site, built with [Hexo](https://hexo.io/). For a run through on the rationale behind this project, please read [this](./project_ideas.md). After cloning this repo, please follow the steps below to test locally. 
+
+## Technologies used
+### Core
+The site is served with expressjs and nodeJS. This allows seperation of the APIs, static docs directory and Dynamic Angular 2 part of the site.
+
+### Docs
+This is a nodeJS based static docs site, built with [Hexo](https://hexo.io/). For a run through on the rationale behind this project, please read [this](./project_ideas.md). After cloning this repo, please follow the steps below to test locally. The site should pull the docs subdirectory and then render all the docs on each version production branch. e.g. to release the docs, you should merge the `master` branch with the `latest` branch, then when releasing a new version, those docs should be set historically by creating a new branch, e.g. `2.2` and then continuing all new doc additions for `2.3` on the latest branch. The Hexo deployment should be a direct replacement for Jekyll, rendering the same source directly, this is currently a work in progress (see the repo's issues on GitHub).
+
+### Tutorial
+This is based on Angular2, and is linked to a new [tutorial](https://github.com/georgeedwards/ns-tutorial) repo. This means that whilst following through the tutorial, at the end of each chapter you can download a zip of the project at that point. You can also see git diffs for each code step. 
+
+### Plugins
+There is an API and Angular2 component for this. A public API and online form allows you to register a new plugin. The server then polls npmjs (and then daily) to update the number of monthly downloads, the latest version number etc. Authentication is provided by [Auth0](https://auth0.com/) and allows users to log in with their GitHub accounts. The plugins are kept in a managed MongoDB instance provided free by [mLab](https://mlab.com/). Users can then search all plugins, a function which is provided by an ElasticSearch instance, currently hosted by [Searchly](https://www.searchly.com).
 
 
-### Running locally
+## Running locally
 
 #### Submodules
 

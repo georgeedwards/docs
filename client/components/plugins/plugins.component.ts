@@ -7,6 +7,9 @@ import { searchService } from '../../service/search.service';
 import { AuthHttp } from 'angular2-jwt';
 import { Plugin } from './plugin';
 import 'rxjs/add/operator/map';
+import { Observable }       from 'rxjs/Observable';
+import { Subject }          from 'rxjs/Subject';
+
 declare var $: any;
 //import elasticsearch from 'elasticsearch';
 declare var elasticsearch: any;
