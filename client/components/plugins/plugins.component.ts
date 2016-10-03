@@ -46,7 +46,7 @@ export class pluginsComponent implements OnInit {
   ngOnInit() {
     this._client.search({
       index: 'plugins',
-      type: '_all',
+      type: 'ds044699_mlab_com_36a0',
       body: {
         query: {
           match: {
