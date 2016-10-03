@@ -10,6 +10,7 @@ import { tutorialModule } from './modules/tutorial/tutorial.module';
 import { UiService } from './service/ui.service';
 import { AuthService } from './service/auth.service';
 import { ApiService } from './service/api.service';
+import { searchService } from './service/search.service';
 import { sidebarComponent } from './components/sidebar/sidebar.component';
 import { homeComponent } from './components/home/home.component';
 import { pluginsComponent } from './components/plugins/plugins.component';
@@ -31,8 +32,8 @@ import { pluginsComponent } from './components/plugins/plugins.component';
   providers: [
     appRoutingProviders,
     UiService, AuthService, 
-    ApiService,
-    AUTH_PROVIDERS
+    ApiService, AUTH_PROVIDERS,
+    searchService
   ],
   bootstrap: [AppComponent]
 })

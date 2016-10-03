@@ -1,8 +1,9 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
 import { UiService } from '../../service/ui.service';
 import { AuthService } from '../../service/auth.service';
 import { ApiService } from '../../service/api.service';
+import { searchService } from '../../service/search.service';
 import { AuthHttp } from 'angular2-jwt';
 import { Plugin } from './plugin';
 import 'rxjs/add/operator/map';
@@ -15,50 +16,23 @@ declare var elasticsearch: any;
   templateUrl: 'client/components/plugins/plugins.html',
   styleUrls: ['client/components/plugins/plugins.css']
 })
-export class pluginsComponent implements OnInit {
+export class pluginsComponent {
   messages: string;
   @ViewChild('modal') el: ElementRef;
   model = new Plugin('Bluetooth', 'nativescript-bluetooth', 'gitHubUsername', false, false);
   plugins: Array<Plugin>;
-  private _client: any// elasticsearch.Client;
 
-  constructor(private uiService: UiService, private auth: AuthService, private authHttp: AuthHttp, private api: ApiService) {
+  constructor(private uiService: UiService, private auth: AuthService, private authHttp: AuthHttp, private api: ApiService, private search: searchService) {
     this.uiService.changeNavState(true); //show nav bars
     this.api.get('/api/plugins')
-      .then((res) => this.plugins = res)
-      .then((a) => this.plugins.sort(compare));
-
-    function compare(a, b) {
-      console.log("comp");
-      if (a.downloads > b.downloads)
-        return -1;
-      if (a.downloads < b.downloads)
-        return 1;
-      return 0;
-    }
-
-    var connectionString = 'http://paas:eb2921cd3266a272550dff76be447001@bifur-eu-west-1.searchly.com';
-
-    this._client = new elasticsearch.Client({ host: connectionString, log: 'trace' });
-
-  }
-
-  ngOnInit() {
-    this._client.search({
-      index: 'plugins',
-      type: 'ds044699_mlab_com_36a0',
-      body: {
-        query: {
-          match: {
-            name: 'Contacts'
-          }
-        }
-      }
-    }).then(function (resp) {
-      var hits = resp.hits.hits;
-    }, function (err) {
-      console.trace(err.message);
-    });
+      .then((res) => this.plugins = res) //set components plugins to the result
+      .then((a) => this.plugins.sort(compare)); //sort by downloads
+    this.search.search('Bluetooth')
+      .then(function (resp) {
+        var hits = resp.hits.hits;
+      }, function (err) {
+        console.trace(err.message);
+      });
   }
 
   public add() {
@@ -68,6 +42,7 @@ export class pluginsComponent implements OnInit {
       $(this.el.nativeElement).openModal();
     }
   }
+
   public submit() {
     console.log('SUBMIT');
     var body = this.processSubmission(this.model);
@@ -75,7 +50,6 @@ export class pluginsComponent implements OnInit {
 
   processSubmission(plugin: Plugin): Plugin {
     plugin.github = 'http://github.com/' + plugin.author + '/' + plugin.package_name;
-    /* TODO Check Github to see if ^ is Valid ? */
     this.authHttp.post('http://localhost:3000/api/plugins', plugin)
       .map(res => res.json())
       .subscribe(
@@ -84,4 +58,12 @@ export class pluginsComponent implements OnInit {
       );
     return plugin;
   }
+}
+
+function compare(a, b) {
+  if (a.downloads > b.downloads)
+    return -1;
+  if (a.downloads < b.downloads)
+    return 1;
+  return 0;
 }

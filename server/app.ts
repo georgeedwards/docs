@@ -22,7 +22,6 @@ app.use(expressValidator([]));
 //app.use(express.static('docs/public'));
 
 app.use('/docs', express.static('docs/public'));
-app.use('/search', express.static('node_modules/elasticsearch-browser'))
 
 var jwtCheck = jwt({
   secret: new Buffer('g.edwards@gas-sense.co.uk', 'base64'),
