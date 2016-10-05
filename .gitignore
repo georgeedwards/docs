@@ -8,3 +8,4 @@ client/**/*.js.map
 .vscode/*
 docs/pre-source/*
 docs/source/*
+docs/themes/nativescript
