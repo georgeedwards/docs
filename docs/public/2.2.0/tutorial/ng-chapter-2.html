@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+    <!-- Basic -->
+    <title>Chapter 2—Building the UI | Nativescript Docs</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png" sizes="16x16 32x32 64x64">
+
+    <!-- Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://docs.nativescript.org">
+    <meta property="og:title" content="Chapter 2—Building the UI | Nativescript Docs">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_image_large">
+    <meta name="twitter:site" content="@nativescript">
+    <meta name="twitter:title" content="Chapter 2—Building the UI | Nativescript Docs">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+
+    <!-- Misc -->
+    <meta name="google-site-verification" content="" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/tabs.css">
+  </head>
+  <body class="">
+    
+
+<div class="sidebar">
+  <div class="panel">
+    <div class="panel-item logo">
+      <a href="https://docs.nativescript.org/" title="Nativescript Developers" target=_new >
+        <img src="../docs/images/icon-white.svg" alt="Nativescript Developers">
+        <span>Nativescript Developers</span>
+      </a>
+    </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://docs.nativescript.org/tutorial/chapter-0" target=_new >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><g fill="#112B49"><circle cx="80.001" cy="80" r="3"/><path d="M75.73 85.723c.193-.183.316-.437.316-.723 0-.553-.447-1-1-1-.278 0-.528.114-.71.297l-.004-.004-50.9 50.875c-.18.18-.29.43-.29.707-.002.553.445 1 .998 1 .276 0 .526-.112.708-.293l50.883-50.86zM84.235 74.4c-.18.183-.292.433-.292.71 0 .552.446 1 1 1 .275 0 .525-.113.707-.294l50.87-50.89c.204-.184.34-.442.34-.74 0-.552-.448-1-1-1-.276 0-.526.113-.707.294l-.01-.01L84.236 74.4zM136.583 135.184L85.65 84.23c-.182-.18-.432-.293-.708-.293-.552 0-1 .447-1 1 0 .278.114.528.297.71l50.927 50.95c.18.18.43.293.708.293.553 0 1-.447 1-1 0-.276-.11-.525-.292-.706zM111.19 152.602l-.003-.005-.002-.004-27.552-66.507h-.002c-.15-.362-.505-.617-.922-.617-.552 0-1 .446-1 1 0 .135.028.263.077.38v.002l.005.012 27.552 66.504c.15.362.507.617.924.617.553 0 1-.447 1-1 0-.136-.03-.265-.077-.383zM48.873 7.384L76.435 73.93h.002c.15.362.505.617.922.617.552 0 1-.447 1-1 0-.136-.03-.264-.078-.382h.003L50.72 6.616c-.15-.362-.506-.617-.923-.617-.552 0-1 .447-1 1 0 .136.03.265.078.383h-.002zM152.55 48.844h-.002L86.092 76.422c-.36.15-.617.507-.617.924 0 .553.446 1 1 1 .135 0 .265-.028.383-.077L153.32 50.69c.363-.15.618-.507.618-.924 0-.553-.447-1-1-1-.136 0-.265.028-.383.077h-.005zM7.41 111.136h.002l66.492-27.54c.36-.15.616-.507.616-.924 0-.553-.447-1-1-1-.136 0-.264.028-.382.077v-.002l-.004.002c-.002 0-.004 0-.006.002L6.638 109.29c-.36.15-.615.507-.615.924 0 .553.446 1 1 1 .135 0 .264-.028.382-.077h.004zM159 79H87c-.552 0-1 .448-1 1 0 .554.447 1 1 1h72c.553 0 1-.447 1-1s-.447-1-1-1zM23.435 24.85l50.897 50.897.008-.008c.182.18.43.29.707.29.553 0 1-.446 1-1 0-.296-.135-.555-.34-.737L24.85 23.433c-.183-.18-.433-.292-.71-.292-.55 0-.998.448-.998 1 0 .277.11.528.293.71zM6.618 50.657v.002l66.51 27.54c.003 0 .005 0 .007.002l.004.002c.117.048.245.076.38.076.554 0 1-.447 1-1 0-.417-.254-.772-.616-.923v-.002L7.392 48.813H7.39l-.005-.003c-.118-.047-.247-.076-.383-.076-.552 0-1 .447-1 1 0 .417.256.773.618.923zM153.383 109.28l-66.52-27.53-.006-.002c-.118-.048-.248-.076-.384-.076-.552 0-1 .447-1 1 0 .417.256.773.62.923l66.513 27.528c.003 0 .005 0 .007.002l.004.002c.118.048.246.076.382.076.552 0 1-.447 1-1 0-.417-.256-.772-.617-.923zM80 74c.553 0 1-.447 1-1V1c0-.553-.447-1-1-1-.552 0-1 .447-1 1v72c0 .553.447 1 1 1zM80 86c-.552 0-1 .447-1 1v72c0 .553.447 1 1 1s1-.447 1-1V87c0-.553-.447-1-1-1zM77.36 85.47c-.417 0-.772.254-.923.616l-27.564 66.53.002.002c-.05.117-.077.246-.077.382 0 .553.446 1 1 1 .416 0 .772-.255.922-.618h.002L78.28 86.86v-.004l.003-.005c.048-.117.076-.246.076-.382 0-.552-.448-1-1-1zM82.708 74.547c.417 0 .772-.255.923-.618h.003l27.56-66.547h-.004c.048-.12.076-.247.076-.383 0-.553-.447-1-1-1-.416 0-.772.255-.922.618h-.002l-27.56 66.546h.004c-.05.12-.077.247-.077.383-.002.553.445 1 .998 1zM74 80c0-.552-.446-1-1-1H1c-.552 0-1 .447-1 1 0 .553.447 1 1 1h72c.554 0 1-.446 1-1z"/></g></svg>
+          <span>Tutorials</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://www.nativescript.org/nativescript-is-how-you-build-native-mobile-apps-with-angular"  >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><path fill="#BDA671" d="M80 1.988c43.01 0 78 34.99 78 78s-34.99 78-78 78-78-34.99-78-78 34.99-78 78-78m0-2c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80z"/><path fill="#BDA671" d="M126.454 33.545l-37.93 54.98-54.98 37.93 37.93-54.98 54.98-37.93m0-2c-.395 0-.79.116-1.135.354L70.336 69.826c-.2.138-.373.312-.51.51l-37.93 54.98c-.548.796-.45 1.868.232 2.55.386.388.898.587 1.414.587.395 0 .79-.116 1.135-.354l54.98-37.93c.2-.137.373-.31.51-.51l37.93-54.98c.548-.795.45-1.867-.232-2.55-.387-.386-.9-.585-1.414-.585z"/><circle fill="#BDA671" cx="79.999" cy="79.999" r="2.999"/><path fill="#BDA671" d="M135.477 50.182c-.02-.036-.04-.05-.06-.045-.173-.303-.485-.516-.858-.516-.553 0-1 .448-1 1 0 .21.078.394.188.554l-.02.007C138.358 59.766 141 69.57 141 79.99c0 33.636-27.364 61-61 61-10.42 0-20.232-2.634-28.82-7.26l-.005.02c-.144-.08-.3-.14-.478-.14-.552 0-1 .448-1 1 0 .336.176.618.43.8-.016.012-.034.025-.03.027 8.896 4.81 19.078 7.552 29.904 7.552 34.795 0 63-28.206 63-63 0-10.79-2.735-20.93-7.523-29.805zM109.65 24.47c-.002-.02.004-.04-.025-.056-8.83-4.727-18.908-7.426-29.625-7.426-34.794 0-63 28.206-63 63 0 10.79 2.73 20.935 7.514 29.81.005.01.012.004.018.01.17.312.488.532.87.532.552 0 1-.447 1-1 0-.197-.073-.37-.17-.525l.04-.002C21.642 100.223 19 90.41 19 79.988c0-33.636 27.364-61 61-61 10.4 0 20.185 2.634 28.757 7.248.02.01.036.02.055.028.116.047.24.075.37.075.554 0 1-.448 1-1 .002-.382-.22-.7-.533-.87z"/></svg>
+          <span>Guide</span>
+        </a>
+      </div>
+    
+      <div class="panel-item active"">
+        <a class="" href="https://docs.nativescript.org/"  >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><path fill="#DE4F4F" d="M35.6 30.167v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .553-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .553-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375H80c.552 0 1 .447 1 1v10.873c1.162.413 2 1.51 2 2.816 0 1.657-1.343 3-3 3s-3-1.343-3-3c0-1.305.837-2.402 2-2.815v-9.873H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.447-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.447-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.447-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.447-1-1s.448-1 1-1h90.8c.553 0 1 .447 1 1v7.375c0 .553-.447 1-1 1H35.6zM138 6.564H22c-1.104 0-2 .896-2 2v144c0 1.104.896 2 2 2h48.995c.258 0 .516-.097.712-.293.39-.39.39-1.022 0-1.413-.195-.195-.45-.293-.707-.293H22v-144h116v144H89.006c-.258 0-.517.097-.713.293-.39.39-.39 1.023 0 1.414.196.198.455.294.713.293H138c1.104 0 2-.895 2-2v-144c0-1.103-.896-2-2-2z"/></svg>
+          <span>API Docs</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://nativescriptcommunity.slack.com/messages/general/" target=_new >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><path fill="#333" d="M60.025 17.72c7.396 0 14.914 1.424 22.172 4.43 29.594 12.258 43.648 46.188 31.39 75.782-9.25 22.334-30.843 35.812-53.6 35.812-4.694 0-9.437-.574-14.132-1.76L32.44 142.277 30.23 125.51C5.908 111.003-4.74 80.48 6.418 53.538 15.67 31.204 37.266 17.72 60.025 17.72m0-2c-24.363 0-46.13 14.545-55.455 37.053-5.547 13.394-6.06 28.33-1.447 42.052 4.465 13.276 13.414 24.57 25.252 31.896l2.082 15.82c.092.708.557 1.31 1.217 1.585.246.104.506.152.766.152.434 0 .86-.142 1.217-.412l12.656-9.713c4.482 1.055 9.076 1.59 13.674 1.59 24.36 0 46.126-14.543 55.447-37.047 6.135-14.807 6.135-31.115.002-45.922C109.3 37.966 97.77 26.433 82.963 20.3c-7.34-3.04-15.06-4.58-22.938-4.58zM92.69 133.9c.165-.443.614-.683 1.064-.623l.004-.024c5.18.558 10.343.396 15.365-.414v2.034c-5.13.796-10.4.942-15.69.356l.002-.02c-.052-.01-.105-.006-.158-.023-.517-.193-.78-.768-.586-1.287z"/><path fill="#333" d="M100.877 133.604c4.41-.065 8.86-.633 13.268-1.746l13.416 10.295 2.208-16.77c24.324-14.505 34.976-45.03 23.814-71.97-9.248-22.33-30.832-35.81-53.584-35.82v.02c-2.072-.002-4.154.096-6.238.32l-.004-.024c-.45.058-.9-.18-1.064-.625-.194-.518.068-1.093.586-1.286.054-.02.107-.015.158-.026l-.002-.02c2.19-.24 4.377-.348 6.553-.35v-.01c24.36.004 46.12 14.545 55.443 37.054 5.55 13.393 6.062 28.327 1.447 42.05-4.465 13.28-13.414 24.57-25.252 31.897l-2.082 15.818c-.092.71-.557 1.312-1.217 1.586-.246.103-.506.15-.766.15-.435 0-.86-.14-1.218-.412l-12.655-9.713c-4.2.988-8.502 1.502-12.812 1.564l.002-1.986z"/><circle fill="#333" cx="60.019" cy="77" r="3.001"/><circle fill="#333" cx="76.018" cy="77" r="3"/><circle fill="#333" cx="44.019" cy="77" r="3.001"/></svg>
+
+          <span>Slack</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="http://stackoverflow.com/documentation/nativescript/topics" target=_new >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><path fill="#333" d="M60.025 17.72c7.396 0 14.914 1.424 22.172 4.43 29.594 12.258 43.648 46.188 31.39 75.782-9.25 22.334-30.843 35.812-53.6 35.812-4.694 0-9.437-.574-14.132-1.76L32.44 142.277 30.23 125.51C5.908 111.003-4.74 80.48 6.418 53.538 15.67 31.204 37.266 17.72 60.025 17.72m0-2c-24.363 0-46.13 14.545-55.455 37.053-5.547 13.394-6.06 28.33-1.447 42.052 4.465 13.276 13.414 24.57 25.252 31.896l2.082 15.82c.092.708.557 1.31 1.217 1.585.246.104.506.152.766.152.434 0 .86-.142 1.217-.412l12.656-9.713c4.482 1.055 9.076 1.59 13.674 1.59 24.36 0 46.126-14.543 55.447-37.047 6.135-14.807 6.135-31.115.002-45.922C109.3 37.966 97.77 26.433 82.963 20.3c-7.34-3.04-15.06-4.58-22.938-4.58zM92.69 133.9c.165-.443.614-.683 1.064-.623l.004-.024c5.18.558 10.343.396 15.365-.414v2.034c-5.13.796-10.4.942-15.69.356l.002-.02c-.052-.01-.105-.006-.158-.023-.517-.193-.78-.768-.586-1.287z"/><path fill="#333" d="M100.877 133.604c4.41-.065 8.86-.633 13.268-1.746l13.416 10.295 2.208-16.77c24.324-14.505 34.976-45.03 23.814-71.97-9.248-22.33-30.832-35.81-53.584-35.82v.02c-2.072-.002-4.154.096-6.238.32l-.004-.024c-.45.058-.9-.18-1.064-.625-.194-.518.068-1.093.586-1.286.054-.02.107-.015.158-.026l-.002-.02c2.19-.24 4.377-.348 6.553-.35v-.01c24.36.004 46.12 14.545 55.443 37.054 5.55 13.393 6.062 28.327 1.447 42.05-4.465 13.28-13.414 24.57-25.252 31.897l-2.082 15.818c-.092.71-.557 1.312-1.217 1.586-.246.103-.506.15-.766.15-.435 0-.86-.14-1.218-.412l-12.655-9.713c-4.2.988-8.502 1.502-12.812 1.564l.002-1.986z"/><circle fill="#333" cx="60.019" cy="77" r="3.001"/><circle fill="#333" cx="76.018" cy="77" r="3"/><circle fill="#333" cx="44.019" cy="77" r="3.001"/></svg>
+
+          <span>Community Docs</span>
+        </a>
+      </div>
+    
+  </div>
+  <div class="sidebar-content">
+    <div class="topcap">
+      <span class="title-sidebar">Nativescript Docs</span>
+      
+        <span class="select version-sidebar nochrome">
+          <select class="version-select">
+            
+              <option value="vlatest">latest</option>
+            
+              <option value="v2.2.0">2.2.0</option>
+            
+              <option value="v2.0.1">2.0.1</option>
+            
+          </select>
+        </span>
+      
+    </div>
+    <div class="slide-wrapper">
+      <div class="toggle_radio">
+        <input type="radio" class="toggle_option" id="first_toggle" name="toggle_option" onclick="switchCodeBlock('n');">
+        <input type="radio" class="toggle_option" id="second_toggle" name="toggle_option" onclick="switchCodeBlock('ng');">
+        <label for="first_toggle"><p>NativeScript</p></label>
+        <label for="second_toggle" style="    margin-left: 110px;
+    margin-top: -11px;"><p>Angular</p></label>
+        <div class="toggle_option_slider"></div>
+      </div>
+    </div>
+    
+    <ul class="toc">
+      
+        <li>
+          
+          <ul class="list-toc">
+            
+              
+                
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">UI</div>
+          
+          <ul class="list-toc">
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/animation-css.html" class="sidebar-link ">
+                      <span>Animations with CSS</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/action-bar.html" class="sidebar-link ">
+                      <span>ActionBar</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/animation-code.html" class="sidebar-link ">
+                      <span>Animations with Code</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/animation-examples.html" class="sidebar-link ">
+                      <span>Animation Examples</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/animation.html" class="sidebar-link ">
+                      <span>Animations</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/keyboard.html" class="sidebar-link ">
+                      <span>Keyboard</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/icon-fonts.html" class="sidebar-link ">
+                      <span>Icon Fonts</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/gestures.html" class="sidebar-link ">
+                      <span>Gestures</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/change-status-bar-style-ios.html" class="sidebar-link ">
+                      <span>Changing Status Bar Style in iOS</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/layout-containers.html" class="sidebar-link ">
+                      <span>Layout Containers</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/layouts.html" class="sidebar-link ">
+                      <span>Layouts</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/list-view.html" class="sidebar-link ">
+                      <span></span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/placeholder.html" class="sidebar-link ">
+                      <span>Placeholder</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/styling.html" class="sidebar-link ">
+                      <span>Styling</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+            
+              
+                
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Cookbook</div>
+          
+          <ul class="list-toc">
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../cookbook/formatted-string-ng.html" class="sidebar-link ">
+                      <span>Using formatted string</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../cookbook/tab-view-ng.html" class="sidebar-link ">
+                      <span></span>
+                    </a>
+                  </li>
+                
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Hardware</div>
+          
+          <ul class="list-toc">
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../hardware/camera.html" class="sidebar-link ">
+                      <span>Camera</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../hardware/location.html" class="sidebar-link ">
+                      <span>Location</span>
+                    </a>
+                  </li>
+                
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Plugins</div>
+          
+          <ul class="list-toc">
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../plugins/plugins.html" class="sidebar-link ">
+                      <span>Infrastructure</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../plugins/angular-third-party.html" class="sidebar-link ">
+                      <span>Integrating Third-Party Components</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../plugins/cocoapods.html" class="sidebar-link ">
+                      <span>CocoaPods</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../plugins/ui-plugin.html" class="sidebar-link ">
+                      <span>UI Plugins</span>
+                    </a>
+                  </li>
+                
+            
+          </ul>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="nav dark">
+  <div class="nav-group">
+    <div class="nav-item">
+      <span class="js-sidebar-toggle">
+        <span class="icon-menu"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="center-wrapper">
+    <img src="../docs/images/logo-blue.svg" alt="Nativescript Docs"/>
+    <div>API Docs</div>
+  </div>
+
+  
+</div>
+
+<div class="content">
+  <div class="content-wrapper">
+    <div class="header-content">
+      <h1 class="title-page">Chapter 2—Building the UI</h1>
+      
+
+      <div class="page-actions">
+        <div class="actions-group">
+          <a class="btn primary small round lowercase" href="https://github.com/nativescript/docs/tree/master/source/2.2.0/tutorial/ng-chapter-2.md" target="_blank"> <i class="ion-social-github"></i> <span>Edit on GitHub</span></a>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="document-formatting">
+      <h1 id="Chapter-2—Building-the-UI"><a href="#Chapter-2—Building-the-UI" class="headerlink" title="Chapter 2—Building the UI"></a>Chapter 2—Building the UI</h1><p>Before you start coding the Groceries app it’s important to understand a NativeScript app’s folder structure. It’ll help you understand where to place new files, as well as a bit of what’s going on with NativeScript under the hood.</p>
+<p>Go ahead and open your app’s <code>sample-Groceries</code> folder in your text editor of choice and let’s dig in.</p>
+<h2 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h2><ul>
+<li><a href="#21-directory-structure">2.1: Directory structure</a></li>
+<li><a href="#22-starting-up">2.2: Starting up</a></li>
+<li><a href="#23-adding-ui-elements">2.3: Adding UI elements</a></li>
+<li><a href="#24-layouts">2.4: Layouts</a></li>
+<li><a href="#25-global-css">2.5: Global CSS</a></li>
+<li><a href="#26-component-specific-css">2.6: Component-specific CSS</a></li>
+<li><a href="#27-images">2.7: Images</a></li>
+</ul>
+<h2 id="2-1-Directory-structure"><a href="#2-1-Directory-structure" class="headerlink" title="2.1: Directory structure"></a>2.1: Directory structure</h2><p>To keep things simple, let’s start by looking at the outer structure of the Groceries app:</p>
+undefined
+
+.
+└── sample-Groceries
+    ├── app
+    │   ├── App_Resources
+    │   │   ├── Android
+    │   │   └── iOS
+    │   ├── pages
+    │   │   ├── login
+    │   │   │   ├── login.html
+    │   │   │   └── ...
+    │   │   └── ...
+    │   ├── shared
+    │   │   └── ...
+    │   ├── utils
+    │   │   └── ...
+    │   ├── app.css
+    │   ├── app.component.ts
+    │   ├── main.ts
+    │   └── ...
+    └── ...
+```
+<p>Here’s what these various files and folders do:</p>
+<ul>
+<li><strong>App_Resources</strong>: This folder contains platform-specific resources such as icons, splash screens, and configuration files. The NativeScript CLI takes care of injecting these resources into the appropriate places in the <code>platforms</code> folder when you execute <code>tns run</code>.</li>
+<li><strong>pages</strong>: This folder, specific to the Groceries app, contains the code to build your app’s pages. Each page is made up of a TypeScript file, an optional HTML file, and an optional set of CSS files. The Groceries app starts with two folders for its two pages, a login page, and a list page.</li>
+<li><strong>shared</strong>: This folder, also specific to the Groceries app, contains any files you need to share between NativeScript apps and Angular-2-built web apps. For Groceries this includes a few classes for talking to backend services, some model objects, and a <code>config.ts</code> file used to share configuration variables like API keys. We’ll discuss the <code>shared</code> folder, as well as code sharing between native apps and web apps, in detail in <a href="ng-chapter-3">chapter 3</a>.</li>
+<li><strong>app.css</strong>: This file contains global styles for your app. We’ll dig into app styling in <a href="ng-chapter-2">chapter 2</a>.</li>
+<li><strong>app.component.ts</strong>: This primary Angular component that drives your application. Eventually this file will handle routing and application-wide configuration, however for now the file has a simple hello world example that we’ll look at momentarily.</li>
+<li><strong>main.ts</strong>: The starting point of Angular 2 applications—web and native.</li>
+</ul>
+<p>To get a sense of how a NativeScript app actually starts up, let’s explore the first few files.</p>
+<h2 id="2-2-Starting-up"><a href="#2-2-Starting-up" class="headerlink" title="2.2: Starting up"></a>2.2: Starting up</h2><p>The first few files you run in a NativeScript app look almost identical to <a href="https://angular.io/docs/ts/latest/quickstart.html" target="_blank" rel="external">the first few files you run in an Angular 2 web app</a>. Let’s start with <code>main.ts</code> as that’s the first file executed. Open your <code>app/main.ts</code> file; you should see the code below:</p>
+``` JavaScript
+import {nativeScriptBootstrap} from "nativescript-angular/application";
+import {AppComponent} from "./app.component";
+
+nativeScriptBootstrap(AppComponent);
+```
+<p>Here you’re using the TypeScript <code>import</code> command to bring in a function—<code>nativescriptBootstrap()</code>—and a <a href="http://www.typescriptlang.org/Handbook#classes" target="_blank" rel="external">TypeScript class</a>—<code>AppComponent</code>—each of which are defined in separate files. The <code>nativescriptBootstrap()</code> function comes from the “nativescript-angular” npm module, which you may recall contains the code needed to integrate NativeScript and Angular 2. Whereas <a href="https://angular.io/docs/ts/latest/api/platform/browser/bootstrap-function.html" target="_blank" rel="external">Angular 2’s own <code>bootstrap()</code> function</a> starts an Angular 2 browser app, NativeScript’s bootstrap function starts an Angular 2 native app.</p>
+<blockquote>
+<p><strong>TIP</strong>: If you’re curious about what <code>nativescriptBootstrap()</code> function actually has to do to startup native iOS and Android apps, remember that all this code is open source for you to explore at any time. The <code>nativescriptBootstrap()</code> function specifically is defined in an <a href="https://github.com/NativeScript/nativescript-angular/blob/master/src/nativescript-angular/application.ts" target="_blank" rel="external"><code>application.ts</code> file</a> in the <a href="https://github.com/NativeScript/nativescript-angular" target="_blank" rel="external">NativeScript/nativescript-angular repository</a> on GitHub.</p>
+</blockquote>
+<p>The bootstrap function, regardless of whether it’s for the web or for native apps, needs to know which Angular component to start the application with. In this case, you’re passing control to a <code>AppComponent</code> component defined in <code>app.component.ts</code>.</p>
+<blockquote>
+<p><strong>TIP</strong>: In a NativeScript app you can follow the same code conventions you would in an Angular 2 web app. Here we’re using Angular 2’s own convention of naming component files with a <code>.component.ts</code> suffix.</p>
+</blockquote>
+<p>Next, open your app’s <code>app/app.component.ts</code> file; you should see the code below:</p>
+``` JavaScript
+import {Component} from "@angular/core";
+
+@Component({
+  selector: "my-app",
+  template: "<label text="hello NativeScript"></label>"
+})
+export class AppComponent {}
+```
+<p>This file contains an Angular 2 component, which is the primary building block of Angular 2 applications, including NativeScript apps. Let’s break down what’s going on in this file.</p>
+<p>First, you again use TypeScript’s <code>import</code> command to bring in externally defined functionality—in this case, the <code>Component</code> class from Angular 2 itself. In Angular 2 a component manages a view, or a piece of the user interface that the user sees. A component can be used to define an individual UI element, or an entire page, and eventually you’ll add a bunch of logic to these components and use them to build an entire app. But for now this component is simple for the purpose of demonstration.</p>
+<blockquote>
+<p><strong>NOTE</strong>: Why <a href="http://www.typescriptlang.org/" target="_blank" rel="external">TypeScript</a>? It’s strongly recommended that you use TypeScript in your Angular 2 NativeScript app, as it’s a first class citizen in both NativeScript and Angular 2. In fact, both NativeScript and Angular 2 were built with TypeScript. The NativeScript CLI makes compiling your TypeScript files seamless, as each time you livesync, run or build the app, the files are recompiled from TypeScript to JavaScript. In some IDEs, such as Visual Studio Code, you might choose to <a href="https://code.visualstudio.com/Docs/languages/typescript#_hiding-derived-javascript-files" target="_blank" rel="external">hide your project’s compiled JavaScript files</a> so you can focus on the TypeScript code.</p>
+</blockquote>
+<p>Notice the interesting way that the <code>Component</code> class is used—with the syntax <code>@Component</code>. This is a <a href="https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Decorators.md" target="_blank" rel="external">TypeScript decorator</a>, which allows you to annotate a TypeScript class or method with additional information. For now, you can think of it as a way of adding some metadata configuration to the currently empty <code>AppComponent</code> class. Specifically, the <code>@Component</code> decorator’s <code>template</code> property tells NativeScript how to render this component on the screen. In fact, the <code>&lt;Label text=&quot;hello NativeScript&quot;&gt;&lt;/Label&gt;</code> syntax is why you saw “hello NativeScript” when you ran this app earlier.</p>
+<p>However, this syntax may look a bit odd if you come from a web development background. On the web, the <code>&lt;label&gt;</code> HTML element doesn’t have a <code>text</code> attribute, so why do we see it here? Let’s dive into this by looking at how NativeScript UI elements work.</p>
+<blockquote>
+<p><strong>NOTE</strong>: Curious about the <code>@Component</code> decorator’s <code>selector</code> property? The property defines how a component can be used within another component’s template. For instance a component that defines its <code>selector</code> with <code>selector: &quot;foo-bar&quot;</code> can be used by another component as <code>template: &quot;&lt;foo-bar&gt;&lt;/foo-bar&gt;&quot;</code>. NativeScript is smart enough to use your first Angular 2 component automatically; therefore, the <code>selector</code> property of this first component is irrelevant.</p>
+</blockquote>
+<h2 id="2-3-Adding-UI-elements"><a href="#2-3-Adding-UI-elements" class="headerlink" title="2.3: Adding UI elements"></a>2.3: Adding UI elements</h2><p>The primary difference between building an Angular 2 app for the web and an Angular 2 app with NativeScript is in the UI elements that you use. NativeScript apps do not use a browser and do not have a DOM; therefore, elements like <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> simply do not work.</p>
+<p>No worries though, as NativeScript provides an <a href="http://docs.nativescript.org/ui/ui-views">extensive suite of UI elements</a>, each of which are implemented with native iOS and Android controls. For instance, the <a href="http://docs.nativescript.org/ui/ui-views#label"><code>&lt;Label&gt;</code> control</a> our previous example used is actually rendered as a <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UILabel_Class/" target="_blank" rel="external"><code>UILabel</code></a> on iOS and an <a href="http://developer.android.com/reference/android/widget/TextView.html" target="_blank" rel="external"><code>android.widget.TextView</code></a> on Android. The great thing about using NativeScript though, is that these native details are transparent to use as a developer. You type <code>&lt;Label&gt;</code> and let NativeScript handle the rendering details.</p>
+<p>Let’s return back to building Groceries. The first screen of Groceries is intended to be a login screen, so let’s replace the current <code>&lt;Label&gt;</code> with something that resembles a typical login screen in a mobile app.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Add UI elements to <code>app.component.ts</code>
+</h4>
+
+<p>Open <code>app/app.component.ts</code> and replace the existing <code>@Component</code> with the following code:</p>
+``` JavaScript
+@Component({
+  selector: "my-app",
+  template: `
+    <textfield hint="Email Address" keyboardtype="email" autocorrect="false" autocapitalizationtype="none"></textfield>
+    <textfield hint="Password" secure="true"></textfield>
+
+    <button text="Sign in"></button>
+    <button text="Sign up for Groceries"></button>
+  `
+})
+```
+<div class="exercise-end"></div>
+
+<blockquote>
+<p><strong>NOTE</strong>: Notice the back-tick character (`) used with the <code>template</code> property. This character is used to define an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="external">ES2015 template literal</a>, which TypeScript supports, and which allows you to write multi-line strings without using messy string concatenation.</p>
+<p><strong>WARNING</strong>: Take special care to properly close all your UI elements and <em>not</em> use self-closing declarations like <code>&lt;Button text=&quot;Sign in&quot; /&gt;</code>. The limitation is related to the <a href="https://github.com/inikulin/parse5" target="_blank" rel="external">parse5 library</a> Angular 2 uses to parse templates, and you can read <a href="https://github.com/NativeScript/nativescript-angular#known-issues" target="_blank" rel="external">details about the issue on GitHub</a>.</p>
+</blockquote>
+<p>This code adds two new NativeScript UI elements: a <a href="!--￼15--">text field</a> and a <a href="!--￼16--">button</a>. Much like HTML elements, NativeScript UI elements provide attributes to let you configure their behavior and appearance. The code you just added uses the following attributes:</p>
+<ul>
+<li><code>&lt;TextField&gt;</code><ul>
+<li><code>hint</code>: Shows placeholder text that tells the user what to type.</li>
+<li><code>keyboardType</code>: The type of keyboard to present to the user for input. <code>keyboardType=&quot;email&quot;</code> shows a keyboard optimized for entering email addresses. NativeScript currently supports <a href="http://docs.nativescript.org/ui/keyboard.html">five types of keyboards</a> for text fields.</li>
+<li><code>autocorrect</code>: A boolean attribute that determines whether the mobile operating system should autocorrect user input. In the case of email address text fields, the autocorrect behavior is undesirable.</li>
+<li><code>autocapitalizationType</code>: Determines how the operating system should autocapitalize user input. <code>autocapitalizationType=&quot;none&quot;</code> turns autocapitalization off altogether. NativeScript supports <a href="http://docs.nativescript.org/api-reference/modules/_ui_enums_.autocapitalizationtype.html">four autocapitalization types</a> on text fields.</li>
+<li><code>secure</code>: A boolean attribute that determines whether the text field’s text should be masked, which is commonly done on password fields.</li>
+</ul>
+</li>
+<li><code>&lt;Button&gt;</code><ul>
+<li><code>text</code>: Controls the text displayed within the button.</li>
+</ul>
+</li>
+</ul>
+<p>After your app updates with this change, you may expect to see a polished login screen, but instead you will see a single <code>&lt;Button&gt;</code> element on the screen:</p>
+<p><img src="../img/cli-getting-started/angular/chapter2/ios/1.png" alt="login 1">
+<img src="../img/cli-getting-started/angular/chapter2/android/1.png" alt="login 1"></p>
+<p>What went wrong? In NativeScript whenever you use more than one UI element, you need to tell NativeScript how to arrange those elements on the screen. Since you’re not doing that currently, NativeScript is incorrectly assuming you want the last element—the <code>&lt;Button&gt;</code>—to take up the whole screen. To arrange these elements, let’s move onto the NativeScript feature for aligning elements on the screen: NativeScript layouts.</p>
+<blockquote>
+<p><strong>TIP</strong>: The NativeScript docs include a <a href="http://docs.nativescript.org/ui-with-xml">full list of the UI components and attributes</a> with which you can build your apps. You can even <a href="http://docs.nativescript.org/ui-with-xml#custom-components">build your own, custom UI components</a>.</p>
+</blockquote>
+<h2 id="2-4-Layouts"><a href="#2-4-Layouts" class="headerlink" title="2.4: Layouts"></a>2.4: Layouts</h2><p>NativeScript provides several different layout containers that allow you to place UI elements precisely where you want them to appear. </p>
+<ul>
+<li>The <a href="!--￼17--">Absolute Layout</a> lets you position elements using explicit x and y coordinates. This is useful when you need to place elements in exact locations, for example showing an activity indicator widget in the top-left corner of your app.</li>
+<li>The <a href="!--￼18--">Dock Layout</a> is useful for placing UI elements at the outer edges of your app. For example, a container docked at the bottom of the screen would be a good location for an ad.</li>
+<li>The <a href="!--￼19--">Grid Layout</a> lets you divide your interface into a series of rows and columns, much like a <code>&lt;table&gt;</code> in HTML markup.</li>
+<li>The <a href="!--￼20--">Stack Layout</a> lets you stack child UI elements either vertically or horizontally.</li>
+<li>The <a href="!--￼21--">Wrap Layout</a> lets child UI elements flow from one row or column to the next when space is filled.</li>
+</ul>
+<p>For your login screen, all you need is a simple <code>&lt;StackLayout&gt;</code> for stacking the UI elements on top of each other. In later sections, you’ll use some of the more advanced layouts.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Add a stack layout to the login screen
+</h4>
+
+<p>Open <code>app/app.component.ts</code> and add a <code>&lt;StackLayout&gt;</code> element within your component’s <code>template</code> property. The full component should now look like this:</p>
+``` JavaScript
+@Component({
+  selector: "my-app",
+  template: `
+    <stacklayout>
+      <textfield hint="Email Address" keyboardtype="email" autocorrect="false" autocapitalizationtype="none"></textfield>
+      <textfield hint="Password" secure="true"></textfield>
+
+      <button text="Sign in"></button>
+      <button text="Sign up for Groceries"></button>
+    </stacklayout>
+  `
+})
+```
+<div class="exercise-end"></div>
+
+<p>After your app updates with this change, you’ll see that your login page’s UI elements stack up:</p>
+<p><img src="../img/cli-getting-started/angular/chapter2/ios/2.png" alt="login 2">
+<img src="../img/cli-getting-started/angular/chapter2/android/2.png" alt="login 2"></p>
+<p>Although the UI elements are in the correct order, they could use some spacing and color to make the app look a bit nicer. To do that let’s look at another NativeScript feature: CSS.</p>
+<blockquote>
+<p><strong>TIP</strong>:</p>
+<ul>
+<li>Refer to the NativeScript docs for <a href="http://docs.nativescript.org/layouts">a discussion on how NativeScript layouts work</a>, and the various attributes you can use to configure them.</li>
+<li>Check out Jen Looper’s article on <a href="https://www.nativescript.org/blog/demystifying-nativescript-layouts" target="_blank" rel="external">demystifying NativeScript layouts</a> for a more thorough look at NativeScript layouts in action.</li>
+</ul>
+</blockquote>
+<h2 id="2-5-Global-CSS"><a href="#2-5-Global-CSS" class="headerlink" title="2.5: Global CSS"></a>2.5: Global CSS</h2><p>NativeScript uses a <a href="http://docs.nativescript.org/styling">subset of CSS</a> to change the visual appearance of your app. Why a subset? In NativeScript you’re building native iOS and Android apps, and some CSS properties either aren’t possible to replicate with native iOS and Android APIs, or would incur too great of a performance penalty. Don’t worry though; most common CSS properties are supported, and the CSS language syntax is the same—so styling native apps in NativeScript really does feel like styling web apps.</p>
+<blockquote>
+<p><strong>TIP</strong>: The NativeScript docs have <a href="http://docs.nativescript.org/ui/styling#supported-properties">a full list of the supported CSS properties you can use</a>.</p>
+</blockquote>
+<p>You can use three mechanisms to add CSS properties to NativeScript UI components: <a href="http://docs.nativescript.org/styling#application-wide-css">application-wide CSS</a>, component-specific CSS, and an <a href="http://docs.nativescript.org/styling#inline-css">inline <code>style</code> attribute</a>. In this section we’ll cover application-wide, or global CSS, and in the next section we’ll look at how to apply CSS rules to individual components.</p>
+<blockquote>
+<p><strong>TIP</strong>: Although inline styles are great for quick testing—e.g. <code>&lt;StackLayout style=&quot;background-color: green;&quot;&gt;</code>—you should avoid them in general because the <code>style</code> attributes tend to clutter up your templates, especially if you need to apply multiple rules.</p>
+</blockquote>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Create global styles
+</h4>
+
+<p>Open your <code>app/app.css</code> file and paste in the following code:</p>
+``` CSS
+Page {
+  background-color: white;
+  font-size: 15;
+}
+TextField {
+  padding: 10;
+  font-size: 13;
+}
+```
+<div class="exercise-end"></div>
+
+<p>If you’ve done any web development before, the syntax should feel familiar here. You select two UI components by their tag names (Page and TextField), and then apply a handful of CSS rules as name/value pairs.</p>
+<blockquote>
+<p><strong>NOTE</strong>: In NativeScript, a single <code>&lt;Page&gt;</code> UI element wraps the <code>template</code> of every page-level Angular component, which you’ll learn about when we introduce routing later in this guide. For now, just know that a <code>&lt;Page&gt;</code> element exists as the parent of your <code>AppComponent</code>’s template, and that you can target that <code>&lt;Page&gt;</code> with CSS as you would with any other UI element.</p>
+</blockquote>
+<p>Although often you want CSS rules to apply equally to your iOS and Android app, occasionally it makes sense to apply a CSS rule to only one platform. For example, iOS text fields frequently have borders around them, but Android text fields do not. Let’s look at how to make platform-specific style changes in NativeScript.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Add platform-specific CSS
+</h4>
+
+<p>Add the following as the first line of your app’s <code>app/app.css</code> file:</p>
+``` CSS
+@import url("~/platform.css");
+```
+<blockquote>
+<p><strong>WARNING</strong>: NativeScript is consistent with browser implementations in that <code>@import</code> statements must precede all other CSS rules in a file.</p>
+</blockquote>
+<p>Next, open your app’s <code>app/platform.ios.css</code> file and paste in the following code:</p>
+``` CSS
+TextField {
+  border-width: 1;
+  border-color: black;
+}
+```
+<blockquote>
+<p><strong>NOTE</strong>: We’ll leave the <code>platform.android.css</code> file empty as we have no Android-specific changes to make yet.</p>
+</blockquote>
+<div class="exercise-end"></div>
+
+<p>NativeScript supports CSS’s <code>@import</code> statement for importing one CSS file into another. So this new line of code imports the CSS rules from <code>platform.css</code> into <code>app.css</code>. But, you might have noticed that Groceries does not have a file named <code>platform.css</code>—only <code>app/platform.android.css</code> and <code>app/platform.ios.css</code> exist. What’s going on here?</p>
+<p><a id="platform-specific-files"></a>When you execute <code>tns run</code>, or <code>tns livesync</code>, the NativeScript CLI takes the code from your <code>app</code> folder and places it in the native projects located in the <code>platforms/ios</code> and <code>platforms/android</code> folders. Here the naming convention comes in: while moving files, the CLI intelligently selects <code>.android.*</code> and <code>.ios.*</code> files. To give a specific example, the CLI moves <code>platform.ios.css</code> into <code>platforms/ios</code> and renames it to <code>platform.css</code>; similarly, the CLI moves <code>platform.android.css</code> into <code>platforms/android</code>, and again renames it to <code>platform.css</code>. This convention provides a convenient way to branch your code to handle iOS and Android separately, and it’s supported for any type of file in NativeScript—not just CSS files. You’ll see a few more examples of this convention later in this guide.</p>
+<p>With these changes in place, you’ll notice that the app has a bit more spacing, and also that the text fields have borders on iOS but that Android:</p>
+<p><img src="../img/cli-getting-started/angular/chapter2/ios/3.png" alt="login 3">
+<img src="../img/cli-getting-started/angular/chapter2/android/3.png" alt="login 3"></p>
+<p>Despite our changes the app still looks pretty ugly, and that’s because we’re going to apply another batch of styles at the component level. Let’s look at how that works.</p>
+<h2 id="2-6-Component-specific-CSS"><a href="#2-6-Component-specific-CSS" class="headerlink" title="2.6: Component-specific CSS"></a>2.6: Component-specific CSS</h2><p>Much like on the web, sometimes in your NativeScript apps you want to write CSS rules that apply to your entire application, and sometimes you want to write CSS rules that apply to a specific portion of the interface. In the previous section you saw how to use NativeScript’s <code>app.css</code> file to write global rules, and in this section you’ll learn how to use a component’s <code>styleUrls</code> property to apply rules that are scoped to individual components.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Add component-specific CSS
+</h4>
+
+<p>Open your <code>app/app.component.ts</code> file and add a <code>styleUrls</code> property, so that that full <code>@Component</code> declaration now looks like this:</p>
+``` JavaScript
+@Component({
+  selector: "my-app",
+  template: `
+    <stacklayout>
+      <textfield hint="Email Address" keyboardtype="email" autocorrect="false" autocapitalizationtype="none"></textfield>
+      <textfield hint="Password" secure="true"></textfield>
+
+      <button text="Sign in"></button>
+      <button text="Sign up for Groceries"></button>
+    </stacklayout>
+  `,
+  styleUrls: ["pages/login/login-common.css", "pages/login/login.css"]
+})
+```
+<p>Next, open your app’s <code>app/pages/login/login-common.css</code> file and paste in the following code:</p>
+``` CSS
+StackLayout {
+  margin-left: 30;
+  margin-right: 30;
+  padding-bottom: 15;
+  background-color: white;
+}
+Image {
+  margin-top: 5;
+  margin-bottom: 20;
+}
+Button, TextField {
+  margin-left: 16;
+  margin-right: 16;
+  margin-bottom: 10;
+}
+.submit-button {
+  background-color: #CB1D00;
+  color: white;
+  margin-top: 20;
+}
+```
+<div class="exercise-end"></div>
+
+<p>In Angular 2, the <code>styleUrls</code> property points at an array of stylesheets that should be used to style a component. In this case, you’re telling Angular to use two stylesheets, <code>login-common.css</code> and <code>login.css</code>—the latter of which is actually implemented as <code>login.ios.css</code> and <code>login.android.css</code>, using the same naming convention we introduced in the previous section.</p>
+<p>Why three files? Much like you divided your global files into <code>app.css</code>, <code>platform.ios.css</code>, and <code>platform.android.css</code>, this structure gives you a similar ability to place common login styling in <code>login-common.css</code>, iOS-specific login styling <code>login.ios.css</code>, and Android-specific login styling in <code>login.android.css</code>.</p>
+<p>The great thing about placing CSS rules at the component level is you can use concise CSS selectors such as <code>Button</code> and <code>TextField</code>, and not worry about those rules applying to all buttons and text fields in your application, as Angular 2 ensures those rules remain scoped to your component.</p>
+<p>Before we see what your app looks like now, there’s one small change you need to make. Notice that the last selector used in <code>login-common.css</code> is <code>.submit-button</code>. Much like using CSS on the web, in NativeScript you can both <code>id</code> and <code>class</code> attributes to target specific user interface elements, but at the moment there’s no UI element in your app with an <code>class</code> of <code>&quot;submit-button&quot;</code>. Let’s change that.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Add a <code>class</code> attribute
+</h4>
+
+<p>Open your <code>app/app.component.ts</code> file, find <code>&lt;Button text=&quot;Sign in&quot;&gt;&lt;/Button&gt;</code> in your component’s <code>template</code>, and replace it with the code below:</p>
+``` XML
+<button text="Sign in" class="submit-button"></button>
+```
+<div class="exercise-end"></div>
+
+<p>With this last <code>class</code> change in place your app is starting to look a little nicer:</p>
+<p><img src="../img/cli-getting-started/angular/chapter2/ios/4.png" alt="login 4">
+<img src="../img/cli-getting-started/angular/chapter2/android/4.png" alt="login 4"></p>
+<p>As you can see, in NativeScript you have a lot of options for how you can apply CSS rules. You can apply rules globally either for both platforms in <code>app.css</code>, for iOS in <code>platform.ios.css</code>, or for Android in <code>platform.android.css</code>. And you can also apply rules at the component level, while maintaining the same flexibility to target different platforms if required.</p>
+<p>To continue polishing the visuals of this login screen, let’s look at how we can add an image of this app’s logo.</p>
+<h2 id="2-7-Images"><a href="#2-7-Images" class="headerlink" title="2.7: Images"></a>2.7: Images</h2><p>In NativeScript you use the <code>&lt;Image&gt;</code> UI element and its <code>src</code> attribute to add images to your pages. The <code>src</code> attribute lets you specify your image in three ways. The first (and simplest) way is to point at the URL of an image:</p>
+``` XML
+<image src="https://www.nativescript.org/images/default-source/landingpages/logo.png"></image>
+```
+<p>The second way is to point at an image that lives within your app’s <code>app</code> folder. For example if you have an image at <code>app/images/logo.png</code>, you can use it with:</p>
+``` XML
+<image src="~/images/logo.png"></image>
+```
+<p>The third way, and the one Groceries uses, is to use platform-specific image resources. Let’s add an image to the login screen and then discuss exactly what’s happening.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Add a logo
+</h4>
+
+<p>In <code>app.component.ts</code>, add the <code>&lt;Image&gt;</code> below as the first child of the existing <code>&lt;StackLayout&gt;</code> tag:</p>
+``` XML
+<image src="res://logo_login" stretch="none" horizontalalignment="center"></image>
+```
+<div class="exercise-end"></div>
+
+<p>The <code>res://</code> syntax tells NativeScript to use a platform-specific resource, in this case an image. Platform-specific resources go in your app’s <code>app/App_Resources</code> folder. If you look there you’ll find a few different image files, several of which are named <code>logo_login.png</code>.</p>
+<p>Although more complex than putting an image directly in the <code>app</code> folder, using platform-specific images gives you more control over image display on different device dimensions. For example iOS lets you provide three different image files for devices with different pixel densities. As such you’ll find logos named <code>logo_login.png</code>, <code>logo_login@2x.png</code>, and <code>logo_login@3x.png</code> in your <code>App_Resources/iOS</code> folder. For Android you’ll find similar image files in <code>App_Resources/Android/drawable-hdpi</code> (for “high” dpi, or high dots-per-inch), <code>App_Resources/Android/drawable-mdpi</code> (for medium-dpi), and <code>App_Resources/Android/drawable-ldpi</code> (for low-dpi).</p>
+<p>Once these files are in place the NativeScript framework knows how to pick the correct file; all you have to do is reference the image using <code>res://</code> and its base file name—i.e. <code>res://logo_login</code>. Here’s what your login screen should look like on iOS and Android:</p>
+<p><img src="../img/cli-getting-started/angular/chapter2/ios/5.png" alt="login 5">
+<img src="../img/cli-getting-started/angular/chapter2/android/5.png" alt="login 5"></p>
+<p>At this point your UI looks better visually, but the app still doesn’t actually do anything. Let’s look at how you can use JavaScript to add some functionality.</p>
+<blockquote>
+<p><strong>TIP</strong>: The community-written <a href="http://nsimage.brosteins.com/" target="_blank" rel="external">NativeScript Image Builder</a> can help you generate images with the appropriate naming conventions and resolutions for iOS and Android.</p>
+</blockquote>
+<div class="next-chapter-link-container">
+  <a href="ng-chapter-3">Continue to Chapter 3—Application Logic</a>
+</div>
+
+    </div>
+  </div>
+
+  <div class="pagination">
+    <div class="content-wrapper">
+      
+      
+        <a class="link primary prev"
+          href="ng-chapter-3.html">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          Chapter 3—Application Logic
+        </a>
+      
+      
+        <a class="link primary next"
+          href="ng-chapter-4.html">
+          <span class="subtitle-pagination">Next</span>
+          Chapter 4—NativeScript Modules
+          <span class="icon-arrow-right-alt"></span>
+        </a>
+      
+    </div>
+  </div>
+
+  <div class="github">
+    <a class="link tertiary " href="https://github.com/nativescript/docs/tree/master/source/2.2.0/tutorial/ng-chapter-2.md" target="_blank">
+      <span class="icon-github"></span>Edit on GitHub</a>
+  </div>
+
+  
+</div>
+
+    <script src="/script/smooth-scroll.min.js"></script>
+    <script src="/script/main.js"></script>
+
+    <script>
+
+     
+      
+
+      // search box
+      
+
+        function toggleFrontEndVar(value) {
+          console.log(value + " Clicked");
+          hexo.locals.set('front_end', value);
+        }
+
+      
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+    $( ".sidebar-content" ).scrollTop( 0 );
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="/script/code-block.js"></script>
+    <script src="/script/code-environment.js"></script>
+  </body>
+</html>

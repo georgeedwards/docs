@@ -10,10 +10,18 @@ addons:
     packages:
       - g++-4.8
 install:
-    - npm install -g typescript
+    - npm install -g typescript hexo-cli
     - npm install
     - npm run develop
     - npm run twc:client:w
     - npm run twc:server:w
 post_install:
     - npm run bundle:prod
+    - cd docs/pre-source
+    - curl -L https://github.com/nativescript/docs/tarball/v2.0.1 | tar zx
+    - curl -L https://github.com/nativescript/docs/tarball/v2.2.0 | tar zx
+    - curl -L https://github.com/nativescript/docs/tarball/v2.3.0 | tar zx
+    - cd ..
+    - node build.js
+    - npm install
+    - hexo generate

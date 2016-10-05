@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+    <!-- Basic -->
+    <title>Chapter 3—Application Logic | Nativescript Docs</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png" sizes="16x16 32x32 64x64">
+
+    <!-- Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://docs.nativescript.org">
+    <meta property="og:title" content="Chapter 3—Application Logic | Nativescript Docs">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_image_large">
+    <meta name="twitter:site" content="@nativescript">
+    <meta name="twitter:title" content="Chapter 3—Application Logic | Nativescript Docs">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+
+    <!-- Misc -->
+    <meta name="google-site-verification" content="" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/tabs.css">
+  </head>
+  <body class="">
+    
+
+<div class="sidebar">
+  <div class="panel">
+    <div class="panel-item logo">
+      <a href="https://docs.nativescript.org/" title="Nativescript Developers" target=_new >
+        <img src="../docs/images/icon-white.svg" alt="Nativescript Developers">
+        <span>Nativescript Developers</span>
+      </a>
+    </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://docs.nativescript.org/tutorial/chapter-0" target=_new >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><g fill="#112B49"><circle cx="80.001" cy="80" r="3"/><path d="M75.73 85.723c.193-.183.316-.437.316-.723 0-.553-.447-1-1-1-.278 0-.528.114-.71.297l-.004-.004-50.9 50.875c-.18.18-.29.43-.29.707-.002.553.445 1 .998 1 .276 0 .526-.112.708-.293l50.883-50.86zM84.235 74.4c-.18.183-.292.433-.292.71 0 .552.446 1 1 1 .275 0 .525-.113.707-.294l50.87-50.89c.204-.184.34-.442.34-.74 0-.552-.448-1-1-1-.276 0-.526.113-.707.294l-.01-.01L84.236 74.4zM136.583 135.184L85.65 84.23c-.182-.18-.432-.293-.708-.293-.552 0-1 .447-1 1 0 .278.114.528.297.71l50.927 50.95c.18.18.43.293.708.293.553 0 1-.447 1-1 0-.276-.11-.525-.292-.706zM111.19 152.602l-.003-.005-.002-.004-27.552-66.507h-.002c-.15-.362-.505-.617-.922-.617-.552 0-1 .446-1 1 0 .135.028.263.077.38v.002l.005.012 27.552 66.504c.15.362.507.617.924.617.553 0 1-.447 1-1 0-.136-.03-.265-.077-.383zM48.873 7.384L76.435 73.93h.002c.15.362.505.617.922.617.552 0 1-.447 1-1 0-.136-.03-.264-.078-.382h.003L50.72 6.616c-.15-.362-.506-.617-.923-.617-.552 0-1 .447-1 1 0 .136.03.265.078.383h-.002zM152.55 48.844h-.002L86.092 76.422c-.36.15-.617.507-.617.924 0 .553.446 1 1 1 .135 0 .265-.028.383-.077L153.32 50.69c.363-.15.618-.507.618-.924 0-.553-.447-1-1-1-.136 0-.265.028-.383.077h-.005zM7.41 111.136h.002l66.492-27.54c.36-.15.616-.507.616-.924 0-.553-.447-1-1-1-.136 0-.264.028-.382.077v-.002l-.004.002c-.002 0-.004 0-.006.002L6.638 109.29c-.36.15-.615.507-.615.924 0 .553.446 1 1 1 .135 0 .264-.028.382-.077h.004zM159 79H87c-.552 0-1 .448-1 1 0 .554.447 1 1 1h72c.553 0 1-.447 1-1s-.447-1-1-1zM23.435 24.85l50.897 50.897.008-.008c.182.18.43.29.707.29.553 0 1-.446 1-1 0-.296-.135-.555-.34-.737L24.85 23.433c-.183-.18-.433-.292-.71-.292-.55 0-.998.448-.998 1 0 .277.11.528.293.71zM6.618 50.657v.002l66.51 27.54c.003 0 .005 0 .007.002l.004.002c.117.048.245.076.38.076.554 0 1-.447 1-1 0-.417-.254-.772-.616-.923v-.002L7.392 48.813H7.39l-.005-.003c-.118-.047-.247-.076-.383-.076-.552 0-1 .447-1 1 0 .417.256.773.618.923zM153.383 109.28l-66.52-27.53-.006-.002c-.118-.048-.248-.076-.384-.076-.552 0-1 .447-1 1 0 .417.256.773.62.923l66.513 27.528c.003 0 .005 0 .007.002l.004.002c.118.048.246.076.382.076.552 0 1-.447 1-1 0-.417-.256-.772-.617-.923zM80 74c.553 0 1-.447 1-1V1c0-.553-.447-1-1-1-.552 0-1 .447-1 1v72c0 .553.447 1 1 1zM80 86c-.552 0-1 .447-1 1v72c0 .553.447 1 1 1s1-.447 1-1V87c0-.553-.447-1-1-1zM77.36 85.47c-.417 0-.772.254-.923.616l-27.564 66.53.002.002c-.05.117-.077.246-.077.382 0 .553.446 1 1 1 .416 0 .772-.255.922-.618h.002L78.28 86.86v-.004l.003-.005c.048-.117.076-.246.076-.382 0-.552-.448-1-1-1zM82.708 74.547c.417 0 .772-.255.923-.618h.003l27.56-66.547h-.004c.048-.12.076-.247.076-.383 0-.553-.447-1-1-1-.416 0-.772.255-.922.618h-.002l-27.56 66.546h.004c-.05.12-.077.247-.077.383-.002.553.445 1 .998 1zM74 80c0-.552-.446-1-1-1H1c-.552 0-1 .447-1 1 0 .553.447 1 1 1h72c.554 0 1-.446 1-1z"/></g></svg>
+          <span>Tutorials</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://www.nativescript.org/nativescript-is-how-you-build-native-mobile-apps-with-angular"  >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><path fill="#BDA671" d="M80 1.988c43.01 0 78 34.99 78 78s-34.99 78-78 78-78-34.99-78-78 34.99-78 78-78m0-2c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80z"/><path fill="#BDA671" d="M126.454 33.545l-37.93 54.98-54.98 37.93 37.93-54.98 54.98-37.93m0-2c-.395 0-.79.116-1.135.354L70.336 69.826c-.2.138-.373.312-.51.51l-37.93 54.98c-.548.796-.45 1.868.232 2.55.386.388.898.587 1.414.587.395 0 .79-.116 1.135-.354l54.98-37.93c.2-.137.373-.31.51-.51l37.93-54.98c.548-.795.45-1.867-.232-2.55-.387-.386-.9-.585-1.414-.585z"/><circle fill="#BDA671" cx="79.999" cy="79.999" r="2.999"/><path fill="#BDA671" d="M135.477 50.182c-.02-.036-.04-.05-.06-.045-.173-.303-.485-.516-.858-.516-.553 0-1 .448-1 1 0 .21.078.394.188.554l-.02.007C138.358 59.766 141 69.57 141 79.99c0 33.636-27.364 61-61 61-10.42 0-20.232-2.634-28.82-7.26l-.005.02c-.144-.08-.3-.14-.478-.14-.552 0-1 .448-1 1 0 .336.176.618.43.8-.016.012-.034.025-.03.027 8.896 4.81 19.078 7.552 29.904 7.552 34.795 0 63-28.206 63-63 0-10.79-2.735-20.93-7.523-29.805zM109.65 24.47c-.002-.02.004-.04-.025-.056-8.83-4.727-18.908-7.426-29.625-7.426-34.794 0-63 28.206-63 63 0 10.79 2.73 20.935 7.514 29.81.005.01.012.004.018.01.17.312.488.532.87.532.552 0 1-.447 1-1 0-.197-.073-.37-.17-.525l.04-.002C21.642 100.223 19 90.41 19 79.988c0-33.636 27.364-61 61-61 10.4 0 20.185 2.634 28.757 7.248.02.01.036.02.055.028.116.047.24.075.37.075.554 0 1-.448 1-1 .002-.382-.22-.7-.533-.87z"/></svg>
+          <span>Guide</span>
+        </a>
+      </div>
+    
+      <div class="panel-item active"">
+        <a class="" href="https://docs.nativescript.org/"  >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><path fill="#DE4F4F" d="M35.6 30.167v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .553-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .553-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375h89.8c.553 0 1 .447 1 1v7.375c0 .55-.447 1-1 1H35.6v5.375H80c.552 0 1 .447 1 1v10.873c1.162.413 2 1.51 2 2.816 0 1.657-1.343 3-3 3s-3-1.343-3-3c0-1.305.837-2.402 2-2.815v-9.873H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.45-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.447-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.447-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.447-1-1v-7.375c0-.553.448-1 1-1h89.8v-5.375H34.6c-.552 0-1-.447-1-1s.448-1 1-1h90.8c.553 0 1 .447 1 1v7.375c0 .553-.447 1-1 1H35.6zM138 6.564H22c-1.104 0-2 .896-2 2v144c0 1.104.896 2 2 2h48.995c.258 0 .516-.097.712-.293.39-.39.39-1.022 0-1.413-.195-.195-.45-.293-.707-.293H22v-144h116v144H89.006c-.258 0-.517.097-.713.293-.39.39-.39 1.023 0 1.414.196.198.455.294.713.293H138c1.104 0 2-.895 2-2v-144c0-1.103-.896-2-2-2z"/></svg>
+          <span>API Docs</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://nativescriptcommunity.slack.com/messages/general/" target=_new >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><path fill="#333" d="M60.025 17.72c7.396 0 14.914 1.424 22.172 4.43 29.594 12.258 43.648 46.188 31.39 75.782-9.25 22.334-30.843 35.812-53.6 35.812-4.694 0-9.437-.574-14.132-1.76L32.44 142.277 30.23 125.51C5.908 111.003-4.74 80.48 6.418 53.538 15.67 31.204 37.266 17.72 60.025 17.72m0-2c-24.363 0-46.13 14.545-55.455 37.053-5.547 13.394-6.06 28.33-1.447 42.052 4.465 13.276 13.414 24.57 25.252 31.896l2.082 15.82c.092.708.557 1.31 1.217 1.585.246.104.506.152.766.152.434 0 .86-.142 1.217-.412l12.656-9.713c4.482 1.055 9.076 1.59 13.674 1.59 24.36 0 46.126-14.543 55.447-37.047 6.135-14.807 6.135-31.115.002-45.922C109.3 37.966 97.77 26.433 82.963 20.3c-7.34-3.04-15.06-4.58-22.938-4.58zM92.69 133.9c.165-.443.614-.683 1.064-.623l.004-.024c5.18.558 10.343.396 15.365-.414v2.034c-5.13.796-10.4.942-15.69.356l.002-.02c-.052-.01-.105-.006-.158-.023-.517-.193-.78-.768-.586-1.287z"/><path fill="#333" d="M100.877 133.604c4.41-.065 8.86-.633 13.268-1.746l13.416 10.295 2.208-16.77c24.324-14.505 34.976-45.03 23.814-71.97-9.248-22.33-30.832-35.81-53.584-35.82v.02c-2.072-.002-4.154.096-6.238.32l-.004-.024c-.45.058-.9-.18-1.064-.625-.194-.518.068-1.093.586-1.286.054-.02.107-.015.158-.026l-.002-.02c2.19-.24 4.377-.348 6.553-.35v-.01c24.36.004 46.12 14.545 55.443 37.054 5.55 13.393 6.062 28.327 1.447 42.05-4.465 13.28-13.414 24.57-25.252 31.897l-2.082 15.818c-.092.71-.557 1.312-1.217 1.586-.246.103-.506.15-.766.15-.435 0-.86-.14-1.218-.412l-12.655-9.713c-4.2.988-8.502 1.502-12.812 1.564l.002-1.986z"/><circle fill="#333" cx="60.019" cy="77" r="3.001"/><circle fill="#333" cx="76.018" cy="77" r="3"/><circle fill="#333" cx="44.019" cy="77" r="3.001"/></svg>
+
+          <span>Slack</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="http://stackoverflow.com/documentation/nativescript/topics" target=_new >
+          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><path fill="#333" d="M60.025 17.72c7.396 0 14.914 1.424 22.172 4.43 29.594 12.258 43.648 46.188 31.39 75.782-9.25 22.334-30.843 35.812-53.6 35.812-4.694 0-9.437-.574-14.132-1.76L32.44 142.277 30.23 125.51C5.908 111.003-4.74 80.48 6.418 53.538 15.67 31.204 37.266 17.72 60.025 17.72m0-2c-24.363 0-46.13 14.545-55.455 37.053-5.547 13.394-6.06 28.33-1.447 42.052 4.465 13.276 13.414 24.57 25.252 31.896l2.082 15.82c.092.708.557 1.31 1.217 1.585.246.104.506.152.766.152.434 0 .86-.142 1.217-.412l12.656-9.713c4.482 1.055 9.076 1.59 13.674 1.59 24.36 0 46.126-14.543 55.447-37.047 6.135-14.807 6.135-31.115.002-45.922C109.3 37.966 97.77 26.433 82.963 20.3c-7.34-3.04-15.06-4.58-22.938-4.58zM92.69 133.9c.165-.443.614-.683 1.064-.623l.004-.024c5.18.558 10.343.396 15.365-.414v2.034c-5.13.796-10.4.942-15.69.356l.002-.02c-.052-.01-.105-.006-.158-.023-.517-.193-.78-.768-.586-1.287z"/><path fill="#333" d="M100.877 133.604c4.41-.065 8.86-.633 13.268-1.746l13.416 10.295 2.208-16.77c24.324-14.505 34.976-45.03 23.814-71.97-9.248-22.33-30.832-35.81-53.584-35.82v.02c-2.072-.002-4.154.096-6.238.32l-.004-.024c-.45.058-.9-.18-1.064-.625-.194-.518.068-1.093.586-1.286.054-.02.107-.015.158-.026l-.002-.02c2.19-.24 4.377-.348 6.553-.35v-.01c24.36.004 46.12 14.545 55.443 37.054 5.55 13.393 6.062 28.327 1.447 42.05-4.465 13.28-13.414 24.57-25.252 31.897l-2.082 15.818c-.092.71-.557 1.312-1.217 1.586-.246.103-.506.15-.766.15-.435 0-.86-.14-1.218-.412l-12.655-9.713c-4.2.988-8.502 1.502-12.812 1.564l.002-1.986z"/><circle fill="#333" cx="60.019" cy="77" r="3.001"/><circle fill="#333" cx="76.018" cy="77" r="3"/><circle fill="#333" cx="44.019" cy="77" r="3.001"/></svg>
+
+          <span>Community Docs</span>
+        </a>
+      </div>
+    
+  </div>
+  <div class="sidebar-content">
+    <div class="topcap">
+      <span class="title-sidebar">Nativescript Docs</span>
+      
+        <span class="select version-sidebar nochrome">
+          <select class="version-select">
+            
+              <option value="vlatest">latest</option>
+            
+              <option value="v2.2.0">2.2.0</option>
+            
+              <option value="v2.0.1">2.0.1</option>
+            
+          </select>
+        </span>
+      
+    </div>
+    <div class="slide-wrapper">
+      <div class="toggle_radio">
+        <input type="radio" class="toggle_option" id="first_toggle" name="toggle_option" onclick="switchCodeBlock('n');">
+        <input type="radio" class="toggle_option" id="second_toggle" name="toggle_option" onclick="switchCodeBlock('ng');">
+        <label for="first_toggle"><p>NativeScript</p></label>
+        <label for="second_toggle" style="    margin-left: 110px;
+    margin-top: -11px;"><p>Angular</p></label>
+        <div class="toggle_option_slider"></div>
+      </div>
+    </div>
+    
+    <ul class="toc">
+      
+        <li>
+          
+          <ul class="list-toc">
+            
+              
+                
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">UI</div>
+          
+          <ul class="list-toc">
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/animation-css.html" class="sidebar-link ">
+                      <span>Animations with CSS</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/action-bar.html" class="sidebar-link ">
+                      <span>ActionBar</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/animation-code.html" class="sidebar-link ">
+                      <span>Animations with Code</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/animation-examples.html" class="sidebar-link ">
+                      <span>Animation Examples</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/animation.html" class="sidebar-link ">
+                      <span>Animations</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/keyboard.html" class="sidebar-link ">
+                      <span>Keyboard</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/icon-fonts.html" class="sidebar-link ">
+                      <span>Icon Fonts</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/gestures.html" class="sidebar-link ">
+                      <span>Gestures</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/change-status-bar-style-ios.html" class="sidebar-link ">
+                      <span>Changing Status Bar Style in iOS</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/layout-containers.html" class="sidebar-link ">
+                      <span>Layout Containers</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/layouts.html" class="sidebar-link ">
+                      <span>Layouts</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/list-view.html" class="sidebar-link ">
+                      <span></span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/placeholder.html" class="sidebar-link ">
+                      <span>Placeholder</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../ui/styling.html" class="sidebar-link ">
+                      <span>Styling</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+            
+              
+                
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Cookbook</div>
+          
+          <ul class="list-toc">
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../cookbook/formatted-string-ng.html" class="sidebar-link ">
+                      <span>Using formatted string</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../cookbook/tab-view-ng.html" class="sidebar-link ">
+                      <span></span>
+                    </a>
+                  </li>
+                
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Hardware</div>
+          
+          <ul class="list-toc">
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../hardware/camera.html" class="sidebar-link ">
+                      <span>Camera</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../hardware/location.html" class="sidebar-link ">
+                      <span>Location</span>
+                    </a>
+                  </li>
+                
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Plugins</div>
+          
+          <ul class="list-toc">
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../plugins/plugins.html" class="sidebar-link ">
+                      <span>Infrastructure</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../plugins/angular-third-party.html" class="sidebar-link ">
+                      <span>Integrating Third-Party Components</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../plugins/cocoapods.html" class="sidebar-link ">
+                      <span>CocoaPods</span>
+                    </a>
+                  </li>
+                
+            
+              
+                
+                  <li class="item-toc ">
+                    <a href="../../plugins/ui-plugin.html" class="sidebar-link ">
+                      <span>UI Plugins</span>
+                    </a>
+                  </li>
+                
+            
+          </ul>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="nav dark">
+  <div class="nav-group">
+    <div class="nav-item">
+      <span class="js-sidebar-toggle">
+        <span class="icon-menu"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="center-wrapper">
+    <img src="../docs/images/logo-blue.svg" alt="Nativescript Docs"/>
+    <div>API Docs</div>
+  </div>
+
+  
+</div>
+
+<div class="content">
+  <div class="content-wrapper">
+    <div class="header-content">
+      <h1 class="title-page">Chapter 3—Application Logic</h1>
+      
+
+      <div class="page-actions">
+        <div class="actions-group">
+          <a class="btn primary small round lowercase" href="https://github.com/nativescript/docs/tree/master/source/2.2.0/tutorial/ng-chapter-3.md" target="_blank"> <i class="ion-social-github"></i> <span>Edit on GitHub</span></a>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="document-formatting">
+      <h1 id="Chapter-3—Application-Logic"><a href="#Chapter-3—Application-Logic" class="headerlink" title="Chapter 3—Application Logic"></a>Chapter 3—Application Logic</h1><p>In this chapter you’ll learn how to add TypeScript logic to your app, how to create services that talk to backend endpoints, and how to architect an app to share code with Angular 2 web apps. There’s a lot to cover, so let’s start by discussing how to handle events and data binding.</p>
+<h2 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h2><ul>
+<li><a href="#31-events">3.1: Events</a></li>
+<li><a href="#32-data-binding">3.2: Data binding</a></li>
+<li><a href="#33-structuring-your-app">3.3: Structuring your app</a></li>
+<li><a href="#34-services">3.4: Services</a></li>
+<li><a href="#35-routing">3.5: Routing</a></li>
+</ul>
+<h2 id="3-1-Events"><a href="#3-1-Events" class="headerlink" title="3.1: Events"></a>3.1: Events</h2><p>Most user interfaces are driven by events. In NativeScript apps, those events are usually some user action, such as tapping, swiping, or rotating—and NativeScript abstracts the iOS- and Android-specific code for handling such events into a handful of easy-to-use APIs. Let’s start with the most common event you’ll use in a NativeScript app: <code>tap</code>.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Add a <code>tap</code> event handler
+</h4>
+
+<p>Open <code>app/app.component.ts</code>, find the existing sign in button within your component’s <code>template</code> (<code>&lt;Button text=&quot;Sign in&quot;&gt;&lt;/Button&gt;</code>), and replace it with the following code:</p>
+``` TypeScript
+<button text="Sign in" class="submit-button" (tap)="submit()"></button>
+```
+<p>Next, in the same file, replace the current <code>AppComponent</code> declaration with the one shown below:</p>
+``` TypeScript
+export class AppComponent {
+  submit() {
+    console.log("hello");
+  }
+}
+```
+<div class="exercise-end"></div>
+
+<p>The <code>(eventName)=&quot;functionName()&quot;</code> syntax is part of <a href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#event-binding" target="_blank" rel="external">Angular 2’s event binding system</a>, which lets you bind an event that occurs on a UI element to a function in your component’s class. In this case, the <code>(tap)=&quot;submit()&quot;</code> syntax tells Angular to run the <code>AppComponent</code> class’s <code>submit()</code> function whenever the user taps the sign in button.</p>
+<p>To verify this binding works tap the “Sign In” button in your app; you should see “hello” logged in your terminal or command prompt as such:</p>
+<p><img alt="Terminal showing the word hello logged" src="../img/cli-getting-started/angular/chapter3/terminal-1.png" class="plain"></p>
+<blockquote>
+<p><strong>TIP</strong>:</p>
+<ul>
+<li>You can find a list of events available for each UI element on its API documentation page. For instance, the <a href="http://docs.nativescript.org/api-reference/classes/_ui_button_.button.html">button element’s API documentation</a> lists its <code>tap</code> event.</li>
+<li>The Angular 2 docs have a helpful <a href="https://angular.io/docs/ts/latest/guide/cheatsheet.html" target="_blank" rel="external">cheat sheet</a> that includes the various syntaxes available when building templates. Don’t worry too much about knowing how all these work at the moment; we’ll progressively introduce the most common syntaxes in this guide.</li>
+</ul>
+</blockquote>
+<p>With the <code>tap</code> event in place, you now have a way of tying the UI elements in your template to your TypeScript code. To make a login page actually work though, we need to introduce one other way of connecting a template to code: data binding.</p>
+<h2 id="3-2-Data-binding"><a href="#3-2-Data-binding" class="headerlink" title="3.2: Data binding"></a>3.2: Data binding</h2><p>Angular 2 provides several ways to bind data in your TypeScript code to UI controls, and through the magic of NativeScript those same methods are available in your iOS and Android apps.</p>
+<p>The first of these is a way to bind UI attributes to properties defined in your TypeScript class. Let’s look at how it works.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Using Angular 2 attribute binding
+</h4>
+
+<p>In <code>app/app.component.ts</code> replace the current <code>AppComponent</code> declaration with the one shown below, which adds a new <code>email</code> property, and changes the <code>submit()</code> method to display its value:</p>
+``` TypeScript
+export class AppComponent {
+  email = "nativescriptrocks@telerik.com";
+  submit() {
+    alert("You’re using: " + this.email);
+  }
+}
+```
+<p>Next, find the first <code>&lt;TextField&gt;</code> in your component’s <code>template</code> and replace it with the code below, which adds a new <code>text</code> attribute:</p>
+``` XML
+<textfield hint="Email Address" keyboardtype="email" [text]="email" autocorrect="false" autocapitalizationtype="none"></textfield>
+```
+<div class="exercise-end"></div>
+
+<p>The key thing to note here is the <code>[text]=&quot;email&quot;</code> attribute on the <code>&lt;TextField&gt;</code>. This is Angular 2’s syntax for attribute binding, and it allows you to bind the value of an attribute to a property in your TypeScript class. In this case, the <code>text</code> attribute of the <code>&lt;TextField&gt;</code>—which is roughly equivalent to a DOM <code>&lt;input&gt;</code>’s <code>value</code> attribute—is bound to the <code>AppComponent</code>’s <code>email</code> attribute. Therefore the app now has an email address prefilled when it loads:</p>
+<p><img src="../img/cli-getting-started/angular/chapter3/android/1.png" alt="Android with prefilled email">
+<img src="../img/cli-getting-started/angular/chapter3/ios/1.png" alt="iOS with prefilled email"></p>
+<blockquote>
+<p><strong>NOTE</strong>: It’s very easy to confuse Angular 2’s event binding syntax <code>(eventName)=&quot;functionName()&quot;</code> with its attribute binding syntax <code>[attributeName]=&quot;propertyName&quot;</code>. Don’t worry though; if you get them backwards, the problem is usually easy to debug, as the functionality you’re attempting to add just won’t work. These syntaxes are common enough that you’ll be using them a lot, and eventually you should be able to commit them to memory.</p>
+</blockquote>
+<p>This attribute binding approach works really well when you need the data binding to be one way—that is, when you need TypeScript properties, and changes to those properties done in TypeScript code, to appear in the user interface. But in the case of user interface controls that accept user input, such as the text field in this example, usually you need data binding to work two way—that is, you additionally need changes the user makes to data via form controls to be reflected in your TypeScript code.</p>
+<p>To show that the current example’s data binding is only one way, head back to your app, change the email text field’s value (type a few extra letters or something like that), and then tap the “Sign In” button. Because your <code>submit()</code> function alerts the current value of your component’s <code>email</code> property—<code>alert(&quot;You’re using: &quot; + this.email)</code>—you might expect to see the updated value in the alert. Instead, however, you see the original value. Notice how the typed text and the alert value don’t match in the screenshot below.</p>
+<p><img src="../img/cli-getting-started/angular/chapter3/android/2.png" alt="Android with email address that do not match"></p>
+<p>To fix this, you need to switch to Angular 2’s two-way data binding syntax.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Two-way data binding with Angular 2
+</h4>
+
+<p>In <code>app/app.component.ts</code>, find the first <code>&lt;TextField&gt;</code>, and replace it with the <code>&lt;TextField&gt;</code> below, which introduces a new <code>[(ngModel)]</code> attribute:</p>
+``` XML
+<textfield hint="Email Address" keyboardtype="email" [(ngmodel)]="email" autocorrect="false" autocapitalizationtype="none"></textfield>
+```
+<div class="exercise-end"></div>
+
+<p>At first glance the <code>[(ngModel)]</code> syntax looks more than a little odd, as it’s essentially a combination of the event and attribute binding syntax that you used in earlier examples. In the case of this example, <code>[(ngModel)]=&quot;email&quot;</code> is shorthand for <code>[text]=&quot;email&quot; (emailChange)=&quot;email=$event&quot;</code>, which binds the email element’s <code>text</code> attribute to an <code>email</code> property and adds a <code>change</code> event handler that updates the <code>email</code> property’s value whenever the user makes a change.</p>
+<p>Don’t worry too much about the details of this syntax while you’re getting started. In your head you can think of <code>[(ngModel)]</code> as the way to implement two-way data binding when you need it on form controls. To show that it works, if you again modify your app’s email address and click the “Sign In” button, you’ll see the updated value in the alert as expected:</p>
+<p><img src="../img/cli-getting-started/angular/chapter3/android/3.png" alt="Android with email addresses that do match"></p>
+<p>Before we move on, let’s make one additional change to show what else you can do with Angular 2’s data binding APIs. The Groceries app uses the same UI for the “Sign In” form and the “Sign Up” form. Therefore, when the user taps “Sign Up”, we need to update the text of the buttons (and eventually the functionality that occurs when you tap them). Let’s see how to make that happen.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Using the ternary operator in templates
+</h4>
+
+<p>Open <code>app/app.component.ts</code> and replace the two existing buttons with the code below:</p>
+``` XML
+<button [text]="isLoggingIn ? 'Sign in' : 'Sign up'" class="submit-button" (tap)="submit()"></button>
+<button [text]="isLoggingIn ? 'Sign up' : 'Back to login'" (tap)="toggleDisplay()"></button>
+```
+<p>Next, replace the existing <code>AppComponent</code> declaration with the code below, which adds a new <code>isLoggingIn</code> property, and a new <code>toggleDisplay()</code> method:</p>
+``` TypeScript
+export class AppComponent {
+  email = "nativescriptrocks@telerik.com";
+  isLoggingIn = true;
+
+  submit() {
+    alert("You’re using: " + this.email);
+  }
+  toggleDisplay() {
+    this.isLoggingIn = !this.isLoggingIn;
+  }
+}
+```
+<div class="exercise-end"></div>
+
+<p>The previous examples switches each button’s <code>text</code> attribute from a simple string—e.g. <code>&lt;Button text=&quot;Sign Up&quot;&gt;</code>—to an attribute binding that is dependent on a value defined in the <code>AppComponent</code> class—e.g. <code>&lt;Button [text]=&quot;isLoggingIn ? &#39;Sign in&#39; : &#39;Sign up&#39;&quot;&gt;&quot;</code>. Now, when the value of the <code>isLoggingIn</code> attributes changes after the user taps the bottom button, Angular is smart enough to update the text of the button automatically. The result looks like this:</p>
+<p><img src="../img/cli-getting-started/angular/chapter3/android/4.gif" alt="Text changing on Android">
+<img src="../img/cli-getting-started/angular/chapter3/ios/4.gif" alt="Text changing on iOS"></p>
+<p>At this point, you have a basic login screen setup with two-way data binding—which isn’t bad for 20 some lines of TypeScript. (Think about how much code you’d have to write in Android Studio <em>and</em> Xcode to accomplish the same task.) To this point though you’ve been placing all of your logic in a single TypeScript file, which doesn’t scale all that well for real-world applications.</p>
+<p>Before we tie this app to a backend and make this login screen fully functional, let’s take a step back and setup a structure that can scale.</p>
+<h2 id="3-3-Structuring-your-app"><a href="#3-3-Structuring-your-app" class="headerlink" title="3.3: Structuring your app"></a>3.3: Structuring your app</h2><p>There are many reasons to segment any application into modular units, and you can <a href="https://en.wikipedia.org/wiki/Modular_programming" target="_blank" rel="external">read about the various benefits on Wikipedia</a>. Modularizing NativeScript has one additional, unique benefit: the ability to share the code you write between Angular-2-built web apps, and Angular-2-built native apps.</p>
+<p>Even if you have no plans to create an Angular 2 web app, separating out your code is still advantageous for a number of other reasons—testability, ease of maintenance, and so forth—but if you <em>do</em> have plans to build an Angular 2 web app, having a chunk of functionality that you can reuse in your native and web apps can be an invaluable time saver.</p>
+<blockquote>
+<p><strong>NOTE</strong>: To show that sharing code between native and web projects is possible, and not theoretical, feel free to peruse <a href="https://github.com/tjvantoll/Groceries" target="_blank" rel="external">our web implementation of Groceries</a>, which uses the exact same <code>shared</code> folder this guide’s native implementation does.</p>
+</blockquote>
+<p>To see how this works in action, let’s edit some files in the <code>shared</code> folder and set them up to be imported.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Add a model object
+</h4>
+
+<p>Let’s start by creating a simple model object to store user data. Open <code>app/shared/user/user.ts</code> and paste in the following code:</p>
+``` TypeScript
+export class User {
+  email: string;
+  password: string;
+}
+```
+<p>This code defines a simple <a href="http://www.typescriptlang.org/Handbook#classes" target="_blank" rel="external">TypeScript class</a> that does nothing more than define two properties—<code>email</code> and <code>password</code>. Note the use of <a href="http://www.typescriptlang.org/Handbook#modules-going-external" target="_blank" rel="external">TypeScript’s <code>export</code> keyword</a>, as we’ll see why that’s important momentarily.</p>
+<p>Next, open <code>app/app.component.ts</code>, and add the following <code>import</code> to the top of the file:</p>
+``` TypeScript
+import {User} from "./shared/user/user";
+```
+<p>Here you import the <code>User</code> class that you just defined. Note the parallel between the <code>export</code> command used in the previous example and the <code>import</code> command used here. The reason the <code>User</code> class is available to import is because it was explicitly exported. You’ll see other examples of <code>import</code> and <code>export</code> as you go through this guide.</p>
+<p>Next, replace the existing <code>AppComponent</code> definition with the one below, which uses the <code>User</code> class you just imported.</p>
+``` TypeScript
+export class AppComponent {
+  user: User;
+  isLoggingIn = true;
+
+  constructor() {
+    this.user = new User();
+  }
+  submit() {
+    alert("You’re using: " + this.user.email);
+  }
+  toggleDisplay() {
+    this.isLoggingIn = !this.isLoggingIn;
+  }
+}
+```
+<p>Instead of storing data on the <code>AppComponent</code> directly, you’re now using the <code>User</code> model object, which is reusable outside of this page and even outside of this application. You instantiate an instance of the <code>User</code> class in a new <code>constructor</code> function, which Angular 2 invokes when it bootstraps your application.</p>
+<p>Your next step is to use this new model object in your template. To do that, replace the two existing <code>&lt;TextField&gt;</code>s with the code shown below, which updates the <code>[(ngModel)]</code> bindings to point at the new <code>User</code> object:</p>
+``` XML
+<textfield hint="Email Address" keyboardtype="email" [(ngmodel)]="user.email" autocorrect="false" autocapitalizationtype="none"></textfield>
+<textfield hint="Password" secure="true" [(ngmodel)]="user.password"></textfield>
+```
+<p>As one final change, because this template is getting to be a bit complex, let’s move it into a separate file. Open <code>app/pages/login/login.html</code> and paste in the following code:</p>
+``` XML
+<stacklayout>
+  <image src="res://logo_login" stretch="none" horizontalalignment="center"></image>
+
+  <textfield hint="Email Address" keyboardtype="email" [(ngmodel)]="user.email" autocorrect="false" autocapitalizationtype="none"></textfield>
+  <textfield hint="Password" secure="true" [(ngmodel)]="user.password"></textfield>
+
+  <button [text]="isLoggingIn ? 'Sign in' : 'Sign up'" class="submit-button" (tap)="submit()"></button>
+  <button [text]="isLoggingIn ? 'Sign up' : 'Back to login'" (tap)="toggleDisplay()"></button>
+</stacklayout>
+```
+<p>Finally, in <code>app/app.component.ts</code>, replace the existing <code>template</code> property with the new <code>templateUrl</code> property shown below:</p>
+``` TypeScript
+templateUrl: "pages/login/login.html"
+```
+<p>In case you got lost during this section, here’s a copy-and-paste friendly of the <code>app/app.component.ts</code> file you should have at this point:</p>
+``` TypeScript
+import {Component} from "@angular/core";
+import {User} from "./shared/user/user";
+
+@Component({
+  selector: "my-app",
+  templateUrl: "pages/login/login.html",
+  styleUrls: ["pages/login/login-common.css", "pages/login/login.css"]
+})
+export class AppComponent {
+  user: User;
+  isLoggingIn = true;
+
+  constructor() {
+    this.user = new User();
+  }
+  submit() {
+    alert("You’re using: " + this.user.email);
+  }
+  toggleDisplay() {
+    this.isLoggingIn = !this.isLoggingIn;
+  }
+}
+```
+<div class="exercise-end"></div>
+
+<blockquote>
+<p><strong>TIP</strong>:</p>
+<ul>
+<li>With Angular 2 components you have the ability to specify templates and CSS styling in two places—directly within the component, or in external files. For simple components feel free to choose either approach based on your personal preference, but once your templates/styles get to ~10 lines of code, consider using external files exclusively, as mixing non-trivial UI, CSS, and TypeScript code makes your component code less readable.</li>
+<li>You’re free to provide any suffix for your NativeScript template file names. This guide uses <code>.html</code> suffixes, even though NativeScript templates aren’t HTML code, because that suffix tends to provide the best syntax highlighting in common development IDEs, and because Angular uses an <a href="https://github.com/inikulin/parse5" target="_blank" rel="external">HTML parser</a> to parse the templates. This guide does <em>not</em> use <code>.xml</code> suffixes because Angular 2 syntaxes like <code>(tap)</code> and <code>[text]</code> are not valid XML.</li>
+</ul>
+</blockquote>
+<p>With this setup you now have a <code>User</code> class that you can share across pages in your app and even across applications. But a model object that’s four simple lines of code isn’t all that exciting. Where this approach really pays off is when you’re able to share your business logic, and the code that hits your backend systems. In Angular 2 those classes are known as services. Let’s look at them next.</p>
+<h2 id="3-4-Services"><a href="#3-4-Services" class="headerlink" title="3.4: Services"></a>3.4: Services</h2><p>A login screen isn’t all that useful if it doesn’t actually log users into anything. Therefore, our next task is to allow users to create and log into accounts. We’ll build this functionality as an <a href="https://angular.io/docs/ts/latest/tutorial/toh-pt4.html" target="_blank" rel="external">Angular 2 service</a>, which is Angular 2’s mechanism for reusable classes that operate on data.</p>
+<p>For the purposes of this tutorial we prebuilt a handful of backend endpoints using <a href="http://www.telerik.com/platform/backend-services" target="_blank" rel="external">Telerik Backend Services</a>, and we’ll be using those endpoints to make this app functional. Let’s see how they work.</p>
+<blockquote>
+<p><strong>NOTE</strong>: You don’t have to use Telerik Backend Services to power your app’s backend; you can use any HTTP API in a NativeScript app, including common solutions such as <a href="http://plugins.telerik.com/nativescript/plugin/firebase" target="_blank" rel="external">Firebase</a> and <a href="https://github.com/couchbaselabs/nativescript-couchbase" target="_blank" rel="external">Couchbase</a>. Telerik Backend Services is convenient for us to use for this tutorial because it lets us spin up HTTP endpoints quickly.</p>
+</blockquote>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Add an Angular 2 service
+</h4>
+
+<p>There are several new concepts to introduce with Angular services, so we’re going to start by stubbing out a new <code>register()</code> method, and then come back to the implementation later in this section. With that in mind, open <code>app/shared/user/user.service.ts</code> and paste in the following code:</p>
+``` TypeScript
+import {Injectable} from "@angular/core";
+import {User} from "./user";
+
+@Injectable()
+export class UserService {
+  register(user: User) {
+    alert("About to register: " + user.email);
+  }
+}
+```
+<p>This creates a basic Angular service with a single method that takes an instance of the <code>User</code> object you created in the previous section. The one new thing is the <code>@Injectable</code> decorator. This decorator denotes this class as a candidate for <a href="https://angular.io/docs/ts/latest/guide/dependency-injection.html" target="_blank" rel="external">Angular’s dependency injection mechanism</a>. For now just think of adding the <code>@Injectable</code> as a required convention for all services that you write.</p>
+<p>Next, add the following line to the top of <code>app/app.component.ts</code>, which imports the service you just defined:</p>
+``` TypeScript
+import {UserService} from "./shared/user/user.service";
+```
+<p>After that, add a new <code>providers</code> property to the existing <code>@Component</code> decorator. The full <code>@Component</code> declaration should now look like this:</p>
+``` TypeScript
+@Component({
+  selector: "my-app",
+  providers: [UserService],
+  templateUrl: "pages/login/login.html",
+  styleUrls: ["pages/login/login-common.css", "pages/login/login.css"],
+})
+```
+<p>The <code>providers</code> array is a simple list of all the Angular 2 services that you need to use in your component. At the moment you only have one service, so your <code>providers</code> array only has one entry.</p>
+<p>Next, replace <code>AppComponent</code>’s existing <code>constructor</code> with the code below:</p>
+``` TypeScript
+constructor(private _userService: UserService) {
+  this.user = new User();
+}
+```
+<p>We’ll discuss what this <code>constructor</code> syntax is doing momentarily, as it can be confusing if you’ve never worked with Angular 2 before, but first let’s make the final change to get this example running. Find the existing <code>submit()</code> function in <code>AppComponent</code>, and replace it with the following three functions:</p>
+``` TypeScript
+submit() {
+  if (this.isLoggingIn) {
+    this.login();
+  } else {
+    this.signUp();
+  }
+}
+login() {
+  // TODO: Define
+}
+signUp() {
+  this._userService.register(this.user);
+}
+```
+<div class="exercise-end"></div>
+
+<p>Now, in your app, tap the “Sign Up” button, type an email address, and tap the “Sign Up” button again. If all went well, you should see the alert below:</p>
+<p><img src="../img/cli-getting-started/angular/chapter3/android/5.png" alt="Alert on Android">
+<img src="../img/cli-getting-started/angular/chapter3/ios/5.png" alt="Alert on iOS"></p>
+<p>How does this code work? Let’s return to this bit of code:</p>
+``` TypeScript
+constructor(private _userService: UserService) {
+  this.user = new User();
+}
+```
+<p>This is Angular 2’s dependency injection implementation in action. Because you registered <code>UserService</code> as a provider in this component’s <code>providers</code> array, when Angular sees this syntax it creates an instance of the <code>UserService</code> class, and passes that instance into the component’s constructor.</p>
+<p>This begs a bigger question though: why bother with all of this? Why not run <code>this._userService = new UserService()</code> in the component’s constructor and forget the complexity of <code>@Injectable</code> and <code>providers</code>?</p>
+<p>The short answer is a dependency-injection-based approach to coding keeps your classes less coupled, and therefore more maintainable and testable as your application evolves over time. For a longer answer, head over to the Angular’s docs for a <a href="https://angular.io/docs/ts/latest/guide/dependency-injection.html" target="_blank" rel="external">thorough discussion of the benefits of dependency injection</a>.</p>
+<blockquote>
+<p><strong>NOTE</strong>: If you’re looking to learn more about Angular 2’s <code>providers</code> array and dependency injection implementation, the <a href="http://blog.thoughtram.io/" target="_blank" rel="external">thoughtram blog</a> has a great 3-part series that covers the topic in more detail than this guide.</p>
+<ul>
+<li><a href="http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html" target="_blank" rel="external">Part 1—Dependency Injection</a></li>
+<li><a href="http://blog.thoughtram.io/angular/2015/08/20/host-and-visibility-in-angular-2-dependency-injection.html" target="_blank" rel="external">Part 2—Host and Visibility</a></li>
+<li><a href="http://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html" target="_blank" rel="external">Part 3—Multi Providers</a></li>
+</ul>
+</blockquote>
+<p>Let’s return to our example and make the registration process actually work.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Use an Angular 2 service
+</h4>
+
+<p>Open <code>app/shared/user/user.service.ts</code> and paste in the following code, which we’ll discuss in detail in a moment.</p>
+``` TypeScript
+import {Injectable} from "@angular/core";
+import {Http, Headers, Response} from "@angular/http";
+import {User} from "./user";
+import {Config} from "../config";
+import {Observable} from "rxjs/Rx";
+import "rxjs/add/operator/do";
+import "rxjs/add/operator/map";
+
+@Injectable()
+export class UserService {
+  constructor(private _http: Http) {}
+
+  register(user: User) {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+
+    return this._http.post(
+      Config.apiUrl + "Users",
+      JSON.stringify({
+        Username: user.email,
+        Email: user.email,
+        Password: user.password
+      }),
+      { headers: headers }
+    )
+    .catch(this.handleErrors);
+  }
+
+  handleErrors(error: Response) {
+    console.log(JSON.stringify(error.json()));
+    return Observable.throw(error);
+  }
+}
+```
+<p>Next, in <code>app/app.component.ts</code>, replace the existing <code>signUp()</code> function with the following code:</p>
+``` TypeScript
+signUp() {
+  this._userService.register(this.user)
+    .subscribe(
+      () => {
+        alert("Your account was successfully created.");
+        this.toggleDisplay();
+      },
+      () => alert("Unfortunately we were unable to create your account.")
+    );
+}
+```
+<div class="exercise-end"></div>
+
+<p>The first thing to note here is the new <code>constructor</code> code in <code>user.service.ts</code>:</p>
+``` TypeScript
+constructor(private _http: Http) {}
+```
+<p>The <code>UserService</code> class is using the same dependency injection technique to bring in a service that it needs, in this case the Http class, which is Angular 2’s way of letting you perform HTTP calls. And thanks to NativeScript, those same HTTP APIs work on iOS and Android without any extra work.</p>
+<blockquote>
+<p><strong>TIP</strong>: Refer to <a href="https://angular.io/docs/ts/latest/api/http/Http-class.html" target="_blank" rel="external">Angular 2’s docs on Http</a> for specifics on what HTTP APIs are available.</p>
+</blockquote>
+<p>The other new bit of code is the return value of this new <code>register()</code> method. <code>register()</code> returns <code>this._http.post()</code>, which is an RxJS <code>Observable</code>. You can refer to the Angular docs for a <a href="https://angular.io/docs/ts/latest/guide/server-communication.html" target="_blank" rel="external">full tutorial on how RxJS observables work</a>, but for now just know that the most common thing you’ll need to do with observables is subscribe to them, which is what the new code you added to <code>app.component.ts</code> does:</p>
+``` TypeScript
+this._userService.register(this.user)
+  .subscribe(
+    () => {
+      alert("Your account was successfully created.");
+      this.toggleDisplay();
+    },
+    () => alert("Unfortunately we were unable to create your account.")
+  );
+```
+<blockquote>
+<p><strong>NOTE</strong>: The <code>() =&gt; {}</code> syntax defines an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="external">ES2015 arrow function</a>, which TypeScript supports out of the box. In this example, the arrow functions are the equivalent of writing <code>function() {}</code>. Arrow functions have the advantage of inheriting their context—aka <code>this</code>—from their parents. Note how the code above is able to call <code>this.toggleDisplay()</code> from an inner function, which would not work with a generic JavaScript <code>function() {}</code>.</p>
+</blockquote>
+<p>The two functions you pass <code>subscribe()</code> are success and failure handlers. If the call to <code>register()</code> succeeds, your first alert will fire, and if the call to <code>register()</code> fails, your second alert will fire. Now that your service code is setup and ready to go, let’s create make the final few changes and create an account.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Create an account
+</h4>
+
+<p>Because the <code>UserService</code> makes use of the <code>Http</code> service, your final step is registering the Http provider in <code>AppComponent</code>. Start by opening <code>app/main.ts</code> and adding the following two imports to the top of the file:</p>
+``` TypeScript
+import "reflect-metadata";
+import {HTTP_PROVIDERS} from "@angular/http";
+```
+<p>Next, in the same file, replace the existing call to <code>nativeScriptBootstrap()</code> with the line of code below:</p>
+``` TypeScript
+nativeScriptBootstrap(AppComponent, [HTTP_PROVIDERS]);
+```
+<p><a href="https://angular.io/docs/ts/latest/api/http/HTTP_PROVIDERS-let.html" target="_blank" rel="external"><code>HTTP_PROVIDERS</code></a> is an Angular-provided shorthand array that includes all of Angular’s HTTP-based services, including the <code>Http</code> service that <code>UserService</code> uses. Angular lets you declare common providers globally by passing them to <code>bootstrap()</code>, or <code>nativeScriptBootstrap()</code>, in this case.</p>
+<blockquote>
+<p><strong>NOTE</strong>: Angular supports the concept of <a href="https://angular.io/docs/ts/latest/guide/hierarchical-dependency-injection.html" target="_blank" rel="external">hierarchical dependency injectors</a>, which is a fancy way of saying that you can declare <code>providers</code> in parent components and use them in child components. In this example, this concept means you can declare <code>HTTP_PROVIDERS</code> in <code>main.ts</code>, even though the <code>Http</code> service is used in <code>UserService</code>. Generally, it’s only a good idea to declare providers in parent components if most of the component’s children actually use that provider. Although you <em>could</em> declare all your providers in the call to <code>nativeScriptBootstrap()</code>, your providers would become unwieldy as your app grows, and difficult to refactor as your app changes.</p>
+</blockquote>
+<p>At this point you should be ready to create an account to verify this whole setup worked. After the provider changes have livesync’d, perform the following tasks to create an account:</p>
+<ul>
+<li>1) Click the gray “Sign Up” button in your app.</li>
+<li>2) Type in an email address and password. Fake credentials are fine, just make up something you can remember.</li>
+<li>3) Click the orange “Sign Up” button.</li>
+</ul>
+<div class="exercise-end"></div>
+
+<p>If all went well, you should see a confirmation dialog that looks like this:</p>
+<p><img src="../img/cli-getting-started/angular/chapter3/android/6.png" alt="Alert on Android">
+<img src="../img/cli-getting-started/angular/chapter3/ios/6.png" alt="Alert on iOS"></p>
+<blockquote>
+<p><strong>TIP</strong>:  After creating your account, you may wish to hardcode your credentials in your <code>AppComponent</code>’s <code>constructor()</code> to make development faster for the rest of this guide.
+``` TypeScript
+constructor(private _userService: UserService) {
+  this.user = new User();
+  this.user.email = "user@nativescript.org";
+  this.user.password = "password";
+}
+```</p>
+</blockquote>
+<p>Your app now has a fully functional registration process, but users can’t do anything with the accounts they create. Our next step is to allow the users to login and navigate to a new list page. And to do that we need to introduce the concept of routing.</p>
+<h2 id="3-5-Routing"><a href="#3-5-Routing" class="headerlink" title="3.5: Routing"></a>3.5: Routing</h2><p>Most of the Angular 2 concepts you’ve used in the last few sections are the same regardless of whether you’re building for the web or native apps. You are even able to share model objects and services directly between the two environments.</p>
+<p>However, routing is a bit different, as there are some fundamental differences between how the concept of routing works on the web and in apps. Routing on the web revolves around the concept of a URL, but in a native app there is no browser. Likewise, native apps have concepts that aren’t present in the browser, such as Android’s hardware back button, or iOS’s swipe left-to-right gesture to go back.</p>
+<p>Because of that, even though NativeScript uses the same Angular 2 routing APIs, you must designate certain Angular components in your app as “pages”—which is something you don’t necessarily have to do in an Angular 2 web app. In Groceries the code for these pages is in the app’s <code>pages</code> folder. Let’s look at this works in an exercise, and then step back and discuss why NativeScript takes the approach that it does.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Setting up routing
+</h4>
+
+<p>To this point you’ve been putting your login page code in <code>app.component.ts</code>. Let’s move that logic into the <code>pages/login</code> folder to make room for additional pages.</p>
+<p>First, open <code>app/app.component.ts</code> and copy its contents into <code>app/pages/login/login.component.ts</code>.</p>
+<p>Next, in <code>login.component.ts</code>, change the name of the class from “AppComponent” to “LoginPage”, and update the two paths below accordingly:</p>
+``` TypeScript
+import {User} from "../../shared/user/user";
+import {UserService} from "../../shared/user/user.service";
+```
+<p>Now that <code>app.component.ts</code> is empty, let’s add in the appropriate Angular 2 routing code. Start by opening up <code>app/app.routes.ts</code> up and pasting in the following code:</p>
+``` TypeScript
+import {RouterConfig} from "@angular/router";
+import {nsProvideRouter} from "nativescript-angular/router"
+import {LoginPage} from "./pages/login/login.component";
+
+export const routes: RouterConfig = [
+  { path: "", component: LoginPage }
+];
+
+export const APP_ROUTER_PROVIDERS = [
+  nsProvideRouter(routes, {})
+];
+```
+<p>The <code>app.routes.ts</code> file is where you declare a list of all routes your app has. Right now your <code>RouterConfig</code> has a single route for the login page, but you’ll add more momentarily. To get this app running you need to make two more changes.</p>
+<p>First, open <code>app/main.ts</code> and replace the file’s contents with the following code, which declares the routes you just added in <code>app.routes.ts</code> as a global provider.</p>
+``` TypeScript
+import "reflect-metadata";
+import {HTTP_PROVIDERS} from "@angular/http";
+import {nativeScriptBootstrap} from "nativescript-angular/application";
+import {AppComponent} from "./app.component";
+import {APP_ROUTER_PROVIDERS} from "./app.routes";
+
+nativeScriptBootstrap(AppComponent, [HTTP_PROVIDERS, APP_ROUTER_PROVIDERS]);
+```
+<p>And finally, open <code>app/app.component.ts</code> back up and paste in the following code. We’ll discuss this file in detail momentarily.</p>
+``` TypeScript
+import {Component} from "@angular/core";
+import {NS_ROUTER_DIRECTIVES} from "nativescript-angular/router";
+
+@Component({
+  selector: "main",
+  directives: [NS_ROUTER_DIRECTIVES],
+  template: "<page-router-outlet></page-router-outlet>"
+})
+export class AppComponent {}
+```
+<div class="exercise-end"></div>
+
+<p>If you haven’t played with routing in Angular 2 before, you can refer to <a href="https://angular.io/docs/ts/latest/tutorial/toh-pt5.html" target="_blank" rel="external">Angular’s tutorial on the topic</a> for some background, but the basic concept is you need to declare a <code>RouteConfig</code> object that include a list of all components the user can navigate to, as well as a path to use to access those components. When you need to add new routes, you import the appropriate component in <code>app.routes.ts</code>, and then include that component in the <code>routes</code> constant.</p>
+<p>The other new concept in this example is the <code>&lt;page-router-outlet&gt;</code> tag, which is your app’s first directive. You can again check out Angular’s docs if you want <a href="https://angular.io/docs/ts/latest/api/core/Directive-decorator.html" target="_blank" rel="external">detailed information on what directives are and do</a>, but the simplest way to think of a directive is as something that can affect the markup you put in your <code>template</code>—in this case <code>&lt;page-router-outlet&gt;</code>.</p>
+<p>And to take a step back, that directive, <code>&lt;page-router-outlet&gt;</code> is the only difference in routing between the routing code above and the <a href="https://github.com/tjvantoll/Groceries/blob/master/app/app.component.ts" target="_blank" rel="external">same code in the Groceries web implementation</a>. Angular 2 provides a <code>&lt;router-outlet&gt;</code> directive for web apps, and NativeScript extends that directive with its own <code>&lt;page-router-outlet&gt;</code> directive that handles the unique environment of iOS and Android apps. The great thing about NativeScript is those details are transparent to you as a developer.</p>
+<p>At this point your router code should work, but the app is no different than it was at the beginning of this section. Let’s add another page to see the routing in action.</p>
+<h4 class="exercise-start">
+    <b>Exercise</b>: Create the list page
+</h4>
+
+<p>Open <code>pages/list/list.component.ts</code> and paste in the following code, which you’ll use as the start of a simple list page:</p>
+``` TypeScript
+import {Component} from "@angular/core";
+
+@Component({
+  selector: "list",
+  templateUrl: "pages/list/list.html",
+  styleUrls: ["pages/list/list-common.css", "pages/list/list.css"]
+})
+export class ListPage {}
+```
+<p>For now, we’ll keep the list page simple so you can see how the routing works. But so that there’s something to see, open <code>pages/list/list.html</code> and paste the following label:</p>
+``` XML
+<label text="Hello world"></label>
+```
+<p>After that, go back to <code>app/app.routes.ts</code> and paste the following import in at the top of the file:</p>
+``` TypeScript
+import {ListPage} from "./pages/list/list.component";
+```
+<p>Next, replace the existing <code>routes</code> constant declaration with the following code, which includes the new list page:</p>
+``` TypeScript
+export const routes: RouterConfig = [
+  { path: "", component: LoginPage },
+  { path: "list", component: ListPage }
+];
+```
+<p>Angular 2 now knows about the list page, but we still need to navigate the user to that page at the appropriate time. Our next step is to allow users to log into their accounts, then navigate them to the new list page after they have successfully authenticated.</p>
+<p>To do that, start by opening <code>app/shared/user/user.service.ts</code> and add the <code>login()</code> function below to the existing <code>UserService</code> class:</p>
+``` TypeScript
+login(user: User) {
+  let headers = new Headers();
+  headers.append("Content-Type", "application/json");
+
+  return this._http.post(
+    Config.apiUrl + "oauth/token",
+    JSON.stringify({
+      username: user.email,
+      password: user.password,
+      grant_type: "password"
+    }),
+    { headers: headers }
+  )
+  .map(response => response.json())
+  .do(data => {
+    Config.token = data.Result.access_token;
+  })
+  .catch(this.handleErrors);
+}
+```
+<p>This code hits one of our existing backend endpoints, and stores off a authentication token that we’ll use later in this guide.</p>
+<p>To use this <code>login()</code> function, return to <code>app/login/login.component.ts</code>, and add the following import to the top of the file:</p>
+``` TypeScript
+import {Router} from "@angular/router";
+```
+<p>Next, replace the current <code>constructor()</code> declaration with the code below, which injects Angular 2’s <code>Router</code> service:</p>
+``` TypeScript
+constructor(private _router: Router, private _userService: UserService) {
+```
+<p>Finally, replace the <code>LoginPage</code>’s existing <code>login()</code> function with the code below:</p>
+``` TypeScript
+login() {
+  this._userService.login(this.user)
+    .subscribe(
+      () => this._router.navigate(["/list"]),
+      (error) => alert("Unfortunately we could not find your account.")
+    );
+}
+```
+<blockquote>
+<p><strong>NOTE</strong>:</p>
+<ul>
+<li>You don’t have to add <code>Router</code> to your <code>LoginPage</code> component’s <code>providers</code> array because it’s already included in the <code>APP_ROUTER_PROVIDERS</code> you’re passing to <code>nativeScriptBootstrap()</code> in <code>main.ts</code>.</li>
+<li>Refer to Angular’s documentation for a <a href="https://angular.io/docs/ts/latest/api/router/Router-class.html" target="_blank" rel="external">full list of the API available on the <code>Router</code> service</a>.</li>
+</ul>
+</blockquote>
+<div class="exercise-end"></div>
+
+<p>After this change you can now navigate between the login and list pages in your app:</p>
+<p><img src="../img/cli-getting-started/angular/chapter3/android/7.gif" alt="Navigating on Android">
+<img src="../img/cli-getting-started/angular/chapter3/ios/7.gif" alt="Navigating on iOS"></p>
+<p>The power of NativeScript is you have the ability to use the same Angular conventions that you’d use in a web app—<code>RouteConfig</code>, <code>Router</code>, and so forth—yet get an app that fits right in on iOS and Android. Notice how on Android the hardware back button works as expected, and how your iOS app uses built-in iOS animations and conventions such as the back button.</p>
+<blockquote>
+<p><strong>TIP</strong>: There are other ways to share code between native and web apps besides the <code>shared</code> folder convention Groceries uses. For an approach that places web and native code in the same codebase, that also provides some additional tooling around testing and internationalization, check out <a href="https://github.com/NathanWalker/angular2-seed-advanced" target="_blank" rel="external">Nathan Walker’s advanced Angular 2 seed project</a>.</p>
+</blockquote>
+<p>Now that we’ve discussed how NativeScript apps and Angular 2 web apps are similar, let’s move onto how they’re different. When you’re building with NativeScript you have access to the entirety of iOS and Android, as well as the highly capable devices they run on—enabling you to build rich experiences that go above and beyond what the web can offer.</p>
+<p>The best part is, one NativeScript feature makes it trivial to tie into this native device functionality: NativeScript modules.</p>
+<div class="next-chapter-link-container">
+  <a href="ng-chapter-4">Continue to Chapter 4—NativeScript Modules</a>
+</div>
+
+    </div>
+  </div>
+
+  <div class="pagination">
+    <div class="content-wrapper">
+      
+      
+        <a class="link primary prev"
+          href="ng-chapter-1.html">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          Chapter 1—Getting Up and Running
+        </a>
+      
+      
+        <a class="link primary next"
+          href="ng-chapter-2.html">
+          <span class="subtitle-pagination">Next</span>
+          Chapter 2—Building the UI
+          <span class="icon-arrow-right-alt"></span>
+        </a>
+      
+    </div>
+  </div>
+
+  <div class="github">
+    <a class="link tertiary " href="https://github.com/nativescript/docs/tree/master/source/2.2.0/tutorial/ng-chapter-3.md" target="_blank">
+      <span class="icon-github"></span>Edit on GitHub</a>
+  </div>
+
+  
+</div>
+
+    <script src="/script/smooth-scroll.min.js"></script>
+    <script src="/script/main.js"></script>
+
+    <script>
+
+     
+      
+
+      // search box
+      
+
+        function toggleFrontEndVar(value) {
+          console.log(value + " Clicked");
+          hexo.locals.set('front_end', value);
+        }
+
+      
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+    $( ".sidebar-content" ).scrollTop( 0 );
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="/script/code-block.js"></script>
+    <script src="/script/code-environment.js"></script>
+  </body>
+</html>

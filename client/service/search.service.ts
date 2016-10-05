@@ -16,12 +16,14 @@ export class searchService {
             type: 'ds044699_mlab_com_36a0',
             body: {
                 query: {
-                    match: {
-                        name: term
+                    multi_match: {
+                        query: term,
+                        fields: ['name', 'description']
                     }
                 }
             }
         });
+
     }
 
 }

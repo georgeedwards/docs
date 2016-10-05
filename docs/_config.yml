@@ -13,6 +13,8 @@ timezone:
 #  marketo: 627-RVJ-941
 #  segment: zQx6cQifkTU79E3L0XAnmrOXP2A5bC6r
 versions:
+  - 'latest'
+  - '2.2.0'
   - '2.0.1'
 
 sidebar_categories:

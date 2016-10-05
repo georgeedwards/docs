@@ -3,16 +3,26 @@ var marked = require('marked');
 var util = require('hexo-util');
 
 hexo.extend.tag.register('nativescript', function (args, content) {
-  var result = '<div class="codeblock n">' + render(content) + '</div>';
+  var result = '<div class="codeblock n">';
   return result;
-}, { ends: true });
+}, { ends: false });
+
+hexo.extend.tag.register('endnativescript', function (args, content) {
+  var result = '</div>';
+  return result;
+}, { ends: false });
 
 hexo.extend.tag.register('angular', function (args, content) {
-  var result = '<div class="codeblock ng">' + render(content) + '</div>';
+  var result = '<div class="codeblock ng">';
   return result;
-}, { ends: true });
+}, { ends: false });
 
-function render(content) {
+hexo.extend.tag.register('endangular', function (args, content) {
+  var result = '</div>';
+  return result;
+}, { ends: false });
+
+/*function render(content) {
   var clean = [];
   var tagged = [];
   if (content.search("{% m_codeblock %}") !== -1) {
@@ -44,4 +54,4 @@ function render(content) {
   }
   var result = result.join(''); //convert to string
   return result;
-}
+}*/
