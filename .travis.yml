@@ -20,6 +20,6 @@ install:
     - curl -L https://github.com/nativescript/docs/tarball/v2.2.0 | tar zx
     - curl -L https://github.com/nativescript/docs/tarball/v2.3.0 | tar zx
     - cd ..
-    - node build.js
     - npm install
+    - node build.js
     - hexo generate
