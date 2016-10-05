@@ -14,7 +14,6 @@ install:
     - npm install
     - tsc -p ./client
     - tsc -p ./server
-post_install:
     - npm run bundle:prod
     - cd docs/pre-source
     - curl -L https://github.com/nativescript/docs/tarball/v2.0.1 | tar zx
