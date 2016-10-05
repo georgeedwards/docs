@@ -13,8 +13,8 @@ install:
     - npm install -g typescript hexo-cli
     - npm install
     - npm run develop
-    - npm run twc:client:w
-    - npm run twc:server:w
+    - tsc -p ./client
+    - tsc -p ./server
 post_install:
     - npm run bundle:prod
     - cd docs/pre-source
