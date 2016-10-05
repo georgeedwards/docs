@@ -12,7 +12,6 @@ addons:
 install:
     - npm install -g typescript hexo-cli
     - npm install
-    - npm run develop
     - tsc -p ./client
     - tsc -p ./server
 post_install:
