@@ -10,7 +10,8 @@
     "twc:client:w": "tsc -w -p ./client",
     "twc:server:w": "tsc -w -p ./server",
     "bundle:prod": "node tools/builder.js --prod",
-    "postinstall": "tsc -p ./server"
+    "postinstall": "tsc -p ./server",
+    "start": "node ./server/bin/www"
   },
   "engines": {
     "node": "6.7.0"
