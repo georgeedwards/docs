@@ -8,7 +8,7 @@
             <button class="btn btn-primary btn-margin" (click)="add()"><i class="icon ion-add"></i></button>
             <button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
         </div> -->
-        <div class="fixed-action-btn horizontal" style="top: calc(10vh + 45px);right: calc(10% - 10px);position: absolute;">
+        <div class="fixed-action-btn horizontal" style="top: calc(10vh + 45px);right: calc(10% - 10px);position: absolute; height: 50px;">
             <a class="btn-floating btn-large red">
                 <i class="large material-icons">mode_edit</i>
             </a>
@@ -22,9 +22,9 @@
             <div class="nav-wrapper">
                 <form>
                     <div class="input-field">
-                        <input id="search" type="search" required>
+                        <input id="search" type="search" required #search (keyup)="onKey(search.value)" [(ngModel)]="searchbox" name="search">
                         <label for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
+                        <i class="material-icons" (click)="empty()">close</i>
                     </div>
                 </form>
             </div>

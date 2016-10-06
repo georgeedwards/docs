@@ -7,8 +7,8 @@ import { searchService } from '../../service/search.service';
 import { AuthHttp } from 'angular2-jwt';
 import { Plugin } from './plugin';
 import 'rxjs/add/operator/map';
-import { Observable }       from 'rxjs/Observable';
-import { Subject }          from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 declare var $: any;
 //import elasticsearch from 'elasticsearch';
@@ -22,9 +22,10 @@ declare var elasticsearch: any;
 export class pluginsComponent {
   messages: string;
   @ViewChild('modal') el: ElementRef;
+  searchbox: string = '';
   model = new Plugin('Bluetooth', 'nativescript-bluetooth', 'gitHubUsername', false, false);
   plugins: Array<Plugin>;
-
+  _search: string = '';
   constructor(private uiService: UiService, private auth: AuthService, private authHttp: AuthHttp, private api: ApiService, private search: searchService) {
     this.uiService.changeNavState(true); //show nav bars
     this.api.get('/api/plugins')
@@ -49,6 +50,17 @@ export class pluginsComponent {
   public submit() {
     console.log('SUBMIT');
     var body = this.processSubmission(this.model);
+  }
+
+  onKey(value: string) {
+    this._search = value;
+    console.log(value);
+    console.log(this.searchbox);
+  }
+
+  public empty() {
+    console.log("EMPTY");
+    this.searchbox = '';
   }
 
   processSubmission(plugin: Plugin): Plugin {
