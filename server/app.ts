@@ -46,7 +46,7 @@ registerUpdates();
 // connect to MongoDB
 var pw   = process.env.MONGOPW;
 var usr   = process.env.MONGOUSR;
-mongoose.connect('mongodb://' + usr +':' + pw +'@ds044699.mlab.com:44699/ns-docs')
+mongoose.connect('mongodb://' + usr +':' + pw +'@ds033996.mlab.com:33996/heroku_zf1v51dn')
   .then(() =>  console.log('MongoDB Connection Succesful'))
   .catch((err) => console.error(err));
 
