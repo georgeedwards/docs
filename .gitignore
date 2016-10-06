@@ -7,3 +7,4 @@ client/**/*.js.map
 /npm-debug.log
 .vscode/*
 docs/source/*
+docs/public/*
