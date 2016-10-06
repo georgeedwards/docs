@@ -46,6 +46,8 @@ enumerate_child_files_recursive('source/', function (err, results) {
                 data = data.replace('{{site.baseurl}}', 'http://ns-docs.herokuapp.com');
                 data = data.replace('`{{ }}`', '{%raw%}`{{ }}`{%endraw}');
                 result = result.replace('start\\introduction', 'index');
+                result = result.replace('start/introduction', 'index');
+                console.log(result);
                 fs.writeFile(result, data, function (err) {
                     if (err)
                         throw err;
