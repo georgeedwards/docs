@@ -44,9 +44,8 @@ registerUpdates();
 // Use native Node promises
 (<any>mongoose).Promise = global.Promise;
 // connect to MongoDB
-var pw   = process.env.MONGOPW;
-var usr   = process.env.MONGOUSR;
-mongoose.connect('mongodb://' + usr +':' + pw +'@ds033996.mlab.com:33996/heroku_zf1v51dn')
+var mongo   = process.env.MONGODB_URI;
+mongoose.connect(mongo)
   .then(() =>  console.log('MongoDB Connection Succesful'))
   .catch((err) => console.error(err));
 
