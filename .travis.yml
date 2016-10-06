@@ -16,8 +16,8 @@ install:
     - tsc -p ./server
     - npm run bundle:prod
     - cd docs/pre-source
-    - curl -L https://github.com/nativescript/docs/tarball/v2.0.1 | tar zx
-    - curl -L https://github.com/nativescript/docs/tarball/v2.2.0 | tar zx
+    - curl -L https://github.com/nativescript/docs/archive/v2.0.1.tar.gz | tar zx
+    - curl -L https://github.com/nativescript/docs/archive/v2.2.0.tar.gz | tar zx
     - curl -L https://github.com/nativescript/docs/archive/production.tar.gz | tar zx
     - cd ..
     - npm install
