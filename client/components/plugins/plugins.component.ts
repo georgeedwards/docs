@@ -53,7 +53,7 @@ export class pluginsComponent {
 
   processSubmission(plugin: Plugin): Plugin {
     plugin.github = 'http://github.com/' + plugin.author + '/' + plugin.package_name;
-    this.authHttp.post('http://localhost:3000/api/plugins', plugin)
+    this.authHttp.post('/api/plugins', plugin)
       .map(res => res.json())
       .subscribe(
       data => console.log(data),

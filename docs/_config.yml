@@ -55,7 +55,7 @@ github_repo: 'nativescript/docs'
 content_root: 'source'
 
 # themeing
-favicon: '../images/favicon.ico'
+favicon: '../favicon.ico'
 
 front_end: nativescript
 logo:
