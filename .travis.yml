@@ -1,25 +1,34 @@
 language: node_js
 node_js:
-  - "6.7.0"
+- 6.7.0
 env:
-  - CXX=g++-4.8
+- CXX=g++-4.8
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
+    - g++-4.8
 install:
-    - npm install -g typescript hexo-cli
-    - npm install
-    - tsc -p ./client
-    - tsc -p ./server
-    - npm run bundle:prod
-    - cd docs/pre-source
-    - curl -L https://github.com/nativescript/docs/archive/v2.0.1.tar.gz | tar zx
-    - curl -L https://github.com/nativescript/docs/archive/v2.2.0.tar.gz | tar zx
-    - curl -L https://github.com/nativescript/docs/archive/production.tar.gz | tar zx
-    - cd ..
-    - npm install
-    - node build.js
-    - hexo generate
+- npm install -g typescript hexo-cli
+- npm install
+- tsc -p ./client
+- tsc -p ./server
+- npm run bundle:prod
+- cd docs/pre-source
+- curl -L https://github.com/nativescript/docs/archive/v2.0.1.tar.gz | tar zx
+- curl -L https://github.com/nativescript/docs/archive/v2.2.0.tar.gz | tar zx
+- curl -L https://github.com/nativescript/docs/archive/production.tar.gz | tar zx
+- cd ..
+- npm install
+- node build.js
+- hexo generate
+deploy:
+  provider: heroku
+  api_key:
+    secure: tGwo0z5vbkh03aE3NWlc6DOxjbJlP4+0mKVjqkBf6T2bWaizXiJDH9HfGHI6UUKJjZGkARyDYDzQ3Y9LwiUj0HP3vCRCWbWN3KgTseGKv5sTsYEjIVskKS/6n0IHrmWNDteHxZ1BKZ8JA86GCbT0B70l2/gValIg4+D++go9Tj5Lnof7W1/3fiIxyNSQ/VRvRkwSBa9oxek30AVMAcnbsDoGbhNKoSR3gqU4Y+lovO5C+ZlFtneFoToMGQd+XRRnpgM3MlNN990DSWF49cHlU8cRvqlz4dBIOefw5Vh3X653+CHPSRWSqGpXveg2K4zWtL9HytJHrblcpSxI8tM41sgux4MvG7vMwm+kj/6rahDr/IqRkzxx8AgM3F6N6+jqmU4gEz/et2Z4GOifgY/SGg+zb7UQwBWa3X9WdrUWQNyBHNZe6CgWqr77i838CNikXPpyD6mxZOmL0PBsj+OTAHXrBwJ8Gm5RU7Ocr+BFtB8de1Gg78IriBSTIQGHmKvvWK2jADYpQs1UUI4lMwTFMVo9PNxFTLw8MKLbjjNwXSstTM5mKJFs9ianvT4NxuGRiM51c8uSZfSZjWV6Aen2wrLup3rwCk1w9eGb04YkcAIbVgmXQLSMlR6u/KB1IzO2PM3DtiiONXn2XApppjTNVMhLUUdEXtRTdDIMbVa1zuc=
+  app: ns-docs
+  skip_cleanup: true
+  on:
+    repo: georgeedwards/docs
+    branch: production
