@@ -35,9 +35,7 @@ export class pluginsComponent {
 
   constructor(private uiService: UiService, private auth: AuthService, private authHttp: AuthHttp, private api: ApiService, private _searchService: searchService) {
     this.uiService.changeNavState(true); //show nav bars
-    this.api.get('/api/plugins')
-      .then((res) => this.plugins = res) //set components plugins to the result
-      .then((a) => this.plugins.sort(compare)); //sort by downloads
+    this.populatePage();
   }
 
   public add() {
@@ -54,16 +52,23 @@ export class pluginsComponent {
   }
 
   public onKey(term: string) {
+    if (this.searchbox == '') {
+      this.populatePage();
+    }
+    var that = this;
     this._searchService.search(term).then(function (resp) {
-            var hits = resp.hits.hits;
-            //console.log("Done: " + hits)
-        }, function (err) {
-            console.trace(err.message);
-        });
+      that.plugins = [];
+      for (var hit of resp.hits.hits) {
+        that.plugins.push((hit._source))
+      }
+    }, function (err) {
+      console.trace(err.message);
+    });
   }
 
   public empty() {
     this.searchbox = '';
+    this.populatePage();
   }
 
   processSubmission(plugin: Plugin): Plugin {
@@ -75,6 +80,11 @@ export class pluginsComponent {
       error => this.messages = error._body || error
       );
     return plugin;
+  }
+  populatePage() {
+    this.api.get('/api/plugins')
+      .then((res) => this.plugins = res) //set components plugins to the result
+      .then((a) => this.plugins.sort(compare)); //sort by downloads
   }
 }
 

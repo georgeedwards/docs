@@ -8,6 +8,6 @@ import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/distinctUntilChanged";
 import "rxjs/add/operator/switchMap";
 
-enableProdMode();
+//enableProdMode();
 
 platformBrowserDynamic().bootstrapModule(AppModule);
