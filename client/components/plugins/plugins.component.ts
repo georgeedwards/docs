@@ -25,18 +25,19 @@ export class pluginsComponent {
   searchbox: string = '';
   model = new Plugin('Bluetooth', 'nativescript-bluetooth', 'gitHubUsername', false, false);
   plugins: Array<Plugin>;
-  _search: string = '';
-  constructor(private uiService: UiService, private auth: AuthService, private authHttp: AuthHttp, private api: ApiService, private search: searchService) {
+  _client: any;
+  private searchTermStream = new Subject<string>();
+
+  items: Observable<string[]> = this.searchTermStream
+    .debounceTime(300)
+    .distinctUntilChanged()
+    .switchMap((term: string) => this._searchService.search(term));
+
+  constructor(private uiService: UiService, private auth: AuthService, private authHttp: AuthHttp, private api: ApiService, private _searchService: searchService) {
     this.uiService.changeNavState(true); //show nav bars
     this.api.get('/api/plugins')
       .then((res) => this.plugins = res) //set components plugins to the result
       .then((a) => this.plugins.sort(compare)); //sort by downloads
-    this.search.search('Bluetooth')
-      .then(function (resp) {
-        var hits = resp.hits.hits;
-      }, function (err) {
-        console.trace(err.message);
-      });
   }
 
   public add() {
@@ -52,14 +53,16 @@ export class pluginsComponent {
     var body = this.processSubmission(this.model);
   }
 
-  onKey(value: string) {
-    this._search = value;
-    console.log(value);
-    console.log(this.searchbox);
+  public onKey(term: string) {
+    this._searchService.search(term).then(function (resp) {
+            var hits = resp.hits.hits;
+            //console.log("Done: " + hits)
+        }, function (err) {
+            console.trace(err.message);
+        });
   }
 
   public empty() {
-    console.log("EMPTY");
     this.searchbox = '';
   }
 
