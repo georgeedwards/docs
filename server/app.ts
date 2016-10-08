@@ -8,9 +8,11 @@ import * as plugin from './routes/plugins';
 import * as mongoose from 'mongoose';
 import expressValidator = require('express-validator');
 import {registerUpdates} from './updateDownloads';
+import * as compression from 'compression';
 
 const app: express.Application = express();
 app.disable("x-powered-by");
+app.use(compression());
 app.use(logger('dev'))
 app.use(favicon(join(__dirname, "../public", "favicon.ico")));
 app.use(express.static(join(__dirname, '../public')));
