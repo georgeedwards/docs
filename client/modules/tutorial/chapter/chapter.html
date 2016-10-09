@@ -1,4 +1,4 @@
-<div *ngIf="chapter == 0"><h1>NativeScript Getting Started Guide</h1>
+<div *ngIf="chapter == '0'"><h1>NativeScript Getting Started Guide</h1>
 <p>Welcome to the <a href="http://www.nativescript.org/">NativeScript</a> Getting Started Guide. In this tutorial you'll use NativeScript, a cross-platform JavaScript framework for building native mobile apps, to build an iOS and Android app from scratch. You can start by watching the video walkthrough below, or by <a href="#what-is-nativescript">jumping straight into the hands-on tutorial</a>.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/N8zsFIVdLwY" frameborder="0" allowfullscreen></iframe>
 <h2>What is NativeScript?</h2>
@@ -28,7 +28,7 @@
 <li><strong>The terminal</strong>: You should know how to open a terminal or command-line prompt on your development machine, how to change directories, and how to execute commands.</li>
 </ul>
 <p>With that out of the way, let’s get started!</p>
-</div><div *ngIf="chapter == 1"><h1>Chapter 1—Getting Up and Running</h1>
+</div><div *ngIf="chapter == '1'"><h1>Chapter 1—Getting Up and Running</h1>
 <p>In this chapter you're going to start with the basics, including installing the NativeScript CLI, starting a new project, and getting your first app up and running.</p>
 <div class="explain">
 <h2>Table of contents</h2>
@@ -153,7 +153,7 @@ E/TNS.Native( 2063): File: &quot;/data/data/org.nativescript.groceries/files/app
 <p><strong>WARNING</strong>: Not all changes can be livesync’d in a NativeScript app. For instance, livesync cannot patch native configuration file changes (<code>Info.plist</code>, <code>AndroidManifest.xml</code>, and so forth), new plugin installations, and any other change that requires a full compilation of the application. In those cases, you’ll want to use <code>Ctrl+C</code> to stop livesync, and rerun the application using the <code>tns run ios</code> or <code>tns run android</code> commands. Don’t worry though; when situations that require a full compilation come up in this guide, these instructions will be explicitly listed.</p>
 </blockquote>
 <p>Now that you've created an app, configured your environment, and set up your app to run on iOS and Android, you're ready to start digging into the files that make up a NativeScript app.</p>
-</div></div><div *ngIf="chapter == 2"><h1>Chapter 2—Building the UI</h1>
+</div></div><div *ngIf="chapter == '2'"><h1>Chapter 2—Building the UI</h1>
 <p>Before you start coding the Groceries app it's important to understand a NativeScript app's folder structure. It'll help you understand where to place new files, as well as a bit of what's going on with NativeScript under the hood.</p>
 <p>Go ahead and open your app's <code>sample-Groceries</code> folder in your text editor of choice and let's dig in.</p>
 <div class="explain">
@@ -408,7 +408,7 @@ applicationModule.start(&#123; moduleName: <span class="hljs-string">"views/logi
 <blockquote>
 <p><strong>TIP</strong>: The community-written <a href="http://nsimage.brosteins.com/">NativeScript Image Builder</a> can help you generate images in the appropriate resolutions for iOS and Android.</p>
 </blockquote>
-</div></div><div *ngIf="chapter == 3"><h1>Chapter 3—Application Logic</h1>
+</div></div><div *ngIf="chapter == '3'"><h1>Chapter 3—Application Logic</h1>
 <p>In this chapter, you'll learn how to add JavaScript logic to your NativeScript app, and you'll be doing so using the base pattern on which the NativeScript framework is built, MVVM, or &quot;model view view model&quot;.</p>
 <div class="explain">
 <p>Here's what those words mean:</p>
@@ -567,7 +567,7 @@ exports.register = <span class="hljs-function"><span class="hljs-keyword">functi
 <img src="/docs/img/cli-getting-started/nativescript/chapter3/android/3.png" alt=""></p>
 <p>What's really cool is that the binding is two-way. Meaning, when the user types text in these text fields, those changes are immediately applied to your view model.</p>
 <p>To use these values, and to make this login functional by tying your app into a backend service, you're going to need the ability to make HTTP calls. And to make HTTP calls in NativeScript you use the NativeScript fetch module. Let's look at how NativeScript modules work.</p>
-</div><div *ngIf="chapter == 4"><h1>Chapter 4—NativeScript Modules</h1>
+</div><div *ngIf="chapter == '4'"><h1>Chapter 4—NativeScript Modules</h1>
 <p>In this chapter you'll learn about NativeScript modules, which are the JavaScript modules in your app's <code>node_modules/tns-core-modules</code> folder. Whether you've realized it or not, you've already used several NativeScript modules. This includes the modules you've brought in via <code>require()</code> (the view, frame and observable modules) and also the UI components you've been using in XML (the page, image, text field and button modules).</p>
 <div class="explain">
 <h2>Table of contents</h2>
@@ -1022,7 +1022,7 @@ groceryList.load().then(<span class="hljs-function"><span class="hljs-keyword">f
 <blockquote>
 <p><strong>TIP</strong>: There are several modules that come out of the box with your NativeScript installation that we did not have time to cover in this guide—including a <a href="">location service</a>, a <a href="">file-system helper</a>, a <a href="">timer module</a>, a <a href="">camera module</a>, a <a href="">color module</a>, and a whole lot more. Make sure to peruse the “Modules API” of the docs, or just look around <code>node_modules/tns-core-modules</code> to see all of what's available.</p>
 </blockquote>
-</div></div><div *ngIf="chapter == 5"><h1>Chapter 5—Plugins and npm Modules</h1>
+</div></div><div *ngIf="chapter == '5'"><h1>Chapter 5—Plugins and npm Modules</h1>
 <p>As you build more complex apps, you'll likely run into functionality that is not implemented in the NativeScript modules. But no worries, as NativeScript lets you leverage <a href="https://www.npmjs.com/">npm</a> (node package manager) to import npm modules into your apps. Alternately, you can install NativeScript plugins, which are simply npm modules that can access native code and use Android and iOS SDKs, if required.</p>
 <p>In this chapter, you'll install and use an external email validator module to verify the format of email addresses as they are entered on the registration screen. Then, you'll add a NativeScript plugin, <a href="https://www.npmjs.com/package/nativescript-social-share">NativeScript social share</a>, to let users share their grocery lists using their device's native sharing widget.</p>
 <div class="explain">
@@ -1181,7 +1181,7 @@ groceryList.load().then(<span class="hljs-function"><span class="hljs-keyword">f
 <p>If you're looking for NativeScript plugins start by searching both the <a href="http://plugins.telerik.com/nativescript">Telerik NativeScript Plugins Marketplace</a> and our <a href="http://plugins.nativescript.rocks">community-curated list of plugins on npm</a>. If you don't find the plugin you need, you can <a href="https://nativescript.ideas.aha.io/">request the plugin on our ideas portal</a>, or you can take a stab at <a href="https://docs.nativescript.org/plugins">creating the plugin yourself</a>.</p>
 <p>Between NativeScript modules, npm modules, and NativeScript plugins, the NativeScript framework provides a lot of functionality you can use to build your next app. However, we've yet to talk about NativeScript's most powerful feature: the ability to directly access iOS and Android APIs in JavaScript. Let's look at how it works.</p>
 </div>
-</div><div *ngIf="chapter == 6"><h1>Chapter 6—Accessing Native APIs</h1>
+</div><div *ngIf="chapter == '6'"><h1>Chapter 6—Accessing Native APIs</h1>
 <p>The beauty of NativeScript is that you can write a native iOS or Android app in JavaScript, XML, and CSS without touching Swift, Objective-C, or Java, if you choose. But what if you want to present a different, more platform-specific UI to your users? Or if you want to access an iOS or Android API that NativeScript doesn't expose through a NativeScript module or plugin?</p>
 <p>NativeScript gives you the option to dig into native code as needed, and to do so without leaving JavaScript. To show how this works in action, let's start by adding some color to the ActionBar in the iOS version of the Groceries app.</p>
 <div class="explain">
@@ -1331,7 +1331,7 @@ groceryList.load().then(<span class="hljs-function"><span class="hljs-keyword">f
 <li>Advanced ListView interactions like swipe-to-delete, pull-to-refresh, as well as other components such as calendars and charts are available out-of-the-box as part of Telerik <a href="http://docs.telerik.com/devtools/nativescript-ui/introduction">UI For NativeScript</a>.</li>
 </ul>
 </blockquote>
-</div><div *ngIf="chapter == 7"><h1>Chapter 7—Next Steps</h1>
+</div><div *ngIf="chapter == '7'"><h1>Chapter 7—Next Steps</h1>
 <p>Sadly our tutorial is now complete, but your journey with NativeScript is just beginning. Let’s look at the next steps you can take to build your next app with NativeScript.</p>
 <h2>Table of contents</h2>
 <ul>

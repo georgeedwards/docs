@@ -3,8 +3,8 @@ import { UiService} from '../../service/ui.service';
 
 @Component({
   selector: 'home',
-  templateUrl: 'client/components/home/home.html',
-  styleUrls: ['client/components/home/home.css']
+  templateUrl: '../../../client/components/home/home.html',
+  styleUrls: ['../../../client/components/home/home.css']
 })
 export class homeComponent {
   constructor(private uiService: UiService) {

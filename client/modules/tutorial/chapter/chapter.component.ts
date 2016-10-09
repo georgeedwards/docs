@@ -6,8 +6,8 @@ import { UiService } from '../../../service/ui.service';
 
 @Component({
   selector: 'chapter',
-  templateUrl: 'client/modules/tutorial/chapter/chapter.html',
-  styleUrls: ['./client/modules/tutorial/chapter/chapter.css']
+  templateUrl: '../../../../client/modules/tutorial/chapter/chapter.html',
+  styleUrls: ['../../../../client/modules/tutorial/chapter/chapter.css']
 })
 
 export class chapterComponent implements OnInit, OnDestroy {

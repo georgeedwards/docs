@@ -8,3 +8,4 @@ client/**/*.js.map
 .vscode/*
 docs/source/*
 docs/public/*
+client/aot/*

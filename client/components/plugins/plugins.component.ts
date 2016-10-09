@@ -16,8 +16,8 @@ declare var elasticsearch: any;
 
 @Component({
   selector: 'home',
-  templateUrl: 'client/components/plugins/plugins.html',
-  styleUrls: ['client/components/plugins/plugins.css']
+  templateUrl: '../../../client/components/plugins/plugins.html',
+  styleUrls: ['../../../client/components/plugins/plugins.css']
 })
 export class pluginsComponent {
   messages: string;
@@ -33,7 +33,7 @@ export class pluginsComponent {
     .distinctUntilChanged()
     .switchMap((term: string) => this._searchService.search(term));
 
-  constructor(private uiService: UiService, private auth: AuthService, private authHttp: AuthHttp, private api: ApiService, private _searchService: searchService) {
+  constructor(private uiService: UiService, public auth: AuthService, private authHttp: AuthHttp, private api: ApiService, private _searchService: searchService) {
     this.uiService.changeNavState(true); //show nav bars
     this.populatePage();
   }
@@ -56,12 +56,12 @@ export class pluginsComponent {
       this.populatePage();
     }
     var that = this;
-    this._searchService.search(term).then(function (resp) {
+    this._searchService.search(term).then(function (resp:any) {
       that.plugins = [];
       for (var hit of resp.hits.hits) {
         that.plugins.push((hit._source))
       }
-    }, function (err) {
+    }, function (err: any) {
       console.trace(err.message);
     });
   }
@@ -88,7 +88,7 @@ export class pluginsComponent {
   }
 }
 
-function compare(a, b) {
+function compare(a: Plugin, b: Plugin) {
   if (a.downloads > b.downloads)
     return -1;
   if (a.downloads < b.downloads)

@@ -7,8 +7,8 @@ import { chapterComponent } from './chapter/chapter.component';
 
 @Component({
   selector: 'tutorial',
-  templateUrl: 'client/modules/tutorial/tutorial.html',
-  styleUrls: ['./client/modules/tutorial/tutorial.css'],
+  templateUrl: '../../../client/modules/tutorial/tutorial.html',
+  styleUrls: ['../../../client/modules/tutorial/tutorial.css'],
   encapsulation: ViewEncapsulation.None
 })
 
