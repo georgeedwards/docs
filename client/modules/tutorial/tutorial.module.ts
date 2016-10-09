@@ -2,8 +2,8 @@ import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { tutorialRouting } from './tutorial.routes';
 import { HttpModule } from '@angular/http';
-import { tutorialComponent } from './tutorial.component';
-import { chapterComponent } from './chapter/chapter.component';
+import { TutorialComponent } from './tutorial.component';
+import { ChapterComponent } from './chapter/chapter.component';
 
 @NgModule({
   imports: [
@@ -12,8 +12,8 @@ import { chapterComponent } from './chapter/chapter.component';
     HttpModule
   ],
   declarations: [
-    tutorialComponent,
-    chapterComponent
+    TutorialComponent,
+    ChapterComponent
   ]
 })
-export class tutorialModule {}
+export class TutorialModule {}

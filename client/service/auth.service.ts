@@ -10,7 +10,7 @@ declare var Auth0Lock: any;
 
   constructor() {
     // Add callback for lock `authenticated` event
-    this.lock.on("authenticated", (authResult: any) => {
+    this.lock.on('authenticated', (authResult: any) => {
       localStorage.setItem('id_token', authResult.idToken);
     });
   }

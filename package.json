@@ -12,7 +12,8 @@
     "bundle:prod": "node tools/builder.js --prod",
     "postinstall": "tsc -p ./server",
     "start": "node ./server/bin/www",
-    "ngc": "ngc -p client/tsconfig-aot.json"
+    "ngc": "ngc -p client/tsconfig-aot.json",
+    "lint": "tslint -c tslint.json \"client/**/*.ts\""
   },
   "engines": {
     "node": "6.7.0"
@@ -61,6 +62,7 @@
     "@types/jasmine": "2.2.33",
     "angular2-in-memory-web-api": "0.0.21",
     "angular2-jwt": "0.1.22",
+    "codelyzer": "^1.0.0-beta.1",
     "concurrently": "3.1.0",
     "core-js": "2.4.1",
     "nodemon": "1.9.1",
@@ -72,6 +74,7 @@
     "rxjs": "5.0.0-beta.12",
     "systemjs": "0.19.38",
     "systemjs-builder": "0.15.26",
+    "tslint": "^3.15.1",
     "yargs": "6.0.0",
     "zone.js": "0.6.23"
   }

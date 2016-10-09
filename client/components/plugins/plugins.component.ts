@@ -1,9 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { Http, URLSearchParams } from '@angular/http';
 import { UiService } from '../../service/ui.service';
 import { AuthService } from '../../service/auth.service';
 import { ApiService } from '../../service/api.service';
-import { searchService } from '../../service/search.service';
+import { SearchService } from '../../service/search.service';
 import { AuthHttp } from 'angular2-jwt';
 import { Plugin } from './plugin';
 import { Observable } from 'rxjs/Observable';
@@ -15,25 +14,26 @@ declare var $: any;
 declare var elasticsearch: any;
 
 @Component({
-  selector: 'home',
+  selector: 'sg-plugins',
   templateUrl: '../../../client/components/plugins/plugins.html',
   styleUrls: ['../../../client/components/plugins/plugins.css']
 })
-export class pluginsComponent {
+export class PluginsComponent {
   messages: string;
   @ViewChild('modal') el: ElementRef;
   searchbox: string = '';
   model = new Plugin('Bluetooth', 'nativescript-bluetooth', 'gitHubUsername', false, false);
   plugins: Array<Plugin>;
   _client: any;
-  private searchTermStream = new Subject<string>();
-
   items: Observable<string[]> = this.searchTermStream
     .debounceTime(300)
     .distinctUntilChanged()
-    .switchMap((term: string) => this._searchService.search(term));
+    .switchMap((term: string) => this._SearchService.search(term));
+  private searchTermStream = new Subject<string>();
 
-  constructor(private uiService: UiService, public auth: AuthService, private authHttp: AuthHttp, private api: ApiService, private _searchService: searchService) {
+  constructor(public auth: AuthService, private uiService: UiService,
+    private authHttp: AuthHttp, private api: ApiService,
+    private _SearchService: SearchService) {
     this.uiService.changeNavState(true); //show nav bars
     this.populatePage();
   }
@@ -48,18 +48,18 @@ export class pluginsComponent {
 
   public submit() {
     console.log('SUBMIT');
-    var body = this.processSubmission(this.model);
+    this.processSubmission(this.model);
   }
 
   public onKey(term: string) {
-    if (this.searchbox == '') {
+    if (this.searchbox === '') {
       this.populatePage();
     }
     var that = this;
-    this._searchService.search(term).then(function (resp:any) {
+    this._SearchService.search(term).then(function (resp: any) {
       that.plugins = [];
       for (var hit of resp.hits.hits) {
-        that.plugins.push((hit._source))
+        that.plugins.push((hit._source));
       }
     }, function (err: any) {
       console.trace(err.message);

@@ -1,28 +1,42 @@
-import { Component, ViewEncapsulation, ViewChild, OnInit, OnDestroy, ElementRef } from '@angular/core';
-import { Routes, RouterModule }   from '@angular/router';
-import { UiService} from '../../service/ui.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Component, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
+import { UiService } from '../../service/ui.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { chapterComponent } from './chapter/chapter.component';
+
+const _chapters: Chapter[] = [
+  { number: '0', title: 'Intro' },
+  { number: '1', title: 'Getting Started' },
+  { number: '2', title: 'Building the UI' },
+  { number: '3', title: 'Application Logic' },
+  { number: '4', title: 'Nativescript Modules' },
+  { number: '5', title: 'Using Plugins' },
+  { number: '6', title: 'Using Native APIs' }
+];
 
 @Component({
-  selector: 'tutorial',
+  selector: 'sg-tutorial',
   templateUrl: '../../../client/modules/tutorial/tutorial.html',
   styleUrls: ['../../../client/modules/tutorial/tutorial.css'],
   encapsulation: ViewEncapsulation.None
 })
 
-export class tutorialComponent {
+export class TutorialComponent {
   public chapters = _chapters;
   clickedItem: number = 0;
   @ViewChild('chapter') chapter: ElementRef;
-
+  shas = {
+    1: '95854756de842ff45ebbf9d3703cc7eff1557d5a',
+    2: '13b948cc246b3c9b383c4be24ca0ba0a7c072e67',
+    3: 'd29ae903c17e342423ac30fe4c5d10dc65876c18',
+    4: 'd5d37719e5768b54be28183d57a14c0f2863ccbe',
+    5: '2a501710baa09e53af27388a364246656d2de782',
+    6: '2080f0bf0acc61628909df340aa03ead722a42c8'
+  };
   constructor(private uiService: UiService, private route: ActivatedRoute, private router: Router) {
     this.uiService.changeNavState(true); //display nav bars
     this.uiService.chapter.forEach(c => {
       this.clickedItem = c;
       this.doScroll();
-    })
+    });
   }
 
   doScroll() {
@@ -50,38 +64,19 @@ export class tutorialComponent {
   }
 
   isStart() {
-    if (this.clickedItem == 0) {
+    if (this.clickedItem === 0) {
       return 'grey';
     }
   }
 
   isEnd() {
-    if (this.clickedItem == 6) {
+    if (this.clickedItem === 6) {
       return 'grey';
     }
   }
-
-  shas = {
-    1: '95854756de842ff45ebbf9d3703cc7eff1557d5a',
-    2: '13b948cc246b3c9b383c4be24ca0ba0a7c072e67',
-    3: 'd29ae903c17e342423ac30fe4c5d10dc65876c18',
-    4: 'd5d37719e5768b54be28183d57a14c0f2863ccbe',
-    5: '2a501710baa09e53af27388a364246656d2de782',
-    6: '2080f0bf0acc61628909df340aa03ead722a42c8'
-  }
 }
 
-const _chapters: _chapter[] = [
-  { number: '0', title: 'Intro' },
-  { number: '1', title: 'Getting Started' },
-  { number: '2', title: 'Building the UI' },
-  { number: '3', title: 'Application Logic' },
-  { number: '4', title: 'Nativescript Modules' },
-  { number: '5', title: 'Using Plugins' },
-  { number: '6', title: 'Using Native APIs' }
-];
-
-export class _chapter {
-  number: string
+export interface Chapter {
+  number: string;
   title: string;
 }

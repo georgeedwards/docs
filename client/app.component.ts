@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { UiService } from './service/ui.service';
-import { AuthService } from './service/auth.service';
 @Component({
-  selector: 'my-app',
+  selector: 'sg-docs',
   template: `
   <sidebar *ngIf="showHeader"></sidebar>
   <router-outlet></router-outlet>`

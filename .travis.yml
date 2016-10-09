@@ -13,6 +13,7 @@ install:
 - npm install -g hexo-cli
 - npm install
 - npm run ngc
+- npm run lint
 - tsc -p ./client
 - tsc -p ./server
 - npm run bundle:prod

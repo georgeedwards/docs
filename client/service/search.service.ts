@@ -3,7 +3,7 @@ import * as elasticsearch from 'elasticsearch';
 //declare var elasticsearch: any;
 
 @Injectable()
-export class searchService {
+export class SearchService {
     _client: elasticsearch.Client;
     constructor() {
         var connectionString = 'https://paas:2664f39b6a927d0873b43fab6893ace6@bifur-eu-west-1.searchly.com';
@@ -25,7 +25,7 @@ export class searchService {
                     }
                 }
             }
-        })
+        });
     }
 
 }

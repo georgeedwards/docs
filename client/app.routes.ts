@@ -1,11 +1,11 @@
-import { homeComponent } from './components/home/home.component';
-import { pluginsComponent } from './components/plugins/plugins.component';
+import { HomeComponent } from './components/home/home.component';
+import { PluginsComponent } from './components/plugins/plugins.component';
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: '', component: homeComponent },
+  { path: '', component: HomeComponent },
   { path: 'tutorial', loadChildren: 'tutorial/tutorial.module', pathMatch: 'prefix'},
-  { path: 'plugins', component: pluginsComponent }
+  { path: 'plugins', component: PluginsComponent }
 ];
 
 export const appRoutingProviders: any[] = [];

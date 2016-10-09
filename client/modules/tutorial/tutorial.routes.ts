@@ -1,15 +1,15 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { tutorialComponent }    from './tutorial.component';
-import { chapterComponent }  from './chapter/chapter.component';
+import { TutorialComponent }    from './tutorial.component';
+import { ChapterComponent }  from './chapter/chapter.component';
 
 const tutorialRoutes: Routes = [
   {
     path: 'tutorial',
-    component: tutorialComponent,
+    component: TutorialComponent,
     children: [
-      { path: 'chapter/:id',  component: chapterComponent },
+      { path: 'chapter/:id',  component: ChapterComponent },
       { path: '', redirectTo: 'chapter/0', pathMatch: 'full'},
     ]
   }
