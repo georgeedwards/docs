@@ -6,8 +6,8 @@ import { ApiService } from '../../service/api.service';
 import { searchService } from '../../service/search.service';
 import { AuthHttp } from 'angular2-jwt';
 import { Plugin } from './plugin';
-import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 import { Subject } from 'rxjs/Subject';
 
 declare var $: any;

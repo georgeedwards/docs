@@ -10,10 +10,11 @@ addons:
     packages:
     - g++-4.8
 install:
-- npm install -g typescript hexo-cli
+- npm install -g hexo-cli
 - npm install
 - tsc -p ./client
 - tsc -p ./server
+- npm run ngc
 - npm run bundle:prod
 - cd docs/pre-source
 - curl -L https://github.com/nativescript/docs/archive/v2.0.1.tar.gz | tar zx
