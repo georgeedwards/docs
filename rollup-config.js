@@ -5,13 +5,16 @@ import uglify      from 'rollup-plugin-uglify'
 
 export default {
   entry: 'client/main.js',
-  dest: 'public/assets/js/build.js', // output a single application bundle
+  dest: 'public/assets/js/build.js',
   sourceMap: false,
   format: 'iife',
   plugins: [
       nodeResolve({jsnext: true, module: true}),
       commonjs({
-        include: 'node_modules/rxjs/**',
+        include: [
+            'node_modules/angular2-jwt/**',
+            'node_modules/rxjs/**',
+          ]
       }),
       uglify()
   ]

@@ -48,7 +48,7 @@ export class PluginsComponent {
 
   public submit() {
     console.log('SUBMIT');
-    this.processSubmission(this.model);
+    //this.processSubmission(this.model);
   }
 
   public onKey(term: string) {
@@ -71,7 +71,7 @@ export class PluginsComponent {
     this.populatePage();
   }
 
-  processSubmission(plugin: Plugin): Plugin {
+  /*processSubmission(plugin: Plugin): Plugin {
     plugin.github = 'https://github.com/' + plugin.author + '/' + plugin.package_name;
     this.authHttp.post('/api/plugins', plugin)
       .map(res => res.json())
@@ -80,7 +80,7 @@ export class PluginsComponent {
       error => this.messages = error._body || error
       );
     return plugin;
-  }
+  }*/
   populatePage() {
     this.api.get('/api/plugins')
       .then((res) => this.plugins = res) //set components plugins to the result

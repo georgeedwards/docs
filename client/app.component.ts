@@ -3,7 +3,7 @@ import { UiService } from './service/ui.service';
 @Component({
   selector: 'sg-docs',
   template: `
-  <sidebar *ngIf="showHeader"></sidebar>
+  <sg-sidebar *ngIf="showHeader"></sg-sidebar>
   <router-outlet></router-outlet>`
 })
 export class AppComponent {

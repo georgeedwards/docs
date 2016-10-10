@@ -13,7 +13,8 @@
     "postinstall": "tsc -p ./server",
     "start": "node ./server/bin/www",
     "ngc": "ngc -p client/tsconfig-aot.json",
-    "lint": "tslint -c tslint.json \"client/**/*.ts\""
+    "lint": "tslint -c tslint.json \"client/**/*.ts\"",
+    "rollup": "rollup -c rollup-config.js"
   },
   "engines": {
     "node": "6.7.0"
