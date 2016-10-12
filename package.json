@@ -14,7 +14,8 @@
     "start": "node ./server/bin/www",
     "ngc": "ngc -p client/tsconfig-aot.json",
     "lint": "tslint -c tslint.json \"client/**/*.ts\"",
-    "rollup": "rollup -c rollup-config.js"
+    "rollup": "rollup -c rollup-config.js",
+    "build": "npm run ngc && npm run rollup && npm run tsc --target es5 --allowJs public/assets/js/build.es2015.js --out public/assets/js/bundle.js"
   },
   "engines": {
     "node": "6.7.0"

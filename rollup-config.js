@@ -18,6 +18,6 @@ export default {
         'node_modules/auth0-js/**',
       ]
     }),
-    uglify()
+    //uglify()
   ]
 }
