@@ -41,7 +41,7 @@
     "jsonwebtoken": "7.1.9",
     "mongoose": "4.6.1",
     "morgan": "1.7.0",
-    "node-schedule": "1.1.1",
+    "node-schedule": "1.2.0",
     "request": "2.75.0",
     "serve-favicon": "~2.3.0"
   },
