@@ -39,7 +39,7 @@
     "express-validator": "2.20.10",
     "forever": "0.15.2",
     "jsonwebtoken": "7.1.9",
-    "mongoose": "4.6.4",
+    "mongoose": "4.6.5",
     "morgan": "1.7.0",
     "node-schedule": "1.2.0",
     "request": "2.75.0",
